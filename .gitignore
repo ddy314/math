@@ -1,0 +1,27 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local research outputs
+*.log
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+*.pdf
+results/
+artifacts/
