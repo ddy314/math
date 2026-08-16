@@ -168,7 +168,6 @@ L=1
 \left\lfloor
 \log_5((10Q+2)G)
 \right\rfloor.
-}
 \]
 
 粗化为
@@ -249,3 +248,19 @@ b_1b_2
 
 ---
 
+# 32. 2026-08-16 A1 独立重建入口
+
+A1 现已增加两份直接从原始拼接恒等式重建的新文件：
+
+- [`a1-rational-contact-framework-2026-08-16.md`](a1-rational-contact-framework-2026-08-16.md)：证明 \(\ell=n_3\)，建立前缀 rational contact 坐标 \((P,\theta)\)，推出 universal 判别平方，并把 saturated 支化为整数平方与整除系统；
+- [`a1-denominator-funnel-2026-08-16.md`](a1-denominator-funnel-2026-08-16.md)：推出整个 A1 的整数平方证书
+  \[
+  W^2=T^2K-2Tb_3D\mathcal N_{12}
+  \]
+  以及 universal denominator certificate
+  \[
+  b_3\mid10^{2m_3}Q^2G,
+  \]
+  从而把第三分母压入固定前缀因子乘 \(2^u5^v\) 的 near-\(S\)-unit funnel。
+
+这两份新文件不依赖 Gaussian flip，并对旧公共框架中的 `z_3=a_3/\delta_3` 整数化步骤提出审计警告。当前 A1 后续应以这套 rational-contact / denominator-funnel 结构为主入口，旧 §§28–31 保留为历史基线，相关旧正规化结论在审计完成前不应自动向新框架迁移。
