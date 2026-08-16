@@ -41,7 +41,11 @@ raw = sp.together(
     )
 )
 num, den = sp.fraction(raw)
-assert den == 100
+# b2=x/10 and b3=S*x^2/10+f introduce a fixed denominator 10^6
+# in this generic R,S parameterization.  The numerator below is the integer
+# polynomial used in the proof; multiplying by this harmless fixed scalar does
+# not change its roots.
+assert den == 1_000_000
 phi = sp.Poly(sp.expand(num), x)
 assert phi.degree() == 26
 
