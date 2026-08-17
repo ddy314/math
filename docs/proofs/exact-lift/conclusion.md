@@ -26,7 +26,7 @@ n_3<\frac{31}{4}S_{12}+\frac{6581}{960},
 \]
 
 这些结果仍没有给出有效绝对高度界，也没有关闭 DD。假想 frontier sequence 的剩余指数级自由度已集中到 moving pair-max Gaussian core `(C_L,Pi)`；更一般的结构表述仍需关闭 projective/common-scale allocation 与单侧 moving tail factor的兼容性。完整接续正文及失效路线审计见
-[double-deficit.md §27.33](branches/double-deficit.md#2733-2026-08-13-后续合并进展)。
+[DD 主干 §27.33](branches/double-deficit/core.md#2733-2026-08-13-后续合并进展)。
 
 下文保留 2026-08-10 原总稿机械拆分出的历史结论，用于追溯前一阶段推导；涉及 DD 的较旧数字由本节覆盖。
 

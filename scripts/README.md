@@ -1,6 +1,19 @@
 # 仓库脚本
 
-脚本只依赖 Python 标准库，优先通过 `uv run` 调用。
+分支专用脚本按 `scripts/exact-lift/{a2-only,double-deficit,a1-only}/` 归档，避免与共享的 `proof_tree.py` 及其他分支证书混在同一层。除标准库外，使用到的 SymPy/NumPy 等依赖均由 `uv.lock` 管理，优先通过 `uv run` 调用。
+
+## 分支脚本入口
+
+- `scripts/exact-lift/a2-only/`：A2 source-Hensel、decimal ellipse 和 endpoint-lattice 校验。
+- `scripts/exact-lift/double-deficit/`：DD 第 27.10–27.33 节的符号核对与有限证书；下方保留每个证书的边界说明。
+- `scripts/exact-lift/a1-only/`：A1 `k=g=1,2` minimal-diagonal 有限证书。
+
+例如：
+
+```bash
+uv run python scripts/exact-lift/a2-only/check_a2_151.py
+uv run python scripts/exact-lift/a1-only/check_a1_top_diag_k1.py --jobs 4
+```
 
 ## `proof_tree.py`
 
@@ -24,7 +37,7 @@ uv run python scripts/proof_tree.py list
 五进入口与两个高度上界之间的单调余量：
 
 ```bash
-uv run python scripts/check_dd_2710.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2710.py
 ```
 
 它不验证第 27.10 节所依赖的数学假设，也不是 DD 分支的有限证书。
@@ -35,7 +48,7 @@ uv run python scripts/check_dd_2710.py
 最高整数层的 \(\Xi<20\) residue 列表：
 
 ```bash
-uv run python scripts/check_dd_2711.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2711.py
 ```
 
 它不验证正文假设，也不枚举 DD 候选。
@@ -46,7 +59,7 @@ uv run python scripts/check_dd_2711.py
 \((S,m_3)\) 列表和两个最终高度比较：
 
 ```bash
-uv run python scripts/check_dd_2712.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2712.py
 ```
 
 它不枚举原问题候选，也不代替正文的无界推导。
@@ -58,7 +71,7 @@ uv run python scripts/check_dd_2712.py
 的直接整数赋值矛盾，以及最后十个尺寸的赋值—余因子区间证书：
 
 ```bash
-uv run python scripts/check_dd_2713.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2713.py
 ```
 
 它不枚举原问题的分子、分母；最终循环只穷尽正文严格导出的 225 个
@@ -71,7 +84,7 @@ uv run python scripts/check_dd_2713.py
 有理尺寸核、精确整数赋值盒和一般 \(G<10^S\) 余因子区间证书：
 
 ```bash
-uv run python scripts/check_dd_2714.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2714.py
 ```
 
 两层分别覆盖 32、59 个尺寸及 2677、14095 个必要赋值元组。证书
@@ -85,7 +98,7 @@ uv run python scripts/check_dd_2714.py
 判别式模 \(3\) 为非平方：
 
 ```bash
-uv run python scripts/check_dd_2715.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2715.py
 ```
 
 该证书本身不处理同一层的 \(S=2,3\)；这两个入口边界由下一节的
@@ -98,7 +111,7 @@ uv run python scripts/check_dd_2715.py
 五进三分支、全部有界前缀、squarefree gap 和统一判别平方：
 
 ~~~bash
-uv run python scripts/check_dd_2716.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2716.py
 ~~~
 
 两个尺寸分别从 618、39710 个 denominator-tail 元组缩到 75、5116
@@ -114,7 +127,7 @@ squarefree gap 最终留下 2、8 个判别式，精确整数平方根检查验�
 floor-sum 与对 \(2,5\) 的容斥精确计算余因子循环剩余类区间：
 
 ```bash
-uv run python scripts/check_dd_2717.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2717.py
 ```
 
 模计数器先与 1000 个随机小盒的直接枚举对照，全部尺寸最终有零个
@@ -130,7 +143,7 @@ uv run python scripts/check_dd_2717.py
 常数比较：
 
 ```bash
-uv run python scripts/check_dd_2718.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2718.py
 ```
 
 脚本不证明正文中由两个 \(\mu/\nu\) 公式导出的精确整除，也不枚举
@@ -146,7 +159,7 @@ uv run python scripts/check_dd_2718.py
 near-square 矛盾排除：
 
 ```bash
-uv run python scripts/check_dd_2719.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2719.py
 ```
 
 脚本不枚举 numerators，也不覆盖普通入口下 resonance、
@@ -160,7 +173,7 @@ uv run python scripts/check_dd_2719.py
 \(F_-\) 大除数条件后均无幸存者：
 
 ```bash
-uv run python scripts/check_dd_2720.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2720.py
 ```
 
 脚本不枚举 numerators；它与第 27.18 节的 \(S\ge7\) 无界论证合并，
@@ -173,7 +186,7 @@ uv run python scripts/check_dd_2720.py
 时使用的整数幂比较、五进单位尾乘数界和三个最终二进剩余类：
 
 ```bash
-uv run python scripts/check_dd_2721.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2721.py
 ```
 
 正文先在 \(5\mid b_3\) 时恢复 \(e_5=q_5\)，逐一排除 resonance 与
@@ -191,7 +204,7 @@ prefix surplus；dominant 扇区再由 \(n_1+n_2\le S+2\) 得到真实有限
 统一判别式：
 
 ```bash
-uv run python scripts/check_dd_2722.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2722.py
 ```
 
 两个尺寸的 dominant tail 核分别有 1527、72092 行；最终精确检查
@@ -209,7 +222,7 @@ uv run python scripts/check_dd_2722.py
 \(t_2=1\) 的有理尺寸窗口、valuation 盒与精确 floor-sum 余因子证书：
 
 ```bash
-uv run python scripts/check_dd_2723.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2723.py
 ```
 
 它支持正文的全局 \(m_3\le6S+2\)、non-dominant
@@ -226,7 +239,7 @@ uv run python scripts/check_dd_2723.py
 两素数三状态、精确多 limb squarefree gap 与统一判别式框架：
 
 ```bash
-uv run python scripts/check_dd_2724.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2724.py
 ```
 
 两个 dominant 尾核分别有 2665、126669 行；最终检查 24396、
@@ -241,7 +254,7 @@ squarefree gap 先把位数压成两个极端有序形状，其中一个由严�
 区间，并施加二进位置、两素数三状态、既约性与统一判别式：
 
 ```bash
-uv run python scripts/check_dd_2725.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2725.py
 ```
 
 相关的 382086 个 tail rows 最终产生 694825 个非负大整数判别式，
@@ -255,7 +268,7 @@ uv run python scripts/check_dd_2725.py
 tail rows 产生的候选压成 138352740 个 valuation-tail 判别式：
 
 ```bash
-uv run python scripts/check_dd_2726.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2726.py
 ```
 
 脚本先用模
@@ -273,7 +286,7 @@ uv run python scripts/check_dd_2726.py
 判别式引擎：
 
 ```bash
-uv run python scripts/check_dd_2727.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2727.py
 ```
 
 551649 个相关 tail rows 产生 5088309 个 valuation-tail 判别式；模
@@ -288,7 +301,7 @@ uv run python scripts/check_dd_2727.py
 套精确二次区间、两素数三状态、模平方表与统一判别式引擎：
 
 ```bash
-uv run python scripts/check_dd_2728.py
+uv run python scripts/exact-lift/double-deficit/check_dd_2728.py
 ```
 
 379935 个相关 tail rows 产生 1077887 个 valuation-tail 判别式；模
@@ -307,7 +320,7 @@ uv run python scripts/check_dd_2728.py
 
 ```bash
 g++ -O3 -DNDEBUG -std=c++20 -fopenmp \
-  scripts/check_dd_2729.cpp -o /tmp/check_dd_2729_cpp
+  scripts/exact-lift/double-deficit/check_dd_2729.cpp -o /tmp/check_dd_2729_cpp
 /tmp/check_dd_2729_cpp --self-check --m3-min 15 --m3-max 21 \
   --expect-baseline
 ```
@@ -321,7 +334,7 @@ Python 脚本的高尾模式逐项穷尽 \(m_3=22,\ldots,26\) 的 primitive
 denominator-tail divisor tree，并断言五层 tail 核都为空：
 
 ```bash
-uv run python scripts/check_dd_2729.py --empty-high-only
+uv run python scripts/exact-lift/double-deficit/check_dd_2729.py --empty-high-only
 ```
 
 不带参数时，Python 实现还可独立复核 \(m_3=15,\ldots,21\)，并使用
@@ -330,9 +343,9 @@ uv run python scripts/check_dd_2729.py --empty-high-only
 记录的未过滤基线：
 
 ```bash
-uv run python scripts/check_dd_2729.py --m3 15 --unfiltered
-uv run python scripts/check_dd_2729.py --m3 20 --unfiltered
-uv run python scripts/check_dd_2729.py --m3 21 --unfiltered
+uv run python scripts/exact-lift/double-deficit/check_dd_2729.py --m3 15 --unfiltered
+uv run python scripts/exact-lift/double-deficit/check_dd_2729.py --m3 20 --unfiltered
+uv run python scripts/exact-lift/double-deficit/check_dd_2729.py --m3 21 --unfiltered
 ```
 
 主证书与高尾证书合并只关闭 \(S=4,n_3=31\) 这个明确有界的
@@ -348,7 +361,7 @@ uv run python scripts/check_dd_2729.py --m3 21 --unfiltered
 
 ```bash
 g++ -O3 -DNDEBUG -std=c++20 -fopenmp \
-  scripts/check_dd_2730.cpp -o /tmp/check_dd_2730_cpp
+  scripts/exact-lift/double-deficit/check_dd_2730.cpp -o /tmp/check_dd_2730_cpp
 /tmp/check_dd_2730_cpp --self-check --expect-baseline --threads 12
 ```
 
@@ -372,7 +385,7 @@ tail 核先由四角凸性、valuation height box、通用 \(L_F\) 大除数与
 
 ```bash
 g++ -O3 -DNDEBUG -std=c++20 -fopenmp \
-  scripts/check_dd_2731.cpp -o /tmp/check_dd_2731_cpp
+  scripts/exact-lift/double-deficit/check_dd_2731.cpp -o /tmp/check_dd_2731_cpp
 /tmp/check_dd_2731_cpp --self-check --threads 12 --expect-baseline
 ```
 
@@ -395,7 +408,7 @@ gap、shape-specific valuation height box、通用 \(L_F\) 大除数与
 ```bash
 g++ -O3 -DNDEBUG -std=c++20 -fopenmp \
   -Wall -Wextra -Wconversion -Wshadow \
-  scripts/check_dd_2732.cpp -o /tmp/check_dd_2732_cpp
+  scripts/exact-lift/double-deficit/check_dd_2732.cpp -o /tmp/check_dd_2732_cpp
 /tmp/check_dd_2732_cpp --self-check --threads 12 --expect-baseline
 ```
 
@@ -416,7 +429,7 @@ tails；精确判别式平方数均为零。程序固定断言位数形状、各
 ```bash
 g++ -O3 -DNDEBUG -std=c++20 -fopenmp \
   -Wall -Wextra -Wconversion -Wshadow \
-  scripts/check_dd_2733.cpp -o /tmp/check_dd_2733_cpp
+  scripts/exact-lift/double-deficit/check_dd_2733.cpp -o /tmp/check_dd_2733_cpp
 /tmp/check_dd_2733_cpp --self-check --threads 12 --expect-baseline
 ```
 
