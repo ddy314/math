@@ -19,7 +19,7 @@
 2. `docs/proofs/README.md`：证明资料总索引。
 3. `docs/proofs/exact-lift/README.md`：Exact Lift 证明树和研究入口。
 4. `docs/proofs/exact-lift/status.md`：已完成、未完成和下一步目标。
-5. 与当前任务对应的分支文件：`branches/a2-only.md`、`branches/double-deficit.md` 或 `branches/a1-only.md`。
+5. 与当前任务对应的分支入口：`branches/a2-only/README.md`、`branches/double-deficit/README.md` 或 `branches/a1-only/README.md`，再进入其中的专题文件。
 6. `docs/proofs/exact-lift/archive/`：只在需要核对迁移前原文时读取，不作为日常编辑入口。
 
 ## 目录约定
@@ -41,7 +41,10 @@
 │           ├── README.md             # 研究树入口
 │           ├── problem-and-carrier.md
 │           ├── global-framework.md
-│           ├── branches/              # 三个异常分支
+│           ├── branches/              # 三个异常分支目录
+│           │   ├── a2-only/           # A2 主干、ellipse/defect、Hensel、endpoint
+│           │   ├── double-deficit/    # DD 主干与 frontier
+│           │   └── a1-only/           # A1 框架、top layer、diagonal
 │           ├── status.md              # 严格状态和剩余核心
 │           ├── notation.md            # 统一符号及旧记号映射
 │           ├── dependency-map.md      # 公式依赖图

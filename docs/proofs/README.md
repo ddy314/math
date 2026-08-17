@@ -10,9 +10,9 @@ proofs/
     ├── problem-and-carrier.md     # 原问题、统一符号、carrier 分支
     ├── global-framework.md        # 整数球面、尾正规化、统一判别式
     ├── branches/
-    │   ├── a2-only.md             # A2-only
-    │   ├── double-deficit.md       # DD 基线及后续合并进展
-    │   └── a1-only.md              # A1-only
+    │   ├── a2-only/               # A2 主干与按依赖合并的专题文件
+    │   ├── double-deficit/        # DD 主干与统一 frontier 文件
+    │   └── a1-only/               # A1 框架、top layer 与 diagonal
     ├── status.md                  # 严格状态、剩余核心、优先级
     ├── notation.md                # 统一符号和旧符号映射
     ├── dependency-map.md          # 公式依赖图
@@ -20,5 +20,4 @@ proofs/
     └── archive/                   # 原始总稿快照
 ```
 
-树中的章节文件是日常阅读和修改入口；`archive/` 只用于历史对照。DD 的当前进展已整合到
-[double-deficit.md](exact-lift/branches/double-deficit.md)。任何新增结果都应落到最具体的分支文件，并回写状态索引。
+树中的章节文件是日常阅读和修改入口；三个分支目录中的 `README.md` 给出各自的唯一阅读路线；`archive/` 只用于历史对照。任何新增结果都应落到最具体的专题文件，并回写分支 README、状态索引和依赖图。

@@ -39,7 +39,10 @@ UV_CACHE_DIR=/tmp/math-uv-cache uv run python scripts/proof_tree.py check
 ├── docs/proofs/exact-lift/
 │   ├── problem-and-carrier.md
 │   ├── global-framework.md
-│   ├── branches/{a2-only,double-deficit,a1-only}.md
+│   ├── branches/
+│   │   ├── a2-only/             # A2 主干、ellipse/defect、Hensel、endpoint lattice
+│   │   ├── double-deficit/      # DD 主干与统一 frontier 后续
+│   │   └── a1-only/             # A1 框架、top layer、diagonal
 │   ├── status.md
 │   ├── notation.md
 │   ├── dependency-map.md
