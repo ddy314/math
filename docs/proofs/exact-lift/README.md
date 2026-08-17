@@ -10,6 +10,10 @@ exact-lift/
 ├── global-framework.md       # §§3–11：整数球面、尾部正规化、统一算术框架
 ├── branches/
 │   ├── a2-only.md             # §§12–16：A2 的终端系统和开放核
+│   ├── a2-decimal-ellipse-phase.md # A2 ellipse / Gaussian angle 的十进制相位压缩
+│   ├── a2-ellipse-to-defect-window.md # ellipse 到 finite-defect remainder 的桥
+│   ├── a2-low-defect-angle-squeeze.md # A2 两个低商状态的 angle squeeze
+│   ├── a2-endpoint-lattice-progress-2026-08-17.md # endpoint shell、height split、rho^2 slot lattice 与审计 no-go
 │   ├── double-deficit.md      # §§17–27：DD 基线及 2026-08-13 后续进展
 │   ├── dd-rational-contact-frontier.md # 2026-08-16：DD frontier rational contact / Bad-Good / cofactor 系统
 │   ├── dd-frontier-continuation-2026-08-16.md # Bad closure、orientation reconstruction、双 lattice sheet 与最新 no-go
@@ -26,7 +30,9 @@ exact-lift/
 
 主不存在性命题尚未完成证明。当前最明确的剩余工作是：
 
-- `A_2`：关闭 `m_2 >= 11` 的 deep-even source 双 Hensel / Gaussian ellipse 系统；
+- `A_2`：关闭 `m_2 >= 11` 的 deep-even 终端系统；已合并的 ellipse/defect 工作把连续 Gaussian angle 送入 finite-defect remainder；最新 [endpoint lattice continuation](branches/a2-endpoint-lattice-progress-2026-08-17.md) 又把七个 defect 状态全部压入固定余量带，并把最危险 `(a,k)=(9,2)` 压到 `C/D<3/250`、`x<2/19`、`y>249/250`、`zeta<251/250` 的 endpoint core；
+- `A_2`：最新 continuation 还得到 high/low-`m` 二分、low-`m` 的线性深 `v_5(N_0)`、基础 square-depth 尺度 `L_0>1000C`，并用 `rho^2` Gaussian factor 的精确 `2`-进赋值与 Archimedean slot 排除整个 reflection 精确中线 `M=2m` 的 high-2 allocation；这仍不是 A2 全局空性；
+- `A_2`：本轮同时审计并降级若干看似新的 source/reflection 深 `5`-进 endpoint congruence；它们完整代回 determinant/source split 后属于 decimal-place 重写，后续不得重复计作独立 obstruction；
 - `DD`：§27.33 把 `n_3=8S_12-1` 整层关闭，故严格相对界更新为 `n_3<=8S_12-2`，并得到 prefix-uniform 解析锥 `n_3<31S_12/4+6581/960`；
 - `DD`：调用经典 Schmidt Subspace Theorem 后得到非有效渐近界 `limsup m_3/S_12<=5` 与 `limsup n_3/S_12<=6.308883577618...`。这不是有效绝对高度界，更不是 DD 全局空性；
 - `DD`：假想逼近该 frontier 的序列已被压到 moving pair-max Gaussian core；一般结构线仍剩 projective/common-scale allocation 与单侧 moving tail factor的兼容性问题；
@@ -38,10 +44,12 @@ exact-lift/
 - `DD` 的 `S_12=5,n_3=39` 已由后期有限证书全部关闭；
 - `A_1`：为 saturated `L = 1` 支的 decimal shift `g` 找到全局界或直接矛盾。
 
-先读 [严格证明状态](status.md)，再进入相应分支。DD 全局/历史主线保留在
+先读 [严格证明状态](status.md)，再进入相应分支。A2 的 terminal 基线见
+[a2-only.md](branches/a2-only.md)，最新 endpoint/height/allocation continuation 见
+[a2-endpoint-lattice-progress-2026-08-17.md](branches/a2-endpoint-lattice-progress-2026-08-17.md)。DD 全局/历史主线保留在
 [double-deficit.md](branches/double-deficit.md)；假想 `6.308883...` frontier 的 rational-contact 基线见
 [dd-rational-contact-frontier.md](branches/dd-rational-contact-frontier.md)，其后续 Bad closure、orientation reconstruction、near-square closure audit 与双 lattice sheet 见
-[dd-frontier-continuation-2026-08-16.md](branches/dd-frontier-continuation-2026-08-16.md)。不要把非有效渐近界、frontier 条件结论、subexponential counting 或有限切片写成 DD 全局关闭。
+[dd-frontier-continuation-2026-08-16.md](branches/dd-frontier-continuation-2026-08-16.md)。不要把非有效渐近界、frontier 条件结论、subexponential counting、有限切片或 A2 的单个 allocation 子族排除写成全局关闭。
 
 ## 如何维护
 
