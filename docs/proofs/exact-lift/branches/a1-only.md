@@ -2,7 +2,7 @@
 
 本文件对应原总稿 §§28–31。它包含薄环约束、尾商斜率锁、saturated `L = 1` 支、denominator-only 尾长界和 saturated 支的奇素数约束。
 
-> 迁移说明：以下 §§28–31 由原始总稿机械拆分；§§32–33 记录 2026-08-16 的 A1 独立重建与新证明树。
+> 迁移说明：以下 §§28–31 由原始总稿机械拆分；§§32–33 记录 2026-08-16 的 A1 独立重建与新证明树；§34 记录 2026-08-17 的 moving-prefix 继续压缩。
 
 # 28. \(A_1\)-only 分支
 
@@ -277,3 +277,122 @@ K=G^2C^2-D^2N
 而 `\delta\mid b_3`，故除 `\delta=1` 外不能无条件有 `\delta\mid a_3`。
 
 因此当前 A1 主线只使用 §32 第 6 项中的安全 gap parameter `A`，不使用 `a_3/\delta` 作为整数 primitive numerator。
+
+---
+
+# 34. 2026-08-17 moving-prefix 继续压缩
+
+2026-08-17 的继续工作已经把 A1 moving-prefix 从“泛型四层 + 两个低尺度角落”进一步压成一个无例外的全局四层系统，并开始关闭最高层 `d=2` 的边界自由度。
+
+1. [`a1-global-four-layer-collapse-2026-08-17.md`](a1-global-four-layer-collapse-2026-08-17.md)
+   - 新的统一无量纲结论：
+     \[
+     \boxed{R/(10^kr_1)>1/2};
+     \]
+   - 两个旧低尺度角落 `(g,k)=(0,1),(0,2)` 均被并入同一位数带；
+   - 对整个 A1 无例外得到
+     \[
+     \boxed{s_1-g\in\{-1,0,1,2\}}.
+     \]
+
+2. [`a1-top-layer-endpoint-kernel-2026-08-17.md`](a1-top-layer-endpoint-kernel-2026-08-17.md)
+   - 对最高层
+     \[
+     d:=s_1-g=2
+     \]
+     严格推出
+     \[
+     \boxed{m_1\ge2k};
+     \]
+   - 定义
+     \[
+     r=m_1-2k,\qquad s=m_2+g-k,
+     \]
+     得到 `r,s\ge0`；
+   - 把四个大前缀整数压成端点 offset `(w,x,y,z)`；
+   - 建立 compact determinant kernel；
+   - 若 `g\ge1`，进一步有
+     \[
+     \boxed{r,s\ge1};
+     \]
+   - 若 `g=0`，至少 `(r,s)\ne(0,0)`。
+
+3. [`a1-top-layer-residue-kernel-2026-08-17.md`](a1-top-layer-residue-kernel-2026-08-17.md)
+   - 合并四个 offset 为两个正整数余量
+     \[
+     U_1=x+10^{g+1}w,
+     \qquad
+     U_2=z+10^{k+g+1}y;
+     \]
+   - 得到精确十进制中心分解
+     \[
+     \boxed{a_1=10^{g+1}b_1+U_1,}
+     \qquad
+     \boxed{a_2=10^{k+g+1}b_2-U_2};
+     \]
+   - 原既约性变成
+     \[
+     \boxed{(U_1,b_1)=(U_2,b_2)=1};
+     \]
+   - carrier determinant 精确化为
+     \[
+     \boxed{\Delta=10^kb_2U_1+b_1U_2}.
+     \]
+
+4. [`a1-top-layer-half-gap-shell-2026-08-17.md`](a1-top-layer-half-gap-shell-2026-08-17.md) 与 [`a1-top-layer-half-gap-sharpening-2026-08-17.md`](a1-top-layer-half-gap-sharpening-2026-08-17.md)
+   - 在 `d=2,g\ge1` 中，两个既约余量的总 carrier gap 被压入宽度 `17/500` 的半单位壳层：
+     \[
+     \boxed{
+     \frac12
+     <
+     \frac{10^kU_1/b_1+U_2/b_2}{10^{g+1-k}}
+     <
+     \frac{267}{500};
+     }
+     \]
+   - 最小第二 surplus `s=1` 时得到
+     \[
+     \boxed{y=0,\quad z\in\{1,3\}}.
+     \]
+
+5. [`a1-top-layer-minimal-surplus-kernel-2026-08-17.md`](a1-top-layer-minimal-surplus-kernel-2026-08-17.md)
+   - 在最危险的 `r=s=1` 边界，进一步得到
+     \[
+     \boxed{
+     (z,w)\in
+     \{(1,1),(1,2),(1,3),(1,4),(3,1),(3,2)\};
+     }
+     \]
+   - 并有跨块绝对小差
+     \[
+     \boxed{a_2-b_1=w-z\in\{-2,-1,0,1,2,3\}}.
+     \]
+
+6. [`a1-discriminant-square-audit-2026-08-17.md`](a1-discriminant-square-audit-2026-08-17.md)
+   - 澄清完整 contact 系统中
+     \[
+     \boxed{
+     P^2-(1+2\theta)S
+     =\bigl(r_3-\theta(R-r_3)\bigr)^2;
+     }
+     \]
+   - 因而“判别平方”在完整 exact candidate 上是 contact + sphere 的整数化重写，不能重复当成独立方程；
+   - 已有整数平方恒等式、赋值分层、denominator certificate 与 fixed-prefix finite 结论保持有效。
+
+## 34.1 当前严格边界
+
+截至本节，A1 仍未全局关闭。当前最小化后的 moving-prefix 结构为：
+
+\[
+\boxed{d=s_1-g\in\{-1,0,1,2\}.}
+\]
+
+其中最高层 `d=2` 已经进入 coprime-residue / half-gap kernel；`g\ge1` 的最小 surplus 边界 `r=s=1` 进一步只剩 6 个绝对类型。
+
+下一阶段应：
+
+- 继续关闭 `d=2` 的六类型边界与更高 `r,s`；
+- 把 denominator prime graph 与 safe integer-gap identity 转写到 `(U_1,b_1;U_2,b_2)`；
+- 随后对 `d=1,0,-1` 建立对应的 prefix kernel。
+
+这些仍为 **待证**，不能把当前压缩误写为 A1 全局空性。
