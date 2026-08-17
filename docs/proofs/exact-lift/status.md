@@ -9,7 +9,7 @@
 ## 2026-08-13 DD 合并状态
 
 本节覆盖下方由 2026-08-10 原总稿机械拆分出的 DD 旧状态。完整命题、假设、推导与逻辑修正见
-[double-deficit.md §27.33](branches/double-deficit.md#2733-2026-08-13-后续合并进展)。
+[DD 主干 §27.33](branches/double-deficit/core.md#2733-2026-08-13-后续合并进展)。
 
 - **`已严格完成`**：§27.33 的解析与局部算术推导证明 `n_3=8S_12-1` 整层为空，故 `n_3<=8S_12-2`；同时有 prefix-uniform 解析锥 `n_3<31S_12/4+6581/960`，以及 11 个固定 surplus modes。
 - **`有限证书`**：`S_12=5,n_3=39,m_3=17,...,21` 的精确 Hensel--CRT / 判别平方证书为空，与已有的 `m_3=14,15,16,22,...,32` 证书合并后关闭整个该尺寸。
@@ -716,6 +716,689 @@ m_2\ge11
 \text{真实 }2/5\text{-adic phase}.
 }
 \]
+
+最新 endpoint-lattice 推进在最危险 `(a,k)=(9,2)` reflection high-2
+子族中严格得到：`eta=2m-M=-1,0` 均不可能，`eta=1` 只剩五个
+`(d,c_Q,k_h,slot)` 类型。这里仍须保留两条状态边界：
+
+- **`已严格完成`**：固定 `eta=1` 的连续槽相交分类先成为有限十五型，
+  exact concatenation 相关界排除 `(107,1,-)` 与 `(163,1,+)`，随后
+  `q_0` barrier 给出的 `r>4/5` 又排除两个 `K_+=153/40` 类型，
+  Gaussian norm 的素数支持再排除所有含 `5`、`7`、`23`
+  的类型；
+- **`失效/降级`**：唯一的 `k_h=3` 类型虽强迫四个 sphere 坐标共享
+  `3`，但 LCM sphere 不自动整体本原；同时除以 `3` 会改变第三块位数，
+  不能构成保持 decimal plane 的下降；
+- **`失效/降级`**：粗 slot 本身不能对所有 `eta` 给出空性，
+  `(eta,d,c_Q,k_h,slot)=(1,2,31,1,+)` 的两个必要实区间严格相交。
+
+因此下一步必须把这五型与 `c_Q\mid Q_0`、source split、平方单边
+allocation 的自然代表或 `C` 的 CRT phase 联立。三个 `k_h=1` 类型
+现已分别压到模 `515,795,775` 的有限平方根相位；`k_h=53` 类型则有
+模 `53` 的两个 Gaussian 相位及 `53\nmid c_u`。这些仍不是 A2 关闭。
+
+为避免把主线退化成逐层枚举，最新的 `eta`-uniform 推进进一步令
+
+\[
+X_h=\frac{k_hg}{2},
+\qquad c_Q=c_-c_+,
+\]
+
+并对整个 reflection high-2 cone 严格得到
+
+\[
+\gcd(k_h,c_Q5^d)=1,
+\qquad
+5^dc_-\mid X_h-a_3,
+\qquad
+c_+\mid X_h+a_3.
+\]
+
+因此模 `c_Q5^d` 的平方根符号不是独立自由度，而由原
+square-side allocation 唯一定向；特别地 `5^d` 恒取正根。定义相应
+正奇数 `r_-,r_+` 后，还得到 exact linear/product system 以及
+
+\[
+gr_-\equiv\varepsilon a_2c_+
+\pmod{5^{\lambda-d}},
+\qquad
+\lambda-d\ge\lambda/2.
+\]
+
+进一步与 source 双 Hensel 及
+`v_5(N_0)=lambda-2d` 的两相位合并，已消去 `g,omega,theta`，得到
+
+\[
+r_-\equiv
+\varepsilon\iota\,9\cdot2^{M+m}c_+c_u
+\pmod{5^{\lambda-2d}},
+\qquad
+\iota^2\equiv-1.
+\]
+
+同一系统还严格给出新的近本原 Gaussian norm transfer
+
+\[
+r_-^2+
+\left(9\cdot2^{M+m}c_+c_u\right)^2
+=k_h5^{\lambda-2d}X,
+\qquad
+\gcd(r_-,9\cdot2^{M+m}c_+c_u)\mid9.
+\]
+
+把它与 prefix norm 同时除去同 orientation 的
+`(2 plus or minus i)^{lambda-2d}` 后，两条 `5`-primitive Gaussian
+向量的交叉行列式仍满足精确深度
+
+\[
+v_5\!\left(
+\operatorname{Im}(\mathcal R_5\overline{\mathcal A_5})
+\right)=d.
+\]
+
+此外还存在互补的近本原表示与精确 Gaussian composition：
+
+\[
+r_+^2+
+\left(9\cdot2^{M+m}c_uc_-5^d\right)^2
+=k_hY,
+\]
+
+\[
+\mathcal R_5\overline{\mathcal A_5}
+=X\left(
+\varepsilon r_+-i\,9\cdot2^{M+m}c_uc_-5^d
+\right).
+\]
+
+这把剩余核进一步变成同一 `k_h` 在两条互补近本原二平方表示中的
+Gaussian prime orientation 兼容问题。
+
+对精确 composition 使用 `Z[i]` 唯一分解后，进一步严格得到：令
+`X_(3)=X/3^{v_3(X)}`，则存在
+
+\[
+N(\alpha_X)=X_{(3)},
+\qquad
+\alpha_X\mid\mathcal A_5,
+\qquad
+\alpha_X\mid\mathcal R_5.
+\]
+
+也就是说 `X` 的全部非 `3` 部分是真正可整体消去的共同 Gaussian
+divisor。唯一例外的 `3`-primary defect 满足
+
+\[
+v_3(X)+v_3(Y)\le4,
+\qquad
+v_3(k_h)\le4.
+\]
+
+这尚未证明约分后的坐标回到原 decimal coefficient plane，但已经
+排除“任意新奇素数形成无界 obstruction”的可能。
+
+对唯一的奇 `3`-primary defect 还可作完整赋值分类。写
+`e_3=v_3(k_h)`，则
+
+\[
+e_3\text{ 为奇数}
+\Longrightarrow
+\begin{cases}
+v_3(a_3)=1,\ e_3=1,\ v_3(a_2)\ge2,\\
+\text{or}\\
+v_3(a_2)=1,\ v_3(a_3)\ge2,\ e_3\in\{1,3\}.
+\end{cases}
+\]
+
+两通道都进一步强迫
+
+\[
+v_3(H)=v_3(\alpha)=1,
+\qquad
+v_3(\beta)=0.
+\]
+
+因此奇 `3` 缺陷已被压到两个明确通道，并必须与真实 denominator
+concatenation 的模 `3` source/Hensel 表达兼容。
+
+进一步地，`3` 的奇性也可以在 Gaussian UFD 内统一吸收。由三条 norm
+恒等式，
+
+\[
+v_3(X)\equiv v_3(Y)\equiv v_3(k_h)\pmod2.
+\]
+
+令 `delta` 为这一公共奇偶性，则存在完整共同 Gaussian divisor
+
+\[
+N(\alpha_X^\sharp)=3^\delta X,
+\qquad
+\alpha_X^\sharp\mid\mathcal A_5,\mathcal R_5,
+\]
+
+约去后满足
+
+\[
+N(\mathcal B_5)=Y/3^\delta,
+\qquad
+N(\mathcal G_5)=k_h/3^\delta,
+\]
+
+\[
+\varepsilon r_+-iR_1
+=3^\delta\mathcal G_5\overline{\mathcal B_5}.
+\]
+
+所以当前已不存在独立的 Gaussian prime-allocation 障碍；真正缺口是
+证明共同因子约分必然保持原 decimal coefficient plane，并把它升级
+为严格降低高度且仍合法的 A2 descent；另一条可行路线是直接从
+quotient 与原平面的强制关系推出矛盾。仅证明 quotient 不保持平面
+不能排除原候选。
+
+把完整共同 divisor 从 source Hensel 兼容式中消去后，进一步得到不含
+`X`、不含固定 `eta` 分类的纯 Gaussian quotient kernel：
+
+\[
+\pi_\iota^d\bar\pi_\iota^{\lambda-d}
+\mid
+c_u\mathcal G_5
+-\varepsilon c_+\omega\mathcal B_5,
+\]
+
+其中
+
+\[
+N(\mathcal B_5)=Y/3^\delta,
+\qquad
+N(\mathcal G_5)=k_h/3^\delta.
+\]
+
+Gaussian 模数的 norm 恰为 `5^lambda`，故相应线性式的 norm 必须被
+`5^lambda` 整除；由精确 composition 的非零虚部，该线性式不可能为
+零，所以其 norm 实际至少为 `5^lambda`。进一步审计表明该整除来自
+同一个 Gaussian 商的精确分解；短 orientation 的赋值恰为 `d`，任何
+额外增深只能留在长 orientation，而 `theta` 写法与 `omega` 核严格
+线性相关，并不提供第二条独立 Hensel 条件。
+
+原拼接平面还给出
+
+\[
+\omega\mid\alpha,
+\qquad H_0=c_u(\alpha/\omega),
+\]
+
+并把 endpoint 小余量固定为
+
+\[
+5^\lambda C
+=g(a_3+3\cdot10^m)
++\varepsilon a_2c_Q5^d
+-\frac{g^2k_h}{2}.
+\]
+
+所以当前可审计的直接闭环目标已变成：证明这个唯一自然代表不能落在
+`0<C<mathfrak L_0/1000`，或由精确 quotient 构造合法降高；不能再对
+`omega/theta` 两种写法重复收费。
+
+Archimedean 侧也不再只有一个无方向 norm bound。预约分商
+`S_5=alpha_X^sharp W_5` 满足
+
+\[
+4<\tan\arg(-\varepsilon\mathcal S_5)<5,
+\]
+
+并且相对 prefix 向量 `Z_a=a_2+iC_0` 的侧别恰由 `epsilon` 决定。
+约掉共同 `X` 后还有精确面积式
+
+\[
+\operatorname{Im}
+\left(
+\mathcal W_5\bar\pi_\iota^{\nu_5}
+\overline{\mathcal B_5}
+\right)
+=-\frac{c_uR_1}{3^\delta5^d}.
+\]
+
+因此下一步所需的不是再做粗角度估计，而是证明这个固定窄楔与精确
+面积不允许任何 canonical split-prime argument，或由其恢复合法下降。
+
+同一精确商还能写成有理 Gaussian 格上的中心余数：
+
+\[
+5^{\lambda-d}\mathcal W_5
++\varepsilon c_+\omega
+\pi_\iota^{\nu_5}\mathcal B_5
+=c_u\pi_\iota^{\nu_5}\mathcal G_5.
+\]
+
+low-`m` 高度锥统一给出
+
+\[
+\frac{c_u^2k_h}{5^\lambda}<\frac1{25},
+\qquad
+\left|c_u\pi_\iota^{\nu_5}\mathcal G_5\right|
+<\frac15 5^{\lambda-d}.
+\]
+
+故右端是相应同余类在半径 \(5^{\lambda-d}/2\) 圆盘内的唯一代表。
+主缺口因而进一步缩成：排除这个唯一中心代表同时具有既定 norm、
+有向面积与 `C` 自然代表；这仍只关闭到 reflection high-2 kernel，
+不是 A2 全局空性。
+
+中心代表与主向量之比还满足统一指数界
+
+\[
+\frac{
+|c_u\pi_\iota^{\nu_5}\mathcal G_5|
+}{
+c_+\omega|\pi_\iota^{\nu_5}\mathcal B_5|
+}
+<\frac1{7680}.
+\]
+
+因此 quotient 的两个坐标都是唯一最近整数商；其方向不再只落在
+`4<tan(phi_S)<5`，而是满足
+
+\[
+0<\varepsilon
+\left(
+\tan\phi_S-\frac{C_0}{a_2}
+\right)
+<\frac7{2000}.
+\]
+
+这把剩余对象压成贴着真实 decimal prefix slope 的确定单侧格点条带，
+但“唯一最近商”仍不等于“不存在”；必须继续接入 `C` 自然代表或精确
+面积才能得到矛盾。
+
+进一步把 quotient slope 按 \(J_{\rm def}\) 展开后，两项 decimal
+contribution 精确抵消，并得到
+
+\[
+\tan\phi_S-\frac{C_0}{a_2}
+=
+\frac{
+\varepsilon C_0J_{\rm def}
+}{
+a_2(\mathcal K a_2-\mathcal U-\varepsilon J_{\rm def})
+}.
+\]
+
+因此实际方向锁是
+
+\[
+0<\varepsilon
+\left(
+\tan\phi_S-\frac{C_0}{a_2}
+\right)
+<\frac1{a_2}.
+\]
+
+于是 `epsilon=+1` 时 \(C_0=\lfloor a_2\tan\phi_S\rfloor\)，
+`epsilon=-1` 时 \(C_0=\lceil a_2\tan\phi_S\rceil\)。这说明提升后
+quotient \(\mathcal S_5=\alpha_X^\sharp\mathcal W_5\) 的方向可唯一恢复
+原 prefix 系数。它仍含共同 Gaussian factor；裸 quotient 的绝对
+argument、完整尺度、\(a_2\) 与顶部补余量 \(C\) 尚未同步恢复。
+
+同一精确式还把有向面积
+\(\Delta_S=\varepsilon(a_2Y_S-C_0X_S)\) 锁入
+
+\[
+\frac35<\frac{\Delta_S}{X_S}<\frac45.
+\]
+
+因此 \(X_S=\Delta_S+E_S\) 的 Euclidean 商恰为 `1`，且
+\(\Delta_S/4<E_S<2\Delta_S/3\)。这给出严格更小的正整数余量，但尚未
+证明该余量保持 Gaussian norm 与 decimal plane，故还不是合法下降。
+
+进一步审计表明，该实线性 split 的变换 determinant 为
+\(-\varepsilon a_2\)，所以它确实不保持二平方 norm。改在裸
+quotient pair 上做 Gaussian 除法，则首商被唯一固定为纯实整数
+
+\[
+Q_E=\operatorname{nint}
+\left(\frac{c_+\omega}{5^{\lambda-d}}\right).
+\]
+
+对应非零余数
+\(\mathcal R_E=-\varepsilon\mathcal W_5-Q_E\mathcal V_5\) 满足
+
+\[
+0<N(\mathcal R_E)<\frac14N(\mathcal V_5),
+\qquad
+v_{\pi_\iota}(\mathcal R_E)=0.
+\]
+
+这是严格的 canonical Gaussian norm descent；尚缺的是证明该余数继续
+满足 decimal coefficient plane / Hensel 形状，才能迭代为 A2 下降。
+
+乘回同一不对称模数后还有
+
+\[
+\mathfrak K_5\mathcal R_E
+=r_E\mathcal B_5-\varepsilon c_u\mathcal G_5,
+\]
+
+其中 \(r_E\) 是中心区间内唯一的 scalar Hensel representative，
+\(5\nmid r_E\)，并满足
+
+\[
+r_E\equiv c_-^{-1}\theta\pmod{5^{\lambda-d}}.
+\]
+
+取 norm 后得到一维正定二次核
+
+\[
+5^\lambda N(\mathcal R_E)
+=
+\frac{Yr_E^2-2c_ur_+r_E+c_u^2k_h}{3^\delta},
+\]
+
+其 discriminant 恰为 \(-4c_u^2R_1^2\)。因此下一直接目标是排除该
+唯一中心代表达到剩余长 orientation，而不再处理二维 Gaussian
+quotient-choice。
+
+继续展开 Hensel slot 得到
+
+\[
+g\varrho=5^{\lambda+1}H-c_Qc_u.
+\]
+
+第一层 \(r_E\) 余类中的 \(H\) 项被模 \(5^{\lambda-d}\) 消去，但提升商
+
+\[
+z_E=\frac{gr_E-c_+c_u}{5^{\lambda-d}}
+\]
+
+满足
+
+\[
+-\frac g2<z_E<\frac g2,
+\qquad
+c_-z_E\equiv-5^{d+1}H\pmod g,
+\]
+
+并且是唯一中心奇代表。代入一维核后得到
+
+\[
+3^\delta g^2N(\mathcal R_E)
+=5^{\nu_5}Yz_E^2
+-2\varepsilon c_ua_2c_-z_E+c_u^2c_-^2X,
+\]
+
+其 discriminant 恰为 \(-4c_u^2c_-^2C_0^2\)。对应二平方表示的两个
+坐标均被完整 \(g\) 整除；约分后精确等于
+\[
+3^\delta\bar\pi_\iota^{\nu_5}
+\mathcal R_E\overline{\mathcal B_5}.
+\]
+所以 `H,a_2,C_0` 已进入同一个正规化 Gaussian 向量，但该向量仍未
+证明对应合法 decimal child。
+
+第二层代表还与顶部补余量满足
+
+\[
+c_uC+\varepsilon a_2c_-z_E\equiv0\pmod g,
+\qquad
+\chi_E=\frac{c_uC+\varepsilon a_2c_-z_E}{g}\in\mathbf Z,
+\]
+
+并给出 `(z_E,chi_E)` 的完全整数正定核。另一方面，完整
+`g`-约分所得 canonical Gaussian child 的绝对斜率小于
+`1/3999`（乘 unit 后则大于 `3999`），不可能回到
+`(9/2,5)` 的 A2 prefix window；因此直接同型下降路线已严格降级，
+不能把 Gaussian norm 下降本身当作 A2 空性。
+
+独立的 rational-root 条件现已剥去全部十进制素因子：
+
+\[
+\Xi_C=
+\frac{F(3)}{2^{2M+2}5^{\nu_5}C}
+\in\mathbf Z_{>0},
+\qquad
+\gcd(\Xi_C,10)=1.
+\]
+
+它在完整 denominator 上满足
+
+\[
+\Xi_C\equiv q^2c_+^2Y(3T+a_3)^2\pmod D,
+\]
+
+所以 `Xi_C/Y` 在 `2^m5^d` 上是显式平方类。把同一
+rational root 在相邻整数点平移，还得到
+
+\[
+D-C\mid F(2),
+\qquad
+D+C\mid F(4),
+\qquad
+\gcd(D-C,D+C)=1,
+\]
+
+以及正奇 `5`-进单位 cofactor `Xi_-,Xi_+`；三者模
+`2^m5^d` 共享同一个 `Y`-平方类。这是严格的无界必要条件，
+不是有限证书。当前最具体的直接缺口是从三个 odd-prime cofactor 的
+resultant/reciprocity 与 `(z_E,chi_E)` 中心代表推出矛盾。
+
+此外 mixed bridge 重新恢复旧 source coprimality，并严格新增符号锁
+
+\[
+\gcd(c_uH,g)=1,
+\qquad
+\operatorname{sgn}\chi_E=\operatorname{sgn}(\varepsilon z_E),
+\qquad
+\left|
+\frac{g\chi_E}{\varepsilon a_2c_-z_E}-1
+\right|<\frac3{50000}.
+\]
+
+其中 coprimality 与旧 source split 一致，不重复计作 obstruction；新
+结论是该中心核的象限自由度消失。模 \(p^e\Vert g\) 时还有
+
+\[
+\min\{v_p(\Xi_C),e\}
+=\min\{2v_p(3T+a_3),e\},
+\]
+
+所以零因子只剩 \(3T+a_3\) 的饱和通道；窄有理接触本身尚未形成矛盾。
+在非饱和奇素数 \(p\mid g\) 上，继续消去
+\(C,c_u,z_E,H,q\) 后有
+
+\[
+\left(\frac{\Xi_C}{p}\right)
+=\left(\frac{-\varepsilon a_25^{M+d}}p\right).
+\]
+
+这把下一步精确化为：从 \(2^m5^d\) 的 \(Y\)-平方类或
+\(\Xi_-,\Xi_+\) 的共同 cubic quotient 固定相反字符。
+但把同一 congruence 提升到模 \(g^2\) 后，精确修正为
+
+\[
+\Xi_C\equiv
+Y(qc_+(3T+a_3))^2(1-3DC^{-1})\pmod{g^2},
+\]
+
+而 \(1-3DC^{-1}\) 在 \(g^2\) 的每个 prime-power 分量上自动为平方。
+所以普通 quadratic-character 提升路线已严格降级；下一输入必须是
+非二次特征的加性 resultant、符号/高度或饱和层大小。
+
+三点 secant cubic 已提供第一条这样的加性信息。定义
+
+\[
+\Delta_-=\frac{\Xi_C-\Xi_-}{2^m5^d},
+\qquad
+\Delta_+=\frac{\Xi_+-\Xi_C}{2^m5^d},
+\]
+
+则严格有
+
+\[
+1<\frac{\Delta_-}{\Delta_+}<2,
+\qquad
+v_2(\Delta_-)=v_2(\Delta_+)=1,
+\]
+
+\[
+\Delta_--\Delta_+
+=2^{m+1}5^dc_u^2
+\{g((20P-9)T-a_3)-H_0\},
+\]
+
+\[
+v_2(\Delta_--\Delta_+)=m+1,
+\qquad
+v_5(\Delta_--\Delta_+)=d.
+\]
+
+这已覆盖 pure-\(2\) fallback 的精确相邻-gap 结构，但尚未证明该加法
+与 \(D-C,D+C\) 的奇除数不相容。
+进一步取 \(F(2),F(3),F(4)\) 的中心二阶差分后，\(\Delta_+\) 已由两条
+互素 congruence 唯一固定在模 \(D^2-C^2\) 的显式 CRT 类中；
+\(\Delta_-=\Delta_++\Gamma_\Delta\)。当前剩余自由度因此缩成 CRT 商
+\[
+Q_\Delta=\left\lfloor\frac{\Delta_+}{D^2-C^2}\right\rfloor,
+\]
+但尚无它的全局上界。
+
+同时，中心二阶差分先除去 \(2^{m+1}5^d\) 得到
+\(\widetilde{\mathcal T}_2\)，但显式式进一步给出精确赋值
+\(v_5(\widetilde{\mathcal T}_2)=d\)。真正的 \(2,5\)-本原正整数为
+\[
+\widehat{\mathcal T}_2
+=\frac{\mathcal T_2}{2^{m+1}5^{2d}},
+\]
+严格满足
+
+\[
+\widehat{\mathcal T}_2
+\equiv-5^{\lambda-d}(c_uC)^2\pmod g,
+\qquad
+\widehat{\mathcal T}_2\equiv3\pmod4,
+\qquad
+\gcd(\widehat{\mathcal T}_2,10c_ug)=1.
+\]
+
+所以它必供应一个不整除 \(g\) 的 \(3\bmod4\) 惰性素数到奇次。但完整
+代入 canonical square 后得到
+\[
+5^d\widehat{\mathcal T}_2
+=5^{\epsilon_5}Z_\nu^2+\mathscr J_\Delta,
+\qquad \mathscr J_\Delta\equiv2\pmod4,
+\]
+这恰好恢复旧 odd inert excess，而非第二个独立 obstruction。后续必须
+排除其 denominator-prefix、source、spontaneous 三类来源。
+进一步化简显示
+\[
+\widehat{\mathcal T}_2
+=2^mc_u^2g^2\mathscr S_0
+-(c_Qq)^2 5^{2\lambda-d}XY,
+\]
+所以当前只有“尺度项减 norm”，没有把差变成 norm 所需的内积/正交
+恒等式；该漂亮路线已审计到一个明确而真实的 orientation 缺口。
+新的接触律
+\[
+\gcd(\widehat{\mathcal T}_2,Q_0XY)
+=\gcd(\mathscr S_0,Q_0XY),
+\qquad
+\gcd(\widehat{\mathcal T}_2,f)
+=\gcd(\mathscr R_f,f)
+\]
+已把 \(qf\) denominator excess 压成两个显式 gcd 问题；非 \(3\)
+inert prime 不能来自 \(XY,c_u,g\)。固定素数 \(3\) 的一阶出现条件
+也已由 (16.310) 精确分类，但允许 residue 中的赋值奇偶仍待控制。
+对非 \(3\) denominator prime，\(\mathscr S_0\) 的
+\(K\)-判别式进一步识别为判别数 \(-23\) 的二元型：
+\[
+\operatorname{disc}_K(\mathscr S_0)=8\mathscr R_{23}.
+\]
+\(q\)-channel 因而满足 (16.316)/(16.318) 的 \(23\)-分裂约束，
+\(f\)-channel 满足独立的 (16.320) curvature character。它们仍只是
+必要条件；(16.323) 的完整平方配方进一步证明这些局部 character
+都是同一 principal-square identity 的投影，尚未取得与 source
+allocation 相反的独立 character。
+companion 还满足
+\[
+\mathscr C_{23}
+=U_{23}^2+23V_{23}^2+5^{3\lambda}Q_0^2XY,
+\quad
+\mathscr C_{23}\equiv U_{23}^2\pmod{5^{2m}},
+\quad
+\mathscr C_{23}\equiv1\pmod8.
+\]
+因此纯 \(2,5\)-进局部非平方路线同样已降级。
+进一步与 canonical \(Z\) 联立产生两个严格正 shifted factors
+\[
+\mathscr V_-=5^\lambda fc_-^2X-\mathscr E_{23},
+\qquad
+\mathscr V_+=5^\lambda qc_+^2Y-\mathscr E_{23}.
+\]
+它们的 \(q,f\) 同侧接触由
+\(\mathscr L_{23}=9T/2+a_3\) 控制，共同因子由
+\(\gcd(TK-9T-2a_3,Z)\) 控制。消去 \(Z\) 后证明 \(qf\) 的所有
+未饱和接触赋值为偶数，所以 denominator odd excess 只剩
+\[
+p^e\Vert qf,\qquad p^e\mid\mathscr L_{23}
+\]
+的完整 prime-power saturation。
+同时 \(q\equiv3,f\equiv1\pmod4\) 把 orientation 分成固定 \(3\)
+balanced transfer 与 denominator \(q\) carrier；在前一支中
+\(\mathscr V_\pm\) 恰共享一份 \(3\)，且
+\(3\nmid\widehat{\mathcal T}_2\)。
+剩余 saturation 已进一步接回真实缺口 \(H\)：
+\[
+\mathscr G_q=5^{M-1}(a_3-90T)+a_3H,\qquad
+\mathscr G_f=\mathscr G_q-18\cdot2^{m+1}c5^d,
+\]
+候选必须满足完整 \(p^e\Vert q\) 整除 \(\mathscr G_q\)，或完整
+\(p^e\Vert f\) 整除 \(\mathscr G_f\)。两 target 位于约
+\(-89\cdot5^{M-1}T\) 的同一窄 significand band；尚缺无界
+prime-power gcd/resultant 排除。
+generic \(q\)-saturation 还由 rational-root 四次式放大为
+\[
+p^e\mid(6D+C),\quad
+p^{2e}\mid\bigl(D(3T+2a_3)-TC\bigr),
+\]
+或 \(p^e\mid((K-3)D+C)\)。按
+\(n_p=v_p(c_Qq)=v_p(c_Q)+e\) 精确计价后，middle branch 的
+正规商恰有深度 \(e+2v_p(c_Q)\)，third branch 吸收完整 \(n_p\)。
+对真正接触 \(\mathscr S_0\) 的 \(q\)-carrier，又有
+\[
+\mathscr S_0=T(K^2-26)-(2K-9)(2a_3+9T),
+\qquad K^2\equiv26\pmod p.
+\]
+故第一 valuation branch 完全排除，无界 exceptional set 缩成固定
+素数 \(11,23\)。尚未排除这两个固定素数的无限 Hensel lift，也尚未
+从 middle/third residual unit character 得到最终矛盾。
+在 \(p\nmid c_Q\) 的 generic 层，\(f\)-侧 saturation 则满足互补的非零局部型
+\[
+K^2-26\equiv
+\left(\frac{2c_Q}{2^m5^\lambda g}\right)^2N_0\not\equiv0\pmod p,
+\]
+\(p\mid c_Q\) 时它退化回 \(K^2\equiv26\)，恰为已隔离的 overlap；
+而 \(q\)-侧根另有
+\(J_{101}^2\equiv101N_0-26\pmod p\) 的 prefix Gaussian bridge。
+这些是新的严格必要条件，仍未合成为空性证明。
+canonical factor allocation 又强迫每个 \(q\)-carrier 满足
+\(N\equiv DK\pmod p\)，从而 generic middle branch 完全删除。
+对 \(p\ne11,23\)，唯一剩余 rational-root branch 精确满足
+\(v_p(KD-N)=v_p(c_Qq)\)；\(11\) 与 \(23\) 分别只剩一条固定的
+双因子预算和右侧增深预算。
+整数层进一步有
+\[
+q\mid DK-N,\qquad
+2c_u(DK-N)/q=c_+^2Y+5^\lambda c_-^2X.
+\]
+在 saturation 内，\(q/f\) 两侧的截断赋值已分别降为纯 prefix
+resultants \(K^2-26\) 与
+\(\Psi_f=b_2^2(K^2-26)-Q^2N_0>0\)。此外
+\((DK-N)/q\) 的每个非 \(3\) inert prime 都以相同深度整除
+\(H_0\)，并满足 \((N_0/r)=-1\)。这三个明确通道尚未全部排除。
+同时 \(Q_\Delta\ge5K\)，故 CRT 商不是可由固定有限层排除的小参数。
+
+当前数学核心已经转为证明这个覆盖所有 `eta` 的定向因子系统与
+source 双 Hensel / prefix defect 不相容，或从中构造保持十进制
+coefficient plane 的下降；尚未得到该最终矛盾。
 
 ---
 
