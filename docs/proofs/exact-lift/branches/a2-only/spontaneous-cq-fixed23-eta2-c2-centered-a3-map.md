@@ -200,8 +200,7 @@ a_{3,(5)}
 若改写成 `u=varrho a_3`：
 
 \[
-\boxed{
-u_{(5)}
+\boxed{u_{(5)}
 \equiv
 -\frac c2
 -\frac{45c}{2}\iota\,2^{3\lambda+2}\varrho
