@@ -89,13 +89,13 @@ assert first_lower > 499
 assert second_upper < 104
 assert first_lower-second_upper > 395
 
-# Primitive mod-4 orientations, checked at the residue level used by the proof.
-# Jhat = 2^(2m)*b^2*F_W - q0^2*N0, m>=1, all odd squares are 1 mod4.
+# Primitive mod-4 orientations. Here N0 is not an arbitrary odd residue:
+# N0=(9B/2)^2+A^2 == 1 mod4. Thus Jhat is 0-1 == 3 mod4.
 for m in range(1,5):
     for b0 in (1,3):
         for q0 in (1,3):
-            for n0 in (1,3):
-                assert ((2**(2*m))*b0*b0 - q0*q0*n0) % 4 == 3
+            n0 = 1
+            assert ((2**(2*m))*b0*b0 - q0*q0*n0) % 4 == 3
 
 # O+/- primitive: a 1 mod4 term +/- twice an odd unit are both 3 mod4.
 for uhat in (1,5):
