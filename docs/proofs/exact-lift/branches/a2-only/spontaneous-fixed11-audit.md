@@ -2,7 +2,7 @@
 
 > **依赖：** `spontaneous-prefix-boundaries.md`、`spontaneous-sphere-roots.md`、`spontaneous-single-branch-syzygy.md`。
 >
-> **严格状态：**`11` 在两个 prefix quadratic 的 resultant/subresultant 常数中出现，但本文件证明它并不是 branch-collision 或 noncentral repeated-root 的真实坏素数。完整 `F_11` 第一层审计仍留下 12 个 genuine noncentral simple states，所以 `11` 不能被局部排除；它应被归类为 fixed simple carrier，而不是 singular gate。本文仍**不宣称 A2 全局关闭**。
+> **严格状态：**`11` 在两个 prefix quadratic 的 resultant/subresultant 常数中出现，但 sphere 几何证明它并不是 branch-collision 的真实例外。对真实 decimal 相位 `tau=10^{-M}=±1 (mod 11)` 做完整第一层审计后，恰留下 12 个 genuine noncentral 状态，而且 12 个全部为 simple roots。因此 `11` 不能被局部排除，但在**实际 decimal 第一层**没有 singular state。这里不宣称任意抽象 `tau∈F_11` 都不存在 noncentral repeated root。本文仍**不宣称 A2 全局关闭**。
 
 ---
 
@@ -51,87 +51,57 @@
 
 \[
 \boxed{
-p=11\text{ 不会制造真实 two-branch collision。}}
+p=11\text{ 不会因为 subresultant 的 coefficient }11
+\text{ 制造真实 two-branch collision。}}
 \tag{1.3}
 
-resultant 中的 coefficient `11` 只是清分母/正规化层的坏系数，不能把它解释成第二个 sphere orientation 合并。
+resultant 中的 coefficient `11` 只是清分母/正规化层的坏系数，不能被解释成第二个 sphere orientation 合并。
 
 ---
 
-## 2. `已严格完成`：`11` 的 noncentral repeated root 也不存在
+## 2. `审计修正`：抽象 `F_11` repeated-root 不能从 syzygy 直接排除
 
-任意 compact single branch 的 discriminant identity 为
-
-\[
-405x^2\mathscr D
-=20x^2(81z+29s)^2+11C_*.
-\tag{2.1}
-
-模 `11`：
+compact branch 为
 
 \[
-405\equiv9,
-\qquad20\equiv9.
+\mathscr L(\tau)
+=55\tau^2+18(z-s)\tau+s^2-4sz-c.
 \]
 
-若 `x` 为单位且 branch repeated：
-
-\[
-\mathscr D\equiv0\pmod{11},
-\]
-则 (2.1) 强迫
-
-\[
-\boxed{81z+29s\equiv0\pmod{11}.}
-\tag{2.2}
-
-另一方面 repeated tangent 为
-
-\[
-55\tau=9(s-z).
-\]
-虽然 `55≡0 (mod 11)`，与 (2.2) 结合仍有
-
-\[
-z\equiv s\pmod{11},
-\]
-再代 (2.2)：
-
-\[
-110s\equiv0.
-\]
-更直接地使用 `spontaneous-single-branch-syzygy.md` 的 on-shell identity：在 repeated tangent 上
-
-\[
-C_*=-\frac{20}{11}x^2(81z+29s)^2
-\]
-是清分母形式；其未除 `11` 的原式说明 `81z+29s=0` 后 central factor
-
-\[
-9\tau-2s
-\]
-也消失。等价地由 branch derivative 在 `p=11` 下：
+模 `11` 后二次首项消失：
 
 \[
 \mathscr L'(\tau)
-=18(z-s)
-\equiv7(z-s),
+=110\tau+18(z-s)
+\equiv7(z-s).
+\tag{2.1}
+
+所以 abstract repeated condition 只先给
+
+\[
+z\equiv s\pmod{11}.
+\tag{2.2}
+
+`spontaneous-single-branch-syzygy.md` 的 discriminant identity
+
+\[
+405x^2\mathscr D
+=20x^2(81z+29s)^2+11C_*
 \]
-repeated root 先给 `z=s`；再代 branch equation得到 `9tau=2s`。
-
-所以
+在模 `11` 下与 (2.2) 相容，并不会额外强迫
 
 \[
-\boxed{
-p=11\text{ 的 repeated branch 必落入 }2K-9=0.}
-\tag{2.3}
+9\tau=2s.
+\]
 
-从而：
+因此旧的过强说法
 
 \[
-\boxed{
-p=11\text{ 不存在 genuine noncentral repeated branch。}}
-\tag{2.4}
+\text{“任意 }p=11\text{ repeated root 必 central”}
+\]
+撤回，不得使用。
+
+本文真正需要的不是任意 abstract `tau`，而是原问题的真实 decimal phase；它只有两个 residue，下一节直接完整检查。
 
 ---
 
@@ -149,7 +119,7 @@ p=11\text{ 不存在 genuine noncentral repeated branch。}}
 \tau=10^{-M}\equiv(-1)^M\in\{1,10\}\pmod{11}.}
 \tag{3.1}
 
-因此 fixed `11` 的第一层可以完整有限审计，而不需要扫描任意 `tau`。
+因此 fixed `11` 的真实第一层可以完整有限审计，而不需要扫描任意 `tau`。
 
 对每个
 
@@ -212,7 +182,7 @@ p=11\text{ 不存在 genuine noncentral repeated branch。}}
 
 ---
 
-## 5. `已严格完成`：12 个状态全部 simple
+## 5. `已严格完成`：真实 12 个状态全部 simple
 
 compact branch derivative 为
 
@@ -238,14 +208,14 @@ compact branch derivative 为
 
 \[
 \boxed{
-12\text{ 个 genuine }11\text{-states 全部为 simple branch roots。}}
+\text{真实 decimal 第一层的 12 个 genuine }11\text{-states 全部 simple。}}
 \tag{5.2}
 
-结合 §2，fixed `11` 的 branch geometry 已没有 singular 核。
+这才是 fixed `11` 的严格 singularity 结论：**实际相位上没有 repeated state**。它不推广到任意抽象 `tau∈F_11`。
 
 ---
 
-## 6. `已严格完成 / 降级`：decimal orbit 本身也不会自动杀掉 `11`
+## 6. `已严格完成 / 降级`：decimal exponent orbit 本身也不会自动杀掉 `11`
 
 \[
 10^2=100=1+9\cdot11,
@@ -260,7 +230,7 @@ compact branch derivative 为
 }
 \tag{6.1}
 
-所以 `tau=±1 (mod 11)` 的 decimal exponent classes 都有完整的一维 `11`-进 lift。十二个 simple local states 并不会仅因为继续升 `11^k` 自动消失；还需要真实 prefix variables `x,y` 的 lift/自然代表输入。
+所以 `tau=±1 (mod 11)` 的 decimal exponent classes 都有完整的一维 `11`-进 lift。第一层 simple 并不意味着完整 `(x,y)` 状态自动提升，但也说明“继续只升 exponent”不会制造空性；还需要真实 prefix variables 的 lift条件。
 
 ---
 
@@ -270,14 +240,21 @@ compact branch derivative 为
 
 \[
 \boxed{
-\text{fixed simple local carrier with 12 first-layer templates}.}
+\text{fixed local carrier with 12 genuine simple first-layer templates}.}
 \]
 
 严格来说：
 
 - no two-branch collision；
-- no noncentral repeated root；
+- 对真实 `tau=±1`，没有 repeated state；
 - 12 genuine noncentral first-layer states survive；
-- decimal exponent orbit itself lifts to all `11^k`。
+- decimal exponent residue classes本身可继续提升。
 
-所以 `11` 尚未关闭，但后续不应再研究它的 quadratic discriminant / singular tree。真正剩余问题是把这 12 个 template 与 `b_2=10^{M-1}+2^{M-1}H`、`a_2=10^{M-1}-e` 的真实 defect lift 联立。
+所以 `11` 尚未关闭，但后续不应再把 resultant coefficient `11` 当成 branch singularity。真正剩余问题是把这 12 个 template 与
+
+\[
+b_2=10^{M-1}+2^{M-1}H,
+\qquad
+a_2=10^{M-1}-e
+\]
+的真实 defect lift 联立。
