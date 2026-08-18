@@ -26,12 +26,10 @@ Rf = 9*A**2 - 1140*A + 676
 assert sp.expand(Rf - (Pf + 3*D)*Uf + 1296*D) == 0
 assert sp.expand(Rf - Pf*Uf - D*Vf) == 0
 
-# On D=Pf=0, Uf=72K and Vf=216(K-6).
-# Verify reductions algebraically using the ideal relations A=K^2 and Pf=0.
-Uf_on_D = sp.expand(Uf.subs(A, K**2))
-Vf_on_D = sp.expand(Vf.subs(A, K**2))
-assert sp.rem(Uf_on_D - 72*K, Pf, K) == 0
-assert sp.rem(Vf_on_D - 216*(K-6), Pf, K) == 0
+# Exact reductions modulo the common ideal (D,Pf):
+# Uf = 72K and Vf = 216(K-6).
+assert sp.expand(Uf - 72*K - (Pf + 3*D)) == 0
+assert sp.expand(Vf - 216*(K-6) - 3*(Pf + 3*D)) == 0
 assert Pf.subs(K, 0) == 26
 assert Pf.subs(K, 6) == -82 == -2*41
 assert 41 % 4 == 1
