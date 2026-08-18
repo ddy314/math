@@ -27,18 +27,20 @@ psi_series = sp.series(Psi, eps, 0, 2).removeO()
 expected_psi = eps*d1*404**2/A**2
 assert sp.cancel(psi_series-expected_psi) == 0
 
-# First nonzero normalized angle coefficient.
-omega_norm = sp.cancel(Omega/eps**2)
-omega0 = sp.cancel(omega_norm.subs(eps, 0))
-expected_omega0 = 8*(x+2)*d1**2/A - 50625*x**5*phi
-assert sp.cancel(omega0-expected_omega0) == 0
+# First nonzero normalized angle coefficient.  Extract the epsilon^2 Taylor
+# coefficient directly; this avoids representation-dependent 0/0 behavior
+# from substituting epsilon=0 after rational cancellation.
+omega_series = sp.series(Omega, eps, 0, 3).removeO()
+omega2 = sp.expand(omega_series).coeff(eps, 2)
+expected_omega2 = 8*(x+2)*d1**2/A - 50625*x**5*phi
+assert sp.cancel(omega2-expected_omega2) == 0
 
 # The extra-lift equation is linear and nondegenerate in phi away from
 # genuine source boundary factors p | 3*5*x.
-assert sp.diff(expected_omega0, phi) == -50625*x**5
+assert sp.diff(expected_omega2, phi) == -50625*x**5
 assert sp.factorint(50625) == {3: 4, 5: 4}
 
 phi_root = sp.cancel(8*(x+2)*d1**2/(50625*A*x**5))
-assert sp.cancel(expected_omega0.subs(phi, phi_root)) == 0
+assert sp.cancel(expected_omega2.subs(phi, phi_root)) == 0
 
 print("OK: A2 source equal-depth second-order no-go certified")
