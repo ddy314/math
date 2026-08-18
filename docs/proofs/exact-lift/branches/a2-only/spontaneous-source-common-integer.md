@@ -358,7 +358,7 @@ r_s=\frac{2(x+2)}{99x-4}.
 \boxed{
 \left.\partial_y\mathscr S_\Theta\right|_{y=y_0}
 =\mathcal C_{\rm src}(x,\tau)
-\frac{x^2\mathcal P_d(x,\tau)}
+\frac{\mathcal P_d(x,\tau)}
 {23328(x+2)^4(50x^2+2-\tau)^3},}
 \tag{8.1}
 \]
