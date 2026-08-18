@@ -1,12 +1,12 @@
-# A2 source→common gate 的自然整数代表与 singular audit
+# A2 source→common gate 的自然整数代表与 singular/transverse audit
 
-> **依赖：** `spontaneous-source-common-gate.md`、`spontaneous-source-saturation-parity.md`。
+> **依赖：** `spontaneous-source-common-gate.md`、`spontaneous-source-equal-depth-nogo.md`、`spontaneous-source-saturation-parity.md`。
 >
-> **严格状态：**本文把 source→additive-common 的 normalized gate `C_src(x,tau)` 精确乘回真实 denominator defect `H` 与 decimal length `M`，得到一个整数 target `K_src(H,E,F)`。随后完整审计该 gate 作为 `(x,tau)` 平面曲线的 non-`3` inert singular bad reduction：唯一 genuine singular first-layer point出现在 `p=1746991`，但它不能提升到 `p^2`。因此 source→common gate 不存在 surviving singular Hensel tree；generic simple modular roots仍可能存在，所以本文不宣称 A2 全局关闭。
+> **严格状态：**本文先把 source→additive-common 的 normalized first-layer gate `C_src(x,tau)` 精确乘回真实 denominator defect `H` 与 decimal length `M`，得到整数 target `K_src(H,E,F)`。随后完整审计该投影 gate 的 non-`3` inert singular bad reduction：唯一 genuine singular first-layer point位于 `p=1746991`。仅证明 `C_src=0` 自身不能升到 `p^2` **不足以**关闭完整 source/common 系统，因为 higher source layer允许离开 `d=Phi=0` 切片；本文进一步把真实 source transverse correction与 angle extra-lift一起代回 `Theta_dec + exact sphere`，证明该唯一 singular point对任意 source half-depth `h>=1` 都无法成为 full source/common lift。generic simple roots仍可能存在，因此本文不宣称 A2 全局关闭。
 
 ---
 
-## 1. 回顾 source→common quadratic
+## 1. source→common first-layer quadratic
 
 沿用
 
@@ -21,61 +21,80 @@
 \tag{1.1}
 \]
 
-在 genuine/noncentral source first-layer channel 中，
+在 genuine/noncentral source first layer
 
 \[
-\mathcal C_{\rm src}(x,10^{-M})\equiv0\pmod p
+d:=225x^2-y=0,
+\qquad
+\Phi_s=(99x-4)r_s-2x-4=0,
+\]
+且 `Theta_dec=0` 时，exact sphere 的清分母 numerator 为
+
+\[
+-x^2(25x^2+1)\mathcal C_{\rm src}(x,\tau)^2.
+\tag{1.2}
 \]
 
-是 source-supported angle root 进一步进入 additive common carrier 的必要且充分 first-layer gate。
-
-真实 endpoint defect 为
+因此
 
 \[
-\boxed{x=\frac{1+u}{10},\qquad u=\frac{H}{5^{M-1}}.}
-\tag{1.2}
+\boxed{
+\mathcal C_{\rm src}(x,10^{-M})\equiv0\pmod p
+}
+\tag{1.3}
+\]
+
+是 source-supported angle prime进入 additive common channel 的 first-layer gate。
+
+---
+
+# 第一部分：真实 defect 的自然整数代表
+
+## 2. `已严格完成`：`C_src` 精确整数化
+
+真实 endpoint denominator defect写成
+
+\[
+x=\frac{1+u}{10},
+\qquad
+u=\frac{H}{5^{M-1}}.
 \]
 
 定义
 
 \[
 \boxed{F:=5^{M-1},\qquad E:=2^{M-1}.}
-\tag{1.3}
-\]
-
-则
-
-\[
-u=H/F,\qquad 10^M=10EF,\qquad \tau=\frac1{10EF}.
-\tag{1.4}
-\]
-
----
-
-## 2. `已严格完成`：defect gate 的整数化
-
-`spontaneous-source-common-gate.md` 已有
-
-\[
-\boxed{
-\begin{aligned}
-10000\mathcal C_{\rm src}
-={}&44000(u+21)^2\tau^2\\
-&+81(9401u^4+13684u^3-175354u^2\\
-&\qquad-418156u-878519)\tau\\
-&-81(u+1)(99u+59)(u^2+2u+5)\\
-&\qquad\cdot(49u^2+58u-191).
-\end{aligned}}
 \tag{2.1}
 \]
 
-把 (1.4) 代入并乘去所有 `2,5` denominator，得到
+于是
+
+\[
+u=H/F,
+\qquad
+\tau=10^{-M}=\frac1{10EF}.
+\tag{2.2}
+\]
+
+已有 defect form
+
+\[
+\begin{aligned}
+10000\mathcal C_{\rm src}
+={}&44000(u+21)^2\tau^2\\
+&+81(9401u^4+13684u^3-175354u^2-418156u-878519)\tau\\
+&-81(u+1)(99u+59)(u^2+2u+5)(49u^2+58u-191).
+\end{aligned}
+\tag{2.3}
+\]
+
+把 (2.2) 代入并清去全部 `2,5` denominator：
 
 \[
 \boxed{
 10E^2F^6\,(10000\mathcal C_{\rm src})
 =\mathcal K_{\rm src}(H,E,F),}
-\tag{2.2}
+\tag{2.4}
 \]
 
 其中
@@ -87,13 +106,10 @@ u=H/F,\qquad 10^M=10EF,\qquad \tau=\frac1{10EF}.
 ={}&4400F^2(H+21F)^2\\
 &+81EF\,\mathcal P_4(H,F)\\
 &-810E^2(H+F)(99H+59F)\\
-&\qquad\cdot(H^2+2HF+5F^2)
-(49H^2+58HF-191F^2),
+&\qquad\cdot(H^2+2HF+5F^2)(49H^2+58HF-191F^2),
 \end{aligned}}
-\tag{2.3}
+\tag{2.5}
 \]
-
-且
 
 \[
 \boxed{
@@ -101,76 +117,56 @@ u=H/F,\qquad 10^M=10EF,\qquad \tau=\frac1{10EF}.
 \mathcal P_4(H,F):={}&9401H^4+13684H^3F-175354H^2F^2\\
 &-418156HF^3-878519F^4.
 \end{aligned}}
-\tag{2.4}
+\tag{2.6}
 \]
 
-对 genuine source prime `p != 2,5`，`E,F` 均为 `p`-进单位，因此逐 prime-power 精确有
+所以对 genuine source prime `p !=2,5`，单纯作为数值 identity：
 
 \[
 \boxed{
 v_p(\mathcal C_{\rm src})=v_p(\mathcal K_{\rm src}).}
-\tag{2.5}
+\tag{2.7}
 \]
 
-特别地 source→common 条件现在有真正的整数自然代表：
+特别地 first-layer condition (1.3) 等价于
 
 \[
-\boxed{p^k\mid\mathcal C_{\rm src}
-\iff p^k\mid\mathcal K_{\rm src}.}
-\tag{2.6}
+\boxed{p\mid\mathcal K_{\rm src}(H,E,F).}
+\tag{2.8}
 \]
 
-这一步没有引入新的 source/Hensel 变量；`K_src` 只依赖真实小缺口 `H` 与 decimal powers `E,F`。
+这里必须保留逻辑边界：`C_src` 是先限制到 `d=Phi=0` 得到的投影 gate；(2.7) **不**意味着 full higher source/common system 的全部 prime-power depth都由 `K_src` 独自读取。后文会显式处理 transverse correction。
 
 ---
 
-## 3. genuine source units 在整数坐标中的对应
-
-由
+## 3. genuine source units 的 defect 形式
 
 \[
 x=\frac{H+F}{10F},
-\]
-有
-
-\[
+\qquad
 99x-4=\frac{99H+59F}{10F},
-\tag{3.1}
 \]
-
-以及
 
 \[
-25x^2+1
-=\frac{H^2+2HF+5F^2}{4F^2}.
-\tag{3.2}
+25x^2+1=\frac{H^2+2HF+5F^2}{4F^2}.
 \]
 
-因此旧 source separation
-
-\[
-p\nmid x(x+2)(99x-4)(25x^2+1)
-\]
-等价于 `K_src` 中前三类显式 defect factor均为单位。特别是整数化没有把已排除的 q/f/source boundary重新伪装成新因子。
+因此 source separation中的 `x`、`99x-4`、base norm units在 `K_src` 中都有直接整数对应；整数化没有制造新的伪 boundary。
 
 ---
 
-# 第二部分：source→common gate 的 singular bad reduction
+# 第二部分：projected gate 的 singular bad set
 
-## 4. `tau`-discriminant
+## 4. `tau`-discriminant与固定 bad primes
 
-把 `C_src` 看成
+把 (1.1) 看成
 
 \[
 \mathcal C_{\rm src}=a(x)\tau^2+b(x)\tau+c(x),
-\]
-其中
-
-\[
-a(x)=440(x+2)^2.
+\qquad a(x)=440(x+2)^2.
 \]
 
-已有
+其 discriminant为
 
 \[
 \boxed{
@@ -189,7 +185,7 @@ a(x)=440(x+2)^2.
 \tag{4.2}
 \]
 
-其 `x`-判别式精确分解为
+而
 
 \[
 \boxed{
@@ -201,250 +197,294 @@ a(x)=440(x+2)^2.
 \tag{4.3}
 \]
 
-因此除 `2,3,5` 与 `1 mod 4` primes外，full singular reduction只需审计
+所以 genuine non-`3` inert singular projection只需审计
 
 \[
 \boxed{11,\quad1746991,\quad405504443.}
 \tag{4.4}
 \]
 
----
-
-## 5. 为什么 repeated `tau` + repeated discriminant 正好控制 full singularity
-
-当 `p` 不整除 `2a(x)` 时，若
-
-\[
-\mathcal C_{\rm src}=0,
-\qquad
-\partial_\tau\mathcal C_{\rm src}=0,
-\]
-则
-
-\[
-\tau=-\frac{b}{2a},
-\qquad
-\mathcal D_{\rm sc}=0.
-\]
-
-在这个 repeated root 上有 exact differential identity
-
-\[
-\boxed{
-\mathcal D_{\rm sc}'
-=-\frac{4a}{81}\,\partial_x\mathcal C_{\rm src}.}
-\tag{5.1}
-\]
-
-所以在 `a` 为单位时：
-
-\[
-\boxed{
-\mathcal C_{\rm src}
-=\partial_\tau\mathcal C_{\rm src}
-=\partial_x\mathcal C_{\rm src}=0
-\iff
-\mathcal D_{\rm sc}=\mathcal D_{\rm sc}'=0.}
-\tag{5.2}
-\]
-
-因此 (4.3) 确实给出所有 generic full singular prime 的有限 bad set。
-
-`p=11` 因 `440=0 mod 11` 需单独检查。
+当 `p` 不整除 `2a(x)` 时，repeated `tau` root满足 `tau=-b/(2a)`；在该 root上，`Disc_tau'=-4a partial_x C_src`。故 full projected singularity等价于 `D_sc=D_sc'=0`。`p=11` 因 `440=0 mod 11` 单独处理。
 
 ---
 
-## 6. `p=11`：quadratic coefficient degeneration，但没有 finite singular point
+## 5. `p=11` 与 `p=405504443` 均无 finite singular projection
 
-模 `11`，
-
-\[
-a(x)\equiv0,
-\]
-而
+模 `11`：
 
 \[
 \boxed{
 \partial_\tau\mathcal C_{\rm src}
-\equiv
--5(x^2-5x-1)(x^2-2x-5)\pmod{11}.}
-\tag{6.1}
+\equiv-5(x^2-5x-1)(x^2-2x-5).}
+\tag{5.1}
 \]
 
-两个 quadratic 的判别式分别是 `7` 与 `2`，都不是模 `11` 的平方。因此
+两个二次因子的判别式分别为 `7,2`，均为模 `11` 非平方，所以 `dC/dtau` 在 `F_11` 从不为零；没有 singular projection。
+
+对 `p=405504443`：
 
 \[
 \boxed{
-\partial_\tau\mathcal C_{\rm src}\ne0
-\quad\text{for every }x\in\mathbf F_{11}.}
-\tag{6.2}
-\]
-
-故 `p=11` 没有 full singular point。它仍可能有 simple common states；本文只删除 singular tree。
-
----
-
-## 7. `p=405504443`：repeated discriminant factor没有 `F_p` 根
-
-精确计算
-
-\[
 \gcd(\mathcal D_{\rm sc},\mathcal D_{\rm sc}')
-\equiv
-x^2-63668219x+95115196
-\pmod{405504443}.
-\tag{7.1}
+=x^2-63668219x+95115196.}
+\tag{5.2}
 \]
 
-该二次式判别式为
-
-\[
-345543957\pmod{405504443},
-\]
-且
+其 discriminant为 `345543957`，并满足
 
 \[
 \left(\frac{345543957}{405504443}\right)=-1.
-\tag{7.2}
 \]
 
-所以没有 `x in F_p` 的 repeated discriminant root，因而没有 finite full singular source→common state。
+故也没有 `F_p` repeated root。
 
 ---
 
-## 8. `p=1746991`：唯一 genuine singular first layer
-
-此时
+## 6. 唯一 genuine singular projection：`p=1746991`
 
 \[
 \boxed{
 \gcd(\mathcal D_{\rm sc},\mathcal D_{\rm sc}')
-\equiv x+384338\pmod{1746991}.}
-\tag{8.1}
+=x+384338\pmod p.}
 \]
 
-所以唯一 repeated `x` residue 为
+唯一 residue为
 
 \[
-\boxed{x_0=1362653.}
-\tag{8.2}
+\boxed{x_0=1362653,\qquad\tau_0=807263\pmod p.}
+\tag{6.1}
 \]
 
-由 repeated quadratic root
+并且
 
 \[
-\tau_0=-\frac{b(x_0)}{2a(x_0)}
+\mathcal C_{\rm src}
+=\partial_x\mathcal C_{\rm src}
+=\partial_\tau\mathcal C_{\rm src}=0\pmod p.
+\tag{6.2}
 \]
-得到
+
+以下 genuine/noncentral factors 的 residues分别为
 
 \[
-\boxed{\tau_0=807263\pmod{1746991}.}
-\tag{8.3}
+1362653,\quad1362655,\quad384336,\quad1554823,\quad1504546,
+\tag{6.3}
 \]
 
-直接代回：
+对应 `x_0, x_0+2, 99x_0-4, 25x_0^2+1, 2(9+225x_0^2)-9tau_0`，全部为单位。
 
-\[
-\mathcal C_{\rm src}(x_0,\tau_0)
-\equiv
-\partial_x\mathcal C_{\rm src}(x_0,\tau_0)
-\equiv
-\partial_\tau\mathcal C_{\rm src}(x_0,\tau_0)
-\equiv0\pmod p.
-\tag{8.4}
-\]
-
-同时 genuine units 为
-
-\[
-\boxed{
-\begin{array}{c|c}
-\text{factor}&\text{residue mod }p\\ \hline
-x_0&1362653\\
-x_0+2&1362655\\
-99x_0-4&384336\\
-25x_0^2+1&1554823\\
-2(9+225x_0^2)-9\tau_0&1504546
-\end{array}}
-\tag{8.5}
-\]
-
-全部非零。因此它确实是 genuine/noncentral singular first-layer candidate，而不是旧 boundary。
-
----
-
-## 9. `有限证书`：唯一 singular candidate不能提升到 `p^2`
-
-取最小非负 representatives `(x_0,tau_0)`。exact integer value满足
+对最小非负 representatives还有
 
 \[
 \boxed{
 \frac{\mathcal C_{\rm src}(x_0,\tau_0)}p
 \equiv1642591\not\equiv0\pmod p.}
-\tag{9.1}
+\tag{6.4}
 \]
 
-另一方面 (8.4) 给
+由于两个 projected derivatives 都被 `p` 整除，任何 `x=x_0+pX, tau=tau_0+pT` 都仍满足
 
 \[
-p\mid\partial_x\mathcal C_{\rm src}(x_0,\tau_0),
-\qquad
-p\mid\partial_\tau\mathcal C_{\rm src}(x_0,\tau_0).
+\boxed{v_p(\mathcal C_{\rm src})=1.}
+\tag{6.5}
 \]
 
-对任意 lift
+注意：(6.5) 只说明 projected gate `C_src=0` 不能自身升到 `p^2`；此处尚不能推出 full source/common 不可提升。
+
+---
+
+# 第三部分：source transverse correction补上 projected audit 的逻辑缺口
+
+## 7. source higher layer 的规范坐标
+
+source excess写成
 
 \[
-x=x_0+pX,
-\qquad
-\tau=\tau_0+pT,
+p^{2h}\Vert\sigma,
+\qquad h\ge1.
 \]
-Taylor 展开模 `p^2`：
+
+只有 `v_p(d)=h` 的 equal-depth shell可能产生 extra angle depth。令
 
 \[
-\mathcal C_{\rm src}(x,\tau)
-\equiv
-\mathcal C_{\rm src}(x_0,\tau_0)
-+pX\partial_x\mathcal C_{\rm src}
-+pT\partial_\tau\mathcal C_{\rm src}
-\pmod{p^2}.
+\varepsilon:=p^h,
+\qquad d=\varepsilon D,\quad D\in\mathbf Z_p^\times,
 \]
-后两项均自动被 `p^2` 整除，所以 (9.1) 无法被任何 `(X,T)` 修正：
+
+并写
+
+\[
+\Phi_s=\varepsilon^2\phi.
+\]
+
+则
 
 \[
 \boxed{
-\text{the }1746991\text{ singular state has no }p^2\text{ lift}.}
-\tag{9.2}
+r_s=\frac{2(x+2)+\varepsilon^2\phi}{99x-4}.}
+\tag{7.1}
+\]
+
+angle extra-lift唯一规定
+
+\[
+\boxed{
+\phi
+\equiv
+\frac{8(x+2)}{50625(99x-4)x^5}D^2\pmod p.}
+\tag{7.2}
+\]
+
+在 singular residue (6.1) 上：
+
+\[
+\boxed{\phi\equiv1007439D^2\pmod p.}
+\tag{7.3}
 \]
 
 ---
 
-## 10. 结论与新的 source→common frontier
+## 8. `已严格完成`：source slice 与 transverse direction 二阶相切
 
-综合 §§4–9：
+令 `S_Theta` 表示先用 `Theta_dec=0` 恢复第三分子、再代入 exact sphere 后的 rational residual；同时取 source linear line
+
+\[
+r_s=\frac{2(x+2)}{99x-4}.
+\]
+
+在 `y_0=225x^2` 上，除了 numerator square (1.2) 外，还存在 exact tangency：
 
 \[
 \boxed{
-\text{source→common gate 在 genuine non-3 inert channel中不存在 surviving singular Hensel tree}.}
+\left.\partial_y\mathscr S_\Theta\right|_{y=y_0}
+=\mathcal C_{\rm src}(x,\tau)
+\frac{x^2\mathcal P_d(x,\tau)}
+{23328(x+2)^4(50x^2+2-\tau)^3},}
+\tag{8.1}
+\]
+
+其中
+
+\[
+\boxed{
+\begin{aligned}
+\mathcal P_d={}&783481\tau^2x^6-105752\tau^2x^5-40720\tau^2x^4\\
+&-1664\tau^2x^3-1664\tau^2x^2-78586200\tau x^8\\
+&+9590400\tau x^7-195048\tau x^6+254016\tau x^5\\
+&+117936\tau x^4-5184\tau x^3+1964655000x^{10}\\
+&-239760000x^9+83462400x^8-15940800x^7\\
+&-2753352x^6-124416x^5-117936x^4+5184x^3.
+\end{aligned}}
+\tag{8.2}
+\]
+
+对 (6.1) 的 genuine/noncentral residue，(8.1) denominator为单位。因此 singular projection上
+
+\[
+\boxed{\partial_y\mathscr S_\Theta\equiv0\pmod p.}
+\tag{8.3}
+\]
+
+所以 projected square 与 source transverse direction确实同阶相切；必须看二阶，不能从 (6.5) 直接宣布 full no-lift。
+
+---
+
+## 9. `已严格完成`：`h=1` 的完整二阶 lift被 angle correction杀死
+
+固定 `p=1746991`、`h=1`，写
+
+\[
+\boxed{
+\begin{aligned}
+x&=x_0+pX,\\
+\tau&=\tau_0+pT,\\
+d&=pD,\qquad D\ne0\pmod p,\\
+\Phi_s&=p^2\phi.
+\end{aligned}}
+\tag{9.1}
+\]
+
+把 (9.1)、source root (7.1)、`Theta_dec=0` 的第三分子以及 exact sphere全部做二阶 Taylor。exact checker给出
+
+\[
+\boxed{
+\frac{\mathscr S_\Theta}{p^2}
+\equiv32070D^2-680549\phi\pmod p.}
+\tag{9.2}
+\]
+
+`X,T` 完全消失。代入 (7.3)：
+
+\[
+\boxed{
+\frac{\mathscr S_\Theta}{p^2}
+\equiv286982D^2\pmod p.}
+\tag{9.3}
+\]
+
+由于 `286982 !=0 mod p` 且 `D` 为单位，矛盾。因此
+
+\[
+\boxed{
+\text{the }1746991\text{ singular source/common state has no }h=1\text{ lift}.}
+\tag{9.4}
+\]
+
+---
+
+## 10. `已严格完成`：`h>=2` 也不能绕过 projected square depth
+
+若 `h>=2`，则
+
+\[
+v_p(d)\ge2,
+\qquad
+v_p(\Phi_s)=2h\ge4.
+\]
+
+由 (6.5)，任意 projected lift都保持 `v_p(C_src)=1`。在 `d=Phi=0` slice上，sphere numerator 的 `C_src^2` 项因此恰从深度 `2` 开始。
+
+而 transverse correction满足：
+
+- 由 (8.1)，线性 `d` 修正的 coefficient 自带一份 `C_src`，深度至少 `h+1>=3`；
+- `d^2` 项深度至少 `4`；
+- `Phi_s` 导致的 source-ratio correction从深度 `2h>=4` 才开始。
+
+因此谁都不能抵消已有的 `p^2` 主项。故
+
+\[
+\boxed{
+\text{the }1746991\text{ singular state has no full source/common lift for any }h\ge2.}
 \tag{10.1}
 \]
 
-因此 source residual 的结构现在与 denominator common channel高度平行：
-
-- source base primary depth `2h` 是偶数；
-- source-local angle extra 是 simple 二阶 correction；
-- source→additive-common 的外部 gate `C_src=0` 也没有 surviving singular tree；
-- 真正剩余的只有 **simple modular roots of the integer gate `K_src` 与 decimal defect orbit `(H,E,F)` 的同步**。
-
-下一步不应再做 singular-discriminant hunting。最有价值的是研究
+与 (9.4) 合并：
 
 \[
-\gcd(D_{\rm src},\mathcal K_{\rm src})
+\boxed{
+\text{the unique genuine singular projection at }p=1746991
+\text{ is dead for every source half-depth }h\ge1.}
+\tag{10.2}
 \]
 
-在 source primary depth `p^h|D_src` 下的截断赋值，或者把 `K_src` 与
+---
+
+## 11. 更新后的严格 frontier
+
+现在可以无逻辑缺口地写：
 
 \[
-H+F=4c_u2^mg
+\boxed{
+\text{source→common channel没有 surviving genuine non-3 inert singular Hensel tree}.}
+\tag{11.1}
 \]
-的 source-content separation 联立，寻找一个类似 denominator `R_q/R_f` 的 simple depth residual。
+
+剩余结构为：
+
+1. source base primary `p^{2h}` 对 angle parity为偶深；
+2. source-local angle extra是 simple second-order correction；
+3. external common first layer由 integer gate `K_src` 控制；
+4. projected singular bad set有限，唯一 genuine point `1746991` 经 full transverse audit后对所有 `h>=1` 都死亡；
+5. 真正剩余的是 **simple source→common roots 与真实 decimal defect orbit `(H,E,F)` 的同步**。
+
+下一步不应再做 singular-discriminant hunting。最有价值的是寻找 `K_src` 与 source prefix depth `D_src` 之间的 denominator-style simple residual，或者直接研究 simple root的 decimal orbit / natural representative。
