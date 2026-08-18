@@ -201,7 +201,6 @@ def peval_high(coeffs, z):
 
 
 def coupled_polynomials_at_s(s):
-    """Return N_sp(x), R_spD(x) as low-to-high integer coefficient lists."""
     ys = 11 - 9 * s
     xp2 = [2, 1]
     x2 = [0, 0, 1]
@@ -211,17 +210,15 @@ def coupled_polynomials_at_s(s):
     rspd = padd(pscale(ppow(xp2, 4), 220 * ys**4), pscale(pmul(asp, asp), -49))
 
     inside = padd(pscale(x2, 2025 * s * s), [ys * ys])
-    nsp = padd(pmul(ppow(xp2, 2), inside), pscale(x2, 10780))
-    return nsp, rspd
+    nsp_poly = padd(pmul(ppow(xp2, 2), inside), pscale(x2, 10780))
+    return nsp_poly, rspd
 
 
 def check_octic_resultant():
-    # Both sides have degree <= 36 in s. Equality at 37 integer values
-    # therefore certifies the fixed polynomial factorization exactly.
     C = 1205534785939344000000000000
     for s in range(1, 38):
-        nsp, rspd = coupled_polynomials_at_s(s)
-        res = resultant_int(nsp, rspd)
+        nsp_poly, rspd = coupled_polynomials_at_s(s)
+        res = resultant_int(nsp_poly, rspd)
         predicted = (
             C
             * s**8
@@ -312,6 +309,15 @@ def check_19adic_branches():
     assert jac_det_mod19(*roots[0][0]) == 1
     assert jac_det_mod19(*roots[1][0]) == 10
 
+    s_a, x_a, r_a = roots[0][0]
+    s_b, x_b, r_b = roots[1][0]
+    zratio_a = r_a * (x_a + 2) * pow(x_a, -1, p) % p
+    zratio_b = r_b * (x_b + 2) * pow(x_b, -1, p) % p
+    assert zratio_a == 2
+    assert (zratio_a + 2) % p != 0
+    assert zratio_b == p - 2
+    assert (zratio_b + 2) % p == 0
+
     for branch, ns in zip(roots, exponents):
         prev = None
         for k, ((s, x, r), n) in enumerate(zip(branch, ns), start=1):
@@ -334,11 +340,46 @@ def check_19adic_branches():
     assert pow(10, 18, 19**2) == 1 + 15 * 19
 
 
+def check_19_secant_deep():
+    p = 19
+    mod = p * p
+    inv18 = pow(18, -1, mod)
+
+    T = 1
+    K = 55 * inv18 % mod
+    a3 = -55 * inv18 % mod
+    b2 = 1
+    q2n0 = 3
+
+    F2 = (
+        4 * b2 * b2 * T * (T + a3) * (K - 2) ** 2
+        - q2n0 * (2 * T + a3) ** 2
+    )
+    assert F2 % (p * p) == 0
+    assert F2 % (p**3) != 0
+    assert (F2 // (p * p)) % p == (-7 * pow(18, -2, p)) % p
+
+    F3 = (
+        b2 * b2 * T * 3 * (3 * T + 2 * a3) * (K - 3) ** 2
+        - q2n0 * (3 * T + a3) ** 2
+    )
+    F4 = (
+        b2 * b2 * T * 4 * (4 * T + 2 * a3) * (K - 4) ** 2
+        - q2n0 * (4 * T + a3) ** 2
+    )
+    assert F3 % p == -6 % p
+    assert F4 % p == -12 % p
+    assert (F4 * pow(F3, -1, p)) % p == 2
+
+    assert (2 * pow(2, -1, p)) % p == 1
+
+
 def main():
     check_spontaneous_identities()
     check_theta_scaling()
     check_octic_resultant()
     check_19adic_branches()
+    check_19_secant_deep()
     print("A2 spontaneous-angle/length-orbit certificate: OK")
 
 
