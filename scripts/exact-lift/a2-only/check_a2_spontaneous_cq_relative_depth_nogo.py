@@ -13,17 +13,15 @@ E=K*(2*K-9)
 gplus=rho*A+2*Cplus
 gminus=rho*A-2*E
 
-# D_pref has d/dK=-2K and no rho dependence.
 Jplus=sp.factor((-2*K)*sp.diff(cu*gplus,rho))
 Jminus=sp.factor((-2*K)*sp.diff(cu*gminus,rho))
 assert Jplus==-2*cu*K*A
 assert Jminus==-2*cu*K*A
-
 assert int(sp.resultant(A,2*Cplus,K))==-5060
 assert int(sp.resultant(A,2*E,K))==-5060
 
 # ---------------------------------------------------------------------------
-# 2. p=23 first-layer data
+# 2. p=23 first-layer / normalized gates
 # ---------------------------------------------------------------------------
 p=23
 assert 8181%p==16
@@ -36,8 +34,6 @@ Aq=sp.expand(A.subs(K,K23)/p)
 Cpq=sp.expand(Cplus.subs(K,K23)/p)
 Eq=sp.expand(E.subs(K,K23)/p)
 
-# Quotients modulo 23.
-assert sp.Poly(sp.expand(Aq-(1+14*kap)),kap).all_coeffs()[0] % p == 0
 for coeff in sp.Poly(sp.expand(Aq-(1+14*kap)),kap).all_coeffs():
     assert int(coeff)%p==0
 for coeff in sp.Poly(sp.expand(Cpq-17),kap).all_coeffs():
@@ -45,7 +41,6 @@ for coeff in sp.Poly(sp.expand(Cpq-17),kap).all_coeffs():
 for coeff in sp.Poly(sp.expand(Eq-(16+9*kap)),kap).all_coeffs():
     assert int(coeff)%p==0
 
-# Normalized gate formulas modulo 23.
 r=sp.symbols("r")
 plus_norm=sp.expand(r*Aq+2*Cpq)
 minus_norm=sp.expand(r*Aq-2*Eq)
@@ -56,13 +51,41 @@ for coeff in sp.Poly(sp.expand(plus_norm-plus_target),kap,r).coeffs():
 for coeff in sp.Poly(sp.expand(minus_norm-minus_target),kap,r).coeffs():
     assert int(coeff)%p==0
 
-# The shared forbidden correction kappa=18.
+# kappa=18 is the projective pole; kappa=11 hits the primitive unit boundary.
 assert (1+14*18)%p==0
 assert 11%p!=0
 assert (-9-18*18)%p!=0
+assert ((-11)*pow(1+14*11,-1,p))%p == (-2)%p
+assert (9+18*11)%p==0
 
 # ---------------------------------------------------------------------------
-# 3. Prefix defect normalized equation at p^2
+# 3. The two Mobius charts are bijections onto rho != 0,-2
+# ---------------------------------------------------------------------------
+kap_domain=[k for k in range(p) if k not in (11,18)]
+rho_target=set(range(1,p))-{p-2}
+
+plus_image={(-11*pow(1+14*k,-1,p))%p for k in kap_domain}
+minus_image={((9+18*k)*pow(1+14*k,-1,p))%p for k in kap_domain}
+assert plus_image==rho_target
+assert minus_image==rho_target
+assert len(plus_image)==21
+assert len(minus_image)==21
+
+# Inverse formulas.
+for rr in rho_target:
+    kp=(-(rr+11)*pow(14*rr,-1,p))%p
+    km=((9-rr)*pow(14*rr-18,-1,p))%p
+    assert kp in kap_domain and km in kap_domain
+    assert (-11*pow(1+14*kp,-1,p))%p==rr
+    assert ((9+18*km)*pow(1+14*km,-1,p))%p==rr
+
+# Blow-up Jacobian is a unit throughout the genuine depth>=2 chart.
+for k in kap_domain:
+    J=(-9*(1+14*k))%p
+    assert J!=0
+
+# ---------------------------------------------------------------------------
+# 4. Prefix defect normalized equation at p^2
 # ---------------------------------------------------------------------------
 n1,t=sp.symbols("n1 t")
 for n0 in (4,19):
@@ -76,17 +99,28 @@ for n0 in (4,19):
         assert int(coeff)%p==0
 
 # ---------------------------------------------------------------------------
-# 4. Decimal length lifting modulo 23^2
+# 5. Decimal length lifting modulo 23^2
 # ---------------------------------------------------------------------------
 mod=p*p
 assert sp.n_order(10,mod)==506
 assert pow(10,22,mod)==1+8*p
 
+length_data={}
 for M0,h0 in ((5,15),(16,5)):
+    vals=[]
     for j in range(23):
         M=M0+22*j
         N=pow(10,M,mod)
         h=((N*N-16)//p)%p
         assert h==(h0+3*j)%p
+        # q1=0 when v_23(c_Q)>=2
+        k=((16*h+22)*pow(9,-1,p))%p
+        vals.append((M%506,k))
+    length_data[M0]=vals
 
-print("OK: A2 pure-cQ generic derivative route is smooth; fixed 23 has explicit p^2 compatibility")
+forced_depth_one=[]
+for vals in length_data.values():
+    forced_depth_one += [M for M,k in vals if k in (11,18)]
+assert sorted(forced_depth_one)==[170,236,423,489]
+
+print("OK: A2 fixed-23 chart corrected: depth-one vs depth-two is explicit, Mobius charts are bijective, and the blow-up is smooth")
