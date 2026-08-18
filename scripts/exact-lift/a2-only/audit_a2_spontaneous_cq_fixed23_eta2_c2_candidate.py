@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Deterministic auditor for the final A2 fixed-23 eta=2 c=2 type.
 
-This script NEVER factors S_lambda(c_u).  A caller supplies a proposed source
-factor theta and the two finite orientation choices.  The script reconstructs
-all remaining integers and either rejects the tuple or prints the unique
-candidate together with its actual 23-common depth.
+This script NEVER factors S_lambda(c_u) or c_u. A caller supplies a proposed
+source factor theta after the source-content prime-support certificate, plus
+the two finite orientation choices. The script reconstructs all remaining
+integers and either rejects the tuple or prints the unique candidate together
+with its actual 23-common depth.
 """
 
 from __future__ import annotations
@@ -113,10 +114,10 @@ def audit(lam: int, cu: int, theta: int, gaussian_sign: int,
           cminus: int) -> Candidate:
     if lam < 1 or (lam - 8) % 11:
         fail("lambda must be positive and congruent to 8 mod 11")
-    if cu <= 0 or cu % 2 == 0 or cu % 5 == 0:
-        fail("c_u must be a positive odd 5-unit")
-    if any(p % 4 != 1 for p in _prime_factors(cu)):
-        fail("every prime factor of c_u must be 1 mod 4")
+    if cu <= 0 or cu % 2 == 0 or cu % 5 == 0 or cu % 4 != 1:
+        fail("c_u must be a positive odd 5-unit with c_u=1 mod 4")
+    # Full prime-support certification for c_u belongs to the source-content
+    # stage. This reconstruction auditor intentionally performs no factorization.
 
     if CQ % cminus:
         fail("c_- must divide 1587")
@@ -135,14 +136,8 @@ def audit(lam: int, cu: int, theta: int, gaussian_sign: int,
         fail("theta must be positive and odd")
     if S % theta:
         fail("theta does not divide S_lambda(c_u)")
-    if not (39 * L < 2 * theta < (79 * L) // 2 * 2):
-        # Avoid a floating comparison; the intended strict upper bound is
-        # theta < 79 L / 4.
-        if not (2 * theta > 39 * L and 4 * theta < 79 * L):
-            fail("theta is outside the centered 19.5--19.75 L_* slot")
-    # Exact version of the slot check (kept separately for readability).
     if not (2 * theta > 39 * L and 4 * theta < 79 * L):
-        fail("theta is outside the centered source slot")
+        fail("theta is outside the centered 19.5--19.75 L_* slot")
 
     varrho = 20 * L - theta
     if not (4 * varrho > L and 2 * varrho < L):
@@ -255,10 +250,9 @@ def audit(lam: int, cu: int, theta: int, gaussian_sign: int,
         fail("X reconstruction is non-integral")
     X = xnum // (cminus * cminus)
 
-    H0_num = g * g
-    if H0_num % 2:
+    if g * g % 2:
         fail("g^2/2 is non-integral")
-    H0 = H0_num // 2 - 5 * CQ * a2
+    H0 = g * g // 2 - 5 * CQ * a2
     ynum = H0 + g * a3
     if ynum <= 0 or ynum % (cplus * cplus):
         fail("Y reconstruction is non-integral")
@@ -304,25 +298,6 @@ def audit(lam: int, cu: int, theta: int, gaussian_sign: int,
         a3=a3, a2=a2, b2=b2, q=q, C=C, D=D, X=X, Y=Y,
         depth23=depth23, sigma=sigma,
     )
-
-
-def _prime_factors(n: int) -> list[int]:
-    """Trial division for c_u only; source-window c_u values are modest in finite tests.
-
-    This function deliberately does NOT factor S_lambda(c_u).
-    """
-    out: list[int] = []
-    d = 2
-    x = n
-    while d * d <= x:
-        if x % d == 0:
-            out.append(d)
-            while x % d == 0:
-                x //= d
-        d = 3 if d == 2 else d + 2
-    if x > 1:
-        out.append(x)
-    return out
 
 
 def main() -> None:
