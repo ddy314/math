@@ -1,6 +1,6 @@
 # `A_2`-only 分支
 
-这是 `A_2` 分支的唯一规范编辑入口。原先按日期散落的专题笔记已经按依赖合并为四个层次；不要再在本目录新增同一主题的平行副本。
+这是 `A_2` 分支的唯一规范编辑入口。原先按日期散落的专题笔记已经按依赖合并为五个层次；不要再在本目录新增同一主题的平行副本。
 
 ## 阅读顺序
 
@@ -8,6 +8,7 @@
 2. [`phase-and-defect.md`](phase-and-defect.md)：decimal ellipse → finite-defect remainder → 两个低商状态的 angle squeeze；文件内部按三个来源的依赖顺序排列。
 3. [`hensel.md`](hensel.md)：source 双 Hensel/resultant 恒等式及 source-excess 审计。
 4. [`endpoint-lattice.md`](endpoint-lattice.md)：2026-08-17 的 endpoint shell、height split、Gaussian allocation 和降级结论。
+5. [`prime-source.md`](prime-source.md)：在 endpoint lattice 的最终 prime-source 层继续吸收固定 `11,23` Hensel 例外，并把 special `23` height carrier 压成 `M mod 22` 的有限同余类。
 
 ## 当前状态
 
@@ -160,8 +161,11 @@ third branch 则吸收完整 \(n_p\) 深度。若该素数确实接触
 \mathscr S_0=T(K^2-26)-(2K-9)(2a_3+9T)
 \]
 强迫 \(K^2\equiv26\pmod p\)：第一 valuation branch 因而完全消失，
-原无界 exceptional primes 缩成固定的 \(11,23\)。尚缺排除这两个
-固定素数的无限 Hensel 深度，并关闭两条 generic residual-unit 核。
+原无界 exceptional primes 缩成固定的 \(11,23\)。`prime-source.md`
+进一步证明这两个 fixed primes 均不再构成独立开放 Hensel 核：special
+`11` 必有 \(11\mid c_+\)、\(11\nmid W_q\)，其 middle depth 恰为
+\(2v_{11}(c_Q)\)；special `23` 必有 \(23\nmid c_Q\)，并满足
+\(v_{23}(W_q)=v_{23}(H_0)\)，所以完全并入已有 height channel。
 在 \(p\nmid c_Q\) 的 generic 层，\(f\)-侧则取互补局部类型：
 \[
 K^2-26\equiv
@@ -177,8 +181,9 @@ vector；这些条件尚未形成最终矛盾。
 \[
 v_p(KD-N)=v_p(c_Qq).
 \]
-\(11\) 只剩固定的 middle/third 双因子预算，\(23\) 只剩固定的
-right-factor 增深预算。
+此前保留的 `11` middle/third 与 `23` right-factor 两条 fixed budgets
+现已由 `prime-source.md` 吸收到既有 square-allocation / height 两条通道，
+不再单列为新的无界例外。
 更强地，canonical 两因子等式在整数层直接给出
 \[
 q\mid DK-N,\qquad
@@ -193,10 +198,15 @@ prefix gcd
 \]
 quotient \((DK-N)/q\) 的每个非 \(3\) inert prime 又以完全相同
 深度整除真实 sphere height \(H_0\)，并强迫
-\((N_0/r)=-1\)；这一 height channel 仍待排除。
+\((N_0/r)=-1\)；这一 height channel 仍待排除。对 special `23`
+height carrier，新的纯十进制化还强迫
+\[
+M\equiv0,1,2,8,9,10,12,13,15,17,19,20\pmod{22},
+\]
+从而删除其余十个长度同余类。
 此外 CRT 商并非小商：严格有 \(Q_\Delta\ge5K\)。因此 additive CRT
 路线若继续，必须控制新的无界大商结构。
 
 ## 可复核脚本
 
-分支专用脚本位于 [`scripts/exact-lift/a2-only/`](../../../../../scripts/exact-lift/a2-only/)；它们验证恒等式和明确的有限/局部不等式，不是全局证明器。
+分支专用脚本位于 [`scripts/exact-lift/a2-only/`](../../../../../scripts/exact-lift/a2-only/)；它们验证恒等式和明确的有限/局部不等式，不是全局证明器。新增 `check_a2_prime_source.py` 精确复核 special `23` 的 `M mod 22` residue 表。
