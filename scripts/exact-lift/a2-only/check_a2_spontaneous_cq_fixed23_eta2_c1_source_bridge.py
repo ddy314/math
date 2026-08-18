@@ -57,9 +57,10 @@ for kappa in range(p):
         plus_records.append((kappa, rho, q1, h, 16 + 22 * j))
 
     rho = minus_rho(kappa)
-    # minus canonical orientation requires rho to be a unit; rho=-2 is also
-    # excluded by the opposite source factor f being a unit in the pure-cQ setup.
-    if rho is not None and rho not in (0, p - 2):
+    # minus canonical orientation only requires the source ratio rho to be a unit.
+    # The Möbius chart itself never takes the value rho=-2.
+    if rho is not None and rho != 0:
+        assert rho != p - 2
         # rho^2=21 q1.
         q1 = (rho * rho * pow(21, -1, p)) % p
         h = ((9 * kappa + 16 * q1 - 22) * pow(16, -1, p)) % p
