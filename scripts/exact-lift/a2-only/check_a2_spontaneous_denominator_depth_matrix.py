@@ -30,19 +30,22 @@ z0 = -sp.Rational(9,2)*t
 Rs = sp.expand(400*x**2*s*(s-9*t) - Nbar*(x+2)**2)
 assert sp.factor(S100.subs({w:w0, z:z0}) - (x+2)**2*Rs/16) == 0
 
-# Integer scaling of the sphere remainder.
-subs_dec = {
-    x:B/N,
-    y:K/N-9,
-    t:1/N,
-}
-Nbar_dec = sp.expand(Nbar.subs(subs_dec))
-# N0 = N^2*Nbar/100 and Q=N(x+2).
-Rs_dec = sp.factor(Rs.subs(subs_dec).subs(Nbar_dec, 100*N0/N**2))
-# Substitute x+2=Q/N explicitly after x=B/N.
-Rs_dec = sp.factor(Rs_dec.subs(B/N + 2, Q/N))
-expected = 100*(4*B**2*K*(K-9)-Q**2*N0)/N**4
-assert sp.cancel(Rs_dec - expected) == 0
+# Integer scaling of the sphere remainder.  Use independent abstract symbols
+# so the checker does not depend on SymPy recognizing already-expanded
+# Nbar or (x+2) as replaceable subexpressions.
+X, S, TAU, NBAR = sp.symbols("X S TAU NBAR")
+Rs_abs = 400*X**2*S*(S-9*TAU) - NBAR*(X+2)**2
+Rs_dec = sp.cancel(Rs_abs.subs({
+    X: B/N,
+    S: K/N,
+    TAU: 1/N,
+    NBAR: 100*N0/N**2,
+}))
+expected_B = 100*(4*B**2*K*(K-9) - (B+2*N)**2*N0)/N**4
+assert sp.cancel(Rs_dec - expected_B) == 0
+# Q is exactly B+2N, so this is the claimed Q-form.
+expected_Q = 100*(4*B**2*K*(K-9) - Q**2*N0)/N**4
+assert sp.cancel(expected_Q.subs(Q, B+2*N) - expected_B) == 0
 
 # Exact f-prefix bridge.
 Psi = B**2*(K**2-26) - Q**2*N0
