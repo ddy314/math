@@ -2,7 +2,7 @@
 
 > **依赖：** `source-spontaneous-bridge.md`、`hensel.md`、`decimal-discriminant.md`。
 >
-> **严格状态：**本文继续处理 moving external double-root 与 source excess 的可能交集。把 source prefix contact `D_src`、linear prefix root `36P-11` 与固定 quartic `R_SW` 联立后，所有 `a_2,b_2,x,r` 都可消去，只剩 `s=36·10^{M-1}` 的固定四次 length polynomial。其 genuine inert repeated-root gate 最终只剩 `p=19`，并进一步强迫 `M mod 18` 只取两类。本文仍**不宣称 A2 全局关闭**。
+> **严格状态：**本文继续处理 moving external double-root 与 source excess 的可能交集。把 source prefix contact `D_src`、linear prefix root `36P-11` 与固定 quartic `R_SW` 联立后，所有 `a_2,b_2,x,r` 都可消去，只剩 `s=36·10^{M-1}` 的固定四次 length polynomial。其 genuine inert **bad-reduction gate** 最终只剩 `p=19`；模 `19` 的实际有限根仍然是 simple roots，并进一步强迫 `M mod 18` 只取两类。本文仍**不宣称 A2 全局关闭**。
 
 ---
 
@@ -114,7 +114,7 @@ s:=36S.
 
 ---
 
-## 3. `已严格完成`：length polynomial 的 repeated-root gate 是固定有限集
+## 3. `已严格完成`：length polynomial 的 discriminant / bad-reduction gate 是固定有限集
 
 (2.2) 的整数判别式因子分解为
 
@@ -147,7 +147,9 @@ s:=36S.
 
 - `p=7,11` 已由 `D_dec=55T^2Q^2-49b_3^2` 的单位性直接排除；
 - `p=5,101,748057` 不是 `3 mod 4` inert gate；
-- 因而判别式中只需继续检查 `19,45503`。
+- 因而 quartic 的 discriminant / degree-drop 审计只需继续检查 `19,45503`。
+
+这里要区分两个概念：`p` 整除整数判别式意味着 degree-4 模型发生 bad reduction，**不自动等于实际有限根为重根**；`p=19` 正是这种区别必须保留的例子。
 
 ---
 
@@ -191,7 +193,7 @@ external discriminant-zero 条件
 \tag{4.3}
 \]
 
-所以 source/external length polynomial 的 genuine inert repeated-root gate 最终只剩
+所以 source/external length polynomial 的 genuine inert bad-reduction gate 最终只剩
 
 \[
 \boxed{p=19.}
@@ -202,9 +204,9 @@ external discriminant-zero 条件
 
 ---
 
-## 5. `已严格完成`：固定 `19` 只允许两个 `M mod 18` 类
+## 5. `已严格完成`：固定 `19` 退化为二次式，但两个有限根仍然 simple
 
-模 `19` 化简 (2.2)，高次 content 自动消去，得到
+模 `19` 化简 (2.2)，高次 leading content 自动消去，实际有限多项式变成
 
 \[
 \boxed{
@@ -214,7 +216,9 @@ external discriminant-zero 条件
 \tag{5.1}
 \]
 
-因此 `p=19` 的 source/external overlap 强迫
+两个根 `2,8` 不同，因此 `19` 虽整除 degree-4 整数判别式，实际有限根仍为 simple roots；它只是**degree-drop bad-reduction gate**，不是新的 repeated-root Hensel tree。
+
+`p=19` 的 source/external overlap 强迫
 
 \[
 s=36\cdot10^{M-1}\equiv2\text{ 或 }8\pmod{19}.
@@ -248,8 +252,6 @@ M\equiv8\text{ 或 }10\pmod{18}.
 }
 \tag{5.3}
 \]
-
-所以唯一 remaining repeated-length inert gate `19` 也已经被压成两个固定十进制长度类。
 
 还可恢复对应 source prefix roots：
 
@@ -290,10 +292,11 @@ p\mid\mathcal L_{SW}(36\cdot10^{M-1}).
 其中：
 
 1. `R_SW` 对所有 genuine inert external primes 都是 simple-root；
-2. `L_SW` 也对所有这些 primes 都是 simple-length root，唯一 fixed exception `19` 只允许
+2. `L_SW` 的所有**实际有限根**对 genuine inert external primes 也都是 simple：普通 primes 由 discriminant 排除重根，唯一 bad-reduction prime `19` 的实际 reduction 是 `(s-2)(s-8)`；
+3. `19` 还只允许
    \[
    M\equiv8,10\pmod{18};
    \]
-3. 因此 source/external overlap 已不再有二维 source Hensel phase，也没有移动 repeated-length branch。
+4. 因此 source/external overlap 已不再有二维 source Hensel phase，也没有任何 surviving repeated-length branch。
 
-这仍未证明交集为空。下一步若继续 source 线，应研究 simple root `L_SW(36·10^{M-1})` 与 `10` 的乘法轨道是否能和 `D_src` 的完整 `p^s` 深度长期同步；固定 `19` 则可以直接做 `19`-进二阶提升。
+这仍未证明交集为空。下一步若继续 source 线，应研究 simple root `L_SW(36·10^{M-1})` 与 `10` 的乘法轨道是否能和 `D_src` 的完整 `p^s` 深度长期同步；固定 `19` 则可以直接做两条 simple root 的 `19`-进二阶提升。
