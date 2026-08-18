@@ -1,6 +1,6 @@
 # `A_2`-only 分支
 
-这是 `A_2` 分支的唯一规范编辑入口。原先按日期散落的专题笔记已经按依赖合并为五个层次；不要再在本目录新增同一主题的平行副本。
+这是 `A_2` 分支的唯一规范编辑入口。原先按日期散落的专题笔记已经按依赖合并为六个层次；不要再在本目录新增同一主题的平行副本。
 
 ## 阅读顺序
 
@@ -9,6 +9,7 @@
 3. [`hensel.md`](hensel.md)：source 双 Hensel/resultant 恒等式及 source-excess 审计。
 4. [`endpoint-lattice.md`](endpoint-lattice.md)：2026-08-17 的 endpoint shell、height split、Gaussian allocation 和降级结论。
 5. [`prime-source.md`](prime-source.md)：在 endpoint lattice 的最终 prime-source 层继续吸收固定 `11,23` Hensel 例外，并把 special `23` height carrier 压成 `M mod 22` 的有限同余类。
+6. [`primitive-reduction.md`](primitive-reduction.md)：识别 `W_q` 为拼接分子/球面高度的 primitive gcd 与 reduced numerator，审计 height character，并分离 q/f saturation 与 height channel 的交集。
 
 ## 当前状态
 
@@ -166,12 +167,40 @@ third branch 则吸收完整 \(n_p\) 深度。若该素数确实接触
 `11` 必有 \(11\mid c_+\)、\(11\nmid W_q\)，其 middle depth 恰为
 \(2v_{11}(c_Q)\)；special `23` 必有 \(23\nmid c_Q\)，并满足
 \(v_{23}(W_q)=v_{23}(H_0)\)，所以完全并入已有 height channel。
+`primitive-reduction.md` 进一步证明
+\[
+H_0=c_uW_q,
+\qquad
+W_q=\gcd(\alpha,H_0),
+\qquad
+\gcd(\alpha,\beta)=\omega,
+\]
+从而 `W_q` 正是原拼接分数最低项的 reduced numerator。它还证明
+\[
+p\mid W_q,\quad p\mid\mathscr L_{23}
+\Longrightarrow
+2K-9\equiv0\pmod p.
+\]
+因此 q-carrier 与 height channel 的交集只可能是 `p=23`；对所有
+`p\ne11,23` 的 generic q-carrier，原来的 `c_Q` overlap 也被完全排除：
+\[
+v_p(W_q)=v_p(c_Q)=0.
+\]
 在 \(p\nmid c_Q\) 的 generic 层，\(f\)-侧则取互补局部类型：
 \[
 K^2-26\equiv
 \left(\frac{2c_Q}{2^m5^\lambda g}\right)^2N_0\pmod p\ne0.
 \]
-\(p\mid c_Q\) 时它退化回 \(K^2\equiv26\)，恰是已隔离的 overlap。
+若 f-carrier 同时进入 height channel，则 `primitive-reduction.md` 进一步强迫
+\[
+\left(\frac p{23}\right)=-1,
+\qquad
+\left(\frac p5\right)\left(\frac p{11}\right)=1,
+\qquad
+2K\equiv9\pmod p,
+\]
+且 `p\notin\{3,5,11,23\}`。这仍不是空性，但已经把 q/f/height 的交集
+从模糊 prime source 压成固定的 reciprocity signature。
 \(q\)-侧根还通过
 \(J_{101}^2\equiv101N_0-26\pmod p\) 接回真实 prefix Gaussian
 vector；这些条件尚未形成最终矛盾。
@@ -196,10 +225,20 @@ prefix gcd
 \gcd(f,\Psi_f),\quad
 \Psi_f=b_2^2(K^2-26)-Q^2N_0>0.
 \]
-quotient \((DK-N)/q\) 的每个非 \(3\) inert prime 又以完全相同
-深度整除真实 sphere height \(H_0\)，并强迫
-\((N_0/r)=-1\)；这一 height channel 仍待排除。对 special `23`
-height carrier，新的纯十进制化还强迫
+`primitive-reduction.md` 还审计出：对于任意非 `3` inert prime
+\(r\mid W_q\)，此前记录的
+\[
+\left(\frac{N_0}{r}\right)=-1
+\]
+会由 canonical factor equality 自动推出，所以它不是第二条独立
+height obstruction，后续不得重复收费。真正新增的 height 信息是
+`W_q` 的 reduced-numerator 身份、saturation 交集律，以及去掉 balanced
+`3` 后
+\[
+W_q/3^\delta\equiv1\pmod4,
+\]
+即 non-`3` inert odd carriers 的总体 parity 为偶。
+对 special `23` height carrier，纯十进制化还强迫
 \[
 M\equiv0,1,2,8,9,10,12,13,15,17,19,20\pmod{22},
 \]
@@ -209,4 +248,4 @@ M\equiv0,1,2,8,9,10,12,13,15,17,19,20\pmod{22},
 
 ## 可复核脚本
 
-分支专用脚本位于 [`scripts/exact-lift/a2-only/`](../../../../../scripts/exact-lift/a2-only/)；它们验证恒等式和明确的有限/局部不等式，不是全局证明器。新增 `check_a2_prime_source.py` 精确复核 special `23` 的 `M mod 22` residue 表。
+分支专用脚本位于 [`scripts/exact-lift/a2-only/`](../../../../../scripts/exact-lift/a2-only/)；它们验证恒等式和明确的有限/局部不等式，不是全局证明器。`check_a2_prime_source.py` 精确复核 special `23` 的 `M mod 22` residue 表；`check_a2_primitive_reduction.py` 复核新的固定系数与二次互反化简。
