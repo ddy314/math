@@ -2,7 +2,7 @@
 
 > **依赖：** `spontaneous-cq-fixed23-eta2-c2-blowup-nogo.md`、`spontaneous-cq-fixed23-eta2-c2-source-window.md`、`spontaneous-cq-relative-depth-nogo.md`。
 >
-> **严格状态：**c=2 high-2 blow-up将 normalized denominator `q_2=Q/23^2` 当作局部 correction coordinate，这足以证明 local system smooth；真实 arithmetic orbit还满足 exact coordinate relation `q_2=3*2^(2lambda+1)q` 与 `rho=q5^lambda/c_u`。本文把这条 global relation代回 high-2 bridge，得到 orientation-specific 的 `c_u mod23` 必要条件。它严格删除 `lambda=52` 和 `lambda=74` 的全部低 source states，并把 `lambda=63` 唯一保留为 `c_-` orientation。这是 high-2 equality提供的新增 global synchronization，不属于此前 source-tail quotient shadow。
+> **严格状态：**c=2 high-2 blow-up将 normalized denominator `q_2=Q/23^2` 当作局部 correction coordinate，这足以证明 local system smooth；真实 arithmetic orbit还满足 exact coordinate relation `q_2=3*2^(2lambda+1)q` 与 `rho=q5^lambda/c_u`。本文把这条 global relation代回 high-2 bridge，得到 orientation-specific 的 `c_u mod23` **second-layer survival 必要条件**。若真实 state 已进入 fixed-23 first layer但不满足该 residue，则 common depth严格停在 `1`；这并不排除 arithmetic state。低高度中，`lambda=52` 与 `lambda=74` 在两种 orientation 下都强迫 `d_23=1`，`lambda=63` 的 plus orientation强迫 `d_23=1`，minus orientation才可能继续进入第二层。这是 high-2 equality提供的新增 global synchronization，不属于此前 source-tail quotient shadow。
 
 ---
 
@@ -56,7 +56,7 @@ q_2
 
 ---
 
-## 2. high-2 bridge直接固定 `c_u mod23`
+## 2. high-2 bridge直接固定 second-layer 的 `c_u mod23`
 
 c=2 high-2 blow-up 已证明：
 
@@ -104,7 +104,7 @@ c=2 high-2 blow-up 已证明：
 \pmod{23}.}
 \tag{2.2+}
 
-因此真实 high-2 state并不能任意选择 blow-up coordinate `q_2`；它必须同时落在由 source content固定的 global orbit上。
+因此真实 high-2 state并不能任意选择 blow-up coordinate `q_2`；若 common depth想从第一层继续到第二层，它必须同时落在由 source content固定的 global orbit上。
 
 ---
 
@@ -134,7 +134,7 @@ additive gate唯一给
 =\frac{9+18\kappa}{1+14\kappa}.}
 \tag{3.1-}
 
-将其代入 (2.2±)，得到 source-content residue：
+将其代入 (2.2±)，得到 common depth `>=2` 的 source-content 必要 residue：
 
 ### plus / `23^2|c_+`
 
@@ -180,7 +180,14 @@ c_u
 \pmod{23}.}
 \tag{3.3-}
 
-这是当前 type 的 orientation-specific source-content gate。
+所以
+
+\[
+\boxed{
+\text{若 first-layer state 不满足对应 (3.2)，则 }d_{23}=1.}
+\tag{3.4}
+
+满足 (3.2) 只说明 second-layer survival **尚未被这条 global gate排除**；它不能单独推出 `d_23>=2`。
 
 ---
 
@@ -221,22 +228,22 @@ M=2\lambda=16+22j
 \[
 \kappa=11\Longleftrightarrow\lambda\equiv118\pmod{253}
 \]
-已经强迫 `d_23=1`，不进入本文 second-layer source-content gate。
+已经由 additive gate直接强迫 `d_23=1`，不进入本文 second-layer source-content gate。
 
 ---
 
-## 5. low-height source states被严格筛掉
+## 5. low-height depth ledger
 
-source-window proof已给：
+source-window proof已给最初 source-content possibilities：
 
 \[
 (\lambda,c_u)
 =(52,29),
 (63,337),
 (74,3917),
-(74,3929)
+(74,3929).
 \]
-是最初可能 states。
+下面所有结论都只讨论 fixed-23 common depth；不宣称 arithmetic state本身不存在。
 
 ### `lambda=52`
 
@@ -259,11 +266,13 @@ prefix给
 \[
 29\equiv6\pmod{23}.
 \]
-故
+两种 canonical orientation都不能进入 second layer。因此若该 arithmetic state存在：
 
 \[
-\boxed{\lambda=52\text{ 全排除}.}
+\boxed{\lambda=52\Longrightarrow d_{23}=1.}
 \tag{5.1}
+
+这是 orientation-independent odd-depth certification。
 
 ### `lambda=63`
 
@@ -284,13 +293,24 @@ prefix给
 \[
 337\equiv15\pmod{23}.
 \]
-所以
+所以：
 
 \[
 \boxed{
-\lambda=63,c_u=337
-\text{ 只允许 }23^2\mid c_- .}
-\tag{5.2}
+23^2\mid c_+
+\Longrightarrow d_{23}=1,}
+\tag{5.2+}
+
+而
+
+\[
+\boxed{
+23^2\mid c_-
+\Longrightarrow
+\text{second-layer survival仍可能发生}.}
+\tag{5.2-}
+
+后者不是 `d_23>=2` 的充分条件；仍需检查真实下一 correction。
 
 ### `lambda=74`
 
@@ -314,57 +334,37 @@ prefix给
 3929\equiv19
 \pmod{23}.
 \]
-两者均失败。因此
+两个 source contents在两种 orientations 下都不能进入 second layer。因此若 arithmetic state存在：
 
 \[
-\boxed{\lambda=74\text{ 全排除}.}
+\boxed{\lambda=74\Longrightarrow d_{23}=1.}
 \tag{5.3}
+
+同样是 orientation-independent odd-depth certification。
 
 ---
 
-## 6. updated height frontier
+## 6. updated low-height parity ledger
 
-source real window原先给
+source real window仍给
 
 \[
 \lambda\ge52.
 \]
-本文把最底层推进为：
+结合本文与旧 `kappa=11,18` certification，最初四个 relevant heights的 fixed-23 ledger为
 
 \[
 \boxed{
-\lambda=52\text{ impossible},
-\qquad
-\lambda=63\text{ only minus orientation},
-\qquad
-\lambda=74\text{ impossible}.}
+\begin{array}{c|c}
+\lambda&\text{fixed-23 conclusion if an arithmetic state exists}\\ \hline
+52&d_{23}=1\\
+63&c_+:d_{23}=1;\quad c_-:\text{may deepen}\\
+74&d_{23}=1\\
+85&d_{23}=1\quad(\kappa=18)
+\end{array}}
 \tag{6.1}
 
-下一 lattice height为
-
-\[
-\lambda=85,
-\]
-它恰属于
-
-\[
-\kappa=18
-\]
-的 fixed-23 forced depth-1 class。因此即便存在 arithmetic state，已有
-
-\[
-\boxed{d_{23}=1.}
-\tag{6.2}
-
-所以在 height ledger 中，最初四个 possible `lambda` levels现在分别为：
-
-\[
-\boxed{
-52:\emptyset,
-\quad63:\text{single 23 orientation},
-\quad74:\emptyset,
-\quad85:\text{fixed odd }23\text{-depth}.}
-\tag{6.3}
+所以 `52,74,85` 已经在 pure-23 parity ledger 中完全结算为 odd depth；只有 `lambda=63` 的 minus orientation在这些最低层中仍需要 deeper-depth audit。
 
 ---
 
@@ -379,4 +379,10 @@ source real window原先给
 
 它不是 `theta/omega` quotient identity的重写。
 
-对无界高度，它把 source-content real interval再切到每个 orientation唯一的 `mod23` class，但单独尚不能证明所有 classes为空。其主要用途是：先筛 `c_u`，再进入 centered source-divisor / full canonical CRT certificate。
+逻辑方向必须保持为：
+
+\[
+\boxed{d_{23}\ge2\Longrightarrow c_u\text{ 满足对应 residue}.}
+\]
+
+其逆命题未证明。后续 higher-depth source-content Hensel branch应沿同一方向使用：每升一层都会进一步固定 `c_u` 的 `23`-adic digits；某一层 residue失败时，才可在“前一层已进入”的条件下判定 common depth精确停止。
