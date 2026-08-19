@@ -26,11 +26,11 @@ expr=sp.expand(b3*f-cu*Fdec)
 expr=sp.factor(expr.subs(D,(T*Q+b3)/c))
 assert expr == 0
 
-# Full source Bezout itself.
+# Full source Bezout on the actual decimal plane: U=DK-N and cD=beta=TQ+b3.
 source=cu**2*f*Rplus-(D*f*BW-D*z*AH**2*K**2+K*cu**2*LJB)
-# It becomes exact after U=DK-N; introduce N through U relation for the check.
 N=sp.symbols("N")
-source=sp.factor(source.subs(U,D*K-N))
+source=source.subs(U,D*K-N)
+source=sp.factor(sp.together(source.subs(D,(T*Q+b3)/c)))
 assert source == 0
 
 # Fully-decimal identity.  Substitute actual beta=TQ+b3 by D=(TQ+b3)/c.
