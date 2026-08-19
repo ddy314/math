@@ -237,7 +237,7 @@ T\mathcal U_\Omega
 \[
 2\mathcal U_\Omega
 \equiv-\frac{4A^2Qb_3}{T}
-\pmod p.}
+\pmod p.
 \tag{5.4}
 
 source denominator ratio为
@@ -290,7 +290,7 @@ z=q5^\lambda,
 \frac{(\Theta_{\rm dec}/p^e)/(\mathcal O_+/p^e)}
 {2N_0\mathcal U_\Omega}
 \left(\frac{c_u}{B}\right)^2
-\pmod p.}
+\pmod p.
 \tag{6.1}
 
 这里两个 `T` 已经抵消。
