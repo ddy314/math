@@ -2,7 +2,7 @@
 
 > **依赖：** `spontaneous-crt-quotient-endpoint-parameterization.md`、`spontaneous-crt-quotient-source-scale.md`、`endpoint-lattice.md` §§13–16。
 >
-> **严格状态：**此前已把 `Q_Delta` 的绝对无界尺度正规化到 endpoint lattice 参数 `(M,eta,d,c_Q)`。本文进一步使用 high-2 Gaussian factor 的 exact slot equality 消去 `c_Q,w`，得到一个真正与 Gaussian side 同尺度的 normalized CRT quotient `Q_{Delta,G}`。在 reflection high-2 lattice 中，minus/high factor 与 plus/high factor 分别强迫 `Q_{Delta,G}` 落入两个严格不交的固定实区间；因此 `Q_Delta` 本身已经成为 Gaussian side 的 orientation reader。本文没有把该 orientation 与 additive CRT residue / source Hensel phase联立到矛盾，因此不关闭 A2。
+> **严格状态：**此前已把 `Q_Delta` 的绝对无界尺度正规化到 endpoint lattice 参数 `(M,eta,d,c_Q)`。本文进一步使用 high-2 Gaussian factor 的 exact slot equality 消去 `c_Q,w`，得到一个真正与 Gaussian side 同尺度的 normalized CRT quotient `Q_{Delta,G}`。在 reflection high-2 lattice 中，minus/high factor 与 plus/high factor 分别强迫 `Q_{Delta,G}` 落入两个严格不交的固定实区间；因此 `Q_Delta` 本身已经成为 Gaussian side 的 orientation reader。进一步把阈值 `Q_{Delta,G}=1` 乘回整数平面，得到奇整数 sign carrier `O_Delta=2^{A_G}Q_Delta-5^{B_G}k_h^3`，其符号与 Gaussian side完全等价。本文没有把该 sign carrier 与 additive CRT residue / source Hensel phase联立到矛盾，因此不关闭 A2。
 
 ---
 
@@ -131,8 +131,7 @@ endpoint short windows给
 另一方面 Gaussian slot equality `endpoint-lattice.md` (16.2) 可写为
 
 \[
-\boxed{
-c_Qk_h
+\boxed{c_Qk_h
 =2^{\eta+2}5^{\eta+1-d}
 \frac{\sigma_\varepsilon w}{u},}
 \tag{3.2}
@@ -356,7 +355,7 @@ d<\frac{9M}{77},
 \[
 \boxed{
 \varepsilon=-1
-\Longrightarrow
+\iff
 \mathcal Q_{\Delta,G}>1,}
 \tag{7.1-}
 \]
@@ -364,32 +363,99 @@ d<\frac{9M}{77},
 \[
 \boxed{
 \varepsilon=+1
-\Longrightarrow
+\iff
 \mathcal Q_{\Delta,G}<1.}
 \tag{7.1+}
 \]
 
-反过来，在当前 reflection high-2 lattice中 high factor只有这两侧，因此
+所以 additive CRT quotient 与 Gaussian allocation 不再只是“共享同一 `(eta,d,c_Q)` 参数”：`Q_Delta` 经过 canonical lattice normalization 后直接恢复 Gaussian side orientation。
+
+---
+
+## 8. integer sign carrier
+
+令
+
+\[
+\boxed{
+A_G:=\frac{M+5\eta}{2}+8,
+\qquad
+B_G:=3M-d-\eta-3.}
+\tag{8.1}
+\]
+
+当前 lattice 中二者均为整数，且 `A_G>=1,B_G>=1`。定义纯整数
+
+\[
+\boxed{
+\mathscr O_\Delta
+:=2^{A_G}Q_\Delta-5^{B_G}k_h^3.}
+\tag{8.2}
+\]
+
+由 (4.1)：
+
+\[
+\frac{\mathscr O_\Delta}{5^{B_G}k_h^3}
+=\mathcal Q_{\Delta,G}-1.
+\tag{8.3}
+\]
+
+因此 (7.1±) 等价于
 
 \[
 \boxed{
 \varepsilon=-1
 \iff
-\mathcal Q_{\Delta,G}>1,
-\qquad
-\varepsilon=+1
-\iff
-\mathcal Q_{\Delta,G}<1.}
-\tag{7.2}
+\mathscr O_\Delta>0,}
+\tag{8.4-}
 \]
 
-所以 additive CRT quotient 与 Gaussian allocation 不再只是“共享同一 `(eta,d,c_Q)` 参数”：`Q_Delta` 经过 canonical lattice normalization 后**直接恢复 Gaussian side orientation**。
+\[
+\boxed{
+\varepsilon=+1
+\iff
+\mathscr O_\Delta<0.}
+\tag{8.4+}
+\]
 
-这是一条新的 non-character / Archimedean bridge。
+特别地
+
+\[
+\boxed{\mathscr O_\Delta\ne0.}
+\tag{8.5}
+\]
+
+因为 `k_h` 为正奇数而 `A_G>=1`，第一项为偶数、第二项为奇数，所以
+
+\[
+\boxed{\mathscr O_\Delta\equiv1\pmod2.}
+\tag{8.6}
+\]
+
+并有 exact residue
+
+\[
+\boxed{
+\mathscr O_\Delta
+\equiv-5^{B_G}k_h^3
+\pmod{2^{A_G}},}
+\tag{8.7}
+\]
+
+\[
+\boxed{
+\mathscr O_\Delta
+\equiv2^{A_G}Q_\Delta
+\pmod{5^{B_G}}.}
+\tag{8.8}
+\]
+
+所以 Gaussian side 已经被转换为一个 ordinary odd integer 的**符号问题**，同时该整数带有显式深 `2/5` residue。这比只保留实数 slot 更适合继续与 centered source-Hensel representatives `(z_E,chi_E)`、additive CRT residue以及 exact gap valuations联立。
 
 ---
 
-## 8. revised frontier
+## 9. revised frontier
 
 粗 Gaussian slots此前在 `eta>=1` 确实有实区间交点，因此不能靠 `G=g/T` 本身统一排除。
 
@@ -398,15 +464,15 @@ d<\frac{9M}{77},
 \[
 \mathcal Q_{\Delta,G}
 \]
-则把两侧分成
+把两侧分成
 
 \[
 \left(\frac12,\frac7{10}\right)
 \quad\text{和}\quad
 \left(\frac74,\frac{12}{5}\right),
 \]
-中间留下巨大空隙。
+并进一步变成整数 carrier `O_Delta` 的正负号。
 
-所以下一步最自然的是把 additive CRT 的唯一 residue class、`v_2/v_5` exact gap phase，或 `(z_E,chi_E)` source-Hensel representative送进 (4.1)。若这些离散数据迫使 `Q_Delta` 的 normalized value落到错误一侧，就会直接排除相应 Gaussian allocation，而无需再做 coarse slot comparison。
+所以下一步最自然的是证明 additive CRT 的唯一 residue class、`v_2/v_5` exact gap phase，或 `(z_E,chi_E)` source-Hensel centered representative固定 `O_Delta` 的相反符号。如果能做到，就会直接排除对应 Gaussian side，而无需再做 coarse slot comparison。
 
 A2 仍为 `待证`。
