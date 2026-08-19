@@ -37,11 +37,15 @@ for t in (8,16,40,200):
         assert (rval//2)%4==3
 
 # Finite valuation sanity for the exact gcd sheet factorization.
-# The algebraic proof is primewise; test many concrete values in the valid
-# parity regime and strip no factors by hand.
+# Actual endpoint primitive reduction gives 5∤alpha, and T is divisible by 5,
+# hence 5∤a3.  Enforce that real hypothesis here; otherwise the fixed prime 5
+# can pollute both sheet gcds even though it never belongs to gcd(P,R3) in the
+# actual target sector.
 for kval in range(10,250,20):
     for tval in (40,200,1000):
         for aval in range(1,60,2):
+            if aval%5==0:
+                continue
             pval=int(P.subs(K,kval))
             rval=int(R3.subs({T:tval,a3:aval}))
             alphaval=tval*kval+aval
