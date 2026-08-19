@@ -10,6 +10,7 @@
 4. [`good-axis-normalization.md`](good-axis-normalization.md)：证明 `epsilon_p=max(v_p(alpha)-v_p(N_c),0)`，把 `H_R` 从 primitive excess reader 中删掉；构造 two-block Gaussian carrier、axis companion pair，并把同一 `G_exc` 写成 decimal numerator、axis companion 与 `N(Delta_1)` 三条 canonical gcd reader。
 5. [`good-excess-gcd-ladder.md`](good-excess-gcd-ladder.md)：把 axis-normalized excess 提升为 `C_N^k` ordinary-gcd ladder；第一层就是 `G_exc`，稳定层读取完整 supported tail，并把 residual 精确分成 mutually-exclusive denominator deficit / numerator overflow。该文件同时证明三条 reader 只是同一 tail 的不同坐标图，不能重复计费。
 6. [`good-short-residue-audit.md`](good-short-residue-audit.md)：审计第二 short-residue 的最自然局部候选。`Top-residue` 的 main 投影退回完整 `C_L` carry residue；clean-source 的 `G_exc^2` square lift 与 hidden square 联立后精确退回 scaled `C_L N(Delta_1)`；axis/radius-digital 正交 companion 多出的 overlap 全部由旧 `(C_L,N_c)` baseline 支付。并把上一文件的 numerator overflow 再拆成 `axis-reuse × deep-overflow`。
+7. [`good-prefix-polarization.md`](good-prefix-polarization.md)：把现有 `QCRT + GCRT+` 的唯一 `A_12` lift进一步定位到 leading numerator block `a_1`。证明前两块呈互补极化 `(n_1,m_1,n_2,m_2)=(S,0,0,S)+o(S)`；`a_2` suffix 与 `b_1` 都只有 subexponential 规模，不能增加正线性 CRT 高度；两条大 period residues 可无损下推为 `a_1` residue，故固定 slow data 后 `a_1` 也至多一个候选。
 
 ## 当前状态
 
@@ -39,7 +40,7 @@ A_N=\frac{\alpha}{(\alpha,N_c)},
 D_k=(C_N^k,A_N),
 \]
 
-可不预先枚举 primes 地恢复 `C_N` support 上完整 excess tail。最新审计进一步定义
+可不预先枚举 primes 地恢复 `C_N` support 上完整 excess tail。short-residue audit进一步定义
 
 \[
 G_{\rm full}:=(C_L^{\rm main},A_N)
@@ -56,7 +57,23 @@ R_{\rm over}=G_{\rm reuse}R_{\rm deep}.
 
 所以 `G_exc` 是 normalized numerator tail 中唯一仍面向 **unpaid** `C_N` depth 的第一层；`G_reuse` 只是旧 axis payer，`R_deep` 已超过整个 full `C_L` prime-power depth。
 
-同时，本地最自然的第二 short-residue 路线已经三次精确退化：carry 投影回 full `C_L`、square clean-source 投影回 `N(Delta_1)`、orthogonal digital overlap 投影回 axis baseline。因此 full-rational Good 下一步应直接做已有 `QCRT + GCRT+` 唯一 `A_{12}` lift 的 **global digit-shell location / exclusion**；若仍只重构 carry/source algebra，则转向 genuine-Gaussian split-prime / digit-shell 主支。
+本地最自然的第二 short-residue 路线已经三次精确退化：carry 投影回 full `C_L`、square clean-source 投影回 `N(Delta_1)`、orthogonal digital overlap 投影回 axis baseline。
+
+全局 digit-shell 侧进一步得到
+
+\[
+\boxed{
+(n_1,m_1,n_2,m_2)=(S,0,0,S)+o(S),
+}
+\]
+
+所以 `A_12=a_1 10^{n_2}+a_2` 的全部正线性 prefix entropy 位于 `a_1`。`QCRT + GCRT+` 可等价地下推为 `a_1` 上总高度
+
+\[
+1.617767155236\ldots S+o(S)
+\]
+
+的联合 residue，而 `a_1` 自身只有 `S+o(S)` 位；固定 terminal slow data 后仍至多一个候选。真正剩余的问题已经变成这个唯一 leading-block residue 的 **Archimedean digit-window location / exclusion**。若其自然 representative 再次只重构 carry/source algebra，则 full-rational local/digit elimination应停止，转向 genuine-Gaussian split-prime / digit-shell 主支。
 
 ## 可复核脚本
 
@@ -66,5 +83,6 @@ DD 的有限证书与机械恒等式脚本位于 [`scripts/exact-lift/double-def
 - `check_dd_good_axis_normalization.py`：检查 `epsilon_p` 的 axis-normalized 赋值公式、`G_exc` gcd 深度、two-block/axis companion exact identities 与三重 tail reader 的机械账本。
 - `check_dd_good_excess_gcd_ladder.py`：检查 `C_N^k` ladder、successive quotient、stable tail 与 deficit/overflow separation。
 - `check_dd_good_short_residue_audit.py`：检查 nested `C_N/C` 赋值账本、`G_reuse` axis-baseline bound、overflow 二次分层、orthogonal dot identity 与 secondary-norm scaling collapse。
+- `check_dd_good_prefix_polarization.py`：检查 `A_12` block digit-count、suffix 到 leading block 的 affine residue pushdown，以及 `2z_*+1=1.617767155236...` 的联合 CRT 常数。
 
 这些脚本只认证正文声明的有限赋值逻辑与恒等式，不承担 DD emptiness 的证明。
