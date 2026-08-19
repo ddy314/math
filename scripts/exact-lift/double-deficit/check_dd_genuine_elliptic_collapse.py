@@ -39,8 +39,10 @@ def symbolic_theta_from_psi() -> None:
     # Tail-root identity: mathscr_t*a3 = k*G^2*Cdd + eta*(k+G)*W.
     rhs = (k + G) * psi + k * G**2 * Cdd * a3
     err = sp.expand(theta - rhs)
-    err = err.subs(matherscr_t if False else mathscr_t * a3,
-                   k * G**2 * Cdd + eta * (k + G) * W)
+    err = err.subs(
+        mathscr_t * a3,
+        k * G**2 * Cdd + eta * (k + G) * W,
+    )
     err = sp.expand(err).subs(eta**2, 1)
     assert sp.factor(err) == 0
 
