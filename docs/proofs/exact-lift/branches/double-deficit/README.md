@@ -79,10 +79,15 @@ genuine / pair-max continuation：
    \[
    \gcd(q,Z)^2\mid\gamma(R_3^{\rm den})^2.
    \]
-32. [`high-funnel-qz-projective-allocation.md`](high-funnel-qz-projective-allocation.md)：用 projective denominator exact formula继续消去 `R_3^{den}`，得到当前最干净的 rough-gcd payer theorem
+32. [`high-funnel-qz-projective-allocation.md`](high-funnel-qz-projective-allocation.md)：用 projective denominator exact formula继续消去 `R_3^{den}`，先得到
    \[
-   \boxed{\gcd(q,Z)^2\mid\gamma Z_0^2a^2.}
+   \gcd(q,Z)^2\mid\gamma Z_0^2a^2.
    \]
+33. [`high-funnel-qz-two-sheet-split.md`](high-funnel-qz-two-sheet-split.md)：对没有被 `gamma` square-root baseline 支付的 `q-Z` excess建立 canonical `gap / complementary` two-sheet split。gap sheet中 `E` 深而 bottom carrier无 excess；complementary sheet中 `E` 只有 baseline而 `Delta_12/(b_1,b_2)` 变深。由此严格加强为
+   \[
+   \boxed{\gcd(q,Z)^2\mid\gamma a Z_0^2,}
+   \]
+   并证明“`q-Z` common prime 自动制造两条独立 carrier residual”这条预期是错误的。
 
 ## 当前严格状态
 
@@ -151,9 +156,15 @@ v_5(a)=q_5,
 
 pure common-scale endpoint在 5-adic quadratic 上没有继续 Hensel 收益，因此当前真正值得攻击的是 rough-factor compatibility。
 
-### 当前 rough-factor payer theorem
+### 当前 rough-factor two-sheet theorem
 
-令 `Q=Uq`、`5^TU+V=2^HZ`。现已证明
+令 `Q=Uq`、`5^TU+V=2^HZ`，并记
+
+\[
+D_{qZ}=(q,Z).
+\]
+
+现已证明
 
 \[
 \boxed{
@@ -163,23 +174,37 @@ L_Z:=
 }
 \]
 
-而
+进一步把 `D_qZ` 中 `gamma` 已能按平方深度支付的 baseline 去掉后，剩余 prime-power 只能落入两格：
+
+1. **gap sheet**：进入 `a` 与 normalized decimal determinant `E_exc`；bottom carrier为 unit；
+2. **complementary sheet**：进入 `Z_0` 与 normalized bottom carrier `Theta_12`；`E_exc` 为 unit。
+
+因此同一个 excess prime不会同时进入 `E_exc` 与 `Theta_12`，而全局 payer sharpen 为
 
 \[
 \boxed{
-\gcd(q,Z)^2\mid\gamma Z_0^2a^2.
+\gcd(q,Z)^2\mid\gamma aZ_0^2.
 }
 \]
 
-所以 `q-Z` common rough height 不再是一个未命名自由池：它只能由
+相应的 `L_Z` height loss 为
 
-1. denominator overlap `gamma`；
-2. stereographic projective denominator `Z_0`；
-3. sphere-gap quotient `a`
+\[
+\boxed{
+\log D_{qZ}
+\le
+\frac12\log\gamma
++\frac12\log a
++\log Z_0.
+}
+\]
 
-支付。
+所以此前计划中的“先证明两条 carrier residual 同时深，再直接套无 `E_D` eliminant”已经被严格降级：这种同步深接触并不会自动发生。
 
-下一步应把这一三 payer theorem 与无 `E_D` carrier-circle eliminant / primitive determinant ladder 联立。当前尚缺的关键 propagation lemma 是：从 `q-Z` common prime 推出两条**独立** carrier residual 的同步深接触；在没有该引理前不能直接套用 eliminant。
+下一步应分别攻击两个真实 sheets：
+
+- `gap sheet`：`D_gap^2|a` 与 primitive determinant ladder / `E_exc` 是否只是同一 gap 的重复 payer，还是还能产生新的 independent quotient；
+- `complementary sheet`：`D_comp|Z_0` 且 `D_comp|Theta_12`，寻找 projective denominator + bottom-carrier 的直接 eliminant / reducedness obstruction。
 
 ## 可复核脚本
 
@@ -195,6 +220,7 @@ DD 的机械证书位于 [`scripts/exact-lift/double-deficit/`](../../../../../s
 - `check_dd_pure_common_five_squareclass.py`
 - `check_dd_high_funnel_qz_gcd_allocation.py`
 - `check_dd_high_funnel_qz_projective_allocation.py`
+- `check_dd_high_funnel_qz_two_sheet_split.py`
 
 以及此前的 `check_dd_good_*` / `check_dd_genuine_*` / `check_dd_pairmax_*` 账本脚本。
 
