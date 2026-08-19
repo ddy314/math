@@ -68,26 +68,30 @@ R_\Delta^\circ
 D_\Delta^\circ
 :=\frac{\widehat{\mathscr D}_{63}}{G_\Delta}.}
 \tag{2.2}
+\]
 
 则
 
 \[
 \boxed{\gcd(R_\Delta^\circ,D_\Delta^\circ)=1.}
 \tag{2.3}
+\]
 
 `G_Delta` 为 odd，因此模 `4` 可逆。由 (1.2),(1.3)：
 
 \[
 \boxed{
 R_\Delta^\circ
-\equiv3G_\Delta^{-1}\pmod4,}
+\equiv3G_\Delta^{-1}\pmod4.}
 \tag{2.4}
+\]
 
 \[
 \boxed{
 D_\Delta^\circ
 \equiv3ZG_\Delta^{-1}\pmod4.}
 \tag{2.5}
+\]
 
 ---
 
@@ -98,6 +102,7 @@ D_\Delta^\circ
 \[
 \boxed{Z\equiv1\pmod4.}
 \tag{3.1}
+\]
 
 此时两个 parent 都是 `3 mod4`：
 
@@ -124,6 +129,7 @@ R_\Delta^\circ
 D_\Delta^\circ
 \equiv3\pmod4.}
 \tag{3.2}
+\]
 
 两个 residual positive、odd、coprime，因此每个都必须含至少一枚 `3 mod4` prime到奇次，而且 suppliers不能相同：
 
@@ -133,6 +139,7 @@ Z\equiv1,\quad G_\Delta\equiv1\pmod4
 \Longrightarrow
 \text{至少两枚 distinct residual inert primes}.}
 \tag{3.3}
+\]
 
 ### common gcd `3 mod4`
 
@@ -150,6 +157,7 @@ R_\Delta^\circ
 D_\Delta^\circ
 \equiv1\pmod4.}
 \tag{3.4}
+\]
 
 此时两个 parent 的 odd-inert parity可以由 common gcd整体承担。由于
 
@@ -169,6 +177,7 @@ G_\Delta\equiv1:&\text{两个 distinct residual suppliers},\\
 G_\Delta\equiv3:&\text{common gcd承担 odd parity}.
 \end{cases}}
 \tag{3.5}
+\]
 
 ---
 
@@ -179,6 +188,7 @@ G_\Delta\equiv3:&\text{common gcd承担 odd parity}.
 \[
 \boxed{Z\equiv3\pmod4.}
 \tag{4.1}
+\]
 
 则
 
@@ -213,6 +223,7 @@ Z\equiv3\pmod4
 \Longrightarrow
 \text{恰有一个 coprime descendant residual为 }3\pmod4.}
 \tag{4.2}
+\]
 
 因此总有一枚 odd-inert supplier位于 common gcd之外：
 
@@ -222,6 +233,7 @@ Z\equiv3
 \Longrightarrow
 \text{至少一份 non-common descendant inert parity}.}
 \tag{4.3}
+\]
 
 ---
 
@@ -238,12 +250,14 @@ Z\equiv3
 \[
 \boxed{31\text{ or }179.}
 \tag{5.1}
+\]
 
 与 target baseline 的 canonical common factor为 squarefree
 
 \[
 \boxed{G_{TD}\mid31\cdot179.}
 \tag{5.2}
+\]
 
 ### source-common labels
 
@@ -257,15 +271,15 @@ H_{SD}
 收费，且
 
 \[
-\boxed{
-H_{SD}\mid18K-55,}
+\boxed{H_{SD}\mid18K-55.}
 \tag{5.3}
+\]
 
 \[
 \boxed{
-H_{SD}\mid
-\mathscr H_{S63},}
+H_{SD}\mid\mathscr H_{S63}.}
 \tag{5.4}
+\]
 
 其中
 
@@ -281,6 +295,7 @@ H_{SD}\mid
 \[
 \boxed{\text{external descendant-common kernel}.}
 \tag{5.5}
+\]
 
 这给后续 closure一个明确对象，而不再把所有 common primes混在同一 gcd 中。
 
