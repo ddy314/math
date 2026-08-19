@@ -9,31 +9,40 @@
 3. [`top-layer.md`](top-layer.md)：moving-prefix 四层压缩、`d=2` endpoint/residue/half-gap kernel、positive excess decomposition 和 minimal-surplus 的 off-diagonal 分裂。
 4. [`diagonal.md`](diagonal.md)：`k=g` minimal diagonal 的余量、2/5 valuation、奇素数供给、significand lock、`k=1,2` 有限证书和判别平方审计。
 5. [`near-integer-tail.md`](near-integer-tail.md)：保留 `10^{-k}` 的二阶误差，把 `rho=b_3/10^ell` 压到整数 `j-10^k+1` 的 `O(10^{-k})` 邻域。
-6. [`positive-tail-residual.md`](positive-tail-residual.md)：补回被旧估计丢弃的正曲率供给，严格确定 near-integer residual 的符号：
+6. [`positive-tail-residual.md`](positive-tail-residual.md)：补回正曲率供给，严格得到
    \[
    5.09\,10^{-k}<j-10^k-\rho+1<50.45\,10^{-k}.
    \]
-   由此 saturated sector 在 `k>=3` 全部为空，`ell<=k-2` 全部为空，且 `ell=k-1` 只剩 `t=1,2,3,4,5`。
-7. [`boundary-residual-2adic.md`](boundary-residual-2adic.md)：在当前前沿 `k>=6, ell=k-1` 上把整数平方核模 `32/64`；`w=2` 只剩 `t=3`，`w=4` 只剩 `t=1`，奇 `w` 的奇 residual 强迫 `N_0` 偶。
-8. [`k3-certificate.md`](k3-certificate.md)：完整枚举 `k=g=3`；3170 个 prefixes 最终只剩 230 个 tail states，全部无法通过 partial-data rational-square 必要条件，因此该层为空。
-9. [`k4-k5-certificates.md`](k4-k5-certificates.md)：使用 k-dependent near-integer 窗继续关闭 `k=g=4,5`；两层分别只剩 297、465 个 tail states，平方命中均为 0。
-10. [`short-tail-saturation.md`](short-tail-saturation.md)：记录 positive-sign theorem 之前得到的中间整数化步骤。其“short tail 进入 saturated”结论已被 `positive-tail-residual.md` 严格加强为“short tail 为空”。
+   因此 saturated sector 在 `k>=3` 全部为空，`ell<=k-2` 也全部为空。
+7. [`boundary-residual-2adic.md`](boundary-residual-2adic.md)：在 `k>=6, ell=k-1` 把整数平方核模 `32/64`；`w=2` 只剩 `t=3`，`w=4` 只剩 `t=1`。
+8. [`boundary-prime-sieve.md`](boundary-prime-sieve.md)：把 denominator prime supply 改写成 `N_0` 的禁同余类；`11` 是六类型共同永久缺失素数，`w!=2` 还有 mod `3` sieve。
+9. [`boundary-decimal-supply.md`](boundary-decimal-supply.md)：证明第一 boundary 可反向枚举有限 `h` supply，并用
+   \[
+   10^{k-1}/a_t\mid h+\widehat t
+   \]
+   唯一恢复 `N_0`。
+10. [`residual-shell-supply.md`](residual-shell-supply.md)：把上述 divisor-congruence reduction 推广到所有满足 `v_2(t),v_5(t)<ell` 的 regular residual shells；特别地 `ell=k` 全层自动 regular。
+11. [`k3-certificate.md`](k3-certificate.md)：完整关闭 `k=g=3`。
+12. [`k4-k5-certificates.md`](k4-k5-certificates.md)：完整关闭 `k=g=4,5`。
+13. [`k6-first-boundary-certificate.md`](k6-first-boundary-certificate.md)：对 `k=g=6, ell=5` 的完整 finite `h` supply 做 decimal congruence certificate，命中数为 `0`。
+14. [`k6-ell6-certificate.md`](k6-ell6-certificate.md)：继续关闭 `k=g=6, ell=6`；`t=6,...,50` 的完整 regular shell supply 同样 `0` 命中。
+15. [`short-tail-saturation.md`](short-tail-saturation.md)：保留 positive-sign theorem 之前的中间整数化记录；其中 saturated short-tail 已被后续结果完全取代。
 
 ## 当前状态
 
-本分支仍为 `待证`。全局四层定理、`d=2` 的 endpoint kernel 等均按各自范围成立；minimal diagonal 已严格关闭
+本分支仍为 `待证`。minimal diagonal 已严格关闭
 
 \[
 \boxed{k=g\in\{1,2,3,4,5\}.}
 \]
 
-因此无界前沿为
+因此全局无界前沿为
 
 \[
 \boxed{k=g\ge6.}
 \]
 
-对全部 `k>=3`，第三尾现在满足更强的**单侧 near-integer 刚性**
+对全部 `k>=3`，第三尾满足单侧 near-integer 刚性
 
 \[
 \boxed{
@@ -43,41 +52,40 @@
 }
 \]
 
-所以
+定义
 
 \[
-\boxed{
-rho<j-10^k+1,
+N_0=j-10^k+1,
 \qquad
-L>1,
-\qquad
-\ell\ge k-1.
-}
-\]
-
-此前需要单独研究的 saturated short-tail 已经整个消失。定义
-
-\[
-t=(j-10^k+1)10^\ell-b_3\in\mathbf Z,
+ t=(N_0-\rho)10^\ell
+=N_0 10^\ell-b_3.
 \]
 
 则
 
 \[
-5.09\,10^{\ell-k}<t<50.45\,10^{\ell-k}.
+\boxed{t\in\mathbf Z_{>0}},
 \]
-
-第一条可能的尾长边界因此精确为
 
 \[
-\boxed{
-\ell=k-1,
-\qquad
-t\in\{1,2,3,4,5\}.
-}
+\boxed{5.09\,10^{\ell-k}<t<50.45\,10^{\ell-k}.}
 \]
 
-在当前 `k>=6` 前沿，二进平方核进一步给出：
+并且
+
+\[
+\boxed{L>1,\qquad \ell\ge k-1.}
+\]
+
+第一 boundary 为
+
+\[
+\ell=k-1,
+\qquad
+t\in\{1,2,3,4,5\},
+\]
+
+且当前 `k>=6` 有
 
 \[
 \boxed{
@@ -86,31 +94,65 @@ w=2\Longrightarrow t=3,
 w=4\Longrightarrow t=1.}
 \]
 
-其中
+regular residual 进一步满足
 
 \[
-(z,w)=(1,2):\ N_0\equiv0,2\pmod8,
+\boxed{
+b_3=a_t h,}
 \]
 
 \[
-(z,w)=(3,2):\ N_0\equiv4,6\pmod8.
+\boxed{
+\frac{10^\ell}{a_t}\mid h+\widehat t,
+\qquad
+N_0=\frac{a_t(h+\widehat t)}{10^\ell},
+}
 \]
 
-对奇 `w`，`t=1,3,5` 时必须 `N_0` 为偶数。
+所以大量长尾已经从 `(x,y)` lattice 变成有限 divisor-congruence problem。
 
-所以 minimal diagonal 当前真正剩余的结构已经分成两块：
+### `k=6` 当前状态
 
-1. `ell=k-1` 的五 residual boundary，其中 even-`w` 类型已几乎刚化；
-2. `ell>=k` 的正 residual shells，例如 `ell=k` 时只有 `t=6,...,50`。
+positive residual theorem 排除
 
-下一阶段优先把第一 boundary 的 fixed residual 与 denominator prime supply / whole-block selector 联用；这里已经没有原先的二维 `(x,y)` 无界自由度。随后再把同样的 residual 方法推广到 `ell>=k`。`d=1,0,-1` 等其他 A1 无界核心仍待处理。
+\[
+\ell\le4.
+\]
 
-判别平方审计继续有效：完整 contact 系统中的平方恒等式不能重复当作独立障碍。
+有限 supply 证书又排除
+
+\[
+\ell=5,6.
+\]
+
+因此 `k=g=6` 尚存候选可无条件假设
+
+\[
+\boxed{\ell\ge7.}
+\]
+
+`ell=7` 时
+
+\[
+50.9<t<504.5,
+\]
+
+即
+
+\[
+t\in\{51,\ldots,504\}.
+\]
+
+这一层大多数 residual 仍是 regular；只有少数满足 `v_2(t)>=7` 或 `v_5(t)>=7` 的 deep-2/5 residual 需要单独处理。下一步优先把 `ell=7` 分成 regular / deep-2/5 两块继续推进，而无需恢复旧的二维无限搜索。
+
+`d=1,0,-1` 等其他 A1 无界核心仍待处理。判别平方审计继续有效：完整 contact 系统中的平方恒等式不能重复当作独立障碍。
 
 ## 可复核脚本
 
 分支专用脚本位于 [`scripts/exact-lift/a1-only/`](../../../../../scripts/exact-lift/a1-only/)。其中：
 
 - `check_a1_top_diag_k1.py`、`check_a1_top_diag_k2.py`、`check_a1_top_diag_k3.py` 给出 `k=1,2,3` 的完整证书；
-- `check_a1_top_diag_k45.py` 同时复核 `k=4,5` 两层；
-- `check_a1_near_integer_tail_constants.py` 用精确有理数复核 near-integer lemma 中的安全十进制常数。
+- `check_a1_top_diag_k45.py` 同时复核 `k=4,5`；
+- `check_a1_top_diag_k6_boundary.py` 复核 `k=6, ell=5` boundary；
+- `check_a1_top_diag_k6_ell6.py` 复核 `k=6, ell=6` shell；
+- `check_a1_near_integer_tail_constants.py` 用精确有理数复核 near-integer 常数。
