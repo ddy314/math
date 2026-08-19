@@ -33,47 +33,75 @@ genuine / pair-max continuation：
 19. [`genuine-large-core-crt.md`](genuine-large-core-crt.md)：历史 intermediate threshold `log C_G/S>0.382232844764...`；已被下一项覆盖。
 20. [`pairmax-fixed-a12-crt.md`](pairmax-fixed-a12-crt.md)：将 W-free square-depth 全局化到整个 one-channel `C_L`，与 `q_c^2` 联立得到 universal fixed-fiber prefix uniqueness。
 
-最新 tail-root / 5-adic closure：
+旧 extremal frontier closure 与新 high-funnel continuation：
 
-21. [`tail-root-kappa-plus-g-crt-nogo.md`](tail-root-kappa-plus-g-crt-nogo.md)：证明看似巨大的 `kappa+G` 第三 prefix period 精确退化，因为
+21. [`tail-root-kappa-plus-g-crt-nogo.md`](tail-root-kappa-plus-g-crt-nogo.md)：证明看似巨大的 `kappa+G` 第三 prefix period 精确退化。
+22. [`tail-root-decimal-phase-lock.md`](tail-root-decimal-phase-lock.md)：tail-root 与 decimal phase 的 2-adic audit；在旧 extremal model 上重新推出 `H=2m+o(S)` 与 `log Z=log q_c+o(S)`。
+23. [`frontier-five-adic-closure.md`](frontier-five-adic-closure.md)：**关闭旧 `6.308883577618...` equality frontier**，并严格得到无界 DD 若存在则 `limsup n_3/S < 6.308883577618...`，但 gap 非有效。
+24. [`high-funnel-five-adic-dichotomy.md`](high-funnel-five-adic-dichotomy.md)：在 canonical `t_2=1` double-resonant S-unit funnel 中得到 exact 5-adic 二分
    \[
-   \kappa+G=\gamma\Sigma,
-   \qquad
-   \mathscr T BV-U\kappa G^2=U\kappa G(\kappa+G).
-   \]
-22. [`tail-root-decimal-phase-lock.md`](tail-root-decimal-phase-lock.md)：tail-root 与 decimal phase 的 2-adic audit，重新推出 extremal model 的
-   \[
-   H=2m+o(S),
-   \qquad
-   \log Z=\log q_c+o(S).
-   \]
-23. [`frontier-five-adic-closure.md`](frontier-five-adic-closure.md)：**关闭旧 `6.308883577618...` equality frontier。** 利用同一个 unified discriminant root 的 DD 强化 `W=L Xi`，得到 tail-root 两项的 5-adic 深度分别为 `T/2+o(S)` 与至少 `T+o(S)`，无法满足模 `5^d`，其中 `d=3.5S+o(S)`。
-24. [`high-funnel-five-adic-dichotomy.md`](high-funnel-five-adic-dichotomy.md)：把上述矛盾推广到整个 slope `>7` 的唯一 S-unit funnel，得到 exact finite-height 二分
-   \[
-   \boxed{m\le5q_5+4g_5+n_5}
+   m\le5q_5+4g_5+n_5
    \quad\text{or}\quad
-   \boxed{3d\le m+4q_5+5g_5+2n_5}.
+   3d\le m+4q_5+5g_5+2n_5.
    \]
-   下一步应把它与 stability defect重新做线性优化。
+25. [`high-funnel-defect-optimization.md`](high-funnel-defect-optimization.md)：恢复 defect-aware `F_-` height；`Tail-short` sector 得到
+   \[
+   \limsup n/S\le6.215109404735\ldots
+   \]
+   （仅为该 conditional sector，不是新全局 DD bound）。
+26. [`high-funnel-xi-depth.md`](high-funnel-xi-depth.md)：`Defect-heavy` slack 精确集中到单一判别 quotient：
+   \[
+   3v_5(\Xi)=5q_5+4g_5+n_5-m.
+   \]
+27. [`high-funnel-gap-depth.md`](high-funnel-gap-depth.md)：恢复 `C_0=QL+2tau` 并证明 `v_5(a)=v_5(Xi)`；defect slack就是 sphere-gap quotient `a` 的额外 5-depth。
+28. [`high-funnel-denominator-max-lock.md`](high-funnel-denominator-max-lock.md)：若 `b_3` 不是 5-adic maximum，则 sector 只有 slope `<=6`；剩余 `Final-5-lock` 满足
+   \[
+   B_5=q_5+2g_5,
+   \quad m=2q_5+4g_5+n_5,
+   \quad v_5(a)=q_5,
+   \quad T=m-2g_5.
+   \]
+29. [`high-funnel-two-adic-balance.md`](high-funnel-two-adic-balance.md)：scale-free quadratic 强制
+   \[
+   v_2(H_{\rm sph}-y_3)=1,
+   \]
+   并由 tail-root 得到 exact `2-short / 2-balanced` 二分；同时恢复 `Subspace-defect` 与 `Subspace-Final5` height budget。
+30. [`pure-common-five-squareclass-nogo.md`](pure-common-five-squareclass-nogo.md)：pure common-scale 的深 `5^{2g}` Hensel 最终只剩
+   \[
+   UV\in((\mathbf Z/5^{2g}\mathbf Z)^\times)^2,
+   \]
+   等价于一个模 5 quadratic-character bit；继续 same-prime 5-adic lifting没有线性高度收益。
+31. [`high-funnel-qz-gcd-allocation.md`](high-funnel-qz-gcd-allocation.md)：从 `u(u+2v)|F_-Q` 抽出
+   \[
+   L_Z=\frac{2^{H+2}5^TZ}{(2^{H+2}5^TZ,q)}\mid F_-,
+   \]
+   并证明
+   \[
+   \gcd(q,Z)^2\mid\gamma(R_3^{\rm den})^2.
+   \]
+32. [`high-funnel-qz-projective-allocation.md`](high-funnel-qz-projective-allocation.md)：用 projective denominator exact formula继续消去 `R_3^{den}`，得到当前最干净的 rough-gcd payer theorem
+   \[
+   \boxed{\gcd(q,Z)^2\mid\gamma Z_0^2a^2.}
+   \]
 
 ## 当前严格状态
 
 DD **全局仍为 `待证`**；没有有效绝对 `S` 上界，也没有证明 DD 全体为空。
 
-但旧的 extremal asymptotic equality frontier 已经关闭。此前依赖经典 Schmidt Subspace Theorem 有
+此前依赖经典 Schmidt Subspace Theorem 有
 
 \[
 \limsup_{\rm DD}\frac{n_3}{S}
 \le6.308883577618\ldots.
 \]
 
-最新 5-adic contradiction证明：不存在无界 DD sequence 满足
+第 23 项已经严格排除任何无界 sequence 满足
 
 \[
-\frac{n_3}{S}\to6.308883577618\ldots.
+\frac{n_3}{S}\to6.308883577618\ldots,
 \]
 
-因此严格更新为：
+因此当前最强全局渐近表述是
 
 \[
 \boxed{
@@ -84,92 +112,90 @@ DD **全局仍为 `待证`**；没有有效绝对 `S` 上界，也没有证明 D
 }
 \]
 
-这个 strict gap 目前仍是**非有效**的：尚未恢复一个显式新的 numerical slope。
+这个 strict gap 仍是**非有效**的；本 continuation 中出现的 `6.215109...`、`6.361730...`、`6.611730...` 都是明确写了作用域的 conditional sector bounds，不能替代上述 global strict limsup。
 
-### 1. 为什么 equality frontier 会矛盾
+### 当前新的 high-funnel 核
 
-DD §18 对统一判别根有
-
-\[
-W=L\Xi.
-\]
-
-extremal frontier 的 5-adic baseline给
+在 canonical `t_2=1` double-resonant funnel 中，5-adic 与 2-adic 账本已经分别压成：
 
 \[
-v_5(L)=T+o(S).
+\boxed{
+B_5=q_5+2g_5,
+\quad
+m=2q_5+4g_5+n_5,
+\quad
+v_5(a)=q_5,
+}
 \]
 
-另一方面
+以及
 
 \[
-\mathscr T=\frac{\kappa^2(\kappa+2G)}{10^m}
+\boxed{v_2(H_{\rm sph}-y_3)=1,}
 \]
 
-只有
+再加
 
 \[
-v_5(\mathscr T)=\frac T2+o(S).
+\boxed{
+ d\le m+2\mathfrak q+\mathfrak n+\mathfrak g-1
+}
 \]
-
-tail-root 模 `5^d` 要求两个不同深度的整数相消到
-
-\[
-d=3.5S+o(S),
-\]
-
-但其和只能保持较浅的 `T/2+o(S)=0.9362945...S+o(S)` 深度，矛盾。
-
-### 2. 更一般的 high-funnel 二分
-
-在旧证明已经严格压出的 slope `>7` unique funnel 中，记
-
-\[
-B_5=v_5(b_3),\quad q_5=v_5(Q),\quad g_5=v_5(G),\quad n_5=v_5(\mathcal N_{12}).
-\]
-
-新的 exact lemma迫使每个候选满足：
-
-\[
-\boxed{m\le5q_5+4g_5+n_5}
-\]
-
 或
 
 \[
-\boxed{3d\le m+4q_5+5g_5+2n_5}.
+\boxed{
+2\mathfrak g=m+\mathfrak q+\ell-2.
+}
 \]
 
-所以任何继续维持大 `m,d` 的候选必须让 `q_5,g_5,n_5` 至少一个承担正线性 defect。当前最直接的下一任务是重建旧 stability inequality中这些 defect 的显式惩罚系数，并求一个新的 LP optimum。
+pure common-scale endpoint在 5-adic quadratic 上没有继续 Hensel 收益，因此当前真正值得攻击的是 rough-factor compatibility。
 
-### 3. equality-frontier continuation 的新定位
+### 当前 rough-factor payer theorem
 
-`good-*`、`genuine-*`、`pairmax-fixed-a12-crt.md` 等文件仍是严格的**条件结构定理 / no-go 审计**，但其共同假设的 `6.308883...` equality frontier 已被第 23 项排除。
-
-其中尤其有可迁移机制：
+令 `Q=Uq`、`5^TU+V=2^HZ`。现已证明
 
 \[
-C_L^2\mid
-\Theta=(\kappa+G)Q(a_2b_1)^2\beta+\mathscr T a_3^2,
+\boxed{
+L_Z:=
+\frac{2^{H+2}5^TZ}{\gcd(2^{H+2}5^TZ,q)}
+\mid F_-.
+}
 \]
 
-以及 fixed whole-`C_L` prefix period；这些可能在新的较低 frontier 中继续使用，但不能无条件外推到所有 DD。
+而
+
+\[
+\boxed{
+\gcd(q,Z)^2\mid\gamma Z_0^2a^2.
+}
+\]
+
+所以 `q-Z` common rough height 不再是一个未命名自由池：它只能由
+
+1. denominator overlap `gamma`；
+2. stereographic projective denominator `Z_0`；
+3. sphere-gap quotient `a`
+
+支付。
+
+下一步应把这一三 payer theorem 与无 `E_D` carrier-circle eliminant / primitive determinant ladder 联立。当前尚缺的关键 propagation lemma 是：从 `q-Z` common prime 推出两条**独立** carrier residual 的同步深接触；在没有该引理前不能直接套用 eliminant。
 
 ## 可复核脚本
 
-DD 的机械证书位于 [`scripts/exact-lift/double-deficit/`](../../../../../scripts/exact-lift/double-deficit/)。本轮新增/关键脚本包括：
+DD 的机械证书位于 [`scripts/exact-lift/double-deficit/`](../../../../../scripts/exact-lift/double-deficit/)。本 continuation 的新增/关键脚本包括：
 
-- `check_dd_genuine_tail_root_orientation_lock.py`
-- `check_dd_genuine_elliptic_collapse.py`
-- `check_dd_genuine_a12_fixed_crt.py`
-- `check_dd_genuine_large_core_crt.py`
-- `check_dd_mixed_rational_good_extension.py`
-- `check_dd_pairmax_fixed_a12_crt.py`
-- `check_dd_tail_root_kappa_plus_g_crt_nogo.py`
-- `check_dd_tail_root_decimal_phase_lock.py`
 - `check_dd_frontier_five_adic_closure.py`
 - `check_dd_high_funnel_five_adic_dichotomy.py`
+- `check_dd_high_funnel_defect_optimization.py`
+- `check_dd_high_funnel_xi_depth.py`
+- `check_dd_high_funnel_gap_depth.py`
+- `check_dd_high_funnel_denominator_max_lock.py`
+- `check_dd_high_funnel_two_adic_balance.py`
+- `check_dd_pure_common_five_squareclass.py`
+- `check_dd_high_funnel_qz_gcd_allocation.py`
+- `check_dd_high_funnel_qz_projective_allocation.py`
 
-以及此前的 `check_dd_good_*` / `check_dd_genuine_*` 账本脚本。
+以及此前的 `check_dd_good_*` / `check_dd_genuine_*` / `check_dd_pairmax_*` 账本脚本。
 
 这些脚本只认证正文声明的有限代数、valuation ledger 与常数计算，不承担 DD 全局空性证明。
