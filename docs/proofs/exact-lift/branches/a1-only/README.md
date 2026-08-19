@@ -14,126 +14,146 @@
    5.09\,10^{-k}<j-10^k-\rho+1<50.45\,10^{-k}.
    \]
    因此 saturated sector 在 `k>=3` 全部为空，`ell<=k-2` 也全部为空。
-7. [`boundary-residual-2adic.md`](boundary-residual-2adic.md)：在 `k>=6, ell=k-1` 把整数平方核模 `32/64`；`w=2` 只剩 `t=3`，`w=4` 只剩 `t=1`。
-8. [`boundary-prime-sieve.md`](boundary-prime-sieve.md)：把 denominator prime supply 改写成 `N_0` 的禁同余类；`11` 是六类型共同永久缺失素数，`w!=2` 还有 mod `3` sieve。
-9. [`boundary-decimal-supply.md`](boundary-decimal-supply.md)：证明第一 boundary 可反向枚举有限 `h` supply，并用 `10^{k-1}/a_t | h+hat t` 唯一恢复 `N_0`。
-10. [`residual-shell-supply.md`](residual-shell-supply.md)：把 divisor-congruence reduction 推广到所有满足 `v_2(t),v_5(t)<ell` 的 regular residual shells；特别地 `ell=k` 全层自动 regular。
+7. [`boundary-residual-2adic.md`](boundary-residual-2adic.md)：在第一 non-saturated boundary 上做模 `32/64` 的整数平方核压缩。
+8. [`boundary-prime-sieve.md`](boundary-prime-sieve.md)：把 denominator prime supply 改写成 residual/prefix 的禁同余类。
+9. [`boundary-decimal-supply.md`](boundary-decimal-supply.md)：把第一 boundary 反向化成 finite `h` supply + decimal congruence。
+10. [`residual-shell-supply.md`](residual-shell-supply.md)：把 divisor-congruence reduction 推广到 regular residual shells。
 11. [`k3-certificate.md`](k3-certificate.md)：完整关闭 `k=g=3`。
 12. [`k4-k5-certificates.md`](k4-k5-certificates.md)：完整关闭 `k=g=4,5`。
-13. [`k6-first-boundary-certificate.md`](k6-first-boundary-certificate.md)：关闭 `k=g=6, ell=5`，完整 finite `h` supply 的 decimal congruence 命中数为 `0`。
-14. [`k6-ell6-certificate.md`](k6-ell6-certificate.md)：关闭 `k=g=6, ell=6`；`t=6,...,50` 的完整 regular shell supply 为 `0` 命中。
-15. [`k6-ell7-certificate.md`](k6-ell7-certificate.md)：关闭 `k=g=6, ell=7`；451 个 regular residual 与三个 deep-2 residual `128,256,384` 分别做有限 supply / `h2^u` 恢复，全部 `0` 命中。
+13. [`k6-first-boundary-certificate.md`](k6-first-boundary-certificate.md)、[`k6-ell6-certificate.md`](k6-ell6-certificate.md)、[`k6-ell7-certificate.md`](k6-ell7-certificate.md)：早期逐 `ell` 推进 `k=6` 的局部证书；现已被统一证书覆盖。
+14. [`k6-uniform-tail-certificate.md`](k6-uniform-tail-certificate.md)：首次完全消去第三块位数 `ell`，用 valuation maxima + cross-corridor + finite odd-prime supply 把整个 `k=6` 压成有限 `(h,x,y)` 盒，并得到 0 near-integer hits。
+15. [`uniform-layer-finite-box.md`](uniform-layer-finite-box.md)：把 `k=6` 方法推广到任意固定 `k>=6`；用 `p`-adic root lifting 求 prefix valuation maxima，再构造 theorem-derived exponent box。精确证书已关闭 `k=6,...,23`。
 16. [`short-tail-saturation.md`](short-tail-saturation.md)：保留 positive-sign theorem 之前的中间整数化记录；其中 saturated short-tail 已被后续结果完全取代。
 
 ## 当前状态
 
-本分支仍为 `待证`。minimal diagonal 已严格关闭
+本分支仍为 `待证`，但 minimal diagonal 的有限层前沿已经大幅推进。
+
+旧证书关闭
 
 \[
-\boxed{k=g\in\{1,2,3,4,5\}.}
+k=g=1,2,3,4,5.
 \]
 
-因此全局无界前沿仍为
+新的 uniform fixed-layer certificate 又严格关闭
 
 \[
-\boxed{k=g\ge6.}
+\boxed{k=g=6,7,\ldots,23.}
 \]
 
-但当前首层 `k=6` 已经被沿第三尾继续推进。
-
-对全部 `k>=3`，第三尾满足单侧 near-integer 刚性
+因此当前已严格得到
 
 \[
 \boxed{
-5.09\,10^{-k}
-<j-10^k-\rho+1
-<50.45\,10^{-k}.
+1\le k=g\le23
+\Longrightarrow
+\text{minimal diagonal empty}.
 }
 \]
 
-定义
+minimal diagonal 的首个未关闭层已经推进到
 
 \[
-N_0=j-10^k+1,
+\boxed{k=g\ge24.}
+\]
+
+### 单侧 near-integer 刚性
+
+对全部 `k>=3`，写
+
+\[
+\rho=\frac{b_3}{10^\ell},
 \qquad
- t=(N_0-\rho)10^\ell
-=N_0 10^\ell-b_3.
+N_0=j-10^k+1,
 \]
 
 则
 
 \[
-\boxed{t\in\mathbf Z_{>0}},
-\]
-
-\[
-\boxed{5.09\,10^{\ell-k}<t<50.45\,10^{\ell-k},}
-\]
-
-并且
-
-\[
-\boxed{L>1,\qquad \ell\ge k-1.}
-\]
-
-regular residual 进一步满足
-
-\[
-\boxed{b_3=a_t h,}
-\]
-
-\[
 \boxed{
-\frac{10^\ell}{a_t}\mid h+\widehat t,
+5.09\,10^{-k}
+<N_0-\rho
+<50.45\,10^{-k}.
+}
+\]
+
+因此
+
+\[
+\rho<N_0,
 \qquad
-N_0=\frac{a_t(h+\widehat t)}{10^\ell}.}
+L>1,
+\qquad
+\ell\ge k-1.
 \]
 
-所以大量长尾已经从旧 `(x,y)` lattice 变成有限 divisor-congruence problem；只有 `v_2(t)>=ell` 或 `v_5(t)>=ell` 的 deep residual 需要额外 cancellation 分析。
+### 新的固定层统一策略
 
-### `k=6` 当前状态
-
-positive residual theorem 排除
+写
 
 \[
-\ell\le4.
+\rho=h2^x5^y,
+\qquad h\in\mathcal H_{k,w}.
 \]
 
-三个 finite supply certificates 又依次排除
+`h` 来自 finite odd-prime supply，与 `ell` 无关。
+
+对固定 `k`，把
 
 \[
-\ell=5,6,7.
+N=(N_0+A)^2+B^2
 \]
 
-因此任何尚存的 `k=g=6` candidate 都可以无条件假设
+在 `N_0\in[10^{k-1},10^k]` 上做模 `2^e,5^e` root lifting，可以精确得到所有 prefix 的 `v_2(N),v_5(N)` maxima，而无需扫描整个 prefix 区间。
+
+结合
 
 \[
-\boxed{\ell\ge8.}
+X_0=Y_0=k,
 \]
 
-下一层 `ell=8` 的 residual 窗为
+以及 resonance/cross-corridor，得到两个全局禁象限，并进一步由
 
 \[
-509<t<5045,
+10^{k-1}\le h2^x5^y<10^k
 \]
 
-即
+推出一个与 `ell` 完全无关的有限 exponent box
 
 \[
-\boxed{t\in\{510,\ldots,5044\}.}
+X_{\min}(k)\le x\le X_{\max}(k),
+\qquad
+Y_{\min}(k)\le y\le Y_{\max}(k).
 \]
 
-下一步继续把这一层分成 regular 与 deep-2/5 residual。这里的关键进展已经很清楚：`k=6` 的尾长并没有形成新的无界二维格点，而是在逐层变成有限的 decimal-supply 证书。
+于是每个固定 `k` 的整个第三尾都一次性变成 finite exact rational search，不再需要逐 `ell` 推进。
+
+`k=6..23` 的全部这些 finite boxes 中，one-sided near-integer window 的命中数均为 0。
+
+### 下一步
+
+当前最值得推进的方向已经从“继续机械增加 `ell` shell”变成两条：
+
+1. 继续把 generic fixed-layer certificate 推到 `k>=24`，作为快速严格证书；
+2. 更重要地，从 `k=6..23` 的数据中证明一个 `k`-uniform 的 **gap desert**：允许的 `rho=h2^x5^y` 到最近上方整数的归一化距离
+   \[
+   10^k(\lceil\rho\rceil-\rho)
+   \]
+   在目标区间
+   \[
+   5.09<\cdot<50.45
+   \]
+   附近持续为空。如果能把这个现象提升为统一算术定理，就有机会一次关闭全部 `k>=24` diagonal。
 
 `d=1,0,-1` 等其他 A1 无界核心仍待处理。判别平方审计继续有效：完整 contact 系统中的平方恒等式不能重复当作独立障碍。
 
 ## 可复核脚本
 
-分支专用脚本位于 [`scripts/exact-lift/a1-only/`](../../../../../scripts/exact-lift/a1-only/)。其中：
+分支专用脚本位于 [`scripts/exact-lift/a1-only/`](../../../../../scripts/exact-lift/a1-only/)。主要包括：
 
-- `check_a1_top_diag_k1.py`、`check_a1_top_diag_k2.py`、`check_a1_top_diag_k3.py` 给出 `k=1,2,3` 的完整证书；
-- `check_a1_top_diag_k45.py` 同时复核 `k=4,5`；
-- `check_a1_top_diag_k6_boundary.py` 复核 `k=6, ell=5`；
-- `check_a1_top_diag_k6_ell6.py` 复核 `k=6, ell=6`；
-- `check_a1_top_diag_k6_ell7.py` 复核 `k=6, ell=7`；
-- `check_a1_near_integer_tail_constants.py` 用精确有理数复核 near-integer 常数。
+- `check_a1_top_diag_k1.py`、`check_a1_top_diag_k2.py`、`check_a1_top_diag_k3.py`：`k=1,2,3`；
+- `check_a1_top_diag_k45.py`：`k=4,5`；
+- `check_a1_top_diag_k6_boundary.py`、`check_a1_top_diag_k6_ell6.py`、`check_a1_top_diag_k6_ell7.py`：早期 `k=6` 局部 shell 证书；
+- `check_a1_top_diag_k6_uniform_tail.py`：整个 `k=6` 的统一 tail 证书；
+- `check_a1_top_diag_uniform_layers.py`：generic `k=6..23` fixed-layer certificate；
+- `check_a1_near_integer_tail_constants.py`：精确有理数复核 near-integer 常数。
