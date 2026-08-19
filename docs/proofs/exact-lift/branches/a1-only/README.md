@@ -1,12 +1,12 @@
 # `A_1`-only 分支
 
-这是 `A_1` 分支的规范编辑入口。当前 minimal diagonal 的 central denominator 已经统一关闭；真正剩余的无界核心只在 `k>=31` 的 deep denominator。
+这是 `A_1` 分支的规范编辑入口。当前 minimal diagonal 的 central denominator 已统一关闭；double-deep 也已从二维指数格压到唯一 moderate `HL` 与 one-sided 2-extreme `E_2` 两支。
 
 ## 阅读顺序
 
 1. [`core.md`](core.md)：A1 主框架与审计边界。
-2. [`rational-contact.md`](rational-contact.md)：rational-contact、denominator funnel、resonance、cross-corridor 与 fixed-prefix finite theorem。
-3. [`top-layer.md`](top-layer.md)：moving-prefix、`d=2` endpoint kernel、positive excess 与 minimal-surplus 分裂。
+2. [`rational-contact.md`](rational-contact.md)：rational-contact、denominator funnel、resonance、cross-corridor、fixed-prefix finite theorem。
+3. [`top-layer.md`](top-layer.md)：moving-prefix、`d=2` endpoint kernel、positive excess、minimal-surplus 分裂。
 4. [`diagonal.md`](diagonal.md)：`k=g` minimal diagonal、valuation normal form、odd-prime supply。
 5. [`near-integer-tail.md`](near-integer-tail.md)、[`positive-tail-residual.md`](positive-tail-residual.md)、[`sharp-positive-tail-window.md`](sharp-positive-tail-window.md)：
    \[
@@ -16,42 +16,46 @@
    \[
    \boxed{\underline x_*(k)=-k-2.}
    \]
-7. [`gap-denominator-normal-form.md`](gap-denominator-normal-form.md)：按 normalized gap reduced denominator 分成 central / deep。
-8. [`central-gap-2adic.md`](central-gap-2adic.md)、[`central-gap-sign-collapse.md`](central-gap-sign-collapse.md)、[`central-crossing-sharp.md`](central-crossing-sharp.md)：central `144 -> 48 -> 30`。
-9. [`central-supply-pell-normal-form.md`](central-supply-pell-normal-form.md)、[`central-pell-local-squareclass.md`](central-pell-local-squareclass.md)、[`central-double-square-valuation-lock.md`](central-double-square-valuation-lock.md)：把 30 个 central type-gap 压成绝对有限 `t=U-U_0` cells。
-10. [`central-modular-exhaustion.md`](central-modular-exhaustion.md)：exact finite modular cover；全部 central `k>=26` 统一为空。
-11. [`deep-gap-valuation-normal-form.md`](deep-gap-valuation-normal-form.md)、[`deep-gap-unit-square.md`](deep-gap-unit-square.md)：deep resonance/parity 与 2/5-adic unit-square locks。
-12. [`deep-q-side-proper-divisor.md`](deep-q-side-proper-divisor.md)、[`deep-b1-block-loss.md`](deep-b1-block-loss.md)：strict 2-deep 的 Q-side direction、proper-divisor cap 与 `b_1` whole-block loss。
-13. [`deep-complement-height.md`](deep-complement-height.md)：`T^-2` rational approximation 与 deep logarithmic height bound。
-14. [`deep-balanced-collapse.md`](deep-balanced-collapse.md)：任意 fully-balanced deep state 全部为空。
-15. [`deep-universal-factorization.md`](deep-universal-factorization.md)、[`deep-four-factor-frame.md`](deep-four-factor-frame.md)：single / double deep 共享的 universal factor-pair 与 complementary four-factor frame。
-16. [`deep-global-factorization.md`](deep-global-factorization.md)：double-deep 的 bounded renormalized parameter `t/D` 与 excess denominator。
-17. [`deep-moderate-factorization.md`](deep-moderate-factorization.md)、[`deep-moderate-three-pattern.md`](deep-moderate-three-pattern.md)、[`deep-moderate-factor-quotients.md`](deep-moderate-factor-quotients.md)、[`deep-moderate-root-normal-form.md`](deep-moderate-root-normal-form.md)：moderate double-deep 从二维 `(A,B)` 压成 LL/LH/HL 三模板、finite `r` 与 root branches。
-18. [`deep-extreme-classification.md`](deep-extreme-classification.md)、[`deep-extreme-height-collapse.md`](deep-extreme-height-collapse.md)：extreme 只能单侧发生，且 5-extreme 已完全排除；只剩 one-sided 2-extreme。
-19. [`uniform-layer-finite-box.md`](uniform-layer-finite-box.md)、[`k24-k25-uniform-certificates.md`](k24-k25-uniform-certificates.md)、[`k26-k30-uniform-certificates.md`](k26-k30-uniform-certificates.md)：fixed-layer 保险证书。
-20. [`short-tail-saturation.md`](short-tail-saturation.md)：历史中间记录；saturated 已被后续结果排除。
+7. [`gap-denominator-normal-form.md`](gap-denominator-normal-form.md)：normalized gap 按 reduced denominator 分成 central / deep。
+8. [`central-gap-2adic.md`](central-gap-2adic.md)、[`central-gap-sign-collapse.md`](central-gap-sign-collapse.md)、[`central-supply-pell-normal-form.md`](central-supply-pell-normal-form.md)、[`central-double-square-valuation-lock.md`](central-double-square-valuation-lock.md)、[`central-modular-exhaustion.md`](central-modular-exhaustion.md)：central 从 144 个 type-gap 压成 finite cells，最终 all-`k` exact modular cover 归零。
+9. [`deep-gap-valuation-normal-form.md`](deep-gap-valuation-normal-form.md)、[`deep-gap-unit-square.md`](deep-gap-unit-square.md)：deep resonance/parity 与 2/5-adic unit-square locks。
+10. [`deep-q-side-proper-divisor.md`](deep-q-side-proper-divisor.md)、[`deep-b1-block-loss.md`](deep-b1-block-loss.md)：strict 2-deep 的 Q-side direction、proper-divisor cap、`b_1` whole-block loss。
+11. [`deep-complement-height.md`](deep-complement-height.md)、[`deep-first-complement-remainder.md`](deep-first-complement-remainder.md)、[`deep-balanced-collapse.md`](deep-balanced-collapse.md)：complement rational approximation、first remainder、fully-balanced collapse。
+12. [`deep-universal-factorization.md`](deep-universal-factorization.md)、[`deep-four-factor-frame.md`](deep-four-factor-frame.md)：single / double deep 共享的 factor-pair 与 complementary four-factor frame。
+13. [`deep-moderate-factorization.md`](deep-moderate-factorization.md)、[`deep-moderate-three-pattern.md`](deep-moderate-three-pattern.md)、[`deep-moderate-factor-quotients.md`](deep-moderate-factor-quotients.md)：moderate double-deep 的 finite `r` 与 LL/LH/HL 模板。
+14. [`deep-typewise-r-window.md`](deep-typewise-r-window.md)、[`deep-moderate-block-partition.md`](deep-moderate-block-partition.md)、[`deep-moderate-adjugate-gcd-lock.md`](deep-moderate-adjugate-gcd-lock.md)、[`deep-hl-mod4-orientation.md`](deep-hl-mod4-orientation.md)：typewise finite `r`、`r_10` whole-block partition、gcd lock、HL orientation。
+15. [`deep-double-5high-collapse.md`](deep-double-5high-collapse.md)：全部 double-deep 5-high 分支为空。
+16. [`deep-ll-pell-normal-form.md`](deep-ll-pell-normal-form.md)、[`deep-ll-modular-exhaustion.md`](deep-ll-modular-exhaustion.md)：LL 化成 fixed Pell families，并对六 prefix 类型 exact modular exhaustion 到 `0`。
+17. [`deep-root-factor-splitting.md`](deep-root-factor-splitting.md)：说明 moderate root-square 在 four-factor frame 中自动因式分裂，不能重复算独立 obstacle。
+18. [`deep-hl-5adic-hensel-lock.md`](deep-hl-5adic-hensel-lock.md)：当前唯一 moderate 分支 HL 的 exact growing-depth 5-adic Hensel lock。
+19. [`deep-extreme-classification.md`](deep-extreme-classification.md)、[`deep-extreme-height-collapse.md`](deep-extreme-height-collapse.md)：extreme 只能单侧；5-extreme 空；只剩 2-extreme `E_2`。
+20. [`uniform-layer-finite-box.md`](uniform-layer-finite-box.md)、[`k24-k25-uniform-certificates.md`](k24-k25-uniform-certificates.md)、[`k26-k30-uniform-certificates.md`](k26-k30-uniform-certificates.md)、[`k31-uniform-certificate.md`](k31-uniform-certificate.md)：fixed-layer 保险证书。
 
-## 当前状态
+## 当前严格状态
 
-A1 整体仍为 `待证`。minimal diagonal 已严格得到：
+A1 整体仍为 `待证`。
+
+minimal diagonal 已有：
 
 \[
-\boxed{1\le k=g\le30\Longrightarrow\text{empty}.}
+\boxed{1\le k=g\le31\Longrightarrow\text{empty}.}
 \]
 
-并且
+central denominator 已有统一结论：
 
 \[
 \boxed{k=g\ge26\Longrightarrow\text{central denominator empty}.}
 \]
 
-因此任何尚存 minimal-diagonal candidate 必须满足
+所以任何尚存 minimal-diagonal candidate 必须满足
 
 \[
-\boxed{k=g\ge31}
+\boxed{k=g\ge32}
 \qquad\text{且}\qquad
 \boxed{\text{deep denominator}.}
 \]
+
+统一 deep 理论本身从 `k>=31` 已有效，因此 `k=31` fixed certificate 只是独立保险层。
 
 对全部 `k>=3`：
 
@@ -61,29 +65,28 @@ A1 整体仍为 `待证`。minimal diagonal 已严格得到：
 \boxed{15.09<\Gamma_k<39.003.}
 \]
 
-同时 `rho<N_0`、saturated sector 为空、`ell>=k-1`。
+并且 `rho<N_0`、saturated sector 为空、`ell>=k-1`。
 
 ## Central denominator：已完全关闭
 
-central 经 2-adic、sign、Euclidean descent、local squareclass 与 double-square valuation lock 后，只需检查 93,580,902 个 local-compatible `t`。`central-modular-exhaustion.md` 用 `ord_p(10)|420` 的公共素数把它们压到 33 个 `(t,k mod 420)` 状态，再用补充素数做 CRT compatibility，最终存活数为
+`central-modular-exhaustion.md` 对 93,580,902 个 local-compatible finite states 做 exact periodic cover：
 
 \[
-\boxed{0}.
+93,580,902\longrightarrow33\text{ 个 }(t,k\bmod420)\longrightarrow\boxed0.
 \]
 
-所以 central Pell / primitive-divisor 已不再是待解核心。
+因此 central 不再是待解核心。
 
-## Deep denominator：统一框架
+## Deep：统一 skeleton
 
 写
 
 \[
 \Gamma_k=\frac\gamma D,
-\qquad
-D=2^A5^B,
+\qquad D=2^A5^B,
 \]
 
-并把非 deep 一侧留在 numerator 的 `2/5` powers 写成
+并把 non-deep side 留在 numerator 的 2/5 powers 记为
 
 \[
 \lambda=2^{\lambda_2}5^{\lambda_5}.
@@ -96,17 +99,17 @@ D=2^A5^B,
 \qquad T=10^k,
 \]
 
-其中完整 odd-prime supply 为
+其中
 
 \[
 h=qs,
 \qquad q\mid Q,
-\qquad s\mid b_1
+\qquad s\mid b_1,
 \]
 
-（`s` 仍 obey `1 mod4` whole-block selector）。
+且 `s` 仍是 `1 mod 4` whole-block selector。
 
-### complement-height
+### complement height / first remainder
 
 令
 
@@ -116,122 +119,79 @@ M=Qb_1/h,
 \mu=\frac{MD}{\lambda T^2}.
 \]
 
-已有
+有
 
 \[
 1000<\mu<10001,
 \]
 
 \[
-\boxed{
-0<\frac{MDN_0}{\lambda T^3}-1000
-<\frac{390100}{T^2}.}
+0<\frac{MDN_0}{\lambda T^3}-1000<\frac{390100}{T^2}.
 \]
 
-因此 general deep 必须满足
+并定义
 
 \[
-\boxed{
-2^{(3k+\lambda_2-A-e-\nu_2)_+}
-5^{(3k+\lambda_5-B-\nu_5)_+}
->
-\frac{10^{2k}}{390100},}
-\]
-
-其中
-
-\[
-e=v_2(w),\qquad
-\nu_p=v_p(N_0).
-\]
-
-### fully-balanced deep 已排除
-
-`deep-balanced-collapse.md` 证明：若
-
-\[
-A+e+\nu_2\ge k+\lambda_2,
-\qquad
-B+\nu_5\ge k+\lambda_5,
-\]
-
-则必无解。故每个 deep candidate 至少有一侧 shallow：
-
-\[
-\boxed{
-A+e+\nu_2<k+\lambda_2
-\quad\text{或}\quad
-B+\nu_5<k+\lambda_5.}
-\]
-
-证明中会产生 bounded integer
-
-\[
-15091\le J\le390069
-\]
-
-并把 `Gamma_k` 化成
-
-\[
-\Gamma_k=
-\frac{N_0(JT^2-C_0)}
-{T(1000T^2+J+10(1-20w))},
-\]
-
-再由 denominator odd-part 得到尺寸矛盾。
-
-### universal factor-pair
-
-对任意 single / double deep，`deep-universal-factorization.md` 证明存在正整数 `t,a,b`：
-
-\[
-\boxed{
-X_1:=10\gamma T-wDN_0=sa,}
+J_1:=\frac{M\gamma+C_0\lambda}{T}\in\mathbf Z,
 \]
 
 \[
-\boxed{
-X_2:=100\gamma T-(10w-1)DN_0=qb,}
+R_1:=10(1-20w)\lambda T+J_1,
+\]
+
+则
+
+\[
+\boxed{MDN_0=1000\lambda T^3+R_1,}
 \]
 
 \[
-\boxed{ab=t,}
+\boxed{14300\lambda T<R_1<390100\lambda T.}
 \]
 
-并且
+这条 first remainder 已用于关闭整个 double-deep 5-high 方向。
+
+### fully-balanced 已排除
+
+若
 
 \[
-\boxed{
-X_1X_2=t h.}
-\]
-
-同时
-
-\[
-\boxed{
-t\equiv-1000\lambda\gamma T^2\pmod D,}
+A+v_2(w)+v_2(N_0)\ge k+\lambda_2,
 \]
 
 且
 
 \[
-\boxed{
-196000\lambda<\frac tD<15214000\lambda.}
+B+v_5(N_0)\ge k+\lambda_5,
 \]
 
-因此 single / double deep 现在共享同一套 divisor skeleton。
+则无解。因此每个 deep candidate 至少有一个 shallow side。
 
-### complementary four-factor frame
+### universal factor / four-factor
+
+对任意 single / double deep，存在正整数 `t,a,b`：
+
+\[
+\boxed{10\gamma T-wDN_0=sa,}
+\]
+
+\[
+\boxed{100\gamma T-(10w-1)DN_0=qb,}
+\]
+
+\[
+\boxed{ab=t.}
+\]
 
 写
 
 \[
 \bar q=Q/q,
 \qquad
-\bar s=b_1/s.
+\bar s=b_1/s,
 \]
 
-则还有精确对偶关系
+还有
 
 \[
 \boxed{qb-10sa=DN_0,}
@@ -241,226 +201,267 @@ t\equiv-1000\lambda\gamma T^2\pmod D,}
 \boxed{\bar s b-\bar q a=10\lambda T.}
 \]
 
-并产生两条额外 integer-square identities：
+并产生 complementary square
 
 \[
-\boxed{R^2=D^2N_0^2+40th,}
+S^2=100\lambda^2T^2+4tM,
 \]
 
-\[
-\boxed{S^2=100\lambda^2T^2+4tM.}
-\]
-
-进一步
+及
 
 \[
-\boxed{S-10\lambda T=2a\bar q,}
+S-10\lambda T=2a\bar q,
 \qquad
-\boxed{S+10\lambda T=2b\bar s,}
+S+10\lambda T=2b\bar s.
 \]
 
-所以
+## Double-deep：只剩 2-high / 5-low
+
+### moderate
+
+moderate 指
 
 \[
-\boxed{X_2(S-10\lambda T)=2tQ,}
+A,B\le2k+3.
 \]
-
-\[
-\boxed{X_1(S+10\lambda T)=2tb_1.}
-\]
-
-prime supply 与 complementary supply 都已经显式接入同一组 `(a,b,t)`。
-
-## Double-deep：当前已压成四类
-
-### moderate：`A,B<=2k+3`
 
 此时
 
 \[
 \frac tD=r\in\mathbf Z,
-\qquad
-\boxed{196000<r<15214000,}
+\]
+
+且 `deep-typewise-r-window.md` 给六类型：
+
+\[
+\begin{array}{c|c}
+(z,w)&r\\ \hline
+(1,1)&761760\le r\le10885221\\
+(1,2)&542890\le r\le8400003\\
+(1,3)&361000\le r\le6236387\\
+(1,4)&216090\le r\le4394372\\
+(3,1)&384160\le r\le15204352\\
+(3,2)&299290\le r\le13677244
+\end{array}
+\]
+
+transition strips 已排除，原三模板为 LL/LH/HL。
+
+#### LH：已关闭
+
+`deep-double-5high-collapse.md` 用 first remainder 证明 moderate 5-high `LH` 全空；此前 5-extreme 也已空。所以 double-deep 不存在任何 5-high state。
+
+#### LL：已关闭
+
+LL 有
+
+\[
+D\mid r,
+\]
+
+并化成 fixed Pell family
+
+\[
+Y^2=A_{\gamma,r,D}L^2+B_{\gamma,r,D},
+\qquad L=10^k/D.
+\]
+
+六类型 exact modular exhaustion 的统计：
+
+\[
+\begin{array}{c|r|r|r|r|r|r}
+(z,w)&\text{local}&P_0&k\bmod420&P_1&k\bmod277200&\text{final}\\ \hline
+(1,1)&57,278,520&593,553&1,016,555&93,222&6,980&0\\
+(1,2)&19,206,685&93,027&155,388&13,674&916&0\\
+(1,3)&25,308,717&162,735&258,880&20,743&1,530&0\\
+(1,4)&4,331,873&18,342&28,788&2,271&154&0\\
+(3,1)&306,099,009&3,156,352&5,421,691&500,727&37,426&0\\
+(3,2)&110,439,962&575,335&974,681&86,545&6,020&0
+\end{array}
+\]
+
+总 local-compatible fixed families：
+
+\[
+\boxed{522,664,766},
+\]
+
+最终 periodic survivors：
+
+\[
+\boxed0.
 \]
 
 所以
 
 \[
-v_2(r)\le23,
-\qquad
-v_5(r)\le10.
+\boxed{\text{moderate LL empty for all six types and all }k\ge31.}
 \]
 
-所有 2/5 transition strips 在 `k>=31` 均已排除，high-high 又被 fully-balanced theorem 排除，因此只剩三种模板：
+#### moderate 当前只剩 HL
+
+因此：
 
 \[
-\boxed{LL:}
-\qquad
-A+2\nu_2+e=v_2(r),
-\quad
-B+2\nu_5=v_5(r),
+\boxed{\text{moderate double-deep}=HL.}
 \]
 
+HL 满足
+
 \[
-\boxed{LH:}
-\qquad
-A+2\nu_2+e=v_2(r),
-\quad
-B=2k+3-v_5(r),
+\boxed{A=2k+3-v_2(r),}
 \]
 
 \[
-\boxed{HL:}
-\qquad
-A=2k+3-v_2(r),
-\quad
-B+2\nu_5=v_5(r).
+\boxed{B+2\nu_5=v_5(r)\le10.}
 \]
 
-因此 moderate 已不再有二维 exponent freedom。
+对 `(1,2),(1,3),(1,4)` 更强为 `<=9`。
 
-若
+写
 
 \[
 r_{10}=r/2^{v_2(r)}5^{v_5(r)},
+\qquad \alpha\beta=r_{10},
+\qquad \gcd(\alpha,\beta)=1.
 \]
 
-则在三模板中把 `a,b` 的显式 2/5 powers 除尽后，都有
+HL orientation：
 
 \[
-\boxed{\alpha\beta=r_{10}.}
-\]
-
-所以剩余 quotient 只来自 finite divisor pair。
-
-moderate 还具有 denominator-free root normal form：存在整数 `Z>0`：
-
-\[
-\boxed{
-Z^2=(10N_0T+r)^2+400N_0Tr(10T^2-w),}
-\]
-
-\[
-\boxed{
-\Gamma_k=
-\frac{10(20w-1)N_0T-r+Z}{2000T^2}.}
-\]
-
-于是 `D` 只是这个有理数约分后恢复出的 2/5 denominator。并且
-
-\[
-Z^2\equiv r^2\pmod T,
-\]
-
-所以 LL/LH/HL 可解释成 2-adic / 5-adic square-root 的 `(+,+),(+,-),(-,+)` 三种 branch；`(-,-)` 即已排除的 high-high。
-
-### extreme
-
-两侧不能同时 extreme，因为 `D<10000T^2`。
-
-`deep-extreme-height-collapse.md` 进一步证明 5-extreme 完全为空。因此唯一 extreme 分支是
-
-\[
-\boxed{E_2:\quad A=2k+3+E,\ E>0,}
-\]
-
-并且必有 5-side shallow-low：
-
-\[
-\boxed{B+\nu_5<7+0.570k.}
-\]
-
-这里
-
-\[
-v_2(t)=2k+3,
+\alpha\equiv3\pmod4\quad(w=1,3),
 \qquad
-v_5(t)=2B+2\nu_5,
+\alpha\equiv1\pmod4\quad(w=2,4),
 \]
 
-故
+\[
+\boxed{\beta\equiv3\pmod4.}
+\]
+
+adjugate 还给
+
+\[
+\boxed{\gcd(N_0,\gamma)\mid r_{10}<15,214,000.}
+\]
+
+HL 的 exact 5-adic Hensel lock 为：若
+
+\[
+r=5^{a_5}r_5,
+\qquad N_0=5^{\nu_5}n,
+\]
+
+则
 
 \[
 \boxed{
-\frac tD
-=
-\frac{5^{B+2\nu_5}r_{10}}{2^E},
-\qquad
-196000<\frac tD<15214000.}
+v_5\left(r_5\gamma+C_0 2^{2k+3-v_2(r)}n^2\right)
+=k+1-a_5+\nu_5.}
 \]
 
-所以 extreme 剩余已经是 pure-2 denominator descent。
+这是当前 moderate 的主攻击入口。
 
-综上 double-deep 当前只有
+`deep-root-factor-splitting.md` 同时确认 denominator-free root square 在 full four-factor frame 中会自动因式分裂，不能重复当作独立 obstacle。
+
+### extreme：只剩 `E_2`
+
+双 extreme 不可能；5-extreme 已由 height bound 排除。唯一 extreme 为
 
 \[
-\boxed{LL\cup LH\cup HL\cup E_2.}
+\boxed{E_2:\quad A=2k+3+E,\quad E>0,}
 \]
 
-没有 transition、high-high、double-extreme 或 5-extreme。
-
-## Strict 2-deep supply loss
-
-unit-square lock 继续给
+且其 5-side 必 shallow-low。现有 bound：
 
 \[
-w\text{ odd}\Rightarrow q\equiv1\pmod4,
-\qquad
-w\text{ even}\Rightarrow q\equiv3\pmod4,
+\boxed{B+\nu_5<7+0.570k,}
 \]
 
-并有
+更深的 2-side 可用更强 `8+0.139k` bound。
+
+所以完整 double-deep 已变成
 
 \[
-q\le Q/7\quad(w=1,3,4),
-\qquad q\le Q/3\quad(w=2).
+\boxed{\text{double-deep}=HL_{\rm moderate}\cup E_2.}
 \]
 
-结合 `b_1` whole-block loss：
+两支都是 2-high / 5-low。
 
-\[
-\boxed{
-h\le
-\begin{cases}
-Qb_1/21,&w=1,\\
-Qb_1/42,&w=2,\\
-Qb_1/7,&w=3,\\
-Qb_1/84,&w=4.
-\end{cases}}
-\]
+## Single-deep
 
-strict 5-low 还保留 Legendre lock。
+single-deep 尚未关闭，但不再拥有独立框架：它与 double-deep 共用
+
+- complement height；
+- first remainder；
+- universal factor pair；
+- complementary four-factor frame；
+- 2/5 unit-square locks。
+
+下一阶段应在同一 skeleton 下按 single-2 / single-5 的 `lambda_2,lambda_5` 平移处理。
 
 ## Fixed-layer 保险线
 
 完整 exact certificates 当前关闭
 
 \[
-\boxed{k=1,2,\ldots,30.}
+\boxed{k=1,2,\ldots,31.}
 \]
 
-`k=31` 尚未计入：此前 `w=4` 的 Q-side factorization 未完整结束，因此不使用 partial factor data 冒充证书。
+最新 `k=31`：
+
+\[
+(|H_1|,|H_2|,|H_3|,|H_4|)=(16384,96,16,96),
+\]
+
+finite box
+
+\[
+(x,y)\in[-321,284]\times[-120,58],
+\]
+
+exact decade states：
+
+\[
+\boxed{6,146,672},
+\]
+
+并继续检查旧的更宽 window
+
+\[
+5.09<10^{31}(\lceil\rho\rceil-\rho)<50.45,
+\]
+
+得到
+
+\[
+\boxed{0\text{ hits}.}
+\]
+
+所以首个未关闭 fixed layer 是
+
+\[
+\boxed{k=32.}
+\]
 
 ## 下一步
 
-minimal diagonal 现在只需处理 deep，且结构已经进一步分层：
+minimal diagonal 当前真正只需继续三个统一核心：
 
-1. moderate double-deep：对 LL/LH/HL 的 finite `r`、`alpha beta=r_10` 与 four-factor frame 做 periodic modular exhaustion / resultant；
-2. 2-extreme：继续 pure-2 denominator descent，结合 Q-side direction 与 complement-height；
-3. single-deep：利用 universal factorization / four-factor frame，不再维护独立的第三尾方法；
-4. fixed-layer certificate 仅作保险线继续推进。
+1. **moderate HL**：把 growing 5-adic Hensel lock 与 stripped equations / Q-side orientation 联立，争取再做一次 finite descent；
+2. **2-extreme `E_2`**：利用 first remainder + pure-2 excess denominator 压缩 `E`；
+3. **single-deep**：在同一 universal factor frame 下处理 `lambda` 平移后的 single-2 / single-5。
 
-`d=1,0,-1` 等其他 A1 无界核心仍待处理。
+`d=1,0,-1` 等其他 A1 top-layer 无界核心仍待处理；本 README 的“关闭”均只指上述 minimal diagonal 子问题。
 
-## 可复核脚本
+## 主要可复核脚本
 
-分支脚本位于 [`scripts/exact-lift/a1-only/`](../../../../../scripts/exact-lift/a1-only/)。主要包括：
+位于 [`scripts/exact-lift/a1-only/`](../../../../../scripts/exact-lift/a1-only/)：
 
 - `check_a1_top_diag_uniform_layers.py`：`k=6..23`；
 - `check_a1_top_diag_uniform_layers_24_25.py`：`k=24,25`；
 - `check_a1_top_diag_uniform_layers_26_30.py`：`k=26..30`；
+- `check_a1_top_diag_uniform_layer_31.py`：`k=31`；
 - `check_a1_central_modular_exhaustion.cpp`：全部 central `k>=26`；
+- `check_a1_deep_ll_modular_exhaustion.cpp`：全部 moderate LL `k>=31`；
 - `check_a1_deep_gap_unit_square.py`；
-- `check_a1_deep_moderate_factorization.py`；
-- `check_a1_deep_universal_factorization.py`；
-- 以及早期 near-integer / finite-layer 审计脚本。
+- 以及 near-integer、k1..k6 等历史审计脚本。
