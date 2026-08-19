@@ -2,7 +2,7 @@
 
 > **依赖：** `spontaneous-height-equal-depth-resonance.md`、`spontaneous-height-oversaturation-depth-ledger.md`、`primitive-reduction.md`、`endpoint-lattice.md`。
 >
-> **严格状态：**本文把逐 prime 的 `e=v_p(omega)` / `h=v_p(W_q)` 二分提升为 `alpha=omega W_q` 的全局 square-core factorization。`Gamma=gcd(omega,W_q)` 的平方完整进入真实拼接 numerator，而 residual cofactor 的逐 prime 深度恰为 `|e-h|`；因此 equal-depth primes 在 residual cofactor 中完全消失。对当前 endpoint，`alpha` 恰有 `m+M+1` 位，并且距顶部 `10TN` 只有一个显式小 defect `C_alpha=10Te_2-a_3`。所有 equal-depth oversaturation primes 的总平方块共同整除 `alpha`，从而受到单一 `sqrt(alpha)` 高度约束；若该平方模数超过 `C_alpha`，后者就是 `10TN` 模整个 equal-depth square core 的最小正代表。本文给出新的 global allocation / CRT 接口，不宣称 A2 closure。
+> **严格状态：**本文把逐 prime 的 `e=v_p(omega)` / `h=v_p(W_q)` 二分提升为 `alpha=omega W_q` 的全局 square-core factorization。`Gamma=gcd(omega,W_q)` 的平方完整进入真实拼接 numerator，而 residual cofactor 的逐 prime 深度恰为 `|e-h|`；更进一步，`Gamma` 可完全恢复为原始整数的三重 gcd `gcd(alpha,beta,H_0)`，所以该 square core 无需 source 记号即可定义。对当前 endpoint，`alpha` 恰有 `m+M+1` 位，并且距顶部 `10TN` 只有一个显式小 defect `C_alpha=10Te_2-a_3`。所有 equal-depth oversaturation primes 的总平方块共同整除 `alpha`，从而受到单一 `sqrt(alpha)` 高度约束；若该平方模数超过 `C_alpha`，后者就是 `10TN` 模整个 equal-depth square core 的最小正代表。本文给出新的 global allocation / CRT 接口，不宣称 A2 closure。
 
 ---
 
@@ -49,6 +49,66 @@ W^\circ:=\frac{W_q}{\Gamma}.}
 
 这给出了 `alpha` 的 canonical common-square / imbalance factorization。
 
+`primitive-reduction.md` 已经证明
+
+\[
+\omega=\gcd(\alpha,\beta),
+\qquad
+W_q=\gcd(\alpha,H_0),
+\tag{1.6}
+\]
+并且
+
+\[
+\beta=\omega S,
+\qquad
+H_0=c_uW_q,
+\qquad
+\gcd(W_q,S)=1,
+\qquad
+\gcd(\omega,c_u)=1.
+\tag{1.7}
+\]
+
+因此 `Gamma` 还有一个完全 original-integer 的读取器：
+
+\[
+\boxed{
+\Gamma
+=\gcd(\omega,W_q)
+=\gcd(\alpha,\beta,H_0).}
+\tag{1.8}
+\]
+
+逐 prime 验证很直接。若
+
+\[
+e=v_p(\omega),\quad
+h=v_p(W_q),\quad
+s=v_p(S),\quad
+c=v_p(c_u),
+\]
+则 (1.7) 给
+
+\[
+\min(h,s)=0,
+\qquad
+\min(e,c)=0.
+\]
+而三原始整数的赋值分别为
+
+\[
+e+h,\qquad e+s,\qquad c+h.
+\]
+所以
+
+\[
+\min(e+h,e+s,c+h)=\min(e,h),
+\]
+恰好就是 `v_p(Gamma)`。
+
+因此本文的 common square core 不依赖后续 source quotient 的选取：它就是**原拼接 numerator、原拼接 denominator 与整数 sphere height 的三重公共部分**。
+
 逐 prime 写
 
 \[
@@ -67,7 +127,7 @@ v_p(\Gamma)=\min(e_p,h_p),
 \boxed{
 v_p(\omega^\circ W^\circ)
 =|e_p-h_p|.}
-\tag{1.6}
+\tag{1.9}
 \]
 
 所以：
@@ -77,7 +137,7 @@ v_p(\omega^\circ W^\circ)
 e_p=h_p
 \Longleftrightarrow
 p\mid\Gamma\ \text{且}\ p\nmid\omega^\circ W^\circ}
-\tag{1.7}
+\tag{1.10}
 \]
 （这里默认 `e_p=h_p>=1`）。
 
@@ -107,7 +167,7 @@ G_{\rm eq}:=\prod_{p\in E_{\rm eq}}p^{h_p}.}
 \tag{2.1}
 \]
 
-由 (1.5)、(1.7)：
+由 (1.5)、(1.10)：
 
 \[
 \boxed{G_{\rm eq}\mid\Gamma,}
@@ -245,8 +305,7 @@ v_p(\omega)=v_p(W_q)=h,
 结合 (3.7)：
 
 \[
-\boxed{
-p^{2h}<10^{m+M+1}.}
+\boxed{p^{2h}<10^{m+M+1}.}
 \tag{4.3}
 \]
 
@@ -390,6 +449,8 @@ C_\alpha
 \alpha
 =\Gamma^2\omega^\circ W^\circ,
 \qquad
+\Gamma=\gcd(\alpha,\beta,H_0),
+\qquad
 \gcd(\omega^\circ,W^\circ)=1,}
 \tag{8.1}
 \]
@@ -403,7 +464,7 @@ v_p(\omega^\circ W^\circ)=|e_p-h_p|.
 因此：
 
 - unequal-depth sector 已由 residual-depth ledger 控制，并显式留在 imbalance cofactor；
-- equal-depth sector 完全进入 square core；
+- equal-depth sector 完全进入由原始整数三重 gcd 读取的 square core；
 - equal-depth oversaturation pool 的总尺度满足 (5.1)；
 - 当该 pool 足够大时，顶部小 defect `C_alpha` 成为其平方模数的 exact natural residue。
 
