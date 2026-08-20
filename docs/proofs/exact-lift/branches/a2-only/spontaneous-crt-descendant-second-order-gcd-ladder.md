@@ -88,6 +88,7 @@ v_p(G_\Delta S_{bal})=2h.
 v_p(M_{\le2})
 =2h+\sigma.}
 \tag{2.2}
+\]
 
 这不是 truncated inequality，而是 exact equality。
 
@@ -115,6 +116,7 @@ v_p(L)\ge h.
 \boxed{
 v_p(M^{(\ge3)})\ge3h.}
 \tag{3.1}
+\]
 
 ---
 
@@ -136,6 +138,7 @@ v_p(M^{(\ge3)})\ge3h.}
 \boxed{
 v_p(M)=2h+\sigma.}
 \tag{4.1}
+\]
 
 ### `sigma>=h`
 
@@ -159,6 +162,7 @@ v_p(M)\ge3h.}
 =2h+\min\{\sigma,h\}
 \qquad(\rho\ge h).}
 \tag{4.3}
+\]
 
 或等价地
 
@@ -167,6 +171,7 @@ v_p(M)\ge3h.}
 \min\{v_p(M)-2h,h\}
 =\min\{v_p(\mathscr C_{63}^{(2)}),h\}.}
 \tag{4.4}
+\]
 
 所以 `C_63^(2)` 精确读取第二个完整 baseline以内的全部 remainder depth。
 
@@ -181,6 +186,7 @@ v_p(M)\ge3h.}
 D_j^{(2)}
 :=\gcd(G_\Delta^j,\mathscr C_{63}^{(2)}).}
 \tag{5.1}
+\]
 
 逐 common prime：
 
@@ -188,6 +194,7 @@ D_j^{(2)}
 \boxed{
 v_p(D_j^{(2)})=\min(jh,\sigma).}
 \tag{5.2}
+\]
 
 因此 stable ladder读取 second-order tail上的完整 local exponent `sigma`。
 
@@ -199,6 +206,7 @@ v_p(D_j^{(2)})=\min(jh,\sigma).}
 \qquad
 \sigma\ge h.}
 \tag{5.3}
+\]
 
 即 first 与 second tail连续各吞下至少一个完整 common baseline。
 
@@ -218,7 +226,7 @@ v_p(D_j^{(2)})=\min(jh,\sigma).}
 \rho\ge h,\ \sigma\ge h
 &v_p(M)\ge3h.
 \end{array}}
-\tag{6.1
+\tag{6.1}
 \]
 
 前两行已经没有 normalized-unit自由。
@@ -231,6 +239,7 @@ v_p(D_j^{(2)})=\min(jh,\sigma).}
 \qquad
 \sigma\ge h.}
 \tag{6.2}
+\]
 
 这与 earlier omega-height / first descendant balance 的 equal-depth现象完全同型：只有**恰 baseline saturation**反复保留新的 normalized resonance。
 
