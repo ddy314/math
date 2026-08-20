@@ -54,25 +54,27 @@ central denominator 已统一关闭
 
 ## 推荐阅读顺序
 
+细粒度 continuation 已归并为 [`boundary-and-tail-ledger.md`](boundary-and-tail-ledger.md)、[`central-denominator-ledger.md`](central-denominator-ledger.md)、[`deep-denominator-ledger.md`](deep-denominator-ledger.md) 与 [`finite-layer-certificates-ledger.md`](finite-layer-certificates-ledger.md)。下列链接直接落到各原来源锚点；账本中的局部“关闭”不改变 A1 整体仍为待证。
+
 1. [`core.md`](core.md)、[`rational-contact.md`](rational-contact.md)：A1 rational contact / denominator funnel / corridor。
 2. [`top-layer.md`](top-layer.md)、[`diagonal.md`](diagonal.md)：minimal diagonal 与 odd-prime supply。
-3. [`positive-tail-residual.md`](positive-tail-residual.md)、[`sharp-positive-tail-window.md`](sharp-positive-tail-window.md)：正号与窄 gap。
-4. [`uniform-2adic-prefix.md`](uniform-2adic-prefix.md)：
+3. [`positive-tail-residual.md`](boundary-and-tail-ledger.md#source-positive-tail-residual)、[`sharp-positive-tail-window.md`](boundary-and-tail-ledger.md#source-sharp-positive-tail-window)：正号与窄 gap。
+4. [`uniform-2adic-prefix.md`](boundary-and-tail-ledger.md#source-uniform-2adic-prefix)：
    \[
    \boxed{\underline x_*(k)=-k-2.}
    \]
-5. [`gap-denominator-normal-form.md`](gap-denominator-normal-form.md)：central / deep 分裂。
-6. [`central-modular-exhaustion.md`](central-modular-exhaustion.md)：central all-`k` 关闭。
-7. [`deep-complement-height.md`](deep-complement-height.md)、[`deep-first-complement-remainder.md`](deep-first-complement-remainder.md)、[`deep-balanced-collapse.md`](deep-balanced-collapse.md)。
-8. [`deep-universal-factorization.md`](deep-universal-factorization.md)、[`deep-four-factor-frame.md`](deep-four-factor-frame.md)：single/double deep 公共 skeleton。
-9. [`deep-double-5high-collapse.md`](deep-double-5high-collapse.md)、[`deep-ll-modular-exhaustion.md`](deep-ll-modular-exhaustion.md)：double-deep 旧 LL/LH 分支关闭。
-10. [`deep-double-2high-master.md`](deep-double-2high-master.md)：当前 double-deep 唯一 master branch。
-11. [`deep-2high-mod8-lock.md`](deep-2high-mod8-lock.md)、[`deep-2high-mod5-lock.md`](deep-2high-mod5-lock.md)：真正独立的 2/5 local locks。
-12. [`deep-hl-one-exponent-divisor-family.md`](deep-hl-one-exponent-divisor-family.md)、[`deep-hl-local-signature-count.md`](deep-hl-local-signature-count.md)：moderate 部分降成 finite coefficients + 单指数 `d`。
-13. [`deep-contact-q-square-blocks.md`](deep-contact-q-square-blocks.md)、[`deep-contact-q-resultant-loss.md`](deep-contact-q-resultant-loss.md)、[`deep-hl-q-superlinear.md`](deep-hl-q-superlinear.md)：原 rational-contact square 的独立 Q-side block lifting。
-14. [`deep-hl-hensel-dependency-audit.md`](deep-hl-hensel-dependency-audit.md)、[`deep-root-factor-splitting.md`](deep-root-factor-splitting.md)：依赖审计，防止重复计算同一 obstruction。
-15. [`deep-single5-first-remainder-height.md`](deep-single5-first-remainder-height.md)：single-5 strict-low 的当前高度压缩。
-16. [`k31-uniform-certificate.md`](k31-uniform-certificate.md)：最新 fixed-layer 保险证书。
+5. [`gap-denominator-normal-form.md`](boundary-and-tail-ledger.md#source-gap-denominator-normal-form)：central / deep 分裂。
+6. [`central-modular-exhaustion.md`](central-denominator-ledger.md#source-central-modular-exhaustion)：central all-`k` 关闭。
+7. [`deep-complement-height.md`](deep-denominator-ledger.md#source-deep-complement-height)、[`deep-first-complement-remainder.md`](deep-denominator-ledger.md#source-deep-first-complement-remainder)、[`deep-balanced-collapse.md`](deep-denominator-ledger.md#source-deep-balanced-collapse)。
+8. [`deep-universal-factorization.md`](deep-denominator-ledger.md#source-deep-universal-factorization)、[`deep-four-factor-frame.md`](deep-denominator-ledger.md#source-deep-four-factor-frame)：single/double deep 公共 skeleton。
+9. [`deep-double-5high-collapse.md`](deep-denominator-ledger.md#source-deep-double-5high-collapse)、[`deep-ll-modular-exhaustion.md`](deep-denominator-ledger.md#source-deep-ll-modular-exhaustion)：double-deep 旧 LL/LH 分支关闭。
+10. [`deep-double-2high-master.md`](deep-denominator-ledger.md#source-deep-double-2high-master)：当前 double-deep 唯一 master branch。
+11. [`deep-2high-mod8-lock.md`](deep-denominator-ledger.md#source-deep-2high-mod8-lock)、[`deep-2high-mod5-lock.md`](deep-denominator-ledger.md#source-deep-2high-mod5-lock)：真正独立的 2/5 local locks。
+12. [`deep-hl-one-exponent-divisor-family.md`](deep-denominator-ledger.md#source-deep-hl-one-exponent-divisor-family)、[`deep-hl-local-signature-count.md`](deep-denominator-ledger.md#source-deep-hl-local-signature-count)：moderate 部分降成 finite coefficients + 单指数 `d`。
+13. [`deep-contact-q-square-blocks.md`](deep-denominator-ledger.md#source-deep-contact-q-square-blocks)、[`deep-contact-q-resultant-loss.md`](deep-denominator-ledger.md#source-deep-contact-q-resultant-loss)、[`deep-hl-q-superlinear.md`](deep-denominator-ledger.md#source-deep-hl-q-superlinear)：原 rational-contact square 的独立 Q-side block lifting。
+14. [`deep-hl-hensel-dependency-audit.md`](deep-denominator-ledger.md#source-deep-hl-hensel-dependency-audit)、[`deep-root-factor-splitting.md`](deep-denominator-ledger.md#source-deep-root-factor-splitting)：依赖审计，防止重复计算同一 obstruction。
+15. [`deep-single5-first-remainder-height.md`](deep-denominator-ledger.md#source-deep-single5-first-remainder-height)：single-5 strict-low 的当前高度压缩。
+16. [`k31-uniform-certificate.md`](finite-layer-certificates-ledger.md#source-k31-uniform-certificate)：最新 fixed-layer 保险证书。
 
 ---
 

@@ -1,12 +1,12 @@
 # 仓库脚本
 
-分支专用脚本按 `scripts/exact-lift/{a2-only,double-deficit,a1-only}/` 归档，避免与共享的 `proof_tree.py` 及其他分支证书混在同一层。除标准库外，使用到的 SymPy/NumPy 等依赖均由 `uv.lock` 管理，优先通过 `uv run` 调用。
+分支专用脚本按 `scripts/exact-lift/{a2-only,double-deficit,a1-only}/` 归档。每个分支顶层只保留主干证书与稳定入口；细粒度 continuation 位于该分支的 `research-checks/`，并按与证明账本相同的依赖主题分组。除标准库外，使用到的 SymPy/NumPy 等依赖均由 `uv.lock` 管理，优先通过 `uv run` 调用。
 
 ## 分支脚本入口
 
-- `scripts/exact-lift/a2-only/`：A2 source-Hensel、decimal ellipse 和 endpoint-lattice 校验。
-- `scripts/exact-lift/double-deficit/`：DD 第 27.10–27.33 节的符号核对与有限证书；下方保留每个证书的边界说明。
-- `scripts/exact-lift/a1-only/`：A1 `k=g=1,2` minimal-diagonal 有限证书。
+- `scripts/exact-lift/a2-only/`：A2 source-Hensel、decimal ellipse、endpoint-lattice 等稳定入口；`research-checks/{source-angle,crt-descent,height,fixed23-cq}/` 保存细粒度 continuation。
+- `scripts/exact-lift/double-deficit/`：DD 第 27.10–27.33 节的稳定符号核对与有限证书；`research-checks/{good-genuine,high-funnel,tail-allocation}/` 保存后续研究核对。
+- `scripts/exact-lift/a1-only/`：A1 minimal-diagonal 与 fixed-layer 稳定证书；`research-checks/{boundary-tail,central-denominator,deep-denominator}/` 保存分支 continuation。
 
 例如：
 
