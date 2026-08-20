@@ -1,16 +1,16 @@
 # A1 minimal diagonal: full 2-high denominator cap
 
-> 日期：2026-08-20。依赖 `deep-q-side-proper-divisor.md`、`deep-b1-sharp-mandatory-blocks.md`、`deep-complement-height.md` 与 `deep-double-2high-master.md`。当前 `k>=32`。
+> 日期：2026-08-20。依赖 `deep-q-side-proper-divisor.md`、`deep-b1-sharp-mandatory-blocks.md`、`deep-w1-joint-complement-minimum.md`、`deep-complement-height.md` 与 `deep-double-2high-master.md`。当前 `k>=32`。
 
-本文把 Q-side proper-divisor direction 与 sharpened `b_1` mandatory-block loss 反向用于 complement quotient，得到对全部 surviving double-deep master 的显式 denominator cap。
+本文给全部 surviving double-deep 2-high master 的 denominator cap。`w=1` 还使用 u/v 周期不能同时取独立最小值的 joint refinement。
 
-最终版本：
+最终：
 
 \[
 \boxed{
 D<
 \begin{cases}
-159T^2,&w=1,\\
+17T^2,&w=1,\\
 88T^2,&w=2,\\
 1429T^2,&w=3,\\
 120T^2,&w=4.
@@ -21,7 +21,7 @@ D<
 
 ---
 
-## 1. 两个 complementary divisors 的 sharp fixed minima
+## 1. independent complement minima
 
 写
 
@@ -30,106 +30,93 @@ u=b_1/s,
 \qquad v=Q/q.
 \]
 
-### `v` 的下界
-
-strict 2-deep 中 Q-side orientation 已证明 `q` 是 proper divisor，并且
+Q-side proper-divisor orientation：
 
 \[
-q\le Q/m_w,
+\boxed{(v_{\min})=(7,3,7,7).}
 \]
 
-其中
+`deep-b1-sharp-mandatory-blocks.md`：
 
 \[
-\boxed{(m_1,m_2,m_3,m_4)=(7,3,7,7).}
+\boxed{(u_{\min})=(27,38,1,12).}
+\]
+
+所以 independent product minima 为
+
+\[
+\boxed{uv\ge(189,114,7,84).}
 \tag{1}
-
-所以
-
-\[
-\boxed{v\ge m_w.}
-\tag{2}
-
-### `u` 的 sharpened 下界
-
-`deep-b1-sharp-mandatory-blocks.md` 给
-
-\[
-\boxed{(c_1,c_2,c_3,c_4)=(9,38,1,12),}
-\tag{3}
-
-且
-
-\[
-\boxed{u\ge c_w.}
-\tag{4}
-
-这里：
-
-- `w=1`：整个 3-primary block至少 `3^2`，故 `u>=9`；
-- `w=2`：mandatory `3 mod4` odd prime不可能是 3,7,11，所以至少 19，加 fixed factor 2 得 `u>=38`；
-- `w=3`：仍保留 `u>=1`；
-- `w=4`：`2^2*3` mandatory，故 `u>=12`。
-
-因此
-
-\[
-\boxed{M=uv\ge c_wm_w,}
-\tag{5}
-
-即
-
-\[
-\boxed{(c_wm_w)=(63,114,7,84).}
-\tag{6}
 
 ---
 
-## 2. complement-height 给 sharp D cap
+## 2. w=1 joint improvement
 
-`deep-complement-height.md` 在 double-deep `lambda=1`：
+`deep-w1-joint-complement-minimum.md` 利用：
 
-\[
-\mu:=\frac{MD}{T^2}<10001.
-\]
+- `v3(b1)=2+v3(2k+1)`；
+- `7|Q iff k=0 mod3`；
+- `19|Q iff k=4 mod9`；
+- `3,11 not|Q`；
 
-所以
-
-\[
-D<\frac{10001}{M}T^2
-\le\frac{10001}{c_wm_w}T^2.
-\]
-
-数值：
+证明独立 minima `u=27`,`v=7` 不能同时出现，并最终得到
 
 \[
-\begin{array}{c|c|c}
-w&10001/(c_wm_w)&\text{safe cap}\\ \hline
-1&<158.75&159\\
-2&<87.73&88\\
-3&<1428.72&1429\\
-4&<119.06&120
-\end{array}
+\boxed{w=1:\quad M=uv\ge621.}
+\tag{2}
+
+其余三型暂保留 independent minima：
+
+\[
+\boxed{
+M\ge
+\begin{cases}
+114,&w=2,\\
+7,&w=3,\\
+84,&w=4.
+\end{cases}}
+\tag{3}
+
+---
+
+## 3. complement-height 转成 D cap
+
+在 double-deep：
+
+\[
+\mu:=MD/T^2<10001.
 \]
 
 因此
+
+\[
+D<\frac{10001}{M}T^2.
+\]
+
+由 (2)-(3)：
 
 \[
 \boxed{
 D<
 \begin{cases}
-159T^2,&w=1,\\
+17T^2,&w=1,\\
 88T^2,&w=2,\\
 1429T^2,&w=3,\\
 120T^2,&w=4.
 \end{cases}}
-\tag{7}
+\tag{4}
 
-`w=1,2` 相比旧 cap `477,239` 分别再缩约 3 倍和 2.7 倍。
+其中 w=1 的精确 ratio 是
+
+\[
+10001/621<16.11,
+\]
+
+所以 `17T^2` 是整洁 safe cap。
 
 ---
 
-## 3. master offset `eta` 的显式斜率 cap
+## 4. master offset `eta` slope
 
 master：
 
@@ -138,47 +125,33 @@ D=2^{2k+3+\eta}5^B,
 \qquad T^2=2^{2k}5^{2k}.
 \]
 
-若记 (7) 中 safe cap 为 `C_w`：
+若 `C_w=(17,88,1429,120)`：
 
 \[
 2^{3+\eta}5^B<C_w5^{2k}.
 \]
 
-因此
+所以
 
 \[
 \boxed{
 \eta<\log_2C_w-3+(2k-B)\log_25.}
-\tag{8}
+\tag{5}
 
-这对 `eta<=0` moderate 自动满足；对 `eta>0` pure-2 denominator side 则给显式线性楔形。
-
-特别地：
+`w=1` 现在尤其强：
 
 \[
-\boxed{w=2:\quad2^{3+\eta}5^B<88\,5^{2k}.}
+\boxed{2^{3+\eta}5^B<17\,5^{2k}.}
 \]
 
 ---
 
-## 4. complementary size endpoint
+## 5. complement size endpoint
 
-由
+仍有
 
 \[
-M<10001T^2/D
+M<10001T^2/D.
 \]
 
-可分别得到
-
-\[
-\boxed{u<\frac{10001}{m_w}\frac{T^2}{D},}
-\]
-
-\[
-\boxed{v<\frac{10001}{c_w}\frac{T^2}{D}.}
-\tag{9}
-
-所以 denominator `D/T^2` 越靠近 (7) 的 cap，`u,v` 越被迫贴近其 fixed mandatory minima。
-
-这正是 `deep-2high-endpoint-collapse.md` 的 finite endpoint 机制；使用本文 sharp `c_w` 后，`w=1,2` endpoint thresholds 也应同步加强。
+所以任何更强的 joint lower bound on M 都会立即转成 D/T^2 cap。`w=1` 展示了这种“period-coupled complement minimum”比单独 u/v minima 强得多；后续可对 w=2,3,4继续寻找类似 coupling。
