@@ -2,23 +2,19 @@
 
 > 日期：2026-08-20。强化 `deep-b1-block-loss.md`。本文只研究 whole-block selector 本身，因此结论可用于所有需要 `s|b_1` supply 的 deep sectors。
 
-旧统一 minima 为
+最终 prefix-uniform minima：
 
 \[
-u=b_1/s\ge(3,14,1,12)
+\boxed{u=b_1/s\ge(27,38,1,12)}
 \]
 
-按 `w=1,2,3,4`。本文把前两型严格提高为
-
-\[
-\boxed{u\ge(9,38,1,12).}
-\]
+按 `w=1,2,3,4`。
 
 状态：**已严格完成。**
 
 ---
 
-## 1. `w=1`：完整 3-primary block 至少是 `3^2`
+## 1. `w=1`：universal complement 至少 27
 
 \[
 b_1=10^{2k+1}-1.
@@ -33,54 +29,105 @@ n=2k+1
 为奇数。LTE 对 p=3：
 
 \[
-v_3(10^n-1)
-=v_3(10-1)+v_3(n).
-\]
+\boxed{
+v_3(b_1)=v_3(10^n-1)=2+v_3(n).}
+\tag{1}
 
-而
+整个 3-primary block 都是 `3 mod4` prime-power source，不能进入 selector s。
+
+分 parity。
+
+### `v_3(n)` 为奇数
+
+则
 
 \[
-v_3(9)=2.
+2+v_3(n)\ge3,
 \]
 
 所以
 
 \[
-\boxed{
-v_3(b_1)=2+v_3(2k+1)\ge2.}
-\tag{1}
+\boxed{27\mid u.}
+\tag{2}
 
-因为 `3=3 mod4`，整个 `3^(2+v3(2k+1))` block 都不能进入 selector `s`，必须留在 complement `u=b_1/s`。
+### `v_3(n)` 为偶数
+
+此时 3-primary exponent
+
+\[
+2+v_3(n)
+\]
+
+为偶数，所以整个 3-block本身
+
+\[
+3^{2+v_3(n)}\equiv1\pmod4.
+\]
+
+但
+
+\[
+b_1\equiv-1\equiv3\pmod4.
+\]
+
+因此 b1 中必须存在另一个 `p=3 mod4` prime-power block以 odd parity贡献。
+
+排除所有小于 31 的候选：
+
+\[
+\operatorname{ord}_7(10)=6,
+\quad
+\operatorname{ord}_{11}(10)=2,
+\quad
+\operatorname{ord}_{19}(10)=18,
+\quad
+\operatorname{ord}_{23}(10)=22.
+\]
+
+这些 order 全为偶数，不可能整除 odd exponent n，因此
+
+\[
+7,11,19,23\nmid10^n-1.
+\]
+
+所以这个额外 `3 mod4` prime至少为 31。又 3-primary block 至少为 9：
+
+\[
+\boxed{u\ge9\cdot31=279}
+\tag{3}
+
+在该 parity branch。
+
+综合 (2)-(3)：
+
+\[
+\boxed{w=1:\quad u\ge27.}
+\tag{4}
 
 因此
 
 \[
-\boxed{9\mid u,\qquad u\ge9.}
-\tag{2}
+\boxed{s\le b_1/27.}
+\tag{5}
 
-旧的 `u>=3` / `s<=b_1/3` 可统一加强为
-
-\[
-\boxed{s\le b_1/9.}
-\tag{3}
+该界可达其数量级：例如 n=3 时 `10^3-1=3^3*37`，3-mod-4 complement 正好包含 27。
 
 ---
 
 ## 2. `w=2`：mandatory `3 mod4` odd prime 至少是 19
 
-这里
-
 \[
 b_1=10^{2k+1}-2.
 \]
 
-当前 `k>=32`，当然指数至少 3；模 8：
+模 8：
 
 \[
-b_1\equiv-2\equiv6\pmod8.
+b_1\equiv6\pmod8,
 \]
 
-所以
+故
 
 \[
 \boxed{v_2(b_1)=1.}
@@ -89,104 +136,46 @@ b_1\equiv-2\equiv6\pmod8.
 写
 
 \[
-b_1=2m,
+b_1=2m.
 \]
 
 则
 
 \[
 \boxed{m\equiv3\pmod4.}
-\tag{4}
-
-所以 m 的 prime-power factorization 中至少存在一个 `p=3 mod4` block以奇 parity贡献；该完整 block不能进入 s。
-
-现在排除前三个 `3 mod4` primes。
-
-### p=3
-
-\[
-b_1\equiv1-2\equiv-1\not\equiv0\pmod3.
 \]
 
-### p=7
+所以 m 中至少有一个 `p=3 mod4` odd prime-power block以 odd parity贡献。
 
-`10 mod7=3`，且
+排除 3,7,11：
 
-\[
-10^{2k+1}
-=3(3^2)^k
-\equiv3\cdot2^k\pmod7.
-\]
+- `p=3`: `b_1=1-2=-1 mod3`；
+- `p=7`: `10^(2k+1)=3*2^k mod7`，等于 2 会要求 `2^k=3 mod7`，不可能；
+- `p=11`: odd exponent 给 `10^(2k+1)=-1 mod11`，所以 `b_1=-3 mod11`。
 
-若 `7|b_1`，则
+因此 mandatory odd prime至少 19，整个 block留在 u：
 
 \[
-3\cdot2^k\equiv2\pmod7,
-\]
-
-即
-
-\[
-2^k\equiv3\pmod7.
-\]
-
-但 powers of 2 mod7 只循环于
-
-\[
-1,2,4,
-\]
-
-矛盾。所以
-
-\[
-\boxed{7\nmid b_1.}
-\]
-
-### p=11
-
-指数 `2k+1` 为奇数，而
-
-\[
-10\equiv-1\pmod{11}.
-\]
+\boxed{w=2:\quad u\ge2\cdot19=38.}
+\tag{6}
 
 所以
 
 \[
-10^{2k+1}-2\equiv-3\not\equiv0\pmod{11}.
-\]
-
-因此 mandatory `3 mod4` odd prime至少为
-
-\[
-\boxed{19.}
-\]
-
-结合 fixed factor 2：
-
-\[
-\boxed{u\ge2\cdot19=38.}
-\tag{5}
-
-即
-
-\[
 \boxed{s\le b_1/38.}
-\tag{6}
-
-注意本文不声称 19 必须整除每个 `b_1`；只需要“某个 mandatory `3 mod4` prime存在且不可能小于 19”。
+\tag{7}
 
 ---
 
-## 3. 其余两型
+## 3. `w=3,4`
 
-`w=3`：目前没有 prefix-uniform mandatory `3 mod4` odd block，所以安全保留
+`w=3`：目前没有 prefix-uniform mandatory `3 mod4` odd block，安全保留
 
 \[
 \boxed{u\ge1.}
 \]
 
-`w=4`：已有
+`w=4`：
 
 \[
 v_2(b_1)=2,
@@ -196,25 +185,18 @@ v_2(b_1)=2,
 所以
 
 \[
-\boxed{12\mid u,\qquad u\ge12.}
+\boxed{u\ge12,}
+\qquad
+\boxed{s\le b_1/12.}
 \]
 
 ---
 
-## 4. 新 structural minima
-
-综上：
+## 4. final structural minima
 
 \[
 \boxed{
-(c_1,c_2,c_3,c_4)=(9,38,1,12),}
-\tag{7}
+(c_1,c_2,c_3,c_4)=(27,38,1,12).}
+\tag{8}
 
-其中
-
-\[
-u\ge c_w,
-\qquad s\le b_1/c_w.
-\]
-
-这些 sharpened constants 应替换后续所有只依赖 mandatory `b_1` block 的旧 `(3,14,1,12)` 粗界。
+以后所有仅依赖 mandatory `b_1` complement 的 supply bounds 应使用 (8)，而不再使用历史粗值 `(3,14,1,12)` 或中间值 `(9,38,1,12)`。
