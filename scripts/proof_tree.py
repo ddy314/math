@@ -130,6 +130,47 @@ def check_status() -> list[str]:
     return [f"status.md missing status phrase: {phrase}" for phrase in required_phrases if phrase not in content]
 
 
+def check_branch_navigation() -> list[str]:
+    """Require every branch document to be reachable from its branch README."""
+    errors: list[str] = []
+    branches = PROOF_ROOT / "branches"
+    for directory in sorted(path for path in branches.iterdir() if path.is_dir()):
+        index = directory / "README.md"
+        if not index.is_file():
+            errors.append(f"{directory.relative_to(ROOT)} missing README.md")
+            continue
+        linked: set[Path] = set()
+        for target in MARKDOWN_LINK.findall(read(index)):
+            target = target.strip().split("#", 1)[0]
+            if not target or "://" in target:
+                continue
+            resolved = (index.parent / target).resolve()
+            if resolved.parent == directory.resolve() and resolved.suffix == ".md":
+                linked.add(resolved)
+        expected = {path.resolve() for path in directory.glob("*.md") if path != index}
+        for path in sorted(expected - linked):
+            errors.append(f"{index.relative_to(ROOT)} does not index {path.name}")
+    return errors
+
+
+def check_ledger_provenance() -> list[str]:
+    errors: list[str] = []
+    for path in sorted((PROOF_ROOT / "branches").glob("*/*-ledger.md")):
+        content = read(path)
+        anchors = re.findall(r'<a id="source-([^"]+)"></a>', content)
+        sources = re.findall(r'> 整合来源：`([^`]+\.md)`', content)
+        if not sources:
+            errors.append(f"{path.relative_to(ROOT)} has no provenance markers")
+        if len(anchors) != len(set(anchors)):
+            errors.append(f"{path.relative_to(ROOT)} has duplicate source anchors")
+        if len(anchors) != len(sources):
+            errors.append(
+                f"{path.relative_to(ROOT)} source anchor/marker count differs: "
+                f"{len(anchors)} != {len(sources)}"
+            )
+    return errors
+
+
 def proof_files() -> list[Path]:
     return sorted(PROOF_ROOT.rglob("*.md"))
 
@@ -142,7 +183,14 @@ def list_tree() -> int:
 
 
 def check_tree() -> int:
-    errors = check_files() + check_sections() + check_links() + check_status()
+    errors = (
+        check_files()
+        + check_sections()
+        + check_links()
+        + check_status()
+        + check_branch_navigation()
+        + check_ledger_provenance()
+    )
     if errors:
         print("Proof tree check: FAILED")
         for error in errors:

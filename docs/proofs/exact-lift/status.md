@@ -6,6 +6,16 @@
 
 当前严格状态是：主不存在性命题尚未完成证明；三个异常分支均有大量严格局部结论，但 `A_2`、DD、`A_1` 都仍有未闭合的无界核心。
 
+## 2026-08-20 当前前沿
+
+本节是当前导航摘要；下方 2026-08-13 DD 合并状态与 §§32–39 保留为历史状态、失效路线和证明边界的详细记录。
+
+- **`A_2`：`待证`。** endpoint/source/height/CRT 工作已排除或降级大量局部分配，并把 denominator 接触压到 pure-prefix gcd、固定 `11,23` lift 与真实 sphere-height channel；但 `m_2>=11` 的无界 deep-even 核及这些剩余通道尚未统一排除。详见 [A2 入口](branches/a2-only/README.md)。
+- **DD：`待证`。** 旧 equality frontier 已严格关闭，故无界解若存在则 `limsup n_3/S<6.308883577618...`；canonical `t_2=1` double-resonant funnel 可压到 `limsup n/S<=6`，但该界尚未覆盖全部 DD dominant states，也没有有效绝对高度界。当前缺口是 projective/gap、bottom/common-numerator 与 residual split-Gaussian payer 的 simultaneous height bound。详见 [DD 入口](branches/double-deficit/README.md)。
+- **`A_1`：`待证`。** fixed layers `1<=k=g<=31` 已由有限证书关闭，central denominator 在 `k=g>=26` 时为空；尚存候选必须进入 `k=g>=32` 的 deep denominator，核心为统一 `2`-high/`5`-low master branch。详见 [A1 入口](branches/a1-only/README.md)。
+
+仓库整理只改变材料的物理组织与导航，不提升任何数学结论。细粒度来源已机械归并进各分支的研究账本，并保留原标题、正文、证明状态和来源锚点。
+
 ## 2026-08-13 DD 合并状态
 
 本节覆盖下方由 2026-08-10 原总稿机械拆分出的 DD 旧状态。完整命题、假设、推导与逻辑修正见

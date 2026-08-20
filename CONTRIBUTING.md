@@ -21,6 +21,8 @@ uv run python scripts/proof_tree.py check
 - 当前状态及其理由；
 - 如果有计算，给出可重跑命令和边界。
 
+先从对应分支 `README.md` 选择现有规范专题或 `*-ledger.md`。主线状态写入规范专题，细粒度 continuation 写入匹配的依赖账本，并把摘要同步回分支 README；不要为同一研究链继续增加平行小文件。确需新文件时，必须同时把它加入分支 README，否则 `proof_tree.py check` 会拒绝不可达文档。
+
 状态只允许使用以下四类：
 
 | 状态 | 含义 |
@@ -40,7 +42,7 @@ uv run python scripts/proof_tree.py check
 - 输出和失败条件；
 - 它是证明、有限证书，还是仅用于诊断。
 
-计算结果默认放在 `/tmp` 或被 `.gitignore` 排除的目录中。若结果本身是证明所需的证书，应提交生成它的短脚本和足够小的证书，而不是只提交海量输出。
+计算结果默认放在 `/tmp` 或被 `.gitignore` 排除的目录中。若结果本身是证明所需的证书，应提交生成它的短脚本和足够小的证书，而不是只提交海量输出。稳定证书放在分支脚本顶层；细粒度研究核对放在 `scripts/exact-lift/<branch>/research-checks/<dependency-theme>/`。
 
 ## 文档和检查
 

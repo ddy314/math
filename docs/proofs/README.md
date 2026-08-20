@@ -10,9 +10,9 @@ proofs/
     ├── problem-and-carrier.md     # 原问题、统一符号、carrier 分支
     ├── global-framework.md        # 整数球面、尾正规化、统一判别式
     ├── branches/
-    │   ├── a2-only/               # A2 主干与按依赖合并的专题文件
-    │   ├── double-deficit/        # DD 主干与统一 frontier 文件
-    │   └── a1-only/               # A1 框架、top layer 与 diagonal
+    │   ├── a2-only/               # A2 规范专题与按依赖归并的研究账本
+    │   ├── double-deficit/        # DD 主干/frontier 与研究账本
+    │   └── a1-only/               # A1 规范专题与研究账本
     ├── status.md                  # 严格状态、剩余核心、优先级
     ├── notation.md                # 统一符号和旧符号映射
     ├── dependency-map.md          # 公式依赖图
