@@ -46,9 +46,8 @@ genuine / pair-max continuation：
    \]
 25. [`high-funnel-defect-optimization.md`](high-funnel-defect-optimization.md)：恢复 defect-aware `F_-` height；`Tail-short` sector 得到
    \[
-   \limsup n/S\le6.215109404735\ldots
+   \limsup n/S\le6.215109404735\ldots.
    \]
-   （仅为该 conditional sector，不是新全局 DD bound）。
 26. [`high-funnel-xi-depth.md`](high-funnel-xi-depth.md)：`Defect-heavy` slack 精确集中到单一判别 quotient：
    \[
    3v_5(\Xi)=5q_5+4g_5+n_5-m.
@@ -65,29 +64,101 @@ genuine / pair-max continuation：
    \[
    v_2(H_{\rm sph}-y_3)=1,
    \]
-   并由 tail-root 得到 exact `2-short / 2-balanced` 二分；同时恢复 `Subspace-defect` 与 `Subspace-Final5` height budget。
-30. [`pure-common-five-squareclass-nogo.md`](pure-common-five-squareclass-nogo.md)：pure common-scale 的深 `5^{2g}` Hensel 最终只剩
+   并得到 exact `2-short / 2-balanced` 二分与 `Final-5` Schmidt height budget。
+30. [`pure-common-five-squareclass-nogo.md`](pure-common-five-squareclass-nogo.md)：pure common-scale 的深 `5^{2g}` Hensel 只剩一个模 5 quadratic-character bit；继续 same-prime lifting没有线性高度收益。
+
+历史 `q-Z` allocation（严格但已被更强 normalization 覆盖）：
+
+31. [`high-funnel-qz-gcd-allocation.md`](high-funnel-qz-gcd-allocation.md)：证明 `gcd(q,Z)` 可分配到 denominator overlap / third-exclusive common scale。
+32. [`high-funnel-qz-projective-allocation.md`](high-funnel-qz-projective-allocation.md)：继续把 third-exclusive payer送入 projective denominator / sphere gap。
+33. [`high-funnel-qz-two-sheet-split.md`](high-funnel-qz-two-sheet-split.md)：把 residual `q-Z` overlap分为 gap / complementary 两 sheets，并证明“common prime 自动制造两条独立 carrier residual”是错误预期。
+
+最新 exact small-factor / gap-square continuation：
+
+34. [`high-funnel-exact-small-factor-normalization.md`](high-funnel-exact-small-factor-normalization.md)：严格区分 gcd-normal `q_red` 与 `Q=Uq` 的 source `q`。令
    \[
-   UV\in((\mathbf Z/5^{2g}\mathbf Z)^\times)^2,
+   s=(2\cdot5^T,q),
    \]
-   等价于一个模 5 quadratic-character bit；继续 same-prime 5-adic lifting没有线性高度收益。
-31. [`high-funnel-qz-gcd-allocation.md`](high-funnel-qz-gcd-allocation.md)：从 `u(u+2v)|F_-Q` 抽出
+   则
    \[
-   L_Z=\frac{2^{H+2}5^TZ}{(2^{H+2}5^TZ,q)}\mid F_-,
+   L=\frac{2\cdot5^T}{s},
+   \qquad q_{\rm red}=q/s,
+   \qquad \tau=q_{\rm red}V,
    \]
-   并证明
+   且 `q_red|E`。最终得到
    \[
-   \gcd(q,Z)^2\mid\gamma(R_3^{\rm den})^2.
+   \boxed{
+   F_-=
+   \frac{2^{H+2}5^TZ}{s}
+   \;a\frac{g_*}{V},
+   }
    \]
-32. [`high-funnel-qz-projective-allocation.md`](high-funnel-qz-projective-allocation.md)：用 projective denominator exact formula继续消去 `R_3^{den}`，先得到
+   特别地
    \[
-   \gcd(q,Z)^2\mid\gamma Z_0^2a^2.
+   \boxed{Z\mid F_-.}
    \]
-33. [`high-funnel-qz-two-sheet-split.md`](high-funnel-qz-two-sheet-split.md)：对没有被 `gamma` square-root baseline 支付的 `q-Z` excess建立 canonical `gap / complementary` two-sheet split。gap sheet中 `E` 深而 bottom carrier无 excess；complementary sheet中 `E` 只有 baseline而 `Delta_12/(b_1,b_2)` 变深。由此严格加强为
+   所以第 31–33 项中的 `gcd(q,Z)` height loss在 canonical `t_2=1` 主恒等式中实际上完全消失；这些文件保留为正确中间账本，但不再是当前 bottleneck。
+35. [`high-funnel-two-balanced-collapse.md`](high-funnel-two-balanced-collapse.md)：曾用 `2-balanced` 得到 sector `<=6.152932680260...`；该结论仍正确，但已被第 36 项覆盖。
+36. [`high-funnel-final-five-collapse.md`](high-funnel-final-five-collapse.md)：保留 exact small factor 中此前漏掉的完整二进 overlap
    \[
-   \boxed{\gcd(q,Z)^2\mid\gamma a Z_0^2,}
+   v_2\!\left(a(g_*/V)/s\right)=\mathfrak g.
    \]
-   并证明“`q-Z` common prime 自动制造两条独立 carrier residual”这条预期是错误的。
+   与 `U-height` 联立后 `mathfrak g log 2` 精确抵消，整个 `Final-5-lock` 得到
+   \[
+   \boxed{
+   \limsup n/S\le5.805865360520\ldots.
+   }
+   \]
+   因而 canonical double-resonant `t_2=1` funnel 中 `Defect-heavy` 的 `>6.215109...` remaining sheet为空；结合 `Tail-short`，该 funnel整体满足
+   \[
+   \boxed{
+   \limsup n/S\le
+   \frac{28}{3+5\log_{10}2}
+   =6.215109404735\ldots.
+   }
+   \]
+   **这是 funnel-level 显式 bound，目前尚未无条件升级为全 DD numerical limsup。**
+37. [`high-funnel-gap-square-core.md`](high-funnel-gap-square-core.md)：将 exact small factor 与
+   \[
+   F_-=2(\kappa+2G)\mu^2/G_0
+   \]
+   对齐，得到
+   \[
+   \boxed{5^Ta_0G_0=s\varepsilon\mu^2.}
+   \]
+   pure common 中化为 `a_0G_0=epsilon*(square)`。
+38. [`high-funnel-gap-epsilon-allocation.md`](high-funnel-gap-epsilon-allocation.md)：对 `p` 不整除 10 证明
+   \[
+   \min(v_p(a_0),v_p(\varepsilon))\le v_p(\lambda).
+   \]
+   pure common 中若 `d=(a_0,epsilon)`, `a_0=dA`, `epsilon=dE`，则
+   \[
+   d\mid\lambda,
+   \qquad E\mid G_0,
+   \qquad A(G_0/E)=\mu_0^2.
+   \]
+39. [`high-funnel-recovery-squarefree-lock.md`](high-funnel-recovery-squarefree-lock.md)：显式恢复
+   \[
+   \frac\mu\nu
+   =\frac{\varepsilon Lc^2r_*a_0}{q_0}
+   \]
+   的最低项。若
+   \[
+   h=(\varepsilon Lc^2r_*a_0,q_0),
+   \]
+   则
+   \[
+   \boxed{h^2G_0=2\varepsilon^3Lc^4r_*^2a_0,}
+   \]
+   因而
+   \[
+   \boxed{\operatorname{sqf}(G_0)=\operatorname{sqf}(2\varepsilon La_0).}
+   \]
+   pure common 中进一步为
+   \[
+   \boxed{\operatorname{sqf}(G_0)=\operatorname{sqf}(\varepsilon a_0).}
+   \]
+   所以 recovery gcd已无自由 squarefree support；剩余自由在 square depth / Archimedean height。
 
 ## 当前严格状态
 
@@ -100,13 +171,7 @@ DD **全局仍为 `待证`**；没有有效绝对 `S` 上界，也没有证明 D
 \le6.308883577618\ldots.
 \]
 
-第 23 项已经严格排除任何无界 sequence 满足
-
-\[
-\frac{n_3}{S}\to6.308883577618\ldots,
-\]
-
-因此当前最强全局渐近表述是
+第 23 项严格关闭旧 equality frontier，所以当前最强**全局**渐近表述仍是
 
 \[
 \boxed{
@@ -117,94 +182,33 @@ DD **全局仍为 `待证`**；没有有效绝对 `S` 上界，也没有证明 D
 }
 \]
 
-这个 strict gap 仍是**非有效**的；本 continuation 中出现的 `6.215109...`、`6.361730...`、`6.611730...` 都是明确写了作用域的 conditional sector bounds，不能替代上述 global strict limsup。
+这个 strict gap 仍是非有效的。
 
-### 当前新的 high-funnel 核
-
-在 canonical `t_2=1` double-resonant funnel 中，5-adic 与 2-adic 账本已经分别压成：
+另一方面，第 36 项已经把 canonical double-resonant `t_2=1` S-unit funnel **显式**压到
 
 \[
-\boxed{
-B_5=q_5+2g_5,
-\quad
-m=2q_5+4g_5+n_5,
-\quad
-v_5(a)=q_5,
-}
+\boxed{6.215109404735\ldots.}
 \]
 
-以及
+最初 merged DD handoff 的依赖图明确记录：旧全局 `6.308883...` 的顶端来自
 
 \[
-\boxed{v_2(H_{\rm sph}-y_3)=1,}
+\text{unique }2/5\text{-resonant S-unit funnel}
++\text{tail slope collapse}.
 \]
 
-再加
+但是 canonical 文档没有保留 post-tail 之后其它 dominant side branches 的完整定量系数表。因此在重新核完这些旁支之前，不能仅凭 funnel 改进就把 `6.215109...` 宣布成新的全 DD explicit limsup。
 
-\[
-\boxed{
- d\le m+2\mathfrak q+\mathfrak n+\mathfrak g-1
-}
-\]
-或
+### 当前真正的两个任务
 
-\[
-\boxed{
-2\mathfrak g=m+\mathfrak q+\ell-2.
-}
-\]
-
-pure common-scale endpoint在 5-adic quadratic 上没有继续 Hensel 收益，因此当前真正值得攻击的是 rough-factor compatibility。
-
-### 当前 rough-factor two-sheet theorem
-
-令 `Q=Uq`、`5^TU+V=2^HZ`，并记
-
-\[
-D_{qZ}=(q,Z).
-\]
-
-现已证明
-
-\[
-\boxed{
-L_Z:=
-\frac{2^{H+2}5^TZ}{\gcd(2^{H+2}5^TZ,q)}
-\mid F_-.
-}
-\]
-
-进一步把 `D_qZ` 中 `gamma` 已能按平方深度支付的 baseline 去掉后，剩余 prime-power 只能落入两格：
-
-1. **gap sheet**：进入 `a` 与 normalized decimal determinant `E_exc`；bottom carrier为 unit；
-2. **complementary sheet**：进入 `Z_0` 与 normalized bottom carrier `Theta_12`；`E_exc` 为 unit。
-
-因此同一个 excess prime不会同时进入 `E_exc` 与 `Theta_12`，而全局 payer sharpen 为
-
-\[
-\boxed{
-\gcd(q,Z)^2\mid\gamma aZ_0^2.
-}
-\]
-
-相应的 `L_Z` height loss 为
-
-\[
-\boxed{
-\log D_{qZ}
-\le
-\frac12\log\gamma
-+\frac12\log a
-+\log Z_0.
-}
-\]
-
-所以此前计划中的“先证明两条 carrier residual 同时深，再直接套无 `E_D` eliminant”已经被严格降级：这种同步深接触并不会自动发生。
-
-下一步应分别攻击两个真实 sheets：
-
-- `gap sheet`：`D_gap^2|a` 与 primitive determinant ladder / `E_exc` 是否只是同一 gap 的重复 payer，还是还能产生新的 independent quotient；
-- `complementary sheet`：`D_comp|Z_0` 且 `D_comp|Theta_12`，寻找 projective denominator + bottom-carrier 的直接 eliminant / reducedness obstruction。
+1. **branch reoptimization**：把全局 `m/S<=5` tail collapse重新代回非-funnel dominant states，证明它们的 post-tail slope都不超过 `6.215109...`（或找出真正的新最大旁支）。
+2. **absolute-height line**：在 canonical funnel 内，`q-Z` gcd 已不再是 bottleneck；gap/recovery 已压成
+   \[
+   5^Ta_0G_0=s\varepsilon\mu^2,
+   \qquad
+   h^2G_0=2\varepsilon^3Lc^4r_*^2a_0.
+   \]
+   下一自由度是 `h` 与 `G_0` 的 square depth / height，而不是新的 radical support。
 
 ## 可复核脚本
 
@@ -221,6 +225,11 @@ DD 的机械证书位于 [`scripts/exact-lift/double-deficit/`](../../../../../s
 - `check_dd_high_funnel_qz_gcd_allocation.py`
 - `check_dd_high_funnel_qz_projective_allocation.py`
 - `check_dd_high_funnel_qz_two_sheet_split.py`
+- `check_dd_high_funnel_exact_small_factor_normalization.py`
+- `check_dd_high_funnel_two_balanced_collapse.py`
+- `check_dd_high_funnel_final_five_collapse.py`
+- `check_dd_high_funnel_gap_square_core.py`
+- `check_dd_high_funnel_gap_epsilon_allocation.py`
 
 以及此前的 `check_dd_good_*` / `check_dd_genuine_*` / `check_dd_pairmax_*` 账本脚本。
 
