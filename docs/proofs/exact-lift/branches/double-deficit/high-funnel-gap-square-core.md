@@ -77,12 +77,12 @@ s=(2\cdot5^T,q).
 }
 \tag{1.4}
 
-等价地
+交叉相乘：
 
 \[
 \boxed{
-sa g_*G_0
-=5^TV\gamma\mu^2.
+sV\gamma\mu^2
+=5^Ta g_*G_0.
 }
 \tag{1.5}
 
@@ -118,28 +118,7 @@ denominator overlap 定义给
 \frac{5^T}{s}\frac{a}{c_3}.
 \]
 
-因此
-
-\[
-\boxed{
-saG_0=5^Tc_3\mu^2.
-}
-\tag{2.4}
-
-注意这里的方向必须如此：从 `(1.4)` 有
-
-\[
-\gamma\mu^2/G_0
-=(5^T/s)\,a\gamma/c_3,
-\]
-
-故
-
-\[
-s c_3\mu^2=5^T a G_0.
-\]
-
-所以整理后的标准形式是
+因此标准形式为
 
 \[
 \boxed{
