@@ -6,60 +6,62 @@
 
 1. [`core.md`](core.md)：DD 统一正规化、relative bounds、gcd-normal form、primitive determinant / carrier、Schmidt tail collapse 与旧 extremal geometry。
 2. [`frontier.md`](frontier.md)：假想 `n_3/S -> 6.308883577618...` 的 terminal geometry、rational/genuine contact、Gaussian/projective allocation 与历史 no-go。
-3. [`frontier-five-adic-closure.md`](frontier-five-adic-closure.md)：**严格关闭旧 `6.308883577618...` equality frontier**。因此若 DD solutions 在 `S` 上无界，
+3. [`frontier-five-adic-closure.md`](good-genuine-ledger.md#source-frontier-five-adic-closure)：**严格关闭旧 `6.308883577618...` equality frontier**。因此若 DD solutions 在 `S` 上无界，
    \[
    \boxed{\limsup_{\rm DD} n_3/S<6.308883577618\ldots}
    \]
    但 gap 仍非有效。
 
+细粒度 continuation 现按依赖归并为三本研究账本：[`good-genuine-ledger.md`](good-genuine-ledger.md)、[`high-funnel-ledger.md`](high-funnel-ledger.md) 和 [`tail-allocation-ledger.md`](tail-allocation-ledger.md)。下文保留到每个原来源锚点的阅读路线；新主结论应同步回写本 README、`core.md` 或 `frontier.md`。
+
 ## 2. equality-frontier 内的结构 continuation（历史条件工具）
 
 这些文件仍严格，但共同的 extremal equality hypothesis 已被第 3 项排除；其作用是保留可迁移机制。
 
-- [`good-radius-excess.md`](good-radius-excess.md)
-- [`good-axis-normalization.md`](good-axis-normalization.md)
-- [`good-excess-gcd-ladder.md`](good-excess-gcd-ladder.md)
-- [`good-short-residue-audit.md`](good-short-residue-audit.md)
-- [`good-prefix-polarization.md`](good-prefix-polarization.md)
-- [`good-prefix-crt-location-audit.md`](good-prefix-crt-location-audit.md)
-- [`mixed-rational-good-extension.md`](mixed-rational-good-extension.md)
-- [`genuine-discriminant-carrier.md`](genuine-discriminant-carrier.md)
-- [`genuine-discriminant-cross-audit.md`](genuine-discriminant-cross-audit.md)
-- [`genuine-denominator-cleared-carrier.md`](genuine-denominator-cleared-carrier.md)
-- [`genuine-full-concat-carrier.md`](genuine-full-concat-carrier.md)
-- [`genuine-full-concat-hensel.md`](genuine-full-concat-hensel.md)
-- [`genuine-tail-root-orientation-lock.md`](genuine-tail-root-orientation-lock.md)
-- [`genuine-elliptic-collapse.md`](genuine-elliptic-collapse.md)
-- [`genuine-a12-second-order-crt.md`](genuine-a12-second-order-crt.md)
-- [`genuine-a12-fixed-crt.md`](genuine-a12-fixed-crt.md)
-- [`genuine-large-core-crt.md`](genuine-large-core-crt.md)
-- [`pairmax-fixed-a12-crt.md`](pairmax-fixed-a12-crt.md)
+- [`good-radius-excess.md`](good-genuine-ledger.md#source-good-radius-excess)
+- [`good-axis-normalization.md`](good-genuine-ledger.md#source-good-axis-normalization)
+- [`good-excess-gcd-ladder.md`](good-genuine-ledger.md#source-good-excess-gcd-ladder)
+- [`good-short-residue-audit.md`](good-genuine-ledger.md#source-good-short-residue-audit)
+- [`good-prefix-polarization.md`](good-genuine-ledger.md#source-good-prefix-polarization)
+- [`good-prefix-crt-location-audit.md`](good-genuine-ledger.md#source-good-prefix-crt-location-audit)
+- [`mixed-rational-good-extension.md`](good-genuine-ledger.md#source-mixed-rational-good-extension)
+- [`genuine-discriminant-carrier.md`](good-genuine-ledger.md#source-genuine-discriminant-carrier)
+- [`genuine-discriminant-cross-audit.md`](good-genuine-ledger.md#source-genuine-discriminant-cross-audit)
+- [`genuine-denominator-cleared-carrier.md`](good-genuine-ledger.md#source-genuine-denominator-cleared-carrier)
+- [`genuine-full-concat-carrier.md`](good-genuine-ledger.md#source-genuine-full-concat-carrier)
+- [`genuine-full-concat-hensel.md`](good-genuine-ledger.md#source-genuine-full-concat-hensel)
+- [`genuine-tail-root-orientation-lock.md`](good-genuine-ledger.md#source-genuine-tail-root-orientation-lock)
+- [`genuine-elliptic-collapse.md`](good-genuine-ledger.md#source-genuine-elliptic-collapse)
+- [`genuine-a12-second-order-crt.md`](good-genuine-ledger.md#source-genuine-a12-second-order-crt)
+- [`genuine-a12-fixed-crt.md`](good-genuine-ledger.md#source-genuine-a12-fixed-crt)
+- [`genuine-large-core-crt.md`](good-genuine-ledger.md#source-genuine-large-core-crt)
+- [`pairmax-fixed-a12-crt.md`](good-genuine-ledger.md#source-pairmax-fixed-a12-crt)
 
 ## 3. canonical `t_2=1` double-resonant funnel
 
 这一条线已经从旧 `6.308883...` equality analysis 推广为 finite-height / sector-level lemmas。
 
-- [`high-funnel-five-adic-dichotomy.md`](high-funnel-five-adic-dichotomy.md)：exact 5-adic dichotomy
+- [`high-funnel-five-adic-dichotomy.md`](high-funnel-ledger.md#source-high-funnel-five-adic-dichotomy)：exact 5-adic dichotomy
   \[
   m\le5q_5+4g_5+n_5
   \quad\text{or}\quad
   3d\le m+4q_5+5g_5+2n_5.
   \]
-- [`high-funnel-defect-optimization.md`](high-funnel-defect-optimization.md)：第一次 defect-aware LP；历史 `Tail-short <= 6.215109404735...`。
-- [`high-funnel-xi-depth.md`](high-funnel-xi-depth.md)、[`high-funnel-gap-depth.md`](high-funnel-gap-depth.md)、[`high-funnel-denominator-max-lock.md`](high-funnel-denominator-max-lock.md)：把 `Defect-heavy` 压到 `Final-5` rigid sheet。
-- [`high-funnel-two-adic-balance.md`](high-funnel-two-adic-balance.md)：强制 `v_2(H-y_3)=1`，并给 `2-short / 2-balanced` 二分。
-- [`high-funnel-two-balanced-collapse.md`](high-funnel-two-balanced-collapse.md)：历史 sector improvement。
-- [`high-funnel-exact-small-factor-normalization.md`](high-funnel-exact-small-factor-normalization.md)：
+- [`high-funnel-defect-optimization.md`](high-funnel-ledger.md#source-high-funnel-defect-optimization)：第一次 defect-aware LP；历史 `Tail-short <= 6.215109404735...`。
+- [`high-funnel-xi-depth.md`](high-funnel-ledger.md#source-high-funnel-xi-depth)、[`high-funnel-gap-depth.md`](high-funnel-ledger.md#source-high-funnel-gap-depth)、[`high-funnel-denominator-max-lock.md`](high-funnel-ledger.md#source-high-funnel-denominator-max-lock)：把 `Defect-heavy` 压到 `Final-5` rigid sheet。
+- [`high-funnel-two-adic-balance.md`](high-funnel-ledger.md#source-high-funnel-two-adic-balance)：强制 `v_2(H-y_3)=1`，并给 `2-short / 2-balanced` 二分。
+- [`high-funnel-two-balanced-collapse.md`](high-funnel-ledger.md#source-high-funnel-two-balanced-collapse)：历史 sector improvement。
+- [`high-funnel-exact-small-factor-normalization.md`](high-funnel-ledger.md#source-high-funnel-exact-small-factor-normalization)：
   \[
   F_-=
   \frac{2^{H+2}5^TZ}{s}\,a\frac{g_*}{V},
   \qquad Z\mid F_-.
   \]
-- [`high-funnel-final-five-collapse.md`](high-funnel-final-five-collapse.md)：`Final-5`
+- [`high-funnel-final-five-collapse.md`](high-funnel-ledger.md#source-high-funnel-final-five-collapse)：`Final-5`
   \[
   \boxed{\limsup n/S\le5.805865360520\ldots.}
   \]
-- [`high-funnel-tail-short-schmidt-upgrade.md`](high-funnel-tail-short-schmidt-upgrade.md)：把 Tail-short 从旧 `6.215109...` 再压到
+- [`high-funnel-tail-short-schmidt-upgrade.md`](high-funnel-ledger.md#source-high-funnel-tail-short-schmidt-upgrade)：把 Tail-short 从旧 `6.215109...` 再压到
   \[
   \boxed{\limsup n/S\le\frac6{1+\log_{10}2}=4.611730721041\ldots.}
   \]
@@ -67,27 +69,27 @@
   \[
   \boxed{\limsup_{\rm canonical\ t_2=1\ double\text{-}resonant} n/S\le6.}
   \]
-- [`high-funnel-625-rigidity.md`](high-funnel-625-rigidity.md)、[`high-funnel-final5-two-adic-optimization.md`](high-funnel-final5-two-adic-optimization.md)、[`high-funnel-final5-sphere-c3-collapse.md`](high-funnel-final5-sphere-c3-collapse.md)：进一步记录 `6.25` 邻域、二进与 sphere common-scale 的 rigidification。
+- [`high-funnel-625-rigidity.md`](high-funnel-ledger.md#source-high-funnel-625-rigidity)、[`high-funnel-final5-two-adic-optimization.md`](high-funnel-ledger.md#source-high-funnel-final5-two-adic-optimization)、[`high-funnel-final5-sphere-c3-collapse.md`](high-funnel-ledger.md#source-high-funnel-final5-sphere-c3-collapse)：进一步记录 `6.25` 邻域、二进与 sphere common-scale 的 rigidification。
 
 ### gap / recovery square line
 
-- [`high-funnel-gap-square-core.md`](high-funnel-gap-square-core.md)：
+- [`high-funnel-gap-square-core.md`](high-funnel-ledger.md#source-high-funnel-gap-square-core)：
   \[
   5^Ta_0G_0=s\varepsilon\mu^2.
   \]
-- [`high-funnel-gap-epsilon-allocation.md`](high-funnel-gap-epsilon-allocation.md)：common epsilon depth 分配。
-- [`high-funnel-recovery-squarefree-lock.md`](high-funnel-recovery-squarefree-lock.md)：
+- [`high-funnel-gap-epsilon-allocation.md`](high-funnel-ledger.md#source-high-funnel-gap-epsilon-allocation)：common epsilon depth 分配。
+- [`high-funnel-recovery-squarefree-lock.md`](high-funnel-ledger.md#source-high-funnel-recovery-squarefree-lock)：
   \[
   h^2G_0=2\varepsilon^3Lc^4r_*^2a_0,
   \qquad
   \operatorname{sqf}(G_0)=\operatorname{sqf}(2\varepsilon La_0).
   \]
-- [`high-funnel-square-identities-audit.md`](high-funnel-square-identities-audit.md)：审计上述 square identities，避免把同一 recovery algebra重复收费。
-- [`pure-common-five-squareclass-nogo.md`](pure-common-five-squareclass-nogo.md)：pure common 的深 5-adic Hensel 只剩一个 mod-5 square-class bit，没有线性高度收益。
+- [`high-funnel-square-identities-audit.md`](high-funnel-ledger.md#source-high-funnel-square-identities-audit)：审计上述 square identities，避免把同一 recovery algebra重复收费。
+- [`pure-common-five-squareclass-nogo.md`](good-genuine-ledger.md#source-pure-common-five-squareclass-nogo)：pure common 的深 5-adic Hensel 只剩一个 mod-5 square-class bit，没有线性高度收益。
 
 ### `q-Z` 历史路线
 
-[`high-funnel-qz-gcd-allocation.md`](high-funnel-qz-gcd-allocation.md)、[`high-funnel-qz-projective-allocation.md`](high-funnel-qz-projective-allocation.md)、[`high-funnel-qz-two-sheet-split.md`](high-funnel-qz-two-sheet-split.md)、[`high-funnel-qz-sheet-reader-collapse.md`](high-funnel-qz-sheet-reader-collapse.md)、[`high-funnel-qz-bottom-orientation-correction.md`](high-funnel-qz-bottom-orientation-correction.md) 均保留为严格中间账本；但 exact small-factor normalization 已证明 canonical funnel 中 `Z|F_-`，因此 `gcd(q,Z)` 不再是当前 height bottleneck。
+[`high-funnel-qz-gcd-allocation.md`](high-funnel-ledger.md#source-high-funnel-qz-gcd-allocation)、[`high-funnel-qz-projective-allocation.md`](high-funnel-ledger.md#source-high-funnel-qz-projective-allocation)、[`high-funnel-qz-two-sheet-split.md`](high-funnel-ledger.md#source-high-funnel-qz-two-sheet-split)、[`high-funnel-qz-sheet-reader-collapse.md`](high-funnel-ledger.md#source-high-funnel-qz-sheet-reader-collapse)、[`high-funnel-qz-bottom-orientation-correction.md`](high-funnel-ledger.md#source-high-funnel-qz-bottom-orientation-correction) 均保留为严格中间账本；但 exact small-factor normalization 已证明 canonical funnel 中 `Z|F_-`，因此 `gcd(q,Z)` 不再是当前 height bottleneck。
 
 ## 4. post-tail / non-canonical dominant branch reoptimization（当前主线）
 
@@ -95,12 +97,12 @@
 
 ### 4.1 denominator rough source 被压成 `X_Q`
 
-- [`gcd-normal-exact-small-factor.md`](gcd-normal-exact-small-factor.md)：对整个 gcd-normal tail
+- [`gcd-normal-exact-small-factor.md`](good-genuine-ledger.md#source-gcd-normal-exact-small-factor)：对整个 gcd-normal tail
   \[
   F_-=r(u+2v)\,a(g_*/v).
   \]
-- [`tail-rough-d0-allocation.md`](tail-rough-d0-allocation.md)：第二次 Schmidt 的 `d_0` rough height除 actual small-factor payer外，只剩 primitive denominator-concat cancellation。
-- [`tail-rough-cq-excess.md`](tail-rough-cq-excess.md)：对 `p|core_{10}(d_0)`，写
+- [`tail-rough-d0-allocation.md`](tail-allocation-ledger.md#source-tail-rough-d0-allocation)：第二次 Schmidt 的 `d_0` rough height除 actual small-factor payer外，只剩 primitive denominator-concat cancellation。
+- [`tail-rough-cq-excess.md`](tail-allocation-ledger.md#source-tail-rough-cq-excess)：对 `p|core_{10}(d_0)`，写
   \[
   v_p(b_1)=v_p(b_2)=E,\quad v_p(b_3)=j,\quad c=v_p(C_Q),
   \]
@@ -109,11 +111,11 @@
   \boxed{x_p=\max(c-j-\min(E,j),0).}
   \]
   并定义 `X_Q=prod p^{x_p}`。第二次 Schmidt 的唯一 hard loss是 `log X_Q`。
-- [`tail-pure-cancellation-three-sheet.md`](tail-pure-cancellation-three-sheet.md)、[`tail-pure-cancellation-hensel-nogo.md`](tail-pure-cancellation-hensel-nogo.md)、[`tail-hard-source-derivative-sheet.md`](tail-hard-source-derivative-sheet.md)、[`tail-source-cancellation-transfer.md`](tail-source-cancellation-transfer.md)：baseline-free / hard local sheets及历史 no-go。
+- [`tail-pure-cancellation-three-sheet.md`](tail-allocation-ledger.md#source-tail-pure-cancellation-three-sheet)、[`tail-pure-cancellation-hensel-nogo.md`](tail-allocation-ledger.md#source-tail-pure-cancellation-hensel-nogo)、[`tail-hard-source-derivative-sheet.md`](tail-allocation-ledger.md#source-tail-hard-source-derivative-sheet)、[`tail-source-cancellation-transfer.md`](tail-allocation-ledger.md#source-tail-source-cancellation-transfer)：baseline-free / hard local sheets及历史 no-go。
 
 ### 4.2 general source transfer：`X_Q` 离开 denominator 世界
 
-[`tail-rough-general-transfer.md`](tail-rough-general-transfer.md) 对任意 denominator baseline严格证明
+[`tail-rough-general-transfer.md`](tail-allocation-ledger.md#source-tail-rough-general-transfer) 对任意 denominator baseline严格证明
 \[
 \boxed{
  x_p\le
@@ -134,7 +136,7 @@ R_3^{\rm den}=\frac{b_3}{(b_3,\operatorname{lcm}(b_1,b_2))}.
 
 ### 4.3 Gaussian payer 去 denominator 化
 
-[`tail-rough-gaussian-payer-split.md`](tail-rough-gaussian-payer-split.md) 写
+[`tail-rough-gaussian-payer-split.md`](tail-allocation-ledger.md#source-tail-rough-gaussian-payer-split) 写
 \[
 g_n=(a_1,a_2),
 \qquad
@@ -142,7 +144,7 @@ N_{\rm ang}=\frac{N_0}{g_n^2}.
 \]
 `N_ang` 是 primitive sum of two squares，因此所有 odd rough prime均 `1 mod 4`；`3 mod 4` rough mass只能回流到 common numerator或 projective/gap。
 
-[`tail-rough-angular-source-transfer.md`](tail-rough-angular-source-transfer.md) 定义纯 numerator Gaussian integer
+[`tail-rough-angular-source-transfer.md`](tail-allocation-ledger.md#source-tail-rough-angular-source-transfer) 定义纯 numerator Gaussian integer
 \[
 Z_{\rm num}=-\bar a_1 10^{m_2}+i\bar a_2,
 \qquad
@@ -162,7 +164,7 @@ Z_{\rm ang}-B_1Z_{\rm num}=\bar a_1C_Q
 
 ### 4.4 canonical payer layers
 
-[`tail-rough-canonical-payer-decomposition.md`](tail-rough-canonical-payer-decomposition.md) 对每个 `p^x||X_Q` 按 exponent layer定义
+[`tail-rough-canonical-payer-decomposition.md`](tail-allocation-ledger.md#source-tail-rough-canonical-payer-decomposition) 对每个 `p^x||X_Q` 按 exponent layer定义
 \[
 e_3+e_B+e_G+e_A=x
 \]
@@ -182,7 +184,7 @@ X_A\mid N_{\rm num}.
 \]
 这里 `R_12` 是 orientation-uniform bottom determinant reader。
 
-[`tail-rough-third-angular-absorption.md`](tail-rough-third-angular-absorption.md) 进一步证明：若
+[`tail-rough-third-angular-absorption.md`](tail-allocation-ledger.md#source-tail-rough-third-angular-absorption) 进一步证明：若
 \[
 r=v_p(R_3^{\rm den})>0,
 \qquad

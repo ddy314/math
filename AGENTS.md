@@ -19,7 +19,7 @@
 2. `docs/proofs/README.md`：证明资料总索引。
 3. `docs/proofs/exact-lift/README.md`：Exact Lift 证明树和研究入口。
 4. `docs/proofs/exact-lift/status.md`：已完成、未完成和下一步目标。
-5. 与当前任务对应的分支入口：`branches/a2-only/README.md`、`branches/double-deficit/README.md` 或 `branches/a1-only/README.md`，再进入其中的专题文件。
+5. 与当前任务对应的分支入口：`branches/a2-only/README.md`、`branches/double-deficit/README.md` 或 `branches/a1-only/README.md`，再进入其中的规范专题或按依赖归并的研究账本。
 6. `docs/proofs/exact-lift/archive/`：只在需要核对迁移前原文时读取，不作为日常编辑入口。
 
 ## 目录约定
@@ -32,7 +32,7 @@
 ├── pyproject.toml                    # uv/Python 项目元数据与依赖
 ├── uv.lock                           # 锁定依赖，提交后保持同步
 ├── main.py                           # 轻量入口程序
-├── scripts/                          # 可复用的仓库检查和研究辅助脚本
+├── scripts/                          # 稳定证书入口；细粒度核对在分支 research-checks/
 ├── docs/
 │   ├── README.md                     # 文档总索引
 │   └── proofs/
@@ -42,9 +42,9 @@
 │           ├── problem-and-carrier.md
 │           ├── global-framework.md
 │           ├── branches/              # 三个异常分支目录
-│           │   ├── a2-only/           # A2 主干、ellipse/defect、Hensel、endpoint
-│           │   ├── double-deficit/    # DD 主干与 frontier
-│           │   └── a1-only/           # A1 框架、top layer、diagonal
+│           │   ├── a2-only/           # A2 规范专题 + 五本依赖账本
+│           │   ├── double-deficit/    # DD 主干/frontier + 三本依赖账本
+│           │   └── a1-only/           # A1 规范专题 + 四本依赖账本
 │           ├── status.md              # 严格状态和剩余核心
 │           ├── notation.md            # 统一符号及旧记号映射
 │           ├── dependency-map.md      # 公式依赖图
@@ -53,7 +53,7 @@
 │           └── archive/               # 原始总稿等不可变快照
 ```
 
-结构化证明文件是日常编辑的唯一规范来源；`archive/` 保存迁移前的历史快照，除非明确进行迁移，不要直接修改。
+结构化证明文件是日常编辑的唯一规范来源；分支 README 和主干专题承载当前结论，`*-ledger.md` 保留细粒度推导与来源锚点。`archive/` 保存迁移前的历史快照，除非明确进行迁移，不要直接修改。
 
 ## 可用工具
 
@@ -114,6 +114,7 @@ uv run jupyter lab
 
 - 保留用户已有的未提交改动；先用 `git status --short` 和 `git diff` 判断范围。
 - 数学迁移优先采用“机械拆分 + 人工补导航”的方式，不静默改写公式或降低证明状态。
-- 新增证明文件时，把它放在最具体的分支目录，文件名使用小写 kebab-case。
+- 新结果优先写入最具体的现有规范专题或依赖账本，并同步分支 README；只有现有主题确实无法容纳时才新增小写 kebab-case 文件，且必须立即加入分支入口导航。
+- 新的细粒度核对脚本放入对应分支 `research-checks/<dependency-theme>/`；分支脚本顶层只保留稳定证书与主入口。
 - 不提交 `.venv`、缓存、Notebook checkpoint、临时 PDF 或大规模计算输出。
 - 报告时明确说明：改了哪些文件、哪些结论只是整理、运行了哪些验证、哪些数学缺口仍存在。

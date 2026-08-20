@@ -1,6 +1,6 @@
 # `A_2`-only 分支
 
-这是 `A_2` 分支的唯一规范编辑入口。原先按日期散落的专题笔记已经按依赖合并为六个层次；不要再在本目录新增同一主题的平行副本。
+这是 `A_2` 分支的唯一规范编辑入口。主线结论保留在六个规范专题文件中；大量细粒度 continuation 已按依赖机械归并为五本研究账本。不要再在本目录新增同一主题的平行副本。
 
 ## 阅读顺序
 
@@ -10,6 +10,16 @@
 4. [`endpoint-lattice.md`](endpoint-lattice.md)：2026-08-17 的 endpoint shell、height split、Gaussian allocation 和降级结论。
 5. [`prime-source.md`](prime-source.md)：在 endpoint lattice 的最终 prime-source 层继续吸收固定 `11,23` Hensel 例外，并把 special `23` height carrier 压成 `M mod 22` 的有限同余类。
 6. [`primitive-reduction.md`](primitive-reduction.md)：识别 `W_q` 为拼接分子/球面高度的 primitive gcd 与 reduced numerator，审计 height character，并分离 q/f saturation 与 height channel 的交集。
+
+## 研究账本
+
+账本保留被归并文件的原标题、正文、证明状态和来源锚点，供审计与回溯；新增主结论应先回写上面的规范专题与本 README，而不是继续增加平行小文件。
+
+- [`auxiliary-reductions-ledger.md`](auxiliary-reductions-ledger.md)：decimal、length-orbit、source discriminant 等辅助降维。
+- [`source-angle-ledger.md`](source-angle-ledger.md)：spontaneous source、angle、cross-sign、tangent 与 parity 记录。
+- [`crt-descent-ledger.md`](crt-descent-ledger.md)：additive CRT、descendant、height descent 与 projective reader。
+- [`height-ledger.md`](height-ledger.md)：moving height、equal-depth、tail reader 与固定低层审计。
+- [`fixed23-and-cq-ledger.md`](fixed23-and-cq-ledger.md)：pure-`c_Q`、固定 `23` 及其 Hensel/height continuation。
 
 ## 当前状态
 

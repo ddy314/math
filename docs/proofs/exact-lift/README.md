@@ -9,9 +9,9 @@ exact-lift/
 ├── problem-and-carrier.md    # §§1–2：问题、拼接、正权平均和三分支
 ├── global-framework.md       # §§3–11：整数球面、尾部正规化、统一算术框架
 ├── branches/
-│   ├── a2-only/               # A2 主干与按依赖合并的四个专题文件
-│   ├── double-deficit/        # DD 主干与统一 frontier 文件
-│   └── a1-only/               # A1 主干、rational contact、top layer、diagonal
+│   ├── a2-only/               # A2 六个规范专题 + 五本细粒度研究账本
+│   ├── double-deficit/        # DD 主干/frontier + 三本研究账本
+│   └── a1-only/               # A1 四个规范专题 + 四本研究账本
 ├── status.md                  # §§32–39：错误路线、严格状态和下一步
 ├── notation.md                # §§40–41：符号表和迁移映射
 ├── dependency-map.md          # §42：关键公式依赖图

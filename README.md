@@ -40,9 +40,9 @@ UV_CACHE_DIR=/tmp/math-uv-cache uv run python scripts/proof_tree.py check
 │   ├── problem-and-carrier.md
 │   ├── global-framework.md
 │   ├── branches/
-│   │   ├── a2-only/             # A2 主干、ellipse/defect、Hensel、endpoint lattice
-│   │   ├── double-deficit/      # DD 主干与统一 frontier 后续
-│   │   └── a1-only/             # A1 框架、top layer、diagonal
+│   │   ├── a2-only/             # A2 规范专题 + 按依赖归并的研究账本
+│   │   ├── double-deficit/      # DD 主干/frontier + 研究账本
+│   │   └── a1-only/             # A1 规范专题 + 研究账本
 │   ├── status.md
 │   ├── notation.md
 │   ├── dependency-map.md
