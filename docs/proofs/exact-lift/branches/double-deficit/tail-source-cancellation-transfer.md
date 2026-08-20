@@ -20,14 +20,16 @@
 > \]
 > 换言之，完整 prime-power `p^c` 必须进入 numerator coefficient `C` 或 prefix
 > Gaussian norm `N_12` 的至少一侧。证明的关键是：three-sheet中唯一可能未支付的
-> hard `AB` sheet会同时要求
+> hard `AB` sheet同时要求
 > \[
-> M\equiv C_0a
-> \quad\text{与}\quad
-> 2M\equiv C_0a
-> \pmod{p^{c+\rho}},
+> M\equiv C_0a\pmod{p^{c+\rho}}
 > \]
-> 对 odd `p` 直接矛盾。
+> 与
+> \[
+> 2M\equiv C_0a\pmod{p^c}.
+> \]
+> 因为 hard sheet有 `rho<c`，两式模 `p^c` 相减便强迫 `p^c|M`，与
+> `v_p(M)=rho` 矛盾。
 
 ---
 
@@ -210,9 +212,15 @@ M\equiv C_0a
 }
 \tag{Derivative-contact}
 
+特别地当然也有
+
+\[
+M\equiv C_0a\pmod{p^c}.
+\tag{4.3}
+
 ---
 
-## 5. gap quadratic要求 `2M=C_0a`
+## 5. gap quadratic要求 `2M=C_0a` 模 `p^c`
 
 DD gap quadratic为
 
@@ -265,30 +273,31 @@ v_p(C_0a-2M)=c+n-\rho.}
 c+n-\rho\ge c.
 \]
 
-乘回 baseline `p^rho` 的记号，至少得到
+因此严格得到
 
 \[
 \boxed{
 2M\equiv C_0a
-\pmod{p^{c+\rho}}}
+\pmod{p^c}.}
 \tag{Gap-contact}
 
-当 `n>rho` 时实际深度更高；这里只需要 `c+rho`。
+注意这里**不能**一般加强为模 `p^{c+rho}`；前一版本曾把这一步写强，现已修正。
+本文的矛盾只需要模 `p^c`。
 
 ---
 
 ## 6. 两 contacts 对 odd prime 不相容
 
-`Derivative-contact` 与 `Gap-contact` 相减：
+将 `Derivative-contact` 降到模 `p^c`，与 `Gap-contact` 相减：
 
 \[
-M\equiv0\pmod{p^{c+\rho}}.
+M\equiv0\pmod{p^c}.
 \]
 
 但 `(4.1)` 给
 
 \[
-v_p(M)=\rho<c+\rho.
+v_p(M)=\rho<c.
 \]
 
 矛盾。
