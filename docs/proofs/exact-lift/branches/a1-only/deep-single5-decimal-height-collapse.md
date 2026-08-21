@@ -1,4 +1,4 @@
-# A1 minimal diagonal: single-5 collapse by decimal-height synchronization
+# A1 minimal diagonal: corrected single-5 reduction by decimal-height synchronization
 
 > 日期：2026-08-22。
 >
@@ -6,18 +6,17 @@
 >
 > 范围：minimal diagonal，`k=g>=32`，single-5 deep sector
 > \[
-> A=0,
-> \qquad D_{\rm gap}=5^B,
-> \qquad B>0.
+> D_{\rm gap}=5^B,
+> \qquad B>k.
 > \]
 
-状态：**已严格完成 reduction。** 本文关闭 strict 5-low，并把整个 single-5 压成两个固定-height cells 与一个唯一 high-contact cell；single-5 尚未完全为空。
+状态：**已严格完成 reduction。** 本版替换此前把 `d_2=B+k` 过早写死的版本。正确结论是：低 `lambda_2` 只剩一个 fixed cell；顶部只剩 `lambda_2=2k-1` 的 exact sign-allocation terminal。single-5 尚未完全为空。
 
 ---
 
-## 1. deep 与 non-deep 2-side
+## 1. 正确的 decimal-height equation
 
-记
+写
 
 \[
 T=10^k,
@@ -27,54 +26,69 @@ T=10^k,
 \lambda_2=k+x\ge0.
 \]
 
-由于当前是 single-5 deep，而 central denominator 已关闭，必有
-
-\[
-\boxed{B>k.}
-\tag{1}
-
-`deep-complement-height.md` 给
+single-5 gap identity 为
 
 \[
 5^BT\rho=h2^{\lambda_2},
-\qquad
-(h,10)=1.
-\tag{2}
+\qquad(h,10)=1.
+\tag{1}
+\]
 
 把
 
 \[
 \rho=M/L,
-\qquad
-(L,M)=1
+\qquad(L,M)=1
 \]
 
-约到最低项，可得
+约到最低项：
 
 \[
-\boxed{
-v_5(L)=B+k,}
+\boxed{\ell_5:=v_5(L)=B+k,}
+\tag{2}
+\]
+
+\[
+\boxed{\ell_2:=v_2(L)=(k-\lambda_2)_+.}
 \tag{3}
 \]
 
+所以
+
+\[
+\ell_5>\ell_2.
+\]
+
+令形式根
+
+\[
+x_\sigma=u/v
+\]
+
+为最简分数，并记
+
+\[
+d_p=v_p(v),
+\qquad p=2,5.
+\]
+
+`decimal-height-synchronization.md` 的正确条件是
+
 \[
 \boxed{
-v_2(L)=(k-\lambda_2)_+.}
+\max(d_2,\ell_2)=\max(d_5,\ell_5)=:n.
+}
 \tag{4}
+\]
 
-因此总有
+因为 `ell_5>ell_2`，(4) 首先给
 
 \[
-\boxed{v_5(L)>v_2(L).}
+\boxed{d_2=n\ge B+k.}
 \tag{5}
+\]
 
-于是 exact decimal-height synchronization 强迫归一化第三分子 `x_sigma` 的 reduced denominator 具有
-
-\[
-\boxed{d_2=B+k.}
-\tag{6}
-
-特别地这里不是仅有 `d_2>=B+k`：因为 5-side completion height 已至少是 `B+k`，而两侧必须精确相等。
+但不能无条件把 `n` 写成 `B+k`：若 `d_5>B+k`，两个 completion heights 可以一起升高。后文始终使用 (4)-(5)。
 
 ---
 
@@ -86,20 +100,14 @@ v_2(L)=(k-\lambda_2)_+.}
 M_c:=QG/h.
 \]
 
-由 (2) 与全局
-
-\[
-\kappa=10^kLQG/M
-\]
-
-得到
+由 (1) 与全局 tail weight 得
 
 \[
 \boxed{
-\kappa=
-\frac{5^BT^2M_c}{2^{\lambda_2}}.
+\kappa
+=\frac{5^BT^2M_c}{2^{\lambda_2}}.
 }
-\tag{7}
+\tag{6}
 
 minimal diagonal 中
 
@@ -107,26 +115,32 @@ minimal diagonal 中
 e:=v_2(w)=v_2(G)\in\{0,1,2\},
 \]
 
-而 `Q,h` 都是奇数，所以
+且 `Q,h` 为奇数，所以
 
 \[
-\boxed{v_2(M_c)=e.}
-\tag{8}
+v_2(M_c)=e.
+\]
 
 因此
 
 \[
-\boxed{
-a:=v_2(\kappa)=2k+e-\lambda_2\ge0.}
-\tag{9}
+\boxed{a:=v_2(\kappa)=2k+e-\lambda_2\ge0,}
+\tag{7}
+\]
 
-特别地
+故
 
 \[
 \boxed{\lambda_2\le2k+e.}
-\tag{10}
+\tag{8}
 
-同一 minimal-diagonal prefix 还有
+5-adic 一侧则有
+
+\[
+\boxed{a_5:=v_5(\kappa)=B+2k.}
+\tag{9}
+
+同一 prefix 满足
 
 \[
 v_2(C)=0,
@@ -134,228 +148,216 @@ v_2(C)=0,
 v_2(K)=2e,
 \qquad
 v_2(D_c)=k,
-\tag{11}
-
-其中 `D_c=10^kQ` 是 A1 coefficient denominator。记
-
-\[
-n_2:=v_2(N).
+\tag{10}
 \]
 
-已有 prefix theorem 给
+其中 `D_c=TQ`，并记
 
 \[
-\boxed{n_2\in\{0,1\},}
-\tag{12}
+n_2=v_2(N)\in\{0,1\},
+\qquad
+n_5=v_5(N)\ge0.
+\]
 
-并且 `w` 偶时
-
-\[
-\boxed{n_2=0.}
-\tag{13}
+`w` 偶时 `n_2=0`。
 
 ---
 
-## 3. 先关闭整个 strict 5-low
+## 3. 5-adic denominator allocation
 
-记
-
-\[
-n_5:=v_5(N).
-\]
-
-由 (7)，`M_c` 是 5-unit，所以
+全局 square 为
 
 \[
-v_5(\kappa)=B+2k.
+W^2
+=\kappa^2G^2C^2
+-\kappa D_c^2N(\kappa+2G),
+\tag{11}
 \]
 
-同时 `G,C,Q,K` 都是 5-units，`v_5(D_c)=k`，且
-
-\[
-v_5(\kappa+2G)=0.
-\]
-
-若
-
-\[
-\boxed{n_5<B,}
-\]
-
-则 `kappa` square 中 5-adic 两项赋值不同，直接得到
-
-\[
-v_5(W)
-=2k+\frac{B+n_5}{2}.
-\]
-
-形式根
+归一化根为
 
 \[
 x_\sigma
-=
-\frac{
-\kappa G^2C+\sigma(\kappa+G)W
-}{
-\kappa^2(\kappa+2G)
-}
+=\frac{X_\sigma}{Y},
 \]
 
-的 numerator 由 `W` 项严格承担较浅赋值，所以两个 sign 都有
+\[
+X_\sigma
+=\kappa G^2C+\sigma(\kappa+G)W,
+\qquad
+Y=\kappa^2(\kappa+2G).
+\tag{12}
+\]
+
+在 5-adic 中 `G,C,Q` 都为单位，并且
+
+\[
+v_5(\kappa+G)=v_5(\kappa+2G)=0.
+\]
+
+### 3.1 `n_5<B`
+
+(11) 中第二项严格更浅，故
+
+\[
+v_5(W)=2k+\frac{B+n_5}{2}<a_5.
+\]
+
+两个 signs 都无 cancellation，得到
 
 \[
 \boxed{
  d_5
 =2k+\frac{3B-n_5}{2}.
 }
+\tag{13}
+
+特别地
+
+\[
+d_5>B+k.
 \tag{14}
-
-但合法 third block 的 5-side completion height 是 `B+k`，故必须
-
-\[
-d_5\le B+k.
 \]
 
-而 (14) 给
+所以若这一 branch 真能恢复 decimal block，(4) 必须满足
 
 \[
-d_5-(B+k)
-=k+\frac{B-n_5}{2}>0,
-\]
-
-矛盾。因此
-
-\[
-\boxed{
-\text{single-5 strict 5-low }(n_5<B)\text{ 全部为空}.}
+\boxed{d_2=d_5.}
 \tag{15}
 
-这完全替代旧 `deep-single5-first-remainder-height` / `contact-dichotomy` 对 strict-low 的两条带：它们现在都不属于 surviving frontier。
+### 3.2 `n_5>B`
 
----
-
-## 4. high 5-prefix 中间带也为空
-
-现在设
+此时
 
 \[
-n_5>B.
+v_5(W)=a_5.
 \]
 
-写
+两个共轭 signs 中：
 
-\[
-a_5=B+2k=v_5(\kappa),
-\qquad
-\kappa=5^{a_5}\kappa_0,
-\qquad 5\nmid\kappa_0.
-\]
-
-因为 `n_5>B`，平方根可写
-
-\[
-W=5^{a_5}w_0,
-\qquad5\nmid w_0.
-\]
-
-并且精确有
-
-\[
-\boxed{
- v_5\!\left(
- w_0^2-(\kappa_0GC)^2
- \right)=n_5-B.
-}
-\tag{16}
-
-证明只需展开
-
-\[
-W^2
-=\kappa^2G^2C^2
--\kappa D_c^2N(\kappa+2G),
-\]
-
-除去 `5^{2a_5}`；第二项的 valuation 正是 `n_5-B`，而来自 `K-G^2C^2` 的其余项更深。
-
-因为 5 为奇素数，且 `w_0,kappa_0GC` 都是 5-units，(16) 说明两个共轭因子中恰有一个具有 valuation `n_5-B`，另一个为 unit。于是：
-
-- 一个 sign 的形式根保持
+- 一个保持完整 depth
   \[
-  d_5=B+2k>B+k,
+  \boxed{d_5^{\rm full}=a_5=B+2k;}
+  \tag{16}
   \]
-  自动死亡；
-- 唯一可能的 matching sign 在 `n_5-B<a_5` 时满足
+- 另一个是 matching sign。若 `r=n_5-B<a_5`，则
   \[
-  d_5=2B+2k-n_5.
+  \boxed{
+  d_5^{\rm match}=a_5-r
+  =2B+2k-n_5;
+  }
+  \tag{17}
   \]
-  若 `n_5-B>=a_5`，则结论只会更有利于 denominator cancellation。
+  若 `r>=a_5`，则 matching depth 只会进一步下降，统一可写为
+  \[
+  \boxed{
+  d_5^{\rm match}
+  =\max(0,2B+2k-n_5).
+  }
+  \tag{18}
 
-因此要使 matching sign 满足 `d_5<=B+k`，必要条件统一为
-
-\[
-\boxed{n_5\ge B+k.}
-\tag{17}
-
-所以
-
-\[
-\boxed{
-B<n_5<B+k
-\Longrightarrow\text{empty}.}
-\tag{18}
-
-结合 (15)：所有 single-5 candidate 都必须满足
+因此 matching sign 的 required decimal height 是
 
 \[
 \boxed{
- n_5=B
- \quad\text{or}\quad
- n_5\ge B+k.
+ n_{\rm match}
+ =\max(B+k,d_5^{\rm match}).
 }
 \tag{19}
 
-因为 `B>k`，第二支尤其满足
+特别地
 
 \[
-\boxed{v_5(N)>2k.}
+n_5\ge B+k
+\Longrightarrow
+n_{\rm match}=B+k.
 \tag{20}
 
----
+### 3.3 resonance `n_5=B`
 
-## 5. 2-adic synchronization：一般区域
+这里两项同深。无需猜测 cancellation：直接使用两个 root numerators 的乘积。
 
-现在使用必要条件 (6)。令
-
-\[
-E=v_2(\kappa K)=a+2e,
-\]
+由 (12) 与 (11) 可化简
 
 \[
-F=v_2(2GD_c^2N)=2k+e+1+n_2.
-\]
+X_+X_-
+=-\kappa(\kappa+2G)
+\left(
+\kappa^2G^2C^2
+-D_c^2N(\kappa+G)^2
+\right).
+\tag{21}
+
+在 `n_5=B` 时：
+
+- `v_5(kappa)=a_5`；
+- `v_5(kappa+2G)=0`；
+- (21) 中括号的第二项严格承担较浅 valuation `a_5`。
 
 所以
 
 \[
-\boxed{E-F=2e-\lambda_2-1-n_2.}
-\tag{21}
-
-先假设
-
-\[
-\lambda_2\le2k-2.
+v_5(X_+X_-)=2a_5.
 \]
 
-则 `a>=e+2`，从而
+另一方面 (12) 的两个 summands 都至少有 valuation `a_5`，故
+
+\[
+v_5(X_+),v_5(X_-)\ge a_5.
+\]
+
+两者之和恰为 `2a_5`，于是
+
+\[
+\boxed{
+v_5(X_+)=v_5(X_-)=a_5.}
+\]
+
+因此 resonance 的两个 signs 都满足
+
+\[
+\boxed{d_5=a_5=B+2k.}
+\tag{22}
+
+若 resonance 恢复 decimal block，必须有
+
+\[
+\boxed{d_2=B+2k.}
+\tag{23}
+
+---
+
+## 4. 2-adic low region `lambda_2<=2k-2`
+
+此时
+
+\[
+a\ge e+2,
+\]
+
+所以
 
 \[
 v_2(\kappa+G)=e,
 \qquad
 v_2(\kappa+2G)=e+1.
-\tag{22}
+\tag{24}
 
-### 5.1 `E<F`
+令
+
+\[
+E=v_2(\kappa K)=a+2e,
+\qquad
+F=v_2(2GD_c^2N)=2k+e+1+n_2.
+\]
+
+则
+
+\[
+E-F=2e-\lambda_2-1-n_2.
+\tag{25}
+
+### 4.1 `E<F`
 
 此时
 
@@ -363,261 +365,314 @@ v_2(\kappa+2G)=e+1.
 v_2(W)=a+e.
 \]
 
-形式根 numerator 的两个 summands 都从深度 `a+2e` 开始，因此
+(12) 中两个 summands 除去 `2^{a+2e}` 后都是奇数。因此两个 signs 的和/差都至少再多一个 2：
 
 \[
-v_2(X_\sigma)\ge a+2e.
+v_2(X_\sigma)\ge a+2e+1.
 \]
 
-故
+raw denominator 有
 
 \[
-\boxed{
- d_2\le2k-\lambda_2+1.
-}
-\tag{23}
-
-与 (6)、`B>k` 联立，只能有
-
-\[
-\boxed{
-\lambda_2=0,
-\qquad
-B=k+1.
-}
-\tag{24}
-
-而 (21) 在 `lambda_2=0` 时要满足 `E<F`，结合 (12)-(13)，只有
-
-\[
-\boxed{e=0,}
+v_2(Y)=2a+e+1,
 \]
 
-即 `w` 为奇数。
-
-因此这一支唯一可能是
+所以
 
 \[
-\boxed{
-\text{Cell I: }w\in\{1,3\},\quad
-\lambda_2=0,\quad B=k+1.
-}
-\tag{25}
-
-这里 `w=1` 包括 `(z,w)=(1,1),(3,1)`，`w=3` 包括 `(1,3)`。
-
-### 5.2 `E>F`
-
-此时平方存在首先要求
-
-\[
-a+F
-=4k+2e-\lambda_2+1+n_2
-\]
-
-为偶数，即
-
-\[
-\boxed{\lambda_2\equiv1+n_2\pmod2.}
+\boxed{d_2\le2k-\lambda_2\le2k.}
 \tag{26}
 
-两项赋值不同，较浅的 `W` 项唯一承担 numerator valuation，直接算得
+但 (5) 要求
 
 \[
-\boxed{
- d_2
-=2k+e+\frac{1-n_2-3\lambda_2}{2}.
-}
+d_2\ge B+k>2k.
+\]
+
+矛盾。因此
+
+\[
+\boxed{E<F\text{ 全部为空}.}
 \tag{27}
 
-利用 (6)、`B>k` 及 `E>F` 的小常数范围：
+### 4.2 `E=F`
 
-- `e=1` (`w=2`) 时唯一可能小 `lambda_2` 与 parity 冲突；
-- `e=2` (`w=4`) 时唯一 surviving value 为
-  \[
-  \lambda_2=1,
-  \]
-  此时 (27) 为 `2k+1`，强迫
-  \[
-  B=k+1.
-  \]
-
-所以得到
-
-\[
-\boxed{
-\text{Cell II: }w=4,\quad
-\lambda_2=1,\quad B=k+1.
-}
-\tag{28}
-
-### 5.3 `E=F`
-
-由 (21)，只可能出现在绝对小的
+这里
 
 \[
 \lambda_2=2e-1-n_2.
 \]
 
-两侧除去公共 2-power 后都是 odd units，因此 inner difference 至少再多一个 2；平方条件又强迫额外 cancellation depth 为偶数。于是 `W` 项比 `kappa G^2C` 更深，得到精确
+两边除去公共 2-power 后都是 odd units，因此 inner difference 至少多一个 2；平方 parity 又强迫 cancellation depth 为偶数，故实际至少多两个 2。于是 `W` term 比 `kappa G^2C` 更深，得到
 
 \[
- d_2=2k-\lambda_2+1.
+\boxed{d_2=2k-\lambda_2+1.}
+\tag{28}
+
+由 `d_2>=B+k>=2k+1` 只能有 `lambda_2=0`。但 resonance equation
+
+\[
+0=2e-1-n_2
 \]
 
-由 (6)、`B>k` 必有 `lambda_2=0`，但 available resonance values 分别是 `1` 或 `3`（even `w` 时 `n_2=0`），故无解：
+在六个 minimal-diagonal 类型中没有解：
+
+- `e=0` 时右侧为负；
+- `e=1,2` 时 `w` 偶，故 `n_2=0`，右侧分别为 `1,3`。
+
+所以
 
 \[
-\boxed{E=F\Longrightarrow\text{empty}.}
+\boxed{E=F\text{ 全部为空}.}
 \tag{29}
+
+### 4.3 `E>F`
+
+平方 parity 给
+
+\[
+\lambda_2\equiv1+n_2\pmod2,
+\]
+
+且较浅的 `W` term 唯一承担 numerator valuation，得到 exact
+
+\[
+\boxed{
+ d_2
+=2k+e+rac{1-n_2-3\lambda_2}{2}.
+}
+\tag{30}
+
+因为 `E>F` 要求
+
+\[
+\lambda_2<2e-1-n_2,
+\]
+
+只需检查绝对小的 `e<=2,n_2<=1`：
+
+- `e=0`：无此 branch；
+- `e=1,n_2=0`：只可能 `lambda_2=0`，但 square parity 要求 `lambda_2` 奇，排除；
+- `e=2,n_2=0`：只剩 `lambda_2=1`，并有
+  \[
+  d_2=2k+1.
+  \]
+
+由 (5) 强迫
+
+\[
+B=k+1.
+\]
+
+所以 low `lambda_2` 区唯一 survivor 是
+
+\[
+\boxed{
+(z,w)=(1,4),
+\quad\lambda_2=1,
+\quad B=k+1.
+}
+\tag{31}
+
+此时 `d_2=2k+1=B+k`，故 (4) 进一步要求
+
+\[
+d_5\le2k+1.
+\]
+
+由 §3：
+
+- `n_5<B` 时 (13) 远大于 `2k+1`，排除；
+- `n_5=B` 时 (22) 给 `d_5=3k+1`，排除；
+- `n_5>B` 时只有 matching sign 可能，且 (18)-(20) 给必要条件
+  \[
+  \boxed{n_5\ge B+k=2k+1.}
+  \]
+
+因此唯一 low-edge cell 是
+
+\[
+\boxed{
+(z,w)=(1,4),
+\quad\lambda_2=1,
+\quad B=k+1,
+\quad v_5(N)\ge2k+1,
+}
+\tag{32}
+
+并且只能使用 5-adic matching sign。
 
 ---
 
-## 6. 2-adic top edge
+## 5. 2-adic top edge `lambda_2=2k-1`
 
-若
+现在
 
 \[
-\lambda_2\ge2k,
+a=e+1.
 \]
 
-则
+写
 
 \[
-a=2k+e-\lambda_2\le e,
-\]
-
-而
-
-\[
-v_2(\kappa+2G)=a.
-\]
-
-所以 raw denominator `kappa^2(kappa+2G)` 的 2-depth 至多
-
-\[
-3e\le6,
-\]
-
-不可能达到 (6) 的 `B+k>2k`. 因此
-
-\[
-\boxed{\lambda_2\ge2k\Longrightarrow\text{empty}.}
-\tag{30}
-
-只剩唯一 top-edge value
-
-\[
-\boxed{\lambda_2=2k-1.}
-\tag{31}
-
-此时
-
-\[
-a=e+1,
+\kappa=2^{e+1}\kappa_0,
 \qquad
-v_2(W)=2e+1.
+G=2^eg,
 \]
 
-令
+其中 `kappa_0,g` 为奇数，并定义
 
 \[
-t_2:=v_2(\kappa+2G).
-\]
+\boxed{t_2:=v_2(\kappa+2G).}
+\tag{33}
 
-如果 decimal recovery 成立，(6) 使 `d_2=B+k>=2k+1`。这首先迫使
+因为
 
 \[
-t_2>3e+1.
+\kappa+2G=2^{e+1}(\kappa_0+g),
 \]
+
+有 `t_2>=e+2`。
+
+从 (11) 得
+
+\[
+\boxed{v_2(W)=2e+1.}
+\tag{34}
+
+于是 (12) 的两个 summands 都恰从 `2^{3e+1}` 开始，故
+
+\[
+v_2(X_\sigma)\ge3e+2.
+\]
+
+为了精确分配两个 signs，再使用乘积恒等式 (21)。在 2-adic 中，(21) 括号第一项严格承担较浅 valuation
+
+\[
+4e+2.
+\]
+
+因此
+
+\[
+\boxed{
+v_2(X_+X_-)=t_2+5e+3.}
+\tag{35}
 
 另一方面
 
 \[
-X_\sigma
-\equiv\kappa G^2C
-\pmod{\kappa+2G},
+X_+-X_-=2(\kappa+G)W
 \]
 
-而
+恰有 valuation
 
 \[
-v_2(\kappa G^2C)=3e+1<t_2.
-\]
+\boxed{v_2(X_+-X_-)=3e+2.}
+\tag{36}
 
-故两个 sign 都有
-
-\[
-v_2(X_\sigma)=3e+1.
-\]
-
-于是
-
-\[
-d_2=t_2-e+1.
-\]
-
-与 (6) 联立，得到唯一 high-contact equation
+由 (35)-(36)，两个 signs 的 valuations 不能相同，且精确为
 
 \[
 \boxed{
- v_2(\kappa+2G)
-=B+k+e-1.
+\{v_2(X_+),v_2(X_-)\}
+=
+\{3e+2,\ t_2+2e+1\}.
 }
-\tag{32}
+\tag{37}
 
-这就是
+raw denominator depth 是
+
+\[
+v_2(Y)=t_2+2e+2.
+\]
+
+所以两个 reduced 2-denominator depths 精确为
 
 \[
 \boxed{
-\text{Cell III: }
-\lambda_2=2k-1,\quad
-v_2(\kappa+2G)=B+k+v_2(w)-1.
+\{d_2^{(+)},d_2^{(-)}\}
+=
+\{1,\ t_2-e\}.
 }
-\tag{33}
+\tag{38}
+
+因为任何合法 single-5 block 都需要 `d_2>=B+k>1`，只有 high-denominator sign 可能存活，并且它必须满足
+
+\[
+\boxed{
+ t_2-e
+=
+\max(B+k,d_5^{\rm high-sign}).
+}
+\tag{39}
+
+这里 `d_5^{high-sign}` 由 §3 按该同一 sign 的 5-adic orientation 读取。于是 top-edge 已成为一个 exact sign-allocation terminal，而不是此前错误的固定 `B+k` equation。
 
 ---
 
-## 7. single-5 的新严格前沿
+## 6. `lambda_2>=2k` 全空
 
-所有 minimal-diagonal single-5 deep candidate 现在必须同时满足：
+若 `lambda_2>=2k`，则
 
-### prefix 5-depth
+\[
+a=2k+e-\lambda_2\le e.
+\]
+
+此时 `kappa` 在 2-adic 上不比 `G` 更深，`kappa+2G` 的 valuation 至多绝对常数级，raw denominator
+
+\[
+\kappa^2(\kappa+2G)
+\]
+
+的 2-depth 至多 `3e<=6`（`lambda_2=2k` 时直接由 `v_2(kappa)=e<v_2(2G)=e+1` 得到；更大的 `lambda_2` 只会更浅）。
+
+所以
+
+\[
+d_2\le6<B+k
+\]
+
+对 `k>=32` 矛盾。故
+
+\[
+\boxed{\lambda_2\ge2k\Longrightarrow\text{empty}.}
+\tag{40}
+
+---
+
+## 7. corrected single-5 frontier
+
+整个 minimal-diagonal single-5 deep sector 现在严格只剩两类：
+
+### Low-edge cell
 
 \[
 \boxed{
- v_5(N)=B
- \quad\text{or}\quad
- v_5(N)\ge B+k;
+(z,w)=(1,4),
+\quad\lambda_2=1,
+\quad B=k+1,
+\quad v_5(N)\ge2k+1,
 }
-\tag{34}
+\tag{41}
 
-以及以下三个 2-adic cells 之一：
+且只能使用 5-adic matching sign。
+
+### Top-edge sign-allocation cell
 
 \[
-\boxed{
-\begin{array}{c|c|c|c}
-\text{cell}&w&\lambda_2&B\\ \hline
-I&1,3&0&k+1\\
-II&4&1&k+1\\
-III&1,2,3,4&2k-1&\text{subject to (32)}
-\end{array}}
-\tag{35}
+\boxed{\lambda_2=2k-1,}
+\tag{42}
 
-`w=2` 已完全退出 low-`lambda_2` 区，只能存在于 Cell III。
+且两个 2-adic signs 中只有 depth `t_2-e` 的一个能存活，并满足 exact equation (39)。
 
-所以此前 single-5 的 unbounded low-ratio / forced-lift strips 已被替换为：
+所有其余 `lambda_2`、strict-low 以及 5-adic resonance 都已经排除。
 
-- 两个 fixed-height cells `B=k+1`；
-- 一个单一 exact high-contact equation；
-- 且所有 cell 都必须承担 prefix 5-adic depth `B` 或至少 `B+k`。
+下一步：
 
-下一步应直接攻击：
-
-1. Cells I-II 中 `v_5(N)=k+1` 或 `v_5(N)>=2k+1` 的 prefix Hensel roots；
-2. Cell III 的 exact congruence
+1. 对 low-edge `(1,4)` 使用
    \[
-   \kappa\equiv-2G
-   \pmod{2^{B+k+e-1}}
+   N\equiv(10^k+N_0-1)^2+16\pmod{5^{2k+1}}
    \]
-   与 complement equation / odd-prime supply 的兼容性。
+   把 `v_5(N)>=2k+1` 压成每层两个 Hensel residues；
+2. 对 top-edge 把 (39) 与 supply complement `h=qs`、`M_c=(Q/q)(b_1/s)` 联用，做 exact 2-adic divisor congruence。
