@@ -550,7 +550,8 @@ p\equiv3\pmod4,
 2K\equiv9\pmod p,\\
 \left(\frac p{23}\right)=-1,
 \qquad
-\left(\frac p5\right)\left(\frac p{11}\right)=1.
+\left(\frac p5\right)
+\left(\frac p{11}\right)=1.
 \end{gathered}}
 \tag{7.11}
 \]
@@ -641,3 +642,214 @@ r\mid H_0,
 
 - 把 `W_q` 作为**最低项拼接分子的 reduced numerator**，与 `widehat{\mathcal T}_2` 的 endpoint-external excess prime 建立逐 prime-power 的赋值桥；
 - 对仍可能存在的 f-height intersection，把 (7.11) 与纯 prefix resultant `Psi_f` 的完整 `p^e` 深度联立，尝试把三个二次域 signature 提升成一个真正的 Hensel/resultant 矛盾。
+
+---
+
+## 10. `已严格完成`：f-height intersection 精确塌缩到固定素数 `7,43`，且不存在共同二阶深接触
+
+§9 的第二个后续方向可以直接推进一步。仍设 `p` 是非 `3` 的 inert f-side saturation carrier，并且
+
+\[
+p\mid W_q.
+\tag{10.1}
+\]
+
+由 (3.4)，`p\nmid c_Q`，因此 generic f-side law (7.1) 可用。关键是这里不再只取 Legendre symbol，而保留 (4.3) 的**完整剩余类**。
+
+先把 canonical factor equality (1.2) 相乘：
+
+\[
+H_0^2-g^2a_3^2=5^\lambda c_Q^2XY.
+\]
+
+由于
+
+\[
+N_0=5^{\nu_5}XY,
+\qquad
+\nu_5-\lambda=-2d,
+\]
+实际存在精确有理恒等式
+
+\[
+\boxed{
+N_0=
+\left(\frac{H_0}{c_Q5^d}\right)^2
+-
+\left(\frac{ga_3}{c_Q5^d}\right)^2.
+}
+\tag{10.2}
+\]
+
+在当前 `p` 上所有分母都是 `p`-进单位，而 `H_0=c_uW_q`，故 (10.2) 模 `p` 正好恢复
+
+\[
+N_0\equiv-
+\left(\frac{ga_3}{c_Q5^d}\right)^2
+\pmod p.
+\tag{10.3}
+\]
+
+把 (10.3) **直接**代入 f-side law (7.1)，并用 `lambda+d=m`：
+
+\[
+\begin{aligned}
+K^2-26
+&\equiv
+-\left(
+\frac{2c_Q}{2^m5^\lambda g}
+\frac{ga_3}{c_Q5^d}
+\right)^2\\
+&=-\left(\frac{2a_3}{T}\right)^2
+\pmod p.
+\end{aligned}
+\tag{10.4}
+\]
+
+另一方面 saturation `p\mid\mathscr L_{23}` 给出
+
+\[
+\frac{2a_3}{T}\equiv-9\pmod p,
+\tag{10.5}
+\]
+
+而 height/saturation intersection (5.4) 给出
+
+\[
+K\equiv\frac92\pmod p.
+\tag{10.6}
+\]
+
+于是 (10.4) 的两边分别变成
+
+\[
+K^2-26\equiv-\frac{23}{4},
+\qquad
+-\left(\frac{2a_3}{T}\right)^2\equiv-81.
+\]
+
+故
+
+\[
+\boxed{301\equiv0\pmod p.}
+\tag{10.7}
+\]
+
+因为
+
+\[
+301=7\cdot43,
+\]
+得到严格固定素数塌缩
+
+\[
+\boxed{
+p\in\{7,43\}.}
+\tag{10.8}
+\]
+
+这比 (7.11) 强得多：旧的三二次域 signature 只给 residue class 条件，而 (10.8) 把整个无界 f-height prime support 压成两个固定素数。两者确实都满足 (7.11)，所以这里仍不是空性；验证脚本也显式检查了这一点。
+
+还可以把同一计算提升到 prime-power 深度。写
+
+\[
+e:=v_p(f),
+\qquad
+h:=v_p(W_q)=v_p(H_0),
+\qquad
+\tau:=v_p(\widehat{\mathcal T}_2),
+\tag{10.9}
+\]
+
+并假设完整 saturation
+
+\[
+p^e\mid\mathscr L_{23}.
+\tag{10.10}
+\]
+
+由 §16.69 的截断赋值律，令
+
+\[
+s:=\min\{\tau,e\},
+\]
+则
+
+\[
+p^s\mid\Psi_f.
+\tag{10.11}
+\]
+
+同时 `f=g\omega+c_u`，且 `p\mid f`、`p\nmid gc_u`，所以 `p\nmid\omega`。由 `alpha=omega W_q` 得
+
+\[
+v_p(\alpha)=h.
+\tag{10.12}
+\]
+
+又
+
+\[
+\alpha-\mathscr L_{23}
+=T\left(K-\frac92\right),
+\]
+故在
+
+\[
+t:=\min\{s,h\}=\min\{\tau,e,h\}
+\tag{10.13}
+\]
+
+的深度上有
+
+\[
+K\equiv\frac92\pmod{p^t},
+\qquad
+\frac{2a_3}{T}\equiv-9\pmod{p^t}.
+\tag{10.14}
+\]
+
+另一方面 (10.2) 给出
+
+\[
+N_0\equiv-
+\left(\frac{ga_3}{c_Q5^d}\right)^2
+\pmod{p^{2h}},
+\tag{10.15}
+\]
+
+而 §16.69 的 `Psi_f` 同余与 `p^e\mid f` 把 (7.1) 同样提升到模 `p^s`。因此在共同深度 `t` 上，(10.4)–(10.7) 原样成立，得到
+
+\[
+\boxed{p^t\mid301.}
+\tag{10.16}
+\]
+
+但 `301=7\cdot43` 在两个剩余素数上都只有一次赋值，所以
+
+\[
+\boxed{
+\min\left\{
+ v_p(\widehat{\mathcal T}_2),
+ v_p(f),
+ v_p(W_q)
+\right\}=1.
+}
+\tag{10.17}
+\]
+
+这给出真正的 Hensel transversality：f-denominator saturation、height/reduced-numerator 深度和 odd-excess 深度**不能三者同时进入二阶**。特别地：
+
+- 若 `v_p(f)>=2` 且 `v_p(W_q)>=2`，则必有 `v_p(widehat{T}_2)=1`；
+- 若 odd excess 深度与 height 深度都至少为 `2`，则 `v_p(f)=1`；
+- 若 odd excess 深度与 denominator 深度都至少为 `2`，则 `v_p(W_q)=1`。
+
+因此 f-height intersection 的剩余核心已经从“任意素数、任意 Hensel 深度”压成固定 `7/43` 的**一阶横截或单侧浅层**问题。下一步应分别审计 `p=7` 与 `p=43` 的唯一 Hensel 轨道，并尝试与 `W_q^{\rm prim}\equiv1 (mod 4)` 的配对约束及 prefix digit phase 联立；不能再把 (7.11) 当作无界 prime family 处理。
+
+### 验证
+
+```bash
+uv run python scripts/exact-lift/a2-only/check_a2_f_height_fixed_primes.py
+```
+
+脚本核对 `301/4` 的精确残差、`301=7*43` 的平方自由性，以及 `7,43` 对旧 reciprocity signature 的兼容性；它只验证上述代数/局部算术，不宣称 A2 全局关闭。
