@@ -75,6 +75,7 @@ central denominator 已统一关闭
 14. [`deep-hl-hensel-dependency-audit.md`](deep-denominator-ledger.md#source-deep-hl-hensel-dependency-audit)、[`deep-root-factor-splitting.md`](deep-denominator-ledger.md#source-deep-root-factor-splitting)：依赖审计，防止重复计算同一 obstruction。
 15. [`deep-single5-first-remainder-height.md`](deep-denominator-ledger.md#source-deep-single5-first-remainder-height)：single-5 strict-low 的当前高度压缩。
 16. [`k31-uniform-certificate.md`](finite-layer-certificates-ledger.md#source-k31-uniform-certificate)：最新 fixed-layer 保险证书。
+17. [`w1-fixed-pair-descent.md`](w1-fixed-pair-descent.md)：`w=1,D/T^2>=12` fixed pair 的参数化、局部锁与高度降维。
 
 ---
 
@@ -475,6 +476,18 @@ CRT 因而给出
 
 `research-checks/deep-denominator/check_w1_joint_endpoint_periods.py`。
 
+进一步 descent 见 [`w1-fixed-pair-descent.md`](w1-fixed-pair-descent.md)。其中已经严格推出
+
+\[
+\boxed{Y<0.139k+7,\qquad d>0.861k-6,\qquad\eta>4.321k-16,}
+\]
+
+以及
+
+\[
+\boxed{v_2(m)=2,\quad r_{10}\equiv1\pmod8,\quad\left(\frac{r_{10}}5\right)=-1.}
+\]
+
 ---
 
 # Moderate 2-high：finite signatures + one exponent
@@ -685,7 +698,7 @@ minimal diagonal 当前真正的统一核心：
    \[
    2\beta u-\alpha v=5^d.
    \]
-2. **eta>0 pure-2 denominator side**：在同一个 2-high master 中压缩 `eta`；其中 `w=1` 的 `D/T^2>=12` 顶端现已缩成 `(u,v)=(27,23)` 与 `k mod99 in {19,52}`，下一步直接攻击固定系数系统 (A1-E4)。
+2. **eta>0 pure-2 denominator side**：`w=1,D/T^2>=12` 已进一步压到 `Y<0.139k+7`、`eta>4.321k-16` 与超深同余 `m=-5^dR mod 2^c`；下一步直接攻击该 2-adic 近整，或把 typewise contact window 再压入 `x=m/5^d`。
 3. **single-deep**：优先 single-5 resonance/high 与 single-2。
 4. fixed `k>=32` 仅作为保险线推进，不替代统一证明。
 
@@ -701,4 +714,6 @@ minimal diagonal 当前真正的统一核心：
 - `check_a1_top_diag_uniform_layer_31.py`：fixed `k=31`；
 - `check_a1_top_diag_uniform_layers*.py`：早期 fixed layers；
 - `research-checks/deep-denominator/check_w1_joint_endpoint_periods.py`：`w=1` joint endpoint 的短周期核对；
+- `research-checks/deep-denominator/check_w1_fixed_pair_local_locks.py`：fixed-pair 参数化与 mod-8/mod-5 核对；
+- `research-checks/deep-denominator/check_w1_fixed_pair_height_collapse.py`：`Y<0.139k+7` 高度压缩常数核对；
 - 以及 near-integer / unit-square / factorization 审计脚本。
