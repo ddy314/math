@@ -172,8 +172,9 @@ for g in (1, 2):
 
 # ---------------------------------------------------------------------------
 # Channel B: v3(zeta)=1, v3(K)>=2.
-# Generic sector: v3(2K-9)=2, hence K=9k with k=1 mod3,
-# and 3∤f gives v3(Y)=3.
+# Generic sector: v3(2K-9)=2.  Write K=9k after extracting the
+# guaranteed 3^2; then k can be 0 or 1 mod3, while k=2 is exactly the
+# extra-central branch.  If 3∤f, one has v3(Y)=3.
 # ---------------------------------------------------------------------------
 
 B_Glt = initial_form_2(Glt, 2, 1, 6)
@@ -205,20 +206,22 @@ for s in (1, 2):
     target = -yy*(kk**2 - kk + 1)*(zz*(kk + 1) - s*yy)
     assert sp.Poly(expr - target, kk, zz, yy, modulus=3).is_zero
 
-# If the central factor has exact depth 2, then k=1 mod3.
-# If f is a unit, again c_u=g*omega mod3.  The normalized Dhat formula gives
-# y = s*z.  Substitution leaves a nonzero depth-10 coefficient.
+# If the central factor has exact depth 2, then 2k-1 is a unit, i.e.
+# k is 0 or 1 mod3 (k=0 simply means that K was actually deeper than 3^2).
+# If f is a unit, c_u=g*omega mod3 and the normalized Dhat formula gives
+# y=s(2k-1)z.  Substitution leaves a nonzero depth-10 coefficient.
 for s in (1, 2):
     for z in (1, 2):
-        k = 1
-        y = s*z % 3
-        expr = -y*(k*k-k+1)*(z*(k+1)-s*y)
-        assert expr % 3 != 0
+        for k in (0, 1):
+            y = s*(2*k-1)*z % 3
+            assert y != 0
+            expr = -y*(k*k-k+1)*(z*(k+1)-s*y)
+            assert expr % 3 != 0
 
 # The only ways channel B can escape exact even depth 10 are therefore:
 # (i) f == 0 mod3, which raises B_Delta/Y depth; or
 # (ii) k == -1 mod3, equivalent to v3(2K-9)>=3.
-for k in (1, 2):
+for k in (0, 1, 2):
     central_deep = (2*k - 1) % 3 == 0
     assert central_deep == (k == 2)
 
