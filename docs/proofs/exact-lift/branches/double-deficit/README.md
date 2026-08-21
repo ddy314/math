@@ -204,13 +204,91 @@ X_A=X_{A,3}X_{A,0},
 \]
 真正独立的 Gaussian remainder `X_{A,0}` **只支撑在 `R_3^{den}` 为 p-unit 的 primes上**。
 
-当前 post-tail rough loss因此可读成三类机制：
+这一层把 post-tail rough loss压成 projective / bottom / common / residual-Gaussian payer；下一节继续把 projective remainder 内部的重复预算消去。
 
-1. projective/gap combined layer `X_P:=X_3X_{A,3}|Z_0a`；
-2. bottom/common numerator layers `X_B|R_12`, `X_G|(a_1,a_2)`；
-3. residual split-Gaussian `X_{A,0}|N_num`，且其 support上没有 third-exclusive denominator depth。
+### 4.5 `Z_0`-only frontier 与 two-sheet simultaneous collapse
 
-这已经是当前 **branch reoptimization frontier**；不要再把 `C_Q` 或整个 `X_Q` 当作匿名 gcd loss。
+[`tail-rough-projective-bottom-two-payer`](tail-allocation-ledger.md#source-tail-rough-projective-bottom-two-payer) 与 [`tail-rough-z0-only-frontier`](tail-allocation-ledger.md#source-tail-rough-z0-only-frontier) 已进一步得到
+\[
+\boxed{X_Q=X_aX_ZX_B,}
+\qquad
+X_a\mid a,
+\qquad
+X_Z\mid Z_0,
+\qquad
+X_B\mid C_{12},
+\]
+并且 exact small factor 同时给
+\[
+\boxed{X_aQ<F_-,}
+\qquad
+\boxed{X_BG<F_-.}
+\]
+代回第二次 Schmidt 后有
+\[
+\boxed{3\log F_-+\log X_Z\ge3S-o(S),}
+\]
+所以此前唯一未收费对象可写成
+\[
+X_Z\mid\gcd(C_Q,Z_0).
+\]
+
+新结果 [`tail-rough-z0-two-sheet-collapse.md`](tail-rough-z0-two-sheet-collapse.md) 再利用 canonical local constraints。对
+\[
+p^x\Vert X_Q,
+\qquad
+t=v_p(C),
+\qquad
+r=v_p(R_3^{\rm den}),
+\qquad
+n=v_p(N_0)=2g+\omega,
+\]
+若 `e_P=x-e_B` 为非 bottom projective payer depth，则严格有
+\[
+\boxed{e_P\le\max(r,n-t).}
+\]
+于是 gap split 后
+\[
+\boxed{
+e_Z\le
+\max\!\left((r-v_p(a))_+,(n-t-v_p(a))_+\right).
+}
+\]
+
+按 `x<=r+t` 与 `x>r+t` 把 prime support 分成两个互斥 sheet，可写
+\[
+\boxed{X_Z=X_{Z,3}X_{Z,N},\qquad (X_{Z,3},X_{Z,N})=1,}
+\]
+并有 exact quotient readers
+\[
+\boxed{
+X_{Z,3}\mid\operatorname{core}_{10}\!\left(
+\frac{R_3^{\rm den}}{(R_3^{\rm den},a)}
+\right),
+}
+\]
+\[
+\boxed{
+X_{Z,N}\mid\operatorname{core}_{10}\!\left(
+\frac{N_0}{(N_0,Ca)}
+\right).
+}
+\]
+更重要的是 simultaneous payer relations：
+\[
+\boxed{X_{a,T}X_{Z,3}\mid R_3^{\rm den},}
+\qquad
+\boxed{X_{B,N}X_{a,N}X_{Z,N}\mid N_0.}
+\]
+第二个 sheet 上 bottom payer 自动饱和；因此 coefficient、gap 与 `Z_0` residual 的同一份 p-adic 深度不能在后续 height LP 中重复计费。
+
+对 `p\equiv3\pmod4`，`\omega=0`，norm-overflow residual 进一步满足
+\[
+e_Z\le(g-v_p(a))_+.
+\]
+所以真正的 deep angular remainder 只可能留在 split Gaussian primes `p\equiv1\pmod4`。
+
+当前 post-tail frontier 已从匿名 `gcd(C_Q,Z_0)` 收紧为两个扣除了既有 payer 容量的 quotient readers：third-after-gap 与 norm-after-coefficient-and-gap。
 
 ## 5. 当前严格状态
 
@@ -230,7 +308,13 @@ DD **全局仍为 `待证`**：尚无有效绝对 `S` 上界，也未证明 DD �
 \]
 而不是旧 README 中的 `6.215109...`。
 
-尚不能把 `<=6` 宣布成全 DD bound：其它 post-tail dominant side branches的完整定量 reoptimization尚未完成。当前最直接目标是对上述 projective / bottom-common / residual-Gaussian payer layers建立 simultaneous height bound，并把它代回第二次 Schmidt inequality。
+尚不能把 `<=6` 宣布成全 DD bound：其它 post-tail dominant side branches的完整定量 reoptimization尚未完成。当前最直接目标已经收紧为：同时控制
+\[
+\frac{R_3^{\rm den}}{(R_3^{\rm den},a)}
+\qquad\text{与}\qquad
+\frac{N_0}{(N_0,Ca)}
+\]
+的 rough height，并利用 Sheet N 的 bottom saturation、split-Gaussian orientation 与 coefficient circle，把所得 bound 代回 `3 log F_- + log X_Z >= 3S-o(S)`。
 
 ## 6. 可复核脚本
 
@@ -257,6 +341,7 @@ DD **全局仍为 `待证`**：尚无有效绝对 `S` 上界，也未证明 DD �
 - `check_dd_tail_rough_angular_source_transfer.py`
 - `check_dd_tail_rough_canonical_payer_decomposition.py`
 - `check_dd_tail_rough_third_angular_absorption.py`
+- `research-checks/tail-allocation/check_dd_tail_rough_z0_two_sheet.py`
 
 以及此前的 `check_dd_good_*` / `check_dd_genuine_*` / `check_dd_pairmax_*` 账本脚本。
 
