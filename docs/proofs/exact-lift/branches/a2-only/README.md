@@ -9,7 +9,7 @@
 3. [`hensel.md`](hensel.md)：source 双 Hensel/resultant 恒等式及 source-excess 审计。
 4. [`endpoint-lattice.md`](endpoint-lattice.md)：2026-08-17 的 endpoint shell、height split、Gaussian allocation 和降级结论。
 5. [`prime-source.md`](prime-source.md)：在 endpoint lattice 的最终 prime-source 层继续吸收固定 `11,23` Hensel 例外，并把 special `23` height carrier 压成 `M mod 22` 的有限同余类。
-6. [`primitive-reduction.md`](primitive-reduction.md)：识别 `W_q` 为拼接分子/球面高度的 primitive gcd 与 reduced numerator，审计 height character，并分离 q/f saturation 与 height channel 的交集。
+6. [`primitive-reduction.md`](primitive-reduction.md)：识别 `W_q` 为拼接分子/球面高度的 primitive gcd 与 reduced numerator，审计 height character，并分离 q/f saturation 与 height channel 的交集；最新把 f-height 交集压到固定素数 `7,43` 并排除共同二阶深接触。
 
 ## 研究账本
 
@@ -209,8 +209,15 @@ K^2-26\equiv
 \qquad
 2K\equiv9\pmod p,
 \]
-且 `p\notin\{3,5,11,23\}`。这仍不是空性，但已经把 q/f/height 的交集
-从模糊 prime source 压成固定的 reciprocity signature。
+且 `p\notin\{3,5,11,23\}`。继续保留完整剩余类而不只取 quadratic character 后，§10 更强地得到
+\[
+p\in\{7,43\}.
+\]
+若写 \(e=v_p(f)\)、\(h=v_p(W_q)\)、\(\tau=v_p(\widehat{\mathcal T}_2)\)，并假设完整 saturation \(p^e\mid\mathscr L_{23}\)，则还有
+\[
+\boxed{\min\{\tau,e,h\}=1.}
+\]
+因此 f-denominator、height/reduced-numerator 与 odd-excess 三条深接触不能同时进入二阶。`7,43` 两个固定点本身仍与旧 reciprocity signature 兼容，尚需分别做 Hensel/digit-phase 审计，所以这里仍不是 A2 空性。
 \(q\)-侧根还通过
 \(J_{101}^2\equiv101N_0-26\pmod p\) 接回真实 prefix Gaussian
 vector；这些条件尚未形成最终矛盾。
@@ -258,4 +265,4 @@ M\equiv0,1,2,8,9,10,12,13,15,17,19,20\pmod{22},
 
 ## 可复核脚本
 
-分支专用脚本位于 [`scripts/exact-lift/a2-only/`](../../../../../scripts/exact-lift/a2-only/)；它们验证恒等式和明确的有限/局部不等式，不是全局证明器。`check_a2_prime_source.py` 精确复核 special `23` 的 `M mod 22` residue 表；`check_a2_primitive_reduction.py` 复核新的固定系数与二次互反化简。
+分支专用脚本位于 [`scripts/exact-lift/a2-only/`](../../../../../scripts/exact-lift/a2-only/)；它们验证恒等式和明确的有限/局部不等式，不是全局证明器。`check_a2_prime_source.py` 精确复核 special `23` 的 `M mod 22` residue 表；`check_a2_primitive_reduction.py` 复核新的固定系数与二次互反化简；`check_a2_f_height_fixed_primes.py` 核对 f-height 的 `301=7*43` 固定素数塌缩和共同二阶深度排除。
