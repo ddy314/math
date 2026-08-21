@@ -137,31 +137,33 @@ y_3=a_3\frac q{b_3}.
 
 （另一 orientation取共轭）。
 
-现在将 `(2.2+)` 与 `(3.1)` 做 coefficient determinant。若两者由同一 selected orientation整除，则该 orientation还必须整除
-
-\[
-\begin{aligned}
-&b_2(10^m a_2-2ia_3)-10^m(a_2b_2+ia_3b_2)\\
-&\qquad=-i a_3(2b_2+10^m b_2/a_3\times0),
-\end{aligned}
-\]
-
-更直接地对两条线性关系
+对同一 selected orientation，若 `(2.2+)` 与 `(3.1)` 同时成立，则把它们视为关于 `(a_2,a_3)` 的两条齐次线性关系：
 
 \[
 10^m a_2-2ia_3\equiv0,
 \qquad
-a_2b_3+i a_3b_2\equiv0
+a_2b_3+i a_3b_2\equiv0.
 \]
 
-消去 `a_2,a_3`，其 determinant为
+其 coefficient determinant 为
+
+\[
+\det
+\begin{pmatrix}
+10^m&-2i\\
+b_3&i b_2
+\end{pmatrix}
+=i(10^m b_2+2b_3).
+\]
+
+因 `i` 为 Gaussian unit，selected orientation必须整除 rational reader
 
 \[
 \boxed{10^m b_2+2b_3.}
 \tag{3.2+}
 \]
 
-对相反 selected orientation，得到
+对相反 selected orientation，同样得到
 
 \[
 \boxed{10^m b_2-2b_3.}
