@@ -353,6 +353,128 @@ B\text{ odd}\Rightarrow r_{10}\equiv7\pmod8.
 
 纯 5-adic contact-square lifting也只有 mod-5 Legendre class；高阶 Hensel lift自动存在。
 
+## `w=1` joint top endpoint：`D/T^2>=12` 锁成固定 pair
+
+令
+
+\[
+\delta:=D/T^2,
+\qquad
+M:=uv.
+\]
+
+`deep-w1-joint-complement-minimum` 已证明
+
+\[
+\boxed{M\ge621.}
+\]
+
+这里还能把最小值分支继续细化。写
+
+\[
+r_3:=v_3(2k+1).
+\]
+
+- `r_3=0` 时，已有 `u>=279`,`v>=7`，所以 `M>=1953`；
+- `r_3>=2` 时，已有下界远大于 `837`；
+- 只有 `r_3=1` 能达到全局 minimum，此时 `u>=27`。又 `k=1 mod3`，所以 `7` 不整除 `Q`；而 `19|Q` 会强迫 `k=4 mod9`，与 `r_3=1` 的 `k=1 or 7 mod9` 冲突。结合 universal `3,11 not|Q`，得到
+  \[
+  v\ge23.
+  \]
+
+在 `r_3=1` 分支，如果 `v>23`，则下一个可能的 `3 mod4` complement 至少为 `31`，从而
+
+\[
+M\ge27\cdot31=837.
+\]
+
+如果 `u>27`，由于 `v_3(b_1)=3` 已固定，而所有小于 `31`、不同于 `3` 的素数都不能在 odd exponent 的 `10^{2k+1}-1` 中提供新的 whole block，额外 complement factor 也至少为 `31`，同样有 `M>837`。
+
+因此
+
+\[
+\boxed{M<837\Longrightarrow(u,v)=(27,23).}
+\tag{A1-E1}
+\]
+
+另一方面 complement height 给
+
+\[
+M\delta<10001.
+\]
+
+所以只要
+
+\[
+\boxed{\delta\ge12,}
+\]
+
+就有
+
+\[
+M<10001/12<837,
+\]
+
+于是
+
+\[
+\boxed{
+D/T^2\ge12
+\Longrightarrow
+(u,v,M)=(27,23,621).}
+\tag{A1-E2}
+\]
+
+这把 `w=1` 的全局 cap
+
+\[
+D/T^2<10001/621<16.11
+\]
+
+中的顶端条带 `[12,16.11)` 变成 fixed-coefficient branch。
+
+周期条件也完全固定。`u=27` 强迫
+
+\[
+v_3(2k+1)=1
+\Longleftrightarrow
+k\equiv1,7\pmod9.
+\]
+
+而 `v=23` 要求 `23|Q`。由 `ord_23(10)=22` 且 `10^{18}=9 mod23`：
+
+\[
+23|Q
+\Longleftrightarrow
+2k+2\equiv18\pmod{22}
+\Longleftrightarrow
+k\equiv8\pmod{11}.
+\]
+
+CRT 因而给出
+
+\[
+\boxed{k\equiv19\text{ or }52\pmod{99}.}
+\tag{A1-E3}
+\]
+
+在这两个类上，master equations 降成
+
+\[
+\boxed{54\beta-23\alpha=5^d,}
+\]
+
+以及用 `s=b_1/27` 化简后的
+
+\[
+\boxed{5^{d+1}s+\beta=23\cdot2^c n_0.}
+\tag{A1-E4}
+\]
+
+状态：**已严格完成（仅关闭为 fixed pair，不排除该 fixed pair 本身）。** 对应短周期核对脚本：
+
+`research-checks/deep-denominator/check_w1_joint_endpoint_periods.py`。
+
 ---
 
 # Moderate 2-high：finite signatures + one exponent
@@ -563,7 +685,7 @@ minimal diagonal 当前真正的统一核心：
    \[
    2\beta u-\alpha v=5^d.
    \]
-2. **eta>0 pure-2 denominator side**：在同一个 2-high master 中压缩 `eta`；不再单独维护旧 `E_2` 理论。
+2. **eta>0 pure-2 denominator side**：在同一个 2-high master 中压缩 `eta`；其中 `w=1` 的 `D/T^2>=12` 顶端现已缩成 `(u,v)=(27,23)` 与 `k mod99 in {19,52}`，下一步直接攻击固定系数系统 (A1-E4)。
 3. **single-deep**：优先 single-5 resonance/high 与 single-2。
 4. fixed `k>=32` 仅作为保险线推进，不替代统一证明。
 
@@ -578,4 +700,5 @@ minimal diagonal 当前真正的统一核心：
 - `check_a1_deep_hl_local_signatures.cpp`：moderate 2-high local `r` signatures；
 - `check_a1_top_diag_uniform_layer_31.py`：fixed `k=31`；
 - `check_a1_top_diag_uniform_layers*.py`：早期 fixed layers；
+- `research-checks/deep-denominator/check_w1_joint_endpoint_periods.py`：`w=1` joint endpoint 的短周期核对；
 - 以及 near-integer / unit-square / factorization 审计脚本。
