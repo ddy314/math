@@ -233,7 +233,7 @@ X_B\mid C_{12},
 X_Z\mid\gcd(C_Q,Z_0).
 \]
 
-新结果 [`tail-rough-z0-two-sheet-collapse.md`](tail-rough-z0-two-sheet-collapse.md) 再利用 canonical local constraints。对
+[`tail-rough-z0-two-sheet-collapse.md`](tail-rough-z0-two-sheet-collapse.md) 再利用 canonical local constraints。对
 \[
 p^x\Vert X_Q,
 \qquad
@@ -282,13 +282,82 @@ X_{Z,N}\mid\operatorname{core}_{10}\!\left(
 \]
 第二个 sheet 上 bottom payer 自动饱和；因此 coefficient、gap 与 `Z_0` residual 的同一份 p-adic 深度不能在后续 height LP 中重复计费。
 
-对 `p\equiv3\pmod4`，`\omega=0`，norm-overflow residual 进一步满足
-\[
-e_Z\le(g-v_p(a))_+.
-\]
-所以真正的 deep angular remainder 只可能留在 split Gaussian primes `p\equiv1\pmod4`。
+### 4.6 angular-only collapse（最新前沿）
 
-当前 post-tail frontier 已从匿名 `gcd(C_Q,Z_0)` 收紧为两个扣除了既有 payer 容量的 quotient readers：third-after-gap 与 norm-after-coefficient-and-gap。
+[`tail-rough-z0-angular-only-collapse.md`](tail-rough-z0-angular-only-collapse.md) 继续把两个 sheets 中已经有 reader 的深度剥掉。
+
+先记
+\[
+R=\operatorname{core}_{10}(R_3^{\rm den}).
+\]
+由 `R|tau`、严格 tail window `tau<L` 与 exact small-factor formula，得到
+\[
+\boxed{aRQ<F_-.}
+\]
+因此整个 third-covered residual 可与 gap payer 一起支付：
+\[
+\boxed{X_aX_{Z,3}Q<F_-.}
+\]
+
+对 norm-overflow sheet，再把
+\[
+X_{Z,N}=X_{Z,C}X_{Z,A}
+\]
+按 exponent layer 分成 common-after-gap 与 primitive angular remainder。严格有
+\[
+\boxed{X_{Z,C}\mid X_B,}
+\]
+以及
+\[
+\boxed{
+X_{Z,A}\mid\operatorname{core}_{10}(N_{\rm ang}),
+\qquad
+X_{Z,A}\mid\operatorname{core}_{10}(N_{\rm num}).
+}
+\]
+所以
+\[
+\boxed{
+X_{Z,A}
+\mid
+\operatorname{core}_{10}\gcd(N_{\rm ang},N_{\rm num}),
+}
+\]
+且每个 odd prime divisor of `X_{Z,A}` 都满足
+\[
+p\equiv1\pmod4.
+\]
+所有 `3 mod 4` 的 norm-overflow residual 已经被 `X_{Z,C}|X_B` 吸收。
+
+全局 factorization 可写成
+\[
+\boxed{
+X_Q=(X_aX_{Z,3})X_BX_{Z,C}X_{Z,A}.
+}
+\]
+其中前三层都有既有 small-factor / bottom capacity；second-Schmidt 的唯一 independent rough reader 已压到 split-Gaussian `X_{Z,A}`。形式上代回可写成
+\[
+4\log F_-+\log X_{Z,A}\ge4S-o(S),
+\]
+但这条式子的用途是 payer bookkeeping；单独作为 `F_-` 的 Archimedean lower bound，它弱于 exact charges 已直接给出的 `F_->Q,G`，因此不把它计作新的数值 slope improvement。
+
+当前正确 hard object 已从
+\[
+\gcd(C_Q,Z_0)
+\]
+进一步收紧为
+\[
+\boxed{
+\operatorname{core}_{10}\gcd(N_{\rm ang},N_{\rm num})
+\text{ 上的 split-Gaussian exponent layer }X_{Z,A}.
+}
+\]
+下一步应把这个 double-reader 与 coefficient circle、已有 cyclotomic overlap
+\[
+\operatorname{core}_{10}\gcd(A^\circ,N_{\rm num})
+\mid10^{2|s_2|}+1
+\]
+联立，寻找真正的 simultaneous rough-height cap。
 
 ## 5. 当前严格状态
 
@@ -308,13 +377,11 @@ DD **全局仍为 `待证`**：尚无有效绝对 `S` 上界，也未证明 DD �
 \]
 而不是旧 README 中的 `6.215109...`。
 
-尚不能把 `<=6` 宣布成全 DD bound：其它 post-tail dominant side branches的完整定量 reoptimization尚未完成。当前最直接目标已经收紧为：同时控制
+尚不能把 `<=6` 宣布成全 DD bound：其它 post-tail dominant side branches的完整定量 reoptimization尚未完成。当前最直接目标已经收紧为控制 split-Gaussian double-reader
 \[
-\frac{R_3^{\rm den}}{(R_3^{\rm den},a)}
-\qquad\text{与}\qquad
-\frac{N_0}{(N_0,Ca)}
+X_{Z,A}\mid\gcd(N_{\rm ang},N_{\rm num})
 \]
-的 rough height，并利用 Sheet N 的 bottom saturation、split-Gaussian orientation 与 coefficient circle，把所得 bound 代回 `3 log F_- + log X_Z >= 3S-o(S)`。
+的 rough height，并利用 pure-numerator orientation、coefficient circle 与 cyclotomic overlap，把这最后一层 independent rough mass收费。
 
 ## 6. 可复核脚本
 
@@ -342,6 +409,7 @@ DD **全局仍为 `待证`**：尚无有效绝对 `S` 上界，也未证明 DD �
 - `check_dd_tail_rough_canonical_payer_decomposition.py`
 - `check_dd_tail_rough_third_angular_absorption.py`
 - `research-checks/tail-allocation/check_dd_tail_rough_z0_two_sheet.py`
+- `research-checks/tail-allocation/check_dd_tail_rough_z0_angular_only.py`
 
 以及此前的 `check_dd_good_*` / `check_dd_genuine_*` / `check_dd_pairmax_*` 账本脚本。
 
