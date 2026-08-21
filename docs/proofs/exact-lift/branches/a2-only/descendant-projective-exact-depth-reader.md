@@ -1,53 +1,103 @@
-# A2 descendant-only projective carrier 的 exact depth reader
+# A2 descendant-only projective carrier 的 unequal/equal-depth reader
 
 > **依赖：** `spontaneous-crt-pure-prefix-elimination.md`、`spontaneous-crt-pure-projective-carrier.md`、`spontaneous-crt-descendant-projective-integer.md`、`spontaneous-crt-pure-coefficient-singular.md`。
 >
-> **严格状态：**generic descendant-only external pool 已有 projective carrier `X_63^proj(u,v)` 与 ordinary integer clearing `P_63`，但旧文只记录 `p|P_63`，没有比较 common-prime 深度与 carrier 深度。本文证明 universal resultant 在真实 branch quadratic 上存在一个 exact two-factor identity：若 `q=A_63 r+B_63` 是 descendant polynomial 对 branch quadratic 的线性余式，则 `X_63^proj=q(55q-A_63L'(r))`。因此对 coefficient-generic、sphere-simple 的 genuine prime，第二因子始终是 unit，得到完整 prime-power 等式 `v_p(X_63^proj)=v_p(q)`；清 denominator 后同样有 `v_p(P_63)=v_p(q)`。这关闭了“resultant 可能额外增深”的自由度，但 `q` 与原 `G_Delta` common depth之间仍可能经过 descendant transport cancellation，因此本文尚不宣称 generic external pool为空或 A2 关闭。
+> **严格状态：**前一版本错误地把 projective quadratic `L(r)` 当成真实整数恒等式 `L=0`，从而错误宣称 `v_p(P_63)=v_p(q)`。本版本撤销该结论并保留正确的 exact identity。实际上 `K^2L=R_0-R` 正是 normalized additive error；若 `q=Ar+B` 是 universal descendant polynomial 模 `L` 的一次余式，则
+> \[
+> X_{63}^{proj}=55q^2-A L'(r)q+A^2L.
+> \]
+> 在 coefficient-generic、simple-root prime 上，若 `a=v_p(q), b=v_p(L)`，则 `a!=b` 时严格有 `v_p(X)=min(a,b)`；只有 `a=b` 时才可能产生额外 resultant 深度，而且 next digit 由唯一 normalized cancellation `A L_b-L' q_a=0 mod p` 控制。故 projective resultant 的高阶自由度被严格压到 equal-depth branch；本文不宣称 A2 关闭。
 
 ---
 
-## 1. projective branch system
+## 1. projective additive/descendant system
 
-沿用 dimensionless variables
+沿用
 
 \[
 r=\frac1K,
 \qquad
 u=\frac{a_3}{TK},
 \qquad
-v=\frac{Q^2N_0}{B^2K^2}.
+v=\frac{Q^2N_0}{B^2K^2},
 \]
 
-为避免与 valuation 记号混淆，下文仍把第二个变量写成 `u`：
+并把第二个变量记为
 
 \[
 u:=\frac{a_3}{TK}.
 \]
 
-真实 sphere/rational-root branch 满足 exact quadratic
+定义 projective quadratic
 
 \[
 \boxed{
-L(r):=55r^2+18(u-1)r+1-4u-v=0.
+L(r):=55r^2+18(u-1)r+1-4u-v.
 }
 \tag{1.1}
 \]
 
-universal descendant polynomial projectivize为
+这里必须强调：`L` 不是实 endpoint 上恒等为零的 sphere relation。令
+
+\[
+\zeta:=a_3/T,
+\qquad
+R:=Q^2N_0/B^2.
+\]
+
+代回
+
+\[
+r=1/K,
+\quad u=\zeta/K,
+\quad v=R/K^2,
+\]
+
+得到
+
+\[
+\boxed{
+K^2L
+=
+K^2-(18+4\zeta)K+18\zeta+55-R.
+}
+\tag{1.2}
+\]
+
+而 `spontaneous-crt-universal-descendant-cubic.md` §2 中 additive common condition正是
+
+\[
+R_0:=K^2-(18+4\zeta)K+18\zeta+55.
+\]
+
+所以
+
+\[
+\boxed{K^2L=R_0-R.}
+\tag{1.3}
+\]
+
+因此 `L` 是 projectivized additive error。对 relevant common prime 它可以有正 `p`-进深度，但不能在整数层面偷偷设成零。
+
+---
+
+## 2. universal descendant remainder
+
+projectivize universal cubic：
 
 \[
 E_{\rm proj}(r,u)
 :=r^8\mathcal E_{63}(1/r,u/r).
-\tag{1.2}
+\tag{2.1}
 \]
 
 在 `Q(u,v)[r]` 中对 `L` 做 Euclidean division：
 
 \[
 \boxed{
-E_{\rm proj}=Q_L L+Ar+B,
+E_{\rm proj}=Q_LL+Ar+B,
 }
-\tag{1.3}
+\tag{2.2}
 \]
 
 其中
@@ -58,241 +108,233 @@ A=A_{63}(u,v),
 B=B_{63}(u,v).
 \]
 
-定义真正的一次 compatibility residual
+定义一次 descendant compatibility residual
 
 \[
 \boxed{q:=Ar+B.}
-\tag{1.4}
-\]
-
-因为真实 branch满足 `L(r)=0` 精确成立，实际点上
-
-\[
-\boxed{E_{\rm proj}(r,u)=q.}
-\tag{1.5}
-\]
-
-所以后续无需再把 degree-8 polynomial 当作独立对象；其全部 actual p-adic compatibility已经被 `q` 读取。
-
----
-
-## 2. resultant 的 exact 三项恒等式
-
-quadratic 与 linear remainder 的 resultant为
-
-\[
-\boxed{
-X_{m lin}
-=55B^2-18(u-1)AB+(1-4u-v)A^2.
-}
-\tag{2.1}
-\]
-
-直接计算 full resultant 得
-
-\[
-\boxed{
-\operatorname{Res}_r(L,E_{\rm proj})
-=5^7 11^7 X_{\rm lin}.
-}
-\tag{2.2}
-\]
-
-固定 content `5^7 11^7` 正是旧 projective carrier 中已经剥去的 coefficient content；genuine generic external prime已与 `5,11` 分离，因此不影响任何 relevant valuation。
-
-现在求
-
-\[
-L'(r)=110r+18(u-1).
 \tag{2.3}
 \]
 
-把 `q=Ar+B` 代入右边展开，得到 exact polynomial identity
-
-\[
-\boxed{
-X_{m lin}
-=55q^2-A L'(r)q+A^2L(r).
-}
-\tag{2.4}
-\]
-
-它不是模 `p` 的 first-layer approximation，而是 `Q(u,v,r)` 中的恒等式。
-
-也可定义 conjugate companion
-
-\[
-\boxed{
-C_q:=A L'(r)-55q
-=55(Ar-B)+18A(u-1),
-}
-\tag{2.5}
-\]
-
-则
-
-\[
-\boxed{
-X_{m lin}=-qC_q+A^2L(r).
-}
-\tag{2.6}
-\]
+所以 `q` 与 `L` 是当前 projective elimination 中真正需要同时追踪的两条 local errors。
 
 ---
 
-## 3. 真实 branch 上降成 two-factor identity
+## 3. resultant 的 exact 三项恒等式
 
-由 (1.1)，真实 endpoint 精确满足
-
-\[
-L(r)=0.
-\]
-
-因此 (2.4) 立即化为
+quadratic `L` 与 linear remainder `Ar+B` 的 resultant为
 
 \[
 \boxed{
-X_{m lin}
-=q\bigl(55q-A L'(r)\bigr)
-=-qC_q.
+X_{\rm lin}
+=55B^2-18(u-1)AB+(1-4u-v)A^2.
 }
 \tag{3.1}
 \]
 
-这说明 projective resultant 在 actual branch上并不是一个可能产生神秘额外 multiplicity 的 degree-11 黑盒；它只是：
+full degree-8 resultant满足
 
-1. 真正 descendant compatibility residual `q`；
-2. 一个明确的 conjugate derivative factor。
+\[
+\boxed{
+\operatorname{Res}_r(L,E_{\rm proj})
+=5^7 11^7X_{\rm lin}.
+}
+\tag{3.2}
+\]
+
+固定 content `5^7 11^7` 已在 generic external sector分离。
+
+又
+
+\[
+L'(r)=110r+18(u-1).
+\tag{3.3}
+\]
+
+直接展开 `q=Ar+B` 得到 exact identity
+
+\[
+\boxed{
+X_{\rm lin}
+=55q^2-A L'(r)q+A^2L(r).
+}
+\tag{3.4}
+\]
+
+这是本文件真正的主恒等式。前一版本从这里错误地继续代入 `L=0`；该步现已撤销。
 
 ---
 
-## 4. generic coefficient + simple sphere 给 complete depth equality
+## 4. unequal-depth branch 完全横截
 
-固定 genuine odd prime `p` 属于 coefficient-generic、sphere-simple branch，即
+固定 genuine odd prime `p`，并处于 generic sector：
 
 \[
-\boxed{p\nmid A,}
+\boxed{p\nmid A L'(r),}
 \tag{4.1}
 \]
 
-以及
+同时排除固定 resultant content prime `5,11`。
+
+设
 
 \[
-\boxed{p\nmid L'(r).}
+a:=v_p(q)\ge1,
+\qquad
+b:=v_p(L)\ge1.
 \tag{4.2}
 \]
 
-前者的失败正是旧 `A=B=0` coefficient-singular channel；后者的失败正是 branch quadratic 的 double-root/discriminant channel。两者都已在历史 proof tree中单列，不能混入 generic pool。
+### 4.1 `a<b`
 
-若
+(3.4) 三项的赋值分别至少为
 
 \[
-p\mid q,
+2a,\qquad a,\qquad b.
 \]
-则由 (3.1) 的第二因子
+
+由于
 
 \[
-55q-A L'(r)
-\equiv-A L'(r)
-ot\equiv0\pmod p.
+a<2a,\qquad a<b,
+\]
+
+中间项是唯一最浅项，且其 coefficient `-AL'` 为 unit。因此
+
+\[
+\boxed{a<b\Longrightarrow v_p(X_{\rm lin})=a.}
 \tag{4.3}
 \]
 
-因此该因子是完整的 `p`-adic unit，不会在更高 lift 中突然获得一层 `p`。于是对任意 `e>=1`：
+### 4.2 `b<a`
+
+三项赋值为
 
 \[
-\boxed{
-v_p(q)=e
-\Longrightarrow
-v_p(X_{m lin})=e.
-}
+2a,\qquad a,\qquad b,
+\]
+
+此时 `A^2L` 是唯一最浅项。因此
+
+\[
+\boxed{b<a\Longrightarrow v_p(X_{\rm lin})=b.}
 \tag{4.4}
 \]
 
-反过来在 `p|q` 的 common branch上当然同样成立，因此可直接写成
+合并：
 
 \[
 \boxed{
-v_p(X_{m lin})=v_p(q).}
+a\ne b
+\Longrightarrow
+v_p(X_{\rm lin})=\min\{a,b\}.}
 \tag{4.5}
 \]
 
-这是一条**全深度** reader，而不是 truncated equality。
+所以 resultant 在 unequal-depth branch 上既不会吞深度，也不会制造额外深度。
 
 ---
 
-## 5. ordinary integer carrier `P_63` 继承同一深度
+## 5. 只有 equal-depth 才能继续 cancellation
+
+现在设
+
+\[
+a=b=e.
+\]
+
+写
+
+\[
+q=p^eq_e,
+\qquad
+L=p^eL_e,
+\qquad
+q_eL_e\not\equiv0\pmod p.
+\]
+
+将 (3.4) 除以 `p^e`。第一项 `55q^2/p^e` 仍被 `p^e` 整除，所以模 `p` 消失；剩下
+
+\[
+\frac{X_{\rm lin}}{p^e}
+\equiv
+-A L'q_e+A^2L_e
+\pmod p.
+\]
+
+即
+
+\[
+\boxed{
+\frac{X_{\rm lin}}{p^e}
+\equiv
+A\bigl(AL_e-L'q_e\bigr)
+\pmod p.
+}
+\tag{5.1}
+\]
+
+因为 `A` 是 unit，得到精确 criterion：
+
+\[
+\boxed{
+v_p(X_{\rm lin})>e
+\Longleftrightarrow
+AL_e-L'q_e\equiv0\pmod p.}
+\tag{5.2}
+\]
+
+因此 projective resultant 的 higher multiplicity并不是第三个自由 Hensel direction；它恰好就是 additive 与 descendant 两条 normalized errors 在 equal-depth 层的一次线性 tie。
+
+这与既有 descendant second/third/quartic transport hierarchy 的结构完全一致：真正需要继续追踪的是 equal-depth normalized cancellation，而不是机械提高 resultant modulus。
+
+---
+
+## 6. ordinary integer carrier `P_63`
 
 `spontaneous-crt-descendant-projective-integer.md` 定义
 
 \[
 \mathscr P_{63}
-=R^8Y^8
-\mathscr X_{63}^{\rm proj}
-\left(\frac{a_3}{R},\frac XY\right),
+=R_c^8Y^8
+\mathscr X_{63}^{proj}
+\left(\frac{a_3}{R_c},\frac XY\right),
 \]
 
-其中 genuine descendant-only external prime满足
+其中 `R_c=TK`，为避免与上文 prefix ratio `R` 混淆这里改写为 `R_c`。
+
+在 genuine descendant-only external prime 上，denominator clearing 与 fixed content均为 units。因此
 
 \[
-p\nmid RY,
-\qquad p\notin\{5,11\}.
-\]
-
-所以 denominator clearing 与 fixed resultant content均为 `p`-units。结合 (2.2),(4.5)：
-
-\[
-\boxed{
-v_p(\mathscr P_{63})=v_p(q)}
-\tag{5.1}
-\]
-
-对全部 generic coefficient/simple-sphere common primes成立。
-
-这严格补上旧 integer-carrier 文件留下的缺口：`P_63` 不仅知道 support，而且不会自行增加或吞掉任何 descendant compatibility depth。
-
----
-
-## 6. 这一步尚未自动等于 `G_Delta` depth
-
-必须保留一个重要边界。`q=E_proj(r,u)` 是把：
-
-- original additive relation；
-- descended relation；
-- exact rational-root equation
-
-消元后的 universal compatibility residual。
-
-若
-
-\[
-h_p:=v_p(G_\Delta)
-=\min\{v_p(\mathscr R_{63}^\star),v_p(\widehat{\mathscr D}_{63})\},
-\]
-则 common depth至少把 corresponding additive/descendant errors送入 `q`；但在 higher transport layers，这些 errors仍可能发生 canonical balance cancellation。历史 second/third/quartic descendant hierarchy正是在审计这种现象。
-
-所以本文**不**把 (5.1) 夸大成未经证明的
-
-\[
-v_p(\mathscr P_{63})=h_p.
-\]
-
-严格新增的是：
-
-\[
-\boxed{
-\text{一旦 compatibility residual }q\text{ 的深度确定，}
-\mathscr P_{63}\text{ 精确原样读取该深度。}}
+v_p(\mathscr P_{63})=v_p(X_{\rm lin}).
 \tag{6.1}
 \]
 
-因此后续真正需要比较的只剩 `q` 与 terminal transport depth；resultant 自身已经从开放变量中删除。
+结合 §4–§5：
+
+\[
+\boxed{
+a\ne b
+\Longrightarrow
+v_p(\mathscr P_{63})=\min\{a,b\},}
+\tag{6.2}
+\]
+
+而 `a=b=e` 时
+
+\[
+\boxed{
+v_p(\mathscr P_{63})>e}
+\]
+
+当且仅当 (5.2) 的 normalized tie 成立。
+
+这才是旧 integer-carrier 文件所需的正确 depth comparison。
 
 ---
 
-## 7. parity implication
+## 7. parity consequence
 
-旧 integer-carrier theorem 已证明
+已有
 
 \[
 \mathscr P_{63}>0,
@@ -300,11 +342,23 @@ v_p(\mathscr P_{63})=h_p.
 \mathscr P_{63}^{\circ}\equiv1\pmod8.
 \]
 
-所以 generic external carrier全部 `3 mod4` prime exponents的总 parity为偶。
+故 `P_63` 中全部 `3 mod4` prime exponents 的总 parity为偶。
 
-结合 (5.1)，若后续 terminal transport证明某枚 generic external inert prime在 `q` 中必须以奇深度出现，则 `P_63` 的 `1 mod4` orientation会自动强迫至少另一枚 distinct inert prime以奇深度出现。这个 surcharge现在是合法的，因为 (5.1) 排除了 resultant multiplicity扭曲 parity的可能。
+本文件现在给出严格可用的接口：
 
-本文尚未证明 terminal spill 的 particular supplier必在 `q` 中为奇深度，因此这里只记录接口，不提前收费。
+- unequal-depth external common prime的 carrier exponent就是较浅 common error depth；
+- 若该较浅 depth 为奇，则 `P_63^circ≡1 mod4` 强迫至少另一枚 `3 mod4` prime以奇次出现；
+- 若试图通过 extra resultant multiplicity逃避，只能进入 equal-depth normalized tie (5.2)，之后必须交给已有 serial/transport hierarchy继续审计。
+
+因此 generic external pool 的自由度被明确二分为
+
+\[
+\boxed{
+\text{unequal-depth parity surcharge}
+\quad\text{或}\quad
+\text{equal-depth transport cancellation}.}
+\tag{7.1}
+\]
 
 A2 仍为 `待证`。
 
