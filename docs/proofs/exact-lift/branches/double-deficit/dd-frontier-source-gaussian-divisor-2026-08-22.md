@@ -1,23 +1,23 @@
-# DD frontier: source Gaussian divisor 与 source-lift 分离
+# DD frontier: source Gaussian carrier 的 exact smooth collapse
 
 > 日期：2026-08-22
 >
-> 作用域：假想 corrected `6.308883...` terminal one-channel frontier。所有 `main` statement 默认删除总高度 `o(S)` 的 coefficient / denominator-normal-form exceptional core。
+> 作用域：假想 corrected `6.308883...` terminal one-channel frontier。
+>
+> **状态：已严格完成（no-go / normalization audit）。**
+>
+> 本文修正本文件早先版本的一处解释：由 derivative orientation 与 clean source 投影得到的 `source Gaussian carrier` 并不是新的 Gaussian reader。它与已有 secondary Gaussian numerator **精确相差一个纯 `2/5`-smooth scalar和一个 Gaussian unit**。因此此前从它导出的 fixed-`q_c` divisor counting 与 source-lift separation 不能作为独立 entropy reduction 再收费；它们只是 secondary line 的重写。
 
-## 1. derivative orientation 的 source-only projection
+## 1. 两条已有 Gaussian 线
 
 已有 derivative Gaussian integer
 
 \[
 D_{\rm der}
 =2\widetilde rL_{\rm clean}q_c-iP_0,
-\]
-
-以及
-
-\[
-\boxed{\Pi\mid D_{\rm der},
-\qquad N(\Pi)=C_L.}
+\qquad
+\Pi\mid D_{\rm der},
+\qquad N(\Pi)=C_L.
 \tag{1.1}
 \]
 
@@ -29,178 +29,185 @@ q_c^2L_{\rm clean}=VA_0-5^TR_0,
 \tag{1.2}
 \]
 
-将 `(1.1)` 乘 `q_c`，使用 `(1.2)`：
+另一方面 terminal secondary Gaussian numerator为
+
+\[
+\boxed{
+\mathcal G_1
+=A_*2^{m-2}q_c
+-i\widetilde rR_0\,5^{2T-m}
+=\Pi\Delta_1.
+}
+\tag{Secondary}
+\]
+
+其中
+
+\[
+A_*=g_0a_2\theta s,
+\qquad
+P_0=A_*B,
+\tag{1.3}
+\]
+
+且 terminal decimal normalization给
+
+\[
+\boxed{
+B=\frac{10^m}{2\cdot5^T}
+=2^{m-1}5^{m-T}.
+}
+\tag{1.4}
+\]
+
+## 2. derivative + clean source 的 source projection
+
+将 `(1.1)` 乘以 `q_c`，使用 `(1.2)`：
 
 \[
 \begin{aligned}
 q_cD_{\rm der}
 &=2\widetilde r q_c^2L_{\rm clean}-iP_0q_c\\
 &=2\widetilde rC_Lv_0A_0
--2\widetilde r5^TR_0-iP_0q_c.
+-\bigl(2\widetilde r5^TR_0+iP_0q_c\bigr).
 \end{aligned}
 \]
 
-因为 `Pi|C_L`，第一项自动被 `Pi` 整除。因此得到不含 `C_L,A_0,L_clean` 的 carrier：
+因为 `Pi|C_L`，得到
 
 \[
-\boxed{
 \Pi\mid\mathcal S_{\rm src},
 \qquad
+\boxed{
 \mathcal S_{\rm src}
 :=2\widetilde r5^TR_0+iP_0q_c.
 }
 \tag{Source-Gaussian}
 \]
 
-所以
+这一步本身严格正确。
+
+## 3. exact smooth-collapse identity
+
+使用 `(1.3)--(1.4)`：
 
 \[
-\boxed{
-C_L\mid N(\mathcal S_{\rm src})
-}
-\tag{1.3}
-\]
-
-在 main effective-core 意义下成立。
-
-这给出 derivative orientation 的反向读取：固定 `q_c` 与 slow data 后，pair-max core只能来自一个固定 Gaussian integer的 Gaussian divisors。
-
-## 2. hidden-square parent
-
-该 divisibility并不是新的 height obstruction。已有 hidden square
-
-\[
-(C_LP_1)^2+P_0^2
-=4\widetilde r^{\,2}5^TR_0L_{\rm clean}.
-\tag{2.1}
-\]
-
-乘以 `q_c^2`，再用 `(1.2)`：
-
-\[
-P_0^2q_c^2
-=4\widetilde r^{\,2}5^TR_0
-(C_Lv_0A_0-5^TR_0)
--C_L^2(q_cP_1)^2.
+P_0q_c
+=A_*2^{m-1}5^{m-T}q_c.
 \]
 
 因此
 
 \[
+\begin{aligned}
+i\,2\,5^{m-T}\mathcal G_1
+&=iA_*2^{m-1}5^{m-T}q_c
++2\widetilde rR_0 5^T\\
+&=iP_0q_c+2\widetilde r5^TR_0.
+\end{aligned}
+\]
+
+于是得到精确恒等式
+
+\[
 \boxed{
+\mathcal S_{\rm src}
+=i\,2\,5^{m-T}\mathcal G_1
+=i\,2\,5^{m-T}\Pi\Delta_1.
+}
+\tag{Smooth-collapse}
+\]
+
+这不是 leading-order 近似，也没有 exceptional core：它是 exact identity。
+
+所以 `(Source-Gaussian)` 没有提供新的 oriented divisibility；它只是 `(Secondary)` 乘以 rational smooth scalar `2*5^{m-T}` 后旋转 `i`。
+
+## 4. norm parent 也只是同一 identity 的平方
+
+取 norm：
+
+\[
+\boxed{
+N(\mathcal S_{\rm src})
+=4\,5^{2(m-T)}C_LN(\Delta_1).
+}
+\tag{4.1}
+\]
+
+此前由 hidden square + clean source得到的表达
+
+\[
 N(\mathcal S_{\rm src})
 =C_L\left(
 4\widetilde r^{\,2}5^TR_0v_0A_0
 -C_L(q_cP_1)^2
-\right).
-}
-\tag{Source-norm-parent}
+\right)
+\tag{4.2}
 \]
 
-所以 `(1.3)` 是 hidden square + clean source 的 source-side projection；不能把 `C_L|N(S_src)` 再当一份新的 p-adic height收费。
-
-## 3. counting consequence
-
-虽然不是新 height，`(Source-Gaussian)` 对 counting 是有用的。
-
-固定 `q_c` 与同一个 subexponential slow-data fiber后，`S_src` 完全固定。任意 admissible `(C_L,Pi)` 的 main Gaussian orientation满足
-
-\[
-\Pi\mid S_{\rm src}.
-\]
-
-Gaussian divisor bound给
+因此也只是 `(4.1)` 的另一坐标表示。特别地，括号内整数精确等于
 
 \[
 \boxed{
-\#\{(C_L,\Pi)\text{ for fixed }q_c\}
-=10^{o(S)}.
+4\,5^{2(m-T)}N(\Delta_1).
 }
-\tag{3.1}
+\tag{4.3}
 \]
 
-这与此前通过 derivative gcd / rational axis得到的 entropy collapse相容，但不要求进入 full-rational sign branch。
+所以这里不存在新的 deep cancellation invariant。
 
-因此 one-channel terminal 上，`C_L/Pi` 本身没有独立的正线性 divisor-choice entropy；剩余 source lift仍由 `q_c` 的短 interval控制。
+## 5. 撤销早先版本的 counting interpretation
 
-## 4. 不同 source lifts 的 pairwise common-core bound
-
-固定 slow data，写
+早先版本曾据
 
 \[
-\mathcal S(q)=A+iBq,
-\qquad
-A:=2\widetilde r5^TR_0,
-\quad B:=P_0.
+\Pi\mid\mathcal S_{\rm src}
 \]
 
-取两个不同 source lifts `q_1,q_2`。若 Gaussian integer `Gamma` 同时整除两个 source carriers，则
+声称：固定 `q_c` 与 slow data 后，`(C_L,Pi)` 只能从一个新的 fixed Gaussian integer 的 divisors 中选择，并进一步讨论不同 source lifts 的 common-core separation。
+
+`(Smooth-collapse)` 说明这些 statement 若作为集合论陈述仍可由 `mathcal S_src` 写出，但它们与已有
 
 \[
-\Gamma\mid iB(q_1-q_2).
-\tag{4.1}
+\Pi\mid\mathcal G_1
 \]
 
-main pair-max prime与 `B=P_0` 的 overlap只有 `10^{o(S)}` 高度，所以删去 exceptional core后，`Gamma` 的 norm必须进入 rational difference `q_1-q_2`。
+**完全等价**，没有新增约束、没有新增 counting rank，也没有新增 source-lift restriction。
 
-source congruence为
+因此以下用途全部撤销：
 
-\[
-s\theta q_c\equiv-5^T\widetilde r\pmod{2^{m_2}}.
-\]
+1. 把 `S_src` 当成独立于 secondary line 的 fixed-`q_c` Gaussian reader；
+2. 把由 `S(q_1)-S(q_2)` 得到的 pairwise core separation当成新的 source-lift entropy reduction；
+3. 把 `C_L|N(S_src)` 当成 hidden square / secondary norm 之外的另一份 arithmetic information。
 
-删除 `s theta` 的 `o(S)` 2-adic coefficient后，可把同一 fiber中的 lifts写成
+## 6. 当前边界
 
-\[
-q_j=q_0+2^{m_2-o(S)}k_j.
-\]
-
-由于 main pair-max primes为 odd non-decimal primes，`2`-power对其不可见；因此 `(4.1)` 的 main rational norm进入
-
-\[
-k_1-k_2
-\]
-
-外加 `10^{o(S)}` coefficient core。
-
-而 lift index range为
-
-\[
-0\le k<10^{\delta_*S+o(S)},
-\qquad
-\delta_*=0.007853581954\ldots.
-\]
-
-所以两个不同 source lifts的 main pair-max cores只能共享
+本次 audit 给出一个明确 no-go：
 
 \[
 \boxed{
-\log\gcd(C_{L,1},C_{L,2})
-\le\delta_*S+o(S)
+\text{derivative orientation}
++\text{clean source}
+\longrightarrow
+\mathcal S_{\rm src}
 }
-\tag{Source-lift-core-separation}
 \]
 
-的高度。
+不会生成新的 Gaussian direction；它精确回到 secondary numerator `G_1`。
 
-更精确地说，若保留 Gaussian orientation，则共同 oriented divisor的 norm也满足同一 bound。
+所以 strict-gap 工作不应再沿 `D_der + clean source` 制造 source Gaussian carrier。真正仍可能产生新信息的接口必须改变至少一个 parent family，例如：
 
-## 5. 解释与边界
+- raw decimal prefix denominator relation与 moving pair-max orientation；
+- 跨不同 split primes 的 global distribution；
+- 一个不由 `Delta_1 / hidden square / projective Z_0` 生成的 genuinely new lattice determinant。
 
-本文给出两点：
-
-1. fixed `q_c` 时 `(C_L,Pi)` 只来自 fixed Gaussian integer `S_src` 的 divisors，因此只有 `10^{o(S)}` choices；
-2. 不同 `q_c` lifts对应的 pair-max main cores在高度 `S` 尺度上几乎彼此分离，其 common part最多 `delta_*S+o(S)`。
-
-这仍不产生 emptiness：长度 `10^{S+o(S)}` 的整数区间可以容纳许多彼此几乎互素的大数。因此不能从 pairwise core separation单独推出 contradiction。
-
-但 terminal 的最后 source freedom现在可规范表示为：
+当前全局状态不变：
 
 \[
 \boxed{
-\text{一个长度 }10^{\delta_*S+o(S)}\text{ 的 source-lift index，}
-\text{每个 index仅对应 }10^{o(S)}\text{ 个 Gaussian pair-max divisors。}
+\limsup_{\rm DD}\frac{n_3}{S}
+\le6.308883577618\ldots
 }
 \]
 
-任何下一步 strict-gap theorem只需再对这个 short source-lift index提供一个独立 global restriction；无需重新处理 exponential orientation choices。
+strict gap 与 DD 空性仍待证。
