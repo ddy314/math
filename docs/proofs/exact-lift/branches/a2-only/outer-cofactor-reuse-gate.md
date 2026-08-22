@@ -2,7 +2,7 @@
 
 > **依赖：** `endpoint-lattice.md` §§16.11、16.27–16.29、16.33–16.36、16.57–16.59；`spontaneous-crt-universal-descendant-cubic.md`（整合于 `crt-descent-ledger.md`）。
 >
-> **严格状态：**在危险 `Z≡1 (mod 4)` orientation 中，odd-`3` allocation 已迫使 `3|a_2,a_3` 且 `3∤b_2D`。本文把这一事实与 rational-root 的三个相邻整数值联立：`F(2),F(4)` 模 `3` 都是单位，而 `D-C|F(2)`,`D+C|F(4)`，故严格得到 `3|C`；两个 outer cofactors `Xi_-,Xi_+` 因此都是 `3`-进单位。又因三 cofactor 共享 `Y` 的 denominator-wide square class、且 `Y≡3 (mod4)`，两个 outer cofactors 都是 positive `3 mod4`，所以各自必须含 non-`3` inert supplier。若同一 genuine non-`3` prime试图同时支付两边，消去 `F(2),F(4)` 的共同 coefficient ratio得到 compact cubic `G_pm(K,zeta)`；再与 universal descendant cubic消元只剩一个 primitive irreducible degree-30 `K` gate。历史 fixed target roots `31:K=9` 与 `179:K=71` 均不落在该 gate上，因此 fixed `31/179` common label不能同时支付两个 outer cofactor parity；至少还需另一枚 distinct non-`3` inert prime。fixed height `7` 仍命中该 gate，故本文不宣称 old pool全部关闭，更不宣称 A2 空。
+> **严格状态：**在危险 `Z≡1 (mod 4)` orientation 中，odd-`3` allocation 已迫使 `3|a_2,a_3` 且 `3∤b_2D`。本文把这一事实与 rational-root 的三个相邻整数值联立：`F(2),F(4)` 模 `3` 都是单位，而 `D-C|F(2)`,`D+C|F(4)`，故严格得到 `3|C`；两个 outer cofactors `Xi_-,Xi_+` 因此都是 `3`-进单位。又因三 cofactor 共享 `Y` 的 denominator-wide square class、且 `Y≡3 (mod4)`，两个 outer cofactors 都是 positive `3 mod4`，所以各自必须含 non-`3` inert supplier。若同一 genuine non-`3` prime 试图同时支付两边，消去 `F(2),F(4)` 的共同 coefficient ratio 得到 compact cubic `G_pm(K,zeta)`；再与 universal descendant cubic 消元只剩一个 primitive irreducible degree-30 `K` gate。对历史 fixed common labels 必须进一步检查真实 `zeta∈F_p`，而不能只看该 resultant：直接 root audit 证明 fixed `7,31,179` 三者都没有 `G_pm` 的 `F_p` 根，因此都不能同时支付两个 outer cofactor parity。本文仍不宣称 source-common / endpoint-external moving reuse 已关闭，更不宣称 A2 空。
 
 ---
 
@@ -25,7 +25,7 @@ Z\equiv1\pmod4
 \tag{1.1}
 \]
 
-并且 Gaussian factor orientation为
+并且 Gaussian factor orientation 为
 
 \[
 \boxed{Y\equiv3\pmod4.}
@@ -126,7 +126,7 @@ D+C\mid F(4).
 
 它们都是 positive odd integers。
 
-由 (2.1)–(2.4)，所有显示 denominator在 `3` 上均为 units，于是
+由 (2.1)–(2.4)，所有显示 denominator 在 `3` 上均为 units，于是
 
 \[
 \boxed{3\nmid\Xi_-\Xi_+.}
@@ -144,7 +144,7 @@ Y\,[q c_+(jT+a_3)]^2
 \tag{3.3}
 \]
 
-当前 endpoint有 `m>=2`，由 (1.2) 取模 `4`：
+当前 endpoint 有 `m>=2`，由 (1.2) 取模 `4`：
 
 \[
 \boxed{
@@ -152,7 +152,7 @@ Y\,[q c_+(jT+a_3)]^2
 \tag{3.4}
 \]
 
-故每个 outer cofactor 的 prime factorization都含至少一枚
+故每个 outer cofactor 的 prime factorization 都含至少一枚
 
 \[
 \ell_\pm\equiv3\pmod4
@@ -165,7 +165,7 @@ Y\,[q c_+(jT+a_3)]^2
 \tag{3.5}
 \]
 
-所以危险 `Z=1` orientation 无条件产生两份 **non-`3`** outer-cofactor inert parity。本文此处尚不声称两枚 prime必不同。
+所以危险 `Z=1` orientation 无条件产生两份 **non-`3`** outer-cofactor inert parity。本文此处尚不声称两枚 prime 必不同。
 
 ---
 
@@ -210,7 +210,7 @@ h(J)=(TJ+a_3)^2.
 \tag{4.3}
 \]
 
-对 genuine non-`3` inert supplier，endpoint primitive separation给 `p∤b_2T`，所以 `A` 是 unit。由两式交叉消去 `B/A`：
+对 genuine non-`3` inert supplier，endpoint primitive separation 给 `p∤b_2T`，所以 `A` 是 unit。由两式交叉消去 `B/A`：
 
 \[
 f(2)h(4)-f(4)h(2)\equiv0\pmod p.
@@ -250,7 +250,7 @@ f(2)h(4)-f(4)h(2)\equiv0\pmod p.
 
 ## 5. descendant reuse gives one irreducible degree-30 `K` gate
 
-若同一 `p` 还属于 descendant common support，则 common baseline通过 universal rational-root compatibility进入
+若同一 `p` 还属于 descendant common support，则 common baseline 通过 universal rational-root compatibility 进入
 
 \[
 \mathcal E_{63}(K,\zeta)\equiv0\pmod p.
@@ -267,7 +267,7 @@ f(2)h(4)-f(4)h(2)\equiv0\pmod p.
 \tag{5.2}
 \]
 
-其中 fixed content为 `±1`，且
+其中 fixed content 为 `±1`，且
 
 \[
 \boxed{
@@ -284,22 +284,20 @@ P_{30}\text{ 在 }\mathbf Q[K]\text{ 中不可约}.}
 \tag{5.4}
 \]
 
-正文不抄写31个大系数；checker由两个 compact polynomials唯一重建。
+正文不抄写 31 个大系数；checker 由两个 compact polynomials 唯一重建。
 
 ---
 
-## 6. fixed target `31/179` cannot pay both outer parities
+## 6. fixed `7/31/179` all fail the actual `F_p` outer-pair gate
 
-历史 target/descent first-layer roots为
+历史 fixed common labels 的 first-layer `K` residues 为
 
 \[
-(p,K)=(31,9),
-\qquad
-(179,71).
+(p,K)=(7,1),(31,9),(179,71).
 \tag{6.1}
 \]
 
-checker精确给
+对 `31,179`，degree-30 eliminant 已经足够：
 
 \[
 \boxed{P_{30}(9)\equiv16\pmod{31},}
@@ -311,37 +309,63 @@ checker精确给
 \tag{6.3}
 \]
 
-两者均非零。因此：
+所以两者不可能 shared-reuse。
+
+`p=7` 需要更谨慎。checker 确有
 
 \[
-\boxed{
-\text{fixed }31/179\text{ descendant-common label}
-\text{ 不可能同时整除 }\Xi_-\text{ 与 }\Xi_+.}
+P_{30}(1)\equiv0\pmod7,
 \tag{6.4}
 \]
 
-结合 §3，每个 outer cofactor都必须有 non-`3` inert supplier，所以若 `G_Delta` 的 odd common parity由 fixed `31` 或 fixed `179` 吸收，至多只能同步支付一个 outer cofactor；另一个 outer cofactor仍强迫至少一枚与该 fixed target不同的 non-`3` inert prime。
+但 resultant 为零只说明两个 cubic 在代数闭包中有公共根；真实 decimal variable 必须满足 `zeta∈F_7`。直接枚举 `F_7`：
 
-这给 fixed-target old-pool escape 一个新的 unconditional surcharge，不依赖 first/second serial node的选择。
+\[
+\boxed{
+\mathcal G_{\pm}(1,\zeta)\ne0
+\quad\text{for every }\zeta\in\mathbf F_7.}
+\tag{6.5}
+\]
+
+同一个 direct root audit 对另外两个 fixed states 也给
+
+\[
+\boxed{
+\mathcal G_{\pm}(9,\zeta)\ne0
+\quad\forall\zeta\in\mathbf F_{31},}
+\tag{6.6}
+\]
+
+\[
+\boxed{
+\mathcal G_{\pm}(71,\zeta)\ne0
+\quad\forall\zeta\in\mathbf F_{179}.}
+\tag{6.7}
+\]
+
+因此最终 fixed-pool 结论是
+
+\[
+\boxed{
+7,31,179
+\text{ 三个 fixed descendant-common old-pool labels}
+\text{ 都不能同时整除 }\Xi_-\text{ 与 }\Xi_+.}
+\tag{6.8}
+\]
+
+于是只要 `G_\Delta` 的 odd common parity由这三枚中的任意一枚吸收，两个 outer cofactors 至多有一边能复用该 fixed label；另一边仍强迫至少一枚与它不同的 non-`3` inert supplier。
 
 ---
 
-## 7. fixed `7` remains the genuine exception
+## 7. corrected old-pool frontier
 
-同一个 checker给
+fixed `7` 不再是 outer-pair shared-reuse exception。`P_{30}(1)=0 mod7` 是 elimination 的扩域 shadow，不能替代真实 `F_7` root condition。
 
-\[
-\boxed{P_{30}(1)\equiv0\pmod7.}
-\tag{7.1}
-\]
+因此更新后的 old-pool frontier 为：
 
-而 fixed f/descent/height shadow正有 `K≡1 (mod7)`。所以本文不能把 (6.4) 推广到 fixed `7`：它确实仍可能同时落在 outer-pair reuse gate与 descendant common gate上。
-
-因此更新后的 fixed old-pool frontier为：
-
-1. fixed target `31/179`：**不能免费吸收全部 outer parity**，至少再付一枚 distinct non-`3` inert supplier；
-2. fixed height `7`：仍是唯一 fixed single-prime reuse exception；
-3. source-common与 genuine endpoint-external common kernel仍需继续审计 degree-30 gate或其它 natural-representative约束。
+1. fixed height `7` 与 fixed target `31/179`：全部 **不能免费吸收两个 outer-cofactor parity**；
+2. source-common shared reuse 仍需把 `18K-55=0` 与 (4.5)、(5.1) 联立；
+3. genuinely endpoint-external common kernel 仍需继续审计 degree-30 gate或其它 natural-representative约束。
 
 A2 仍为 `待证`。
 
