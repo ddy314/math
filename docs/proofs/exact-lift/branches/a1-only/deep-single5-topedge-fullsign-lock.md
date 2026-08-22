@@ -1,12 +1,50 @@
-# A1 minimal diagonal: single-5 top-edge full-sign 5-adic complement lock
+# A1 minimal diagonal: single-5 top-edge full-sign audit and coefficient resultant
 
 > 日期：2026-08-22。
 >
 > 依赖：`deep-single5-decimal-height-collapse.md`、`deep-single5-topedge-common-quotient.md`、`diagonal.md`。
 >
-> 范围：minimal diagonal `k=g>=32` 的 single-5 top edge，并假设 surviving 2-adic high sign 在 5-adic 一侧取 §3.2 的 **full sign**。
+> 范围：minimal diagonal `k=g>=32` 的 single-5 top edge，并假设真实负号根在 5-adic 一侧取 §3.2 的 **full sign**。
 
-状态：**本文各结论均已严格完成；full-sign branch 尚未整体关闭。**
+状态：**§§1--2 与 §4 的结论严格成立。旧版把两个不同的 `Delta` 误作同一对象；由此得到的 Q-complement 5-adic residue 已撤回，不能再作为证明输入。full-sign branch 尚未整体关闭。**
+
+---
+
+## 0. 记号审计：两个 `Delta` 必须区分
+
+本项目中此前两个来源都使用过 `Delta`，但含义不同。
+
+1. safe sphere recovery 中的整数球面 gap：
+   \[
+   \boxed{\Delta_H:=10^k y_1-H.}
+   \]
+   `deep-single5-topedge-common-quotient.md` 中的
+   \[
+   \mathcal T
+   =10^kQ\Delta_H-10^{2k}y_1+y_2
+   \]
+   使用的是这个对象。
+
+2. `diagonal.md` 中前两有理块的 determinant gap：
+   \[
+   \boxed{\Delta_{12}:=10^ka_1b_2-a_2b_1}
+   \]
+   （当前 `b2=1`），它满足
+   \[
+   \Delta_{12}=5b_1+J
+   \]
+   以及固定的十进制 residue。
+
+两者没有被证明相等。旧版 §3--§4 将 `Delta_H` 直接替换为 `Delta_12`，因此那一段推导无效。
+
+特别地，旧版曾声称
+
+\[
+v\equiv2^{B+2k-1-e}
+\pmod{5^{\min(n_5-B,k)}}.
+\]
+
+**该式现已撤回。** 后续证明不得引用它。
 
 ---
 
@@ -32,6 +70,7 @@ d_5=B+2k.
 \[
 \boxed{n=B+2k.}
 \tag{2}
+\]
 
 由 `deep-single5-topedge-common-quotient.md`：
 
@@ -75,14 +114,15 @@ S=\left(\frac{\mathfrak q}{b_1}\right)^2N,
 \[
 \boxed{v_5(S)=2k+n_5.}
 \tag{4}
+\]
 
-因为 `5|b3`，第三分数既约给 `5∤a3`，从而 `y3` 是 5-unit。另一方面
+因为 `5|b3`，第三分数既约给 `5\nmid a3`，从而 `y3` 是 5-unit。另一方面
 
 \[
 U=H-y_3=LA
 \]
 
-被 5 整除，故 `H≡y3 mod5`，于是
+被 5 整除，故 `H\equiv y3 mod 5`，于是
 
 \[
 H+y_3\equiv2y_3\not\equiv0\pmod5.
@@ -105,6 +145,7 @@ B+k+v_5(A)=2k+n_5.
 \[
 \boxed{v_5(A)=k+n_5-B=k+m.}
 \tag{5}
+\]
 
 由于 `M=2^(k-1)h` 为 5-unit：
 
@@ -112,146 +153,46 @@ B+k+v_5(A)=2k+n_5.
 \boxed{v_5(\mathcal T)=k+m.}
 \tag{6}
 
+这部分只使用 sphere common quotient，不依赖被撤回的 `Delta` 识别。
+
 ---
 
-## 3. diagonal carrier gap 的固定 5-adic residue
+## 3. 被撤回的 5-adic residue 路线
 
-`diagonal.md` 中
+`diagonal.md` 对 determinant gap 确实有严格恒等式
 
 \[
-\Delta=5b_1+J,
+\Delta_{12}=50T^2-zw+Tj,
 \]
-
-\[
-J=(5-z)w+Tj,
-\qquad T=10^k.
-\]
-
-代入
-
-\[
-b_1=10T^2-w
-\]
-
-得到 exact identity
-
-\[
-\boxed{
-\Delta=50T^2-zw+Tj.}
-\tag{7}
 
 因此
 
 \[
-\boxed{
-\Delta\equiv-zw\pmod{5^k}.}
-\tag{8}
+\Delta_{12}\equiv-zw\pmod{5^k}.
+\]
 
-特别地 `zw` 为 5-unit，所以
+但是 safe recovery 中出现的是 `Delta_H=10^ky1-H`。在没有额外桥梁证明
 
 \[
-\boxed{v_5(\Delta)=0.}
-\tag{9}
+\Delta_H\equiv\Delta_{12}\pmod{5^r}
+\]
+
+之前，不能把上述 residue 代入 `mathcal T`。
+
+因此旧版基于这一替换得到的 full-sign `v mod 5^m` lock 已删除。
 
 ---
 
-## 4. full-sign 强迫 Q-complement 落入增长的 5-adic residue class
+## 4. 独立有效的 `b1`-coefficient resultant
 
-minimal diagonal safe recovery identity 为
-
-\[
-\mathcal T
-=10^kQ\Delta-10^{2k}y_1+y_2.
-\tag{10}
-
-由 (6)，除以 `5^k` 后，左侧被 `5^m` 整除。
-
-令
-
-\[
-m_0:=\min(m,k).
-\tag{11}
-
-模 `5^m0`：
-
-- 第二项 `10^(2k)y1/5^k` 仍被 `5^k` 整除，因此消失；
-- 第一项变成 `2^k Q Delta`；
-- 由 (3) 可把 lcm 精确写成
-  \[
-  \mathfrak q
-  =2^{n+k-1}5^kqsu,
-  \]
-  其中本文 `b1=2^e s u` 且 `u` 为 odd complement。
-
-所以
-
-\[
-\frac{y_2}{5^k}
-=a_2\,2^{n+k-1}qsu
-=a_2\,2^{n+k-1-e}q b_1.
-\tag{12}
-
-在模 `5^m0` 下，由 `m0<=k`：
-
-\[
-a_2=10T^2-z\equiv-z,
-\]
-
-\[
-b_1=10T^2-w\equiv-w,
-\]
-
-以及 (8)
-
-\[
-\Delta\equiv-zw.
-\]
-
-故 (10) 除 `5^k` 后的 `5^m0` 整除条件给
-
-\[
--zw\,2^kQ
-+zw\,2^{n+k-1-e}q
-\equiv0
-\pmod{5^{m_0}}.
-\]
-
-约去 units `zw,2^k,q`，并使用 `Q=qv`：
-
-\[
-\boxed{
- v\equiv2^{n-1-e}
- \pmod{5^{m_0}}.}
-\tag{13}
-
-结合 (2)：
-
-\[
-\boxed{
- v\equiv2^{B+2k-1-e}
- \pmod{5^{\min(n_5-B,k)}}.}
-\tag{14}
-
-这是 full-sign 的增长 5-adic complement lock。
-
-top-edge 另有独立的 2-adic orientation
-
-\[
-\boxed{v\equiv3\pmod4.}
-\tag{15}
-
-所以 full-sign Q-complement 必须同时满足 (14)-(15)。
-
----
-
-## 5. 一个新的 `b1`-coefficient resultant
+下面的结论与两个 gap 无关，仍然严格有效。
 
 minimal diagonal 的显式第一分子可写成
 
 \[
 a_1
-=100T^3+igl(10(5-z-w)+1\bigr)T+N_0-1.
-\tag{16}
+=100T^3+\bigl(10(5-z-w)+1\bigr)T+N_0-1.
+\tag{7}
 
 又
 
@@ -260,7 +201,7 @@ C=10T^2a_1+a_2,
 \qquad b_1=10T^2-w.
 \]
 
-模 `b1` 有 `10T^2≡w`，并由 (16)
+模 `b1` 有 `10T^2\equiv w`，并由 (7)
 
 \[
 a_1
@@ -275,14 +216,14 @@ a_1
 C\equiv
 E_b:=wN_0+w(51-10z)T-z
 \pmod{b_1}.}
-\tag{17}
+\tag{8}
 
 于是
 
 \[
 \boxed{
 \gcd(b_1,C)\mid E_b.}
-\tag{18}
+\tag{9}
 
 六类型中：
 
@@ -294,7 +235,7 @@ E_b:=wN_0+w(51-10z)T-z
 \[
 \boxed{
 \gcd(b_1,C)<168T.}
-\tag{19}
+\tag{10}
 
 这与已有
 
@@ -302,25 +243,30 @@ E_b:=wN_0+w(51-10z)T-z
 \gcd(Q,C)<1599T
 \]
 
-形成两侧同时的 `O(T)` exceptional-coefficient bound。
+形成两侧同时的 `O(T)` coefficient-exception bound。
 
 ---
 
-## 6. consequence
+## 5. 当前保留的 full-sign 输入
 
-full-sign branch 现在必须同时满足：
+修正后，full-sign branch 可安全使用的本文结论只有
 
 \[
 \boxed{
 \begin{gathered}
 n=B+2k,\qquad n_5>B,\\
 v_5(A)=k+n_5-B,\\
-v\equiv2^{B+2k-1-e}
-\pmod{5^{\min(n_5-B,k)}},\\
-v\equiv3\pmod4,\\
 \gcd(b_1,C)<168T,\qquad
 \gcd(Q,C)<1599T.
 \end{gathered}}
 \]
 
-本文只记录这些为严格必要条件；尚未由它们单独推出 full-sign 为空。
+此外仍可独立使用 `deep-single5-topedge-supply-compression.md` 的
+
+\[
+v\equiv3\pmod4,
+\]
+
+因为那条结论只来自 2-adic high-sign synchronization，与本文件撤回的 5-adic residue 无关。
+
+full-sign 尚未关闭。
