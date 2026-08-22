@@ -82,7 +82,7 @@ r_+
 因此
 
 \[
-r_+>rac{\theta P}{3}.
+r_+>\frac{\theta P}{3}.
 \]
 
 乘以 `rho=TQ theta`：
@@ -159,32 +159,48 @@ x_+
 
 ---
 
-## 3. 对 top-edge sign-allocation 的意义
+## 3. 对 top-edge sign-allocation 的正确解释
 
-此前 `deep-single5-decimal-height-collapse.md` 只证明两个 2-adic signs 中有一个 shallow、一个 high，但没有把 high sign 与代数符号 `+/-` 对齐。
-
-本文说明真实 third block 必须是 `X_-`。因此若 top-edge candidate 存在，则必须有
+`deep-single5-decimal-height-collapse.md` 已证明
 
 \[
-\boxed{
-v_2(X_-)=n+3e+1,}
+\{v_2(X_+),v_2(X_-)\}
+=
+\{3e+2,\ t_2+2e+1\},
+\]
+
+而 raw denominator 满足
+
+\[
+v_2(Y)=t_2+2e+2.
+\]
+
+真正需要的是大的 **reduced denominator depth**
+
+\[
+d_2=t_2-e=:n.
+\]
+
+因此实际 sign 的 numerator 必须是较浅的那个：
+
+\[
+v_2(X_{\rm actual})
+=v_2(Y)-n
+=3e+2.
+\]
+
+本文已证明 actual sign 是 `-`，故正确标签为
+
+\[
+\boxed{v_2(X_-)=3e+2,}
 \tag{11}
 \]
 
-而
-
 \[
-\boxed{
-v_2(X_+)=3e+2.}
+\boxed{v_2(X_+)=t_2+2e+1=n+3e+1.}
 \tag{12}
 \]
 
-这里使用 top-edge 已有
+这里“high sign”若继续使用，只应理解为 **high denominator sign**，而不是 high numerator valuation。
 
-\[
-v_2(Y)=n+3e+2
-\]
-
-以及 reduced 2-denominator depths `{1,n}`。
-
-所以后续所有 5-adic `full/matching` 判断也必须针对同一个固定代数 sign `X_-`，不能再交换两根来分别满足 2-adic 与 5-adic 条件。
+所以后续所有 5-adic `full/matching` 判断都必须针对同一个固定代数 sign `X_-`，不能交换两根来分别满足 2-adic 与 5-adic 条件。
