@@ -16,27 +16,28 @@ def check_generic_carry() -> None:
     L, omega, V, A12, D10, a3, Q1, w, a0 = sp.symbols(
         "L omega V A12 D10 a3 Q1 w a0", nonzero=True
     )
-    U, eps, Sigma, fiveT2 = sp.symbols(
-        "U eps Sigma fiveT2", nonzero=True
+    eps, Sigma, fiveT2 = sp.symbols(
+        "eps Sigma fiveT2", nonzero=True
     )
 
-    # fiveT2 abbreviates 2*5^T.
+    # fiveT2 abbreviates 2*5^T.  Use the exact canonical definitions
+    # B=L*omega/fiveT2 and U=L*Q1/fiveT2.
     B = L * omega / fiveT2
-    relations = {
-        U: L * Q1 / fiveT2,
-        Sigma: eps * w,
-    }
-    source = sp.Eq(V * omega * A12 * D10 - a3 * Q1, w * a0)
+    U = L * Q1 / fiveT2
 
-    expr = sp.expand(B * V * A12 * D10 - U * a3).subs(relations)
-    expected = sp.expand(Sigma * L * a0 / (fiveT2 * eps)).subs(relations)
+    source_residual = V * omega * A12 * D10 - a3 * Q1 - w * a0
+    carry_left = B * V * A12 * D10 - U * a3
 
-    # Replace source numerator exactly.
-    expr2 = L * (V * omega * A12 * D10 - a3 * Q1) / fiveT2
-    expr2 = expr2.subs(V * omega * A12 * D10 - a3 * Q1, w * a0)
-    assert sp.simplify(expr - expr2) == 0
-    assert sp.simplify(expr2 - expected) == 0
-    assert source.lhs - source.rhs == V * omega * A12 * D10 - a3 * Q1 - w * a0
+    # Clearing fiveT2 shows that the carry identity is exactly the source
+    # elimination multiplied by L.
+    cleared = sp.factor(fiveT2 * carry_left - L * w * a0)
+    assert sp.simplify(cleared - L * source_residual) == 0
+
+    # With Sigma=eps*w, the R0/g0 parent is the same identity.
+    sigma_parent = sp.expand(
+        eps * fiveT2 * carry_left - Sigma * L * a0
+    ).subs(Sigma, eps * w)
+    assert sp.simplify(sigma_parent - eps * L * source_residual) == 0
 
 
 def check_pairmax_depths() -> None:
