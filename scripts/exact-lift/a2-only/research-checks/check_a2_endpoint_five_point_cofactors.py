@@ -4,8 +4,9 @@
 Extend the rational-root cofactor sieve from j=2,3,4 to j=1,...,5.
 The check is structural: sign monotonicity on the endpoint box, common 2/5
 content, the general modulo-D cofactor residue, cubic fourth-difference
-identity, the non-3 denominator-prime one-gap selector, and the new fact that
-no odd prime p|g (p!=3) can divide both outer cofactors Xi_2 and Xi_4.
+identity, the non-3 denominator-prime one-gap selector, outer-pair separation
+from g, and the four non-3 inert parity obligations in the dangerous Z=1
+orientation.
 """
 
 from fractions import Fraction as F
@@ -14,26 +15,16 @@ import sympy as sp
 
 # ---------------------------------------------------------------------------
 # 1. The ratio f/h is strictly increasing for 1 <= J <= 5.
-# Its derivative has sign of
-#   (J-K)*(J^3 T^2 + 3 J^2 T a + 3 J a^2 - K a^2).
-# Since J<K, it is positive once K(a/T)^2 dominates the displayed cubic.
 # ---------------------------------------------------------------------------
-u = F(251, 250)  # worst allowed a3/T upper endpoint
+u = F(251, 250)
 Jmax = 5
 cubic_max = F(Jmax**3) + 3 * F(Jmax**2) * u + 3 * F(Jmax) * u * u
 Kmin = 9 * 10**11
 assert F(Kmin) > cubic_max / (u * u)
-
-# Thus for r in (2,3), F(j) and s_j=D(j-r) have the same sign at j=1..5.
-# sign pattern: --+++.
 assert [(-1 if j < F(5, 2) else 1) for j in range(1, 6)] == [-1, -1, 1, 1, 1]
 
 # ---------------------------------------------------------------------------
-# 2. The j=1 and j=5 values have the same exact 2,5 primitive content as
-# j=2,3,4.  We only need the valuation inequalities used in the proof.
-# v2(b2)=M+m+t, t>=3; the first F-term is therefore much deeper than 2M+2.
-# nu5=m-3d and d>=1 in the current deep-even endpoint core, while the first
-# F-term contains at least T=10^m.
+# 2. The j=1 and j=5 values have the same exact 2,5 primitive content.
 # ---------------------------------------------------------------------------
 for M in (11, 12, 20):
     for m in range(3, 16):
@@ -47,9 +38,6 @@ for M in (11, 12, 20):
 
 # ---------------------------------------------------------------------------
 # 3. General rational-root divisors s_j=(j-3)D+C.
-# The key determinant identity implies gcd(s_i,s_j) | |i-j| whenever
-# gcd(C,D)=1.  For the five absolute divisors, the only possible odd cross
-# gcd is therefore 3, and only at distance three.
 # ---------------------------------------------------------------------------
 D, C = sp.symbols("D C", integer=True)
 s = {j: (j-3)*D + C for j in range(1, 6)}
@@ -58,9 +46,7 @@ for i in range(1, 6):
         assert sp.expand(s[j] - s[i] - (j-i)*D) == 0
 
 # ---------------------------------------------------------------------------
-# 4. General modulo-D residue.  After the common 2/5 scale is removed,
-#   F_j^# = cu^2 g^2 L^3 A_j - q^2 cp^2 Y N B_j,
-# with N=jD-s_j.  Subtract s_j*q^2 cp^2 Y B_j: the remainder is divisible D.
+# 4. General modulo-D residue.
 # ---------------------------------------------------------------------------
 j = sp.symbols("j", integer=True)
 g, L, cu, q, cp, Y = sp.symbols("g L cu q cp Y")
@@ -72,14 +58,11 @@ Fsharp = cu**2*g**2*L**3*Aj - q**2*cp**2*Y*N*Bj
 residual = sp.factor(Fsharp - sj*q**2*cp**2*Y*Bj)
 assert sp.factor(residual / Dj) == cu**2*g*L**2*Aj - j*q**2*cp**2*Y*Bj
 
-# Since T=L*5^lambda, (jT+a3)^2 is congruent a3^2 mod L for every j.
 T, a3, five_lam = sp.symbols("T a3 five_lam")
 assert sp.factor(((j*T+a3)**2-a3**2).subs(T, L*five_lam) / L) == j*five_lam*(L*five_lam*j + 2*a3)
 
 # ---------------------------------------------------------------------------
 # 5. Five consecutive values of one cubic have vanishing fourth difference.
-# Write four normalized adjacent gaps d1,d2,d3,d4.  Then
-#   d1 - 3 d2 + 3 d3 - d4 = 0.
 # ---------------------------------------------------------------------------
 a,b,c,d,x = sp.symbols("a b c d x")
 P = a*x**3 + b*x**2 + c*x + d
@@ -92,13 +75,10 @@ assert sp.expand(gaps[0] - 3*gaps[1] + 3*gaps[2] - gaps[3]) == 0
 assert sp.expand(gaps[0] - 2*gaps[1] + gaps[2] - 6*a) == 0
 assert sp.expand(gaps[1] - 2*gaps[2] + gaps[3] - 6*a) == 0
 
-# The normalized cubic leading coefficient / L is the integer
-# 2^(2m) 5^(m+d) c_u^2 g.  Check exponent arithmetic on the admissible range.
 for m in range(3, 16):
     for d0 in range(1, m//3 + 1):
-        # lhs exponent bookkeeping from f4/(2^(2M+2)5^nu D L)
         nu = m - 3*d0
-        exp2 = (4*m) - m - m  # after cancelling the common 2M+2 and D,L
+        exp2 = (4*m) - m - m
         exp5 = 2*m - nu - d0 - d0
         assert exp2 == 2*m
         assert exp5 == m + d0
@@ -106,10 +86,9 @@ for m in range(3, 16):
 # ---------------------------------------------------------------------------
 # 6. Mod g, adjacent normalized gaps are controlled by
 #   (2j+1)T+2a3, j=1,2,3,4.
-# For odd p != 3 with p | g and p \nmid T, at most one can vanish.
 # ---------------------------------------------------------------------------
 for p in list(sp.primerange(7, 200)):
-    if p in (5,):
+    if p == 5:
         continue
     for T0 in range(1, p):
         for a0 in range(p):
@@ -119,7 +98,6 @@ for p in list(sp.primerange(7, 200)):
                     hits.append(jj)
             assert len(hits) <= 1
 
-# Center saturation A3=3T+a3=0 mod p makes the two central gaps opposite units.
 for p in list(sp.primerange(7, 100)):
     for T0 in range(1,p):
         a0 = (-3*T0) % p
@@ -129,21 +107,11 @@ for p in list(sp.primerange(7, 100)):
         assert left and right and (left + right) % p == 0
 
 # ---------------------------------------------------------------------------
-# 7. New outer-pair / denominator-g separation.
-# If p|g and p divides Xi_2,Xi_4, then Xi_4-Xi_2=L*(Delta_-+Delta_+)
-# gives Delta_-+Delta_+=0 mod p because p\nmid L.  The two gap readers add to
-#   (5T+2a3)+(7T+2a3)=4(3T+a3),
-# and their common prefactor is a p-unit.  Hence A3=3T+a3=0 mod p.
-# But then the cofactor residue at j=2 is a unit since
-#   2T+a3=-T mod p.
-# Contradiction.  Thus no odd non-3 divisor of g can divide both outer
-# cofactors.  In Z=1, 3\nmid g, so gcd(Xi_-,Xi_+,g)=1 on all odd support.
+# 7. Outer-pair / denominator-g separation.
 # ---------------------------------------------------------------------------
 assert sp.expand((5*T + 2*a3) + (7*T + 2*a3) - 4*(3*T + a3)) == 0
 assert sp.expand((2*T + a3).subs(a3, -3*T) + T) == 0
 
-# Exhaustive finite-field sanity audit of the implication, independent of the
-# symbolic identities above.  Normalize the common nonzero prefactors to 1.
 for p in list(sp.primerange(7, 200)):
     for T0 in range(1, p):
         for a0 in range(p):
@@ -154,4 +122,27 @@ for p in list(sp.primerange(7, 200)):
                 assert (3*T0 + a0) % p == 0
                 assert xi2 != 0
 
-print("OK: five-point A2 cofactors have exact gap relations and outer-pair support is disjoint from odd g-support")
+# ---------------------------------------------------------------------------
+# 8. Dangerous Z=1: four of the five cofactors are 3-adic units.
+# Here K=a3=0 mod3, N0=0 mod9, T=1 mod3 and b2 is a 3-unit.  Hence the
+# Q^2*N0 term dies mod3 and
+#   F(j) = b2^2 * j*(j)*(−j)^2 = b2^2*j^4 mod3.
+# For j=1,2,4,5 this is a unit.  Since C=0 mod3 and D is a unit, the
+# corresponding divisors 2D-C,D-C,D+C,2D+C are also units.  Therefore
+# Xi_1,Xi_2,Xi_4,Xi_5 are all 3-adic units.  Each is 3 mod4 because all five
+# Xi_j share the Y square class and Y=3 mod4 in Z=1; hence each of these four
+# cofactors requires non-3 inert parity.
+# ---------------------------------------------------------------------------
+for j0 in (1, 2, 4, 5):
+    assert pow(j0 % 3, 4, 3) == 1
+for D0 in (1, 2):
+    C0 = 0
+    divisors = {
+        1: (2*D0-C0) % 3,
+        2: (D0-C0) % 3,
+        4: (D0+C0) % 3,
+        5: (2*D0+C0) % 3,
+    }
+    assert all(divisors[j0] != 0 for j0 in (1,2,4,5))
+
+print("OK: five-point A2 sieve gives four non-3 parity cofactors and separates shared outer support from odd g-support")
