@@ -70,6 +70,15 @@ X_-=\kappa G^2C-(\kappa+G)W.
 \tag{4}
 \]
 
+并且正确的 2-adic sign labeling 是
+
+\[
+\boxed{v_2(X_-)=3e+2,}
+\qquad
+\boxed{v_2(X_+)=n+3e+1.}
+\tag{5}
+\]
+
 定义两个共轭因子
 
 \[
@@ -78,7 +87,7 @@ F_-:=\kappa GC-W,
 \qquad
 F_+:=\kappa GC+W.
 }
-\tag{5}
+\tag{6}
 \]
 
 因为 discriminant 非退化且 `W<kappa G C`，二者均为正整数。
@@ -104,12 +113,12 @@ D_c=10^kQ,
 F_-F_+
 =\kappa D_c^2N(\kappa+2G).
 }
-\tag{6}
+\tag{7}
 \]
 
 ---
 
-## 3. 负号真实根固定 `F_-` 为 2-adic shallow factor
+## 3. `X_+` 的深 cancellation 固定 `F_+` 为 2-adic shallow factor
 
 已有 top-edge exact valuations
 
@@ -127,15 +136,15 @@ v_2(W)=2e+1.
 
 \[
 v_2(F_-),v_2(F_+)\ge2e+2.
-\tag{7}
+\tag{8}
 \]
 
-又
+对共轭正号 numerator：
 
 \[
-X_-
-=G F_- -\kappa W.
-\tag{8}
+X_+
+=G F_+ +\kappa W.
+\tag{9}
 \]
 
 其中
@@ -144,23 +153,26 @@ X_-
 v_2(\kappa W)=3e+2.
 \]
 
-`deep-single5-topedge-real-sign-orientation.md` 已固定真实 `X_-` 必须是 high 2-adic numerator：
+另一方面 (5) 给
 
 \[
-v_2(X_-)=n+3e+1>3e+2.
-\tag{9}
+v_2(X_+)=n+3e+1>3e+2.
 \]
 
-若 `v2(F_-)>2e+2`，则 (8) 第一项会比 `kappa W` 更深，于是 `v2(X_-)=3e+2`，与 (9) 矛盾。
-
-因此
+因此 (9) 的两个 summands 必须从同一个最低 2-depth 开始并发生深 cancellation；若 `G F_+` 更深，则整个和只能有 valuation `3e+2`。所以
 
 \[
-\boxed{v_2(F_-)=2e+2.}
+v_2(GF_+)=3e+2,
+\]
+
+即
+
+\[
+\boxed{v_2(F_+)=2e+2.}
 \tag{10}
 \]
 
-由 (6)：
+由 (7)：
 
 \[
 \begin{aligned}
@@ -174,12 +186,19 @@ v_2(F_-F_+)
 
 \[
 \boxed{
-v_2(F_+)=n+2k+n_2-1.
+v_2(F_-)=n+2k+n_2-1.
 }
 \tag{11}
 \]
 
-所以真实负号根把 `F_-`、`F_+` 的 2-adic角色完全固定：前者 shallow，后者 deep。
+所以正确方向是
+
+\[
+\boxed{F_-\text{ 2-deep},\qquad F_+\text{ 2-shallow}.}
+\tag{12}
+\]
+
+注意这是由共轭 `X_+` 的深 numerator cancellation 定向出来的；真实 `X_-` 本身只有浅 numerator valuation `3e+2`，正好产生大的 reduced denominator depth `n`。
 
 ---
 
@@ -189,7 +208,7 @@ v_2(F_+)=n+2k+n_2-1.
 
 \[
 \boxed{v^2\mid F_-.}
-\tag{12}
+\tag{13}
 \]
 
 固定 `p^a||v`。因为 `p|Q` 而 `(q,v)=1`、`(Q,b1)=1`，有
@@ -206,7 +225,7 @@ v_p(D_c)=a.
 s+cv\equiv s\not\equiv0\pmod p,
 \]
 
-所以 `p∤kappa+2G`。由 `p^a|kappa` 和 square terminal，两项都被 `p^{2a}` 整除，因此
+所以 `p\nmid kappa+2G`。由 `p^a|kappa` 和 square terminal，两项都被 `p^{2a}` 整除，因此
 
 \[
 p^a\mid W.
@@ -224,7 +243,7 @@ raw decimal denominator `Y=kappa^2(kappa+2G)` 在 `p` 上恰有深度 `2a`，因
 
 \[
 p^{2a}\mid X_-.
-\tag{13}
+\tag{14}
 \]
 
 把 (4) 除以 `p^a` 后模 `p^a`：
@@ -238,7 +257,7 @@ p^{2a}\mid X_-.
 \pmod{p^a}.
 \]
 
-`G` 为 unit，(13) 即给
+`G` 为 unit，(14) 即给
 
 \[
 p^a\mid F_-/p^a.
@@ -250,11 +269,11 @@ p^a\mid F_-/p^a.
 p^{2a}\mid F_-.
 \]
 
-逐 block 相乘得到 (12)。
+逐 block 相乘得到 (13)。
 
 ---
 
-## 5. high-sign quotient `R` 必须完整进入 `F_+`
+## 5. high-denominator quotient `R` 必须完整进入 `F_+`
 
 由
 
@@ -278,7 +297,7 @@ s+cv\equiv cv\not\equiv0\pmod s.
 
 \[
 \boxed{(R,G)=1.}
-\tag{14}
+\tag{15}
 \]
 
 由 (2)：
@@ -310,11 +329,11 @@ X_-
 \pmod R.
 \]
 
-结合 (14)：
+结合 (15)：
 
 \[
 \boxed{R\mid F_+.}
-\tag{15}
+\tag{16}
 \]
 
 这里不需要把 `R` 分成 regular / exceptional prime；整个 `R` 一次性进入 fixed factor `F_+`。
@@ -347,32 +366,34 @@ v_p(\kappa GC)\ge2a.
 \boxed{
 v_p(F_-)=v_p(F_+)=a.
 }
-\tag{16}
+\tag{17}
 \]
 
 逐 primary block 合并：两个 factors 的公共 `b1`-complement 部分都恰好是 `u`，不存在额外 `u`-power。
 
 ---
 
-## 7. oriented factor normalization
+## 7. corrected oriented factor normalization
 
-由 (10),(12),(16)，存在正整数 `A` 使
-
-\[
-\boxed{
-F_-=2^{2e+2}u v^2 A.
-}
-\tag{17}
-
-由 (11),(15),(16)，存在正整数 `B_*` 使
+由 (11),(13),(17)，存在奇正整数 `A` 使
 
 \[
 \boxed{
-F_+=2^{n+2k+n_2-1}uR B_*.
+F_-=2^{n+2k+n_2-1}u v^2 A.
 }
 \tag{18}
+\]
 
-把 (17)-(18) 代入 (6)。利用
+由 (10),(16),(17)，存在奇正整数 `B_*` 使
+
+\[
+\boxed{
+F_+=2^{2e+2}uR B_*.
+}
+\tag{19}
+\]
+
+把 (18)-(19) 代入 (7)。利用
 
 \[
 \kappa=2^{e+1}5^{B+2k}uv,
@@ -393,14 +414,15 @@ D_c=2^k5^kqv,
 A B_*
 =5^{B+4k+n_5}\,q^2v\,N_{10}.
 }
-\tag{19}
+\tag{20}
 
 这是 top-edge 的定向 factor-allocation equation。
 
 后续不再允许交换两个 factors：
 
-- `F_-` 是真实负号根对应的 2-shallow factor，并强制包含 `v^2`；
-- `F_+` 是 2-deep factor，并强制包含完整 `R`；
-- `u` 在两边都恰好出现一次。
+- `F_-` 是 2-deep factor，并强制包含 `v^2`；
+- `F_+` 是 2-shallow factor，并强制包含完整 `R`；
+- `u` 在两边都恰好出现一次；
+- 真实 decimal root 固定为 `X_-`。
 
-下一步应把 (19) 与 `F_-` 的真实区间、5-adic full/matching depth和 Q-side `q^2` whole-block lifting联立。
+下一步应把 (20) 与 `F_\pm` 的 5-adic full/matching allocation、factor size 和 Q-side `q^2` whole-block lifting联立。
