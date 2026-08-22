@@ -9,8 +9,14 @@ Their common mod-2^m square class is Y, hence both are 3 mod 4.
 If one genuine non-3 inert prime divides both outer cofactors, it divides
 F(2),F(4).  Eliminating their common coefficient ratio gives a compact cubic
 G_pm(K,zeta).  Intersecting G_pm with the universal descendant cubic E_63
-produces one primitive irreducible degree-30 K-gate.  The fixed target roots
-31:K=9 and 179:K=71 do not lie on this gate; fixed 7:K=1 does.
+produces one primitive irreducible degree-30 K-gate.
+
+For the three fixed descendant-common old-pool labels, use their actual
+first-layer K residues directly.  The compact cubic G_pm(K,zeta) has no root
+in F_p for (p,K)=(7,1),(31,9),(179,71).  Thus none of the three fixed labels
+can simultaneously pay both outer-cofactor parities.  Note that P30(1)=0 mod7
+only signals an algebraic-closure common root and is not sufficient for an
+actual decimal residue zeta in F_7.
 """
 
 import sympy as sp
@@ -26,17 +32,15 @@ F = lambda j: sp.expand(A*f(j)-B*h(j))
 
 # Odd-3 orientation: T,b2,D are 3-units, while K,a,N0 are divisible by 3
 # (indeed 9|N0).  Mod 3 the B*h term vanishes and the first term is b2^2.
-# Check the polynomial substitutions exactly over F_3.
 k0,z0,n0,b0,q0,t0 = sp.symbols("k0 z0 n0 b0 q0 t0")
 subs3 = {K:3*k0, a:3*z0, N0:9*n0, A:b0**2*t0, B:q0**2*9*n0, T:t0}
 F2m = sp.Poly(sp.expand(F(2).subs(subs3)), b0,t0,k0,z0,n0,q0, modulus=3)
 F4m = sp.Poly(sp.expand(F(4).subs(subs3)), b0,t0,k0,z0,n0,q0, modulus=3)
-# Set the decimal unit T=1 mod3; both reduce to b0^2.
 assert sp.Poly(F2m.as_expr().subs(t0,1)-b0**2, b0,k0,z0,n0,q0, modulus=3).is_zero
 assert sp.Poly(F4m.as_expr().subs(t0,1)-b0**2, b0,k0,z0,n0,q0, modulus=3).is_zero
 
 # If D is a 3-unit, the simultaneous conditions 3∤(D-C),3∤(D+C)
-# force C=0 mod3.  This is the complete F_3 check.
+# force C=0 mod3.
 for d in (1,2):
     good=[]
     for c in (0,1,2):
@@ -84,12 +88,19 @@ assert P30.degree() == 30
 assert len(P30.terms()) == 31
 assert P30.is_irreducible
 
-# Historical fixed target first-layer roots.  Neither can be the same prime
-# that simultaneously pays both outer cofactor parities and descendant common.
+# Historical fixed common labels and their actual first-layer K residues.
+fixed = [(7,1),(31,9),(179,71)]
+for p,k in fixed:
+    roots=[zz for zz in range(p) if int(expected.subs({K:k,zeta:zz})) % p == 0]
+    assert roots == []
+
+# The degree-30 elimination already excludes the target labels 31/179.
 assert int(P30.eval(9)) % 31 == 16
 assert int(P30.eval(71)) % 179 == 63
 
-# The fixed height shadow 7 remains a genuine exception, so do not overclaim.
+# For p=7, P30(1)=0 only because the common root exists over an extension
+# field; the actual zeta residue lies in F_7, and the direct root audit above
+# is the decisive condition.
 assert int(P30.eval(1)) % 7 == 0
 
-print("OK: Z=1 forces 3|C and two non-3 outer cofactors; shared descendant reuse is a degree-30 gate excluding fixed 31/179")
+print("OK: Z=1 forces two non-3 outer cofactors; fixed 7/31/179 cannot pay both simultaneously")
