@@ -4,7 +4,8 @@
 Extend the rational-root cofactor sieve from j=2,3,4 to j=1,...,5.
 The check is structural: sign monotonicity on the endpoint box, common 2/5
 content, the general modulo-D cofactor residue, cubic fourth-difference
-identity, and the non-3 denominator-prime one-gap selector.
+identity, the non-3 denominator-prime one-gap selector, and the new fact that
+no odd prime p|g (p!=3) can divide both outer cofactors Xi_2 and Xi_4.
 """
 
 from fractions import Fraction as F
@@ -127,4 +128,30 @@ for p in list(sp.primerange(7, 100)):
         assert left == (-T0) % p and right == T0 % p
         assert left and right and (left + right) % p == 0
 
-print("OK: A2 rational-root sieve extends to five positive cofactors with exact cubic gap relations")
+# ---------------------------------------------------------------------------
+# 7. New outer-pair / denominator-g separation.
+# If p|g and p divides Xi_2,Xi_4, then Xi_4-Xi_2=L*(Delta_-+Delta_+)
+# gives Delta_-+Delta_+=0 mod p because p\nmid L.  The two gap readers add to
+#   (5T+2a3)+(7T+2a3)=4(3T+a3),
+# and their common prefactor is a p-unit.  Hence A3=3T+a3=0 mod p.
+# But then the cofactor residue at j=2 is a unit since
+#   2T+a3=-T mod p.
+# Contradiction.  Thus no odd non-3 divisor of g can divide both outer
+# cofactors.  In Z=1, 3\nmid g, so gcd(Xi_-,Xi_+,g)=1 on all odd support.
+# ---------------------------------------------------------------------------
+assert sp.expand((5*T + 2*a3) + (7*T + 2*a3) - 4*(3*T + a3)) == 0
+assert sp.expand((2*T + a3).subs(a3, -3*T) + T) == 0
+
+# Exhaustive finite-field sanity audit of the implication, independent of the
+# symbolic identities above.  Normalize the common nonzero prefactors to 1.
+for p in list(sp.primerange(7, 200)):
+    for T0 in range(1, p):
+        for a0 in range(p):
+            dminus = (5*T0 + 2*a0) % p
+            dplus = (7*T0 + 2*a0) % p
+            xi2 = pow((2*T0 + a0) % p, 2, p)
+            if (dminus + dplus) % p == 0:
+                assert (3*T0 + a0) % p == 0
+                assert xi2 != 0
+
+print("OK: five-point A2 cofactors have exact gap relations and outer-pair support is disjoint from odd g-support")
