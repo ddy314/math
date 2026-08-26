@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Exact residue-cycle audit for deep-2high-coefficient-source-minima.md.
+"""Exact residue-cycle audit for the coefficient-sensitive 2-high source notes.
 
 This script checks only finite modular facts:
 
 * the first 3 mod 4 prime sources that can divide Q_w(k);
 * the first 3 mod 4 prime sources that can divide b_1(k) for w=2;
-* the coefficient-sensitive lower-bound examples stated in the proof note.
+* the coefficient-sensitive lower-bound examples;
+* the joint w=2 source matching bounds using gcd(b_1,Q)=1.
 
 It is an arithmetic audit, not a search over k and not a proof that A1 is closed.
 """
@@ -73,6 +74,28 @@ def first_not_dividing(primes: list[int], coefficient: int) -> int:
     raise AssertionError("increase audit prime bound")
 
 
+def joint_w2_min(
+    b_sources: list[int], q_sources: list[int], alpha: int, beta: int
+) -> tuple[int, tuple[int, int]]:
+    """Return J_2(alpha,beta) and the minimizing distinct source pair."""
+
+    best: int | None = None
+    pair: tuple[int, int] | None = None
+    for p in b_sources:
+        if alpha % p == 0:
+            continue
+        for q in q_sources:
+            if beta % q == 0 or p == q:
+                continue
+            value = 2 * p * q
+            if best is None or value < best:
+                best = value
+                pair = (p, q)
+    if best is None or pair is None:
+        raise AssertionError("increase audit prime bound")
+    return best, pair
+
+
 def main() -> None:
     expected_q = {
         1: [7, 19, 23, 31, 43, 47, 59, 67, 71, 83, 103, 107],
@@ -102,12 +125,11 @@ def main() -> None:
     assert first_not_dividing(b2_sources, 19) == 31
     assert first_not_dividing(b2_sources, 19 * 31) == 59
 
-    # Product bounds and the safe integer denominator caps quoted in the note.
+    # Independent product bounds and safe integer denominator caps.
     examples = [
         # name, M_min, safe integer C with 10001/M_min < C
         ("w2_beta3", 2 * 19 * 31, 9),
         ("w2_alpha19", 2 * 31 * 3, 54),
-        ("w2_alpha19_beta3", 2 * 31 * 31, 6),
         ("w3_beta7", 23, 435),
         ("w4_beta7", 12 * 19, 44),
         ("w4_beta7_19", 12 * 23, 37),
@@ -116,11 +138,31 @@ def main() -> None:
     for name, m_min, cap in examples:
         assert 10001 < cap * m_min, name
 
+    # Joint w=2 source matching: p|b1 and q|Q must satisfy p != q.
+    joint_examples = [
+        # alpha, beta, expected J_2, expected minimizing pair, safe cap
+        (1, 1, 114, (19, 3), 88),
+        (19, 1, 186, (31, 3), 54),
+        (1, 3, 1178, (19, 31), 9),
+        (19, 3, 3658, (31, 59), 3),
+        (19 * 31, 3, 3658, (59, 31), 3),
+        (19, 3 * 31, 3658, (31, 59), 3),
+        (19 * 31, 3 * 31, 7906, (59, 67), 2),
+    ]
+    for alpha, beta, expected, pair, cap in joint_examples:
+        got, got_pair = joint_w2_min(b2_sources, q_sources[2], alpha, beta)
+        assert got == expected, (alpha, beta, got, expected)
+        assert got_pair == pair, (alpha, beta, got_pair, pair)
+        assert 10001 < cap * got, (alpha, beta, cap, got)
+
     print("Q source starts:")
     for w in range(1, 5):
         print(f"  w={w}: {q_sources[w][:12]}")
     print(f"w=2 b1 source start: {b2_sources[:12]}")
-    print("CERTIFICATE OK: coefficient-sensitive complement source minima audited.")
+    print("Joint w=2 examples:")
+    for alpha, beta, expected, pair, _ in joint_examples:
+        print(f"  alpha={alpha} beta={beta}: J2={expected} via {pair}")
+    print("CERTIFICATE OK: coefficient-sensitive and joint source minima audited.")
 
 
 if __name__ == "__main__":
