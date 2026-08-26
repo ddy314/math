@@ -4,11 +4,11 @@ using namespace std;
 struct Type { int z,w,lo,hi; long long expect; };
 static const Type TYPES[] = {
  {1,1, 973440,10885221,579692},
- {1,2, 734410, 8400003,383278},
+ {1,2, 734410, 8400003,255519},
  {1,3, 529000, 6236387,328609},
- {1,4, 357210, 4394372,201854},
+ {1,4, 357210, 4394372,134570},
  {3,1, 519840,15204352,863426},
- {3,2, 428490,13677244,662434},
+ {3,2, 428490,13677244,441624},
 };
 
 int vp(int n,int p){ int e=0; while(n%p==0){n/=p;++e;} return e; }
@@ -71,6 +71,9 @@ int main(){
      }
 
      for(int apar=0;apar<2;apar++){
+       // This parity is a proved master condition.  The historical expected
+       // counts accidentally came from omitting this even-w line, although
+       // the checker itself already contained it.
        if((tp.w&1)==0){ if(apar) continue; } // even w => eta=-a2 even
        else { if(apar!=n2) continue; }       // odd w => eta parity=n2
 
@@ -116,6 +119,6 @@ int main(){
  }
 
  cout << "TOTAL initial="<<grand_initial<<" final="<<grand_final<<"\n";
- if(grand_initial!=11051041LL || grand_final!=3019293LL) return 1;
- cout << "CERTIFICATE OK: moderate HL local r signatures reduced to 3,019,293.\n";
+ if(grand_initial!=11051041LL || grand_final!=2603440LL) return 1;
+ cout << "CERTIFICATE OK: moderate HL local r signatures reduced to 2,603,440.\n";
 }
