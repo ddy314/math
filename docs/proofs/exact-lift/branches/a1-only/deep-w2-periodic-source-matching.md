@@ -343,7 +343,7 @@ M\ge1178,
 
 ---
 
-## 8. 下一接口
+## 8. moderate one-exponent interface
 
 `w=2` 的 coefficient source hierarchy 现在应使用
 
@@ -353,4 +353,34 @@ J_2^{\rm per}(\alpha,\beta)
 
 而不是只使用 independent first-source minima 或 distinctness-only `J_2`。
 
-下一步可把这个 periodic matching 与 dual-slot shell 的 finite `(r,m)` cells 联合：对 fixed moderate `r` 的每个 whole-block partition `(alpha,beta)`，先用 (7) 转成 `D/T^2` cap，再利用 `D=2^{2k+3-a_2}5^B` 检查其 `B,nu_5` cell 是否还能达到该 cap。这样可以在进入 unbounded `d` 之前先删除一批整个 coefficient partitions。
+在 moderate HL 中
+
+\[
+a_2=v_2(r),
+\qquad a_5=v_5(r),
+\qquad k=d+Y-1,
+\]
+
+并且精确有
+
+\[
+\boxed{
+\frac D{T^2}
+=2^{3-a_2}5^{2-a_5-2d}
+=\frac{200r_{10}}{r\,25^d}.}
+\tag{14}
+\]
+
+因此 (7) 与 complement height 等价给出必要条件
+
+\[
+\boxed{
+25^d>
+\frac{200J_2^{\rm per}(\alpha,\beta)r_{10}}
+{10001r}.}
+\tag{15}
+\]
+
+所以 source cap 在 one-exponent family 中的正确作用是：给 fixed coefficient cell 一个显式 lower bound on `d`，而不是删除整个 unbounded coefficient partition。因为 `D/T^2` 随 `d` 按 `25^{-d}` 下降，任何固定 finite `J_2^{per}` 最终都会满足 cap。
+
+要获得真正的 tail control，需要继续保留 source 的 `k`-residue 信息，而不是只保留其全局 minimum。`deep-w2-periodic-source-envelope.md` 正是这一 refinement：它构造 `J_3(k)`，再令 `k=d+Y-1` 得到直接的 `d`-periodic sieve。
