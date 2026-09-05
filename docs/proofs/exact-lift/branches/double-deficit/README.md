@@ -41,6 +41,32 @@
 - [`dd-corrected-terminal-rough-source-sharp-2026-08-22.md`](dd-corrected-terminal-rough-source-sharp-2026-08-22.md)
 - [`dd-corrected-terminal-two-adic-uz-neighborhood-2026-08-22.md`](dd-corrected-terminal-two-adic-uz-neighborhood-2026-08-22.md)
 
+## 2026-09-06 denominator-side attack
+
+- [`dd-corrected-denominator-product-lock-2026-09-06.md`](dd-corrected-denominator-product-lock-2026-09-06.md)
+
+该结果在 corrected canonical `t_2=1` terminal neighborhood 的显式范围
+
+\[
+\delta<\delta_{qZ}=0.075150109396892\ldots
+\]
+
+内，将 denominator concat、S-unit phase 与 long pair-max core 联立，证明
+
+\[
+2^HqZ\equiv5^Tb_1 10^{m_2}\pmod{v_2},
+\qquad 0<qZ<v_2,
+\]
+
+从而 `qZ` 被 `v_2` 的 least residue **精确唯一恢复**。固定 `v_2,b_1` 与 valuation/exponent layer 后，`(q,Z)`、`v_1`、`U,Q,b_2,gamma,b_3` 全部只剩 divisor entropy / exact reconstruction；接上已有 numerator collapse 后，fixed-`v_2` 的完整 Exact-Lift candidate family 满足
+
+\[
+N_{\rm full}\mid v_2
+\le10^{0.767009998555\,\delta S+o(S)}.
+\]
+
+因此该 terminal 子邻域的 residual positive-linear freedom 已进一步压到 `long core v_2 + short decimal head b_1`。这仍不是 DD emptiness 或 strict slope gap；尚需控制 `v_2` 本身的 global decimal/split-prime movement。
+
 ## Frontier continuation
 
 - [`dd-discriminant-root-dependency-audit-2026-08-22.md`](dd-discriminant-root-dependency-audit-2026-08-22.md)
@@ -69,4 +95,4 @@
 
 ## 当前边界
 
-现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。真正开放问题仍在较低锥与 post-tail payer 的共同高度控制；subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
+现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 的 denominator product lock 已把一个显式 corrected terminal 邻域内的 fixed-`v_2` fiber 压到短块尺度；该邻域中下一核心是 long one-channel core `v_2` 的全局 decimal/split-prime movement。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
