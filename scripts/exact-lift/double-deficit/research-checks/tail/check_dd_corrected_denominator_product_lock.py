@@ -34,25 +34,28 @@ def constants() -> None:
 
 
 def exact_product_congruence() -> None:
-    # A fully integral toy instance satisfying
+    # A fully integral toy instance satisfying the decimal-length convention:
     #   Q = U*q = b1*10^m2 + b2,
     #   2^H*Z - 5^T*U = V = v1*v2,
     #   v2 | b2,
     # together with q*Z < v2.
-    H = 3
+    H = 6
     T = 1
-    U = 43
-    Z = 31
+    U = 37
+    Z = 3
     v1 = 1
-    v2 = 33
+    v2 = 7
     m2 = 1
-    b1 = 1
+    b1 = 3
     q = 1
-    b2 = 33
+    b2 = 7
 
     V = v1 * v2
     Q = U * q
 
+    assert 10 ** (m2 - 1) <= b2 < 10**m2
+    assert gcd(U * V * Z, 10) == 1
+    assert gcd(U, V) == gcd(U, Z) == gcd(V, Z) == 1
     assert gcd(v2, 2) == 1
     assert Q == b1 * 10**m2 + b2
     assert 2**H * Z - 5**T * U == V
