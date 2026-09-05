@@ -1,54 +1,53 @@
-# Backward denominator-decimal recovery interface (curated import)
+# Backward denominator–decimal recovery interface（curated import）
 
-Source: master `2cfa389f1d4ced90653101e6c92ee8dfe85b5535`, original `research/exact-lift/backward/backward-denominator-decimal-interface.md`.
+来源：`dongxuelian2/three-term-decimal-concatenation-square-sum@2cfa389f1d4ced90653101e6c92ee8dfe85b5535`，原稿 `research/exact-lift/backward/backward-denominator-decimal-interface.md`。
 
-Source status: **explicit lossless pairwise interface theorem** between cleaned denominator recovery and decimal completion; it does not close the strict layer.
+来源状态：cleaned denominator recovery 与 decimal completion 之间的 **explicit lossless pairwise interface theorem**。本仓库采纳其接口语义和 branch-free `kappa` 恒等式；它不关闭任何 A2/DD/A1 分支。
 
-Let
+令
 \[
 \Lambda=\operatorname{lcm}(b_1,b_2,b_3),\qquad M_i=10^{m_i},\qquad S=10^\ell,
 \]
-and let the denominator word be
+完整 denominator word 为
 \[
 B=b_1M_2M_3+b_2M_3+b_3.
 \]
-The source proves that the denominator-decimal shared trace has two equivalent forms:
+共享 trace 有两个等价 normal form：
 \[
 \boxed{T_{\rm blk}=(b_1,b_2,b_3,S)},
 \]
 \[
 \boxed{T_{\rm word}=(B,M_2,M_3,S)}.
 \]
-The word form decodes the three denominator blocks uniquely by decimal cuts, while the block form reconstructs the word and cuts from the actual digit lengths. Neither form retains numerator/sphere information.
+word form 通过 decimal cuts 唯一恢复三个 denominator blocks；block form 通过真实 digit lengths 恢复 word 与 cuts。二者都不携带 numerator/sphere information。
 
-The third-tail tuple is deterministic from `(b3,S)`:
+第三尾 tuple 由 `(b3,S)` 确定：
 \[
 \eta_3=\gcd(S,b_3),\qquad
 \mathcal L=S/\eta_3,\qquad
 \tau=b_3/\eta_3.
 \]
-Similarly, the trace determines
+同一 trace 还确定
 \[
-\Lambda,\quad d_i=\Lambda/b_i,\quad
-Q=b_1M_2+b_2,\quad G=b_1b_2,
+\Lambda,\quad d_i=\Lambda/b_i,\quad Q=b_1M_2+b_2,\quad G=b_1b_2,
 \]
-and every denominator-only valuation/gcd/prime-support view.
+以及 denominator-only valuation/gcd/prime-support views。
 
-A particularly useful branch-free identity unifies the old DD and A1 tail-weight formulas:
+最直接可纳入本仓库统一记号的恒等式是
 \[
-\boxed{\kappa=\frac{M_3QG}{b_3}}.
+\boxed{\kappa=\frac{M_3QG}{b_3}=\frac{10^{m_3}QG}{b_3}}.
 \]
-Therefore the denominator-tail certificate
+它同时覆盖 A2、DD 和 A1。故 denominator-tail certificate
 \[
 \boxed{S\mid\kappa^2(\kappa+2G)}
 \]
-is a pure predicate of the denominator-decimal trace; it does not require numerator coordinates, a gap root, `C,D,N12`, or a tail numerator.
+的 denominator side 是纯 trace predicate；不需要 gap root、`C,D,N12` 或 tail numerator。
 
-After removing algebraic/root data that had previously been mixed into the denominator block, the source proves a lossless fibre-product statement: the joint denominator/decimal compatibility set is exactly the fibre product of the two semantic blocks over the common trace. In words, all genuine cross-synchronization between denominator recovery and decimal completion factors through
+在清除此前误混入 denominator block 的 algebraic/root data 后，来源证明 joint denominator/decimal compatibility 恰是两 semantic blocks 在该 trace 上的 fibre product。换言之，真正 cross-synchronization 只需
 \[
-\boxed{\text{same segmented denominator word} + \text{same effective tail scale}.}
+\boxed{\text{same segmented denominator word}+\text{same effective tail scale}}.
 \]
 
-The interface is genuinely proper. The source gives an infinite family of distinct canonical sphere states with the same denominator trace, so this is not merely a repackaging of all canonical data into four other fields. It also supplies explicit canonical collisions showing that dropping any of `B`, `M2`, `M3`, or (uniformly across DD+A1) `S` loses necessary information.
+来源还给出 infinite fibre 与逐分量 collision，说明该 trace 真正遗忘了 numerator/sphere direction，不是把完整 candidate 偷偷编码成另一组变量。
 
-For DD alone, `S=M3`, so the chamber-specific interface reduces further to the denominator triple. For A1, `S=10^{n3}` carries one projected numerator-side scale across the interface. This distinction is useful after the later SGR-9 result closes DD and leaves strict A1-only as the active strict chamber.
+Chamber-specific distinction：DD 中 `S=M3`，所以该 pairwise interface 可降为 denominator triple；A1 中 `S=10^{n3}`，需要额外传递 effective tail scale。**这只是接口差异，不蕴含 DD 已关闭，也不蕴含 strict layer 只剩 A1。**

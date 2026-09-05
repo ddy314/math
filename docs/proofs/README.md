@@ -1,23 +1,20 @@
 # 证明资料
 
-当前唯一的主研究树是 [三块十进制拼接 Exact Lift](exact-lift/README.md)。
+本仓库的权威研究入口是 [三块十进制拼接 Exact Lift](exact-lift/README.md)。主不存在性命题仍未完成证明。
 
-证明资料采用以下层次：
+## 权威主线
 
-```text
-proofs/
-└── exact-lift/
-    ├── problem-and-carrier.md     # 原问题、统一符号、carrier 分支
-    ├── global-framework.md        # 整数球面、尾正规化、统一判别式
-    ├── branches/
-    │   ├── a2-only/               # A2 规范专题与按依赖归并的研究账本
-    │   ├── double-deficit/        # DD 主干/frontier 与研究账本
-    │   └── a1-only/               # A1 规范专题与研究账本
-    ├── status.md                  # 严格状态、剩余核心、优先级
-    ├── notation.md                # 统一符号和旧符号映射
-    ├── dependency-map.md          # 公式依赖图
-    ├── conclusion.md              # 当前研究结论
-    └── archive/                   # 原始总稿快照
-```
+`exact-lift/` 保存原问题、统一框架、三个异常分支、严格状态、依赖图和历史快照。日常判断证明状态时按以下顺序读取：
 
-树中的章节文件是日常阅读和修改入口；三个分支目录中的 `README.md` 给出各自的唯一阅读路线；`archive/` 只用于历史对照。任何新增结果都应落到最具体的专题文件，并回写分支 README、状态索引和依赖图。
+1. [`exact-lift/status.md`](exact-lift/status.md)；
+2. 对应分支入口：[`A2`](exact-lift/branches/a2-only/README.md)、[`DD`](exact-lift/branches/double-deficit/README.md)、[`A1`](exact-lift/branches/a1-only/README.md)；
+3. 规范专题与按依赖归并的 ledger；
+4. [`exact-lift/integration-audit-2026-09-06.md`](exact-lift/integration-audit-2026-09-06.md) 记录外部成果进入主线前的最新审计。
+
+`exact-lift/archive/` 只保存迁移前不可变快照，不作为新的编辑入口。
+
+## 外部研究
+
+[`external/`](external/README.md) 保存经过筛选的外部证明材料。外部目录中的 `source status` 只描述来源仓库自己的判断；本仓库是否采纳、降级或拒绝，由对应来源的审计索引决定。
+
+当前已审计来源：[`dongxuelian2/three-term-decimal-concatenation-square-sum`](external/dongxuelian2/README.md)。

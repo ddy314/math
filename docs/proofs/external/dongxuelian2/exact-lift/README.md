@@ -1,30 +1,14 @@
-# Exact-lift and recovery framework
+# Exact-Lift / recovery 外部材料
 
-## Problem
+本目录只保留来源仓库中经过筛选、且能与本仓库现行 Exact-Lift 语言对接的专题。来源：`dongxuelian2/three-term-decimal-concatenation-square-sum@2cfa389f1d4ced90653101e6c92ee8dfe85b5535`。
 
-Describe the integer-sphere lift, common-denominator recovery, decimal carrier,
-and exact balance gates used to study the original rational problem.
+当前保留：
 
-## Status
+- [`audit-response.md`](audit-response.md)：基础 T10/T12/T18 补证与程序覆盖审计；
+- [`unified-exact-lift.md`](unified-exact-lift.md)：primitive-core / exact-recovery coupling；
+- [`backward/canonical-dependency-skeleton.md`](backward/canonical-dependency-skeleton.md)：canonical recovery dependency；
+- [`backward/denominator-decimal-interface.md`](backward/denominator-decimal-interface.md)：denominator–decimal common trace。
 
-partial / open
+已删除 broad synthesis、早期 initial route 与来源 status 快照；它们的信息已由本仓库 archive、theorem index 和上述专题覆盖。
 
-## Parent
-
-Parent: [`../foundations/`](../foundations/)
-
-## Established results
-
-- [Exact-lift research synthesis](exact-lift-research-synthesis-2026-08-10.md)
-- [Audit response](audit-response.md)
-- [Backward dependency skeleton](backward/backward-canonical-dependency-skeleton.md)
-
-## Open frontier
-
-The moving primitive-core and uniform termination questions remain open in the
-scope described by the status records.
-
-## Historical aliases
-
-The former foundation and backward-global names are aliases recorded in the
-migration map.
+本目录不具有状态权威。采纳/降级裁决见 [`../README.md`](../README.md) 与本仓库 [`../../../exact-lift/integration-audit-2026-09-06.md`](../../../exact-lift/integration-audit-2026-09-06.md)。

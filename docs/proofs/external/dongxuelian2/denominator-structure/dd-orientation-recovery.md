@@ -1,10 +1,10 @@
-# DD source orientation recovery (curated import)
+# DD source orientation recovery（curated import）
 
-Source master: `2cfa389f1d4ced90653101e6c92ee8dfe85b5535`; original `strict_layer_DD_orientation_recovery_campaign.md`.
+来源：`dongxuelian2/three-term-decimal-concatenation-square-sum@2cfa389f1d4ced90653101e6c92ee8dfe85b5535`，原稿 `strict_layer_DD_orientation_recovery_campaign.md`。
 
-Source status: **SGR-8B — ORIENTATION RECOVERY GATE**. This is a direct prerequisite of the later DD closure.
+来源状态：`SGR-8B — ORIENTATION RECOVERY GATE`。**本仓库审计：只在来源冻结的 top-DD hypotheses 下保留；它是 `dd-top-quotient-overload.md` 的条件前置，不代表当前 DD 全局状态。**
 
-For the frozen top-DD chamber, write
+对 frozen top-DD chamber，写
 \[
 Q=b_1 10^{m_2}+b_2,\quad G=b_1b_2,\quad
 N=(a_1b_2)^2+(a_2b_1)^2,
@@ -15,61 +15,63 @@ A=a_1 10^{n_2}+a_2,\quad C=10^{d_3}A,\quad T=10^{m_3},
 \[
 \kappa=TQG/b_3,\qquad QG<\kappa\le10QG.
 \]
-The original six-variable equation becomes a quadratic in `a=a3`:
+
+原六变量方程成为第三分子 `a=a3` 的二次式
 \[
 \kappa^3(\kappa+2G)a^2-2CG^2T\kappa^2a
 +T^2[NQ^2(\kappa+G)^2-C^2G^2\kappa^2]=0.
 \]
-If `t=G(R-r3)` is the gap root, then third-numerator recovery is affine and strictly decreasing:
+若 `t=G(R-r3)` 为 gap root，则恢复式
 \[
-\boxed{a(t)=\frac{TCG}{\kappa}-\frac{TQ(\kappa+G)}{\kappa^2}t},
-\qquad da/dt<0.
+\boxed{a(t)=\frac{TCG}{\kappa}-\frac{TQ(\kappa+G)}{\kappa^2}t}
 \]
-The Vieta involution on the gap quadratic exactly exchanges the two roots of this tail quadratic.
+严格递减。Vieta involution 交换 gap quadratic 的两根，也交换 tail quadratic 的两根。
 
-For the top DD range, if `a3` is the legal `n3`-digit root, the sum of the two tail roots satisfies
+在来源 top-DD 数值区间内，若 `a3` 是合法 `n3` 位正根，则两根和满足
 \[
 \Sigma_a/a_3<2\cdot10^{-3},
 \]
-so the conjugate root obeys
+故共轭根
 \[
-\boxed{a_3^\vee<0.}
+\boxed{a_3^\vee<0}.
 \]
-Hence the original positive-decimal problem selects a unique algebraic orientation: the legal gap root is the smaller Vieta root. In the source-factor notation this yields
+因此合法 original candidate 选择唯一代数 orientation：gap root 是较小 Vieta root，并有
 \[
-\boxed{F_-<F_+},
+\boxed{F_-<F_+}.
 \]
-and with the post-deflation ordered roots `J^sharp<K^sharp`,
+若 post-deflation ordered roots 为 `J^sharp<K^sharp`，则
 \[
-\boxed{F_-=\Lambda D_0J^\sharp,\qquad F_+=\Lambda D_0K^\sharp.}
+\boxed{F_-=\Lambda D_0J^\sharp,\qquad F_+=\Lambda D_0K^\sharp}.
 \]
-Thus the orientation bit is a theorem, not a gauge choice.
 
-Let
+令
 \[
-h=\gcd(\kappa,G),\quad A_\kappa=\kappa/h,\quad D=G/h,\quad
+h=\gcd(\kappa,G),\quad A_\kappa=\kappa/h,\quad D=G/h,
+\]
+\[
 B_\kappa=(\kappa+2G)/h=A_\kappa+2D.
 \]
-Then
+则
 \[
 \boxed{B_\kappa\mid F_-,\qquad A_\kappa\mid F_+},
 \]
 \[
-\gcd(A_\kappa,B_\kappa)\in\{1,2\},
+\gcd(A_\kappa,B_\kappa)\in\{1,2\}.
 \]
-and denominator normalization gives `A_kappa|TQ`. Define
+Denominator normalization 给 `A_kappa|TQ`。定义
 \[
 c=TQ/A_\kappa,\qquad b_3=cD,
 \]
 \[
 u=F_-/B_\kappa,\qquad v=F_+/A_\kappa.
 \]
-Then the source-oriented quotient system is
+得到 source-oriented quotient system
 \[
-\boxed{uv=Nc^2,\qquad v-u=2ha_3,\qquad b_3=cD.}
+\boxed{uv=Nc^2,\qquad v-u=2ha_3,\qquad b_3=cD},
 \]
-Equivalently,
+即
 \[
-\boxed{a_3=(v-u)/(2h).}
+\boxed{a_3=(v-u)/(2h)}.
 \]
-This system, together with third-block reducedness and top-DD 5-adic resonance, is the input used by SGR-9 to close DD.
+
+该系统与 third-block reducedness、top-DD double resonance 联立可推出本仓库保留的 frozen-top quotient-overload 矛盾；**任何超出 frozen top-DD 的使用都必须重新证明 coverage。**

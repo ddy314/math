@@ -1,42 +1,42 @@
-# DD supply/phase synchronization audit (curated import)
+# DD supply/phase synchronization audit（curated import）
 
-Source master: `2cfa389f1d4ced90653101e6c92ee8dfe85b5535`; original `strict_layer_DD_supply_phase_synchronization_campaign.md`.
+来源：`dongxuelian2/three-term-decimal-concatenation-square-sum@2cfa389f1d4ced90653101e6c92ee8dfe85b5535`，原稿 `strict_layer_DD_supply_phase_synchronization_campaign.md`。
 
-Source status: **SGR-6F — SYNCHRONIZATION ROUTE FAILS**. This is useful negative knowledge: it prevents re-running an apparently promising but tautological CRT/Hensel route.
+来源状态：`SGR-6F — SYNCHRONIZATION ROUTE FAILS`。**本仓库采纳这项负面知识；它防止把一个恒等式投影重新包装成新的 CRT/Hensel obstruction。**
 
-With
+若
 \[
 J^\sharp K^\sharp=N^\sharp,\qquad J^\sharp+K^\sharp=H^\sharp,
 \qquad\gcd(J^\sharp K^\sharp,10)=1,
 \]
-one has the identity
+则恒等地
 \[
-\boxed{(J^\sharp)^2+N^\sharp=J^\sharp H^\sharp.}
+\boxed{(J^\sharp)^2+N^\sharp=J^\sharp H^\sharp}.
 \]
-Therefore, for `p=2,5` and any `R>=0`, because `p` does not divide `J^sharp`,
+因此对 `p=2,5` 与任意 `R>=0`，由于 `p` 不整除 `J^sharp`，
 \[
-\boxed{(J^\sharp)^2\equiv-N^\sharp\pmod{p^R}\iff p^R\mid H^\sharp.}
+\boxed{(J^\sharp)^2\equiv-N^\sharp\pmod{p^R}\iff p^R\mid H^\sharp}.
 \]
-In particular the residual phase at depth `R_p^sharp=v_p(H^sharp)` is automatic. It is not an independent filter on the residual divisor.
+所以在 `R_p^sharp=v_p(H^sharp)` 深度上的 residual phase 自动成立，不是 residual divisor 的独立筛选条件。
 
-A compatible abstract model exists at arbitrary depths: choose `L=2^A5^B`, any `d` coprime to 10, and `tL>d`; set
+还存在任意深度的抽象兼容模型：取 `L=2^A5^B`、任意与 10 互素的 `d` 和 `tL>d`，令
 \[
 J=d,\quad K=tL-d,\quad H=tL,\quad N=d(tL-d).
 \]
-Then the factor-pair equations and both deep phase congruences hold. If `d|Omega^2`, the residual supply condition also holds. This does not construct a real DD candidate; it proves that the projected supply+phase system alone cannot yield a contradiction.
+则 factor-pair equations 与两条 deep phase congruence 同时成立；若再令 `d|Omega^2`，supply condition 也成立。这个模型不构造真实 DD candidate，只证明 projected supply+phase subsystem 自身不能产生 contradiction。
 
-The canonical factor split is
+Canonical factor split
 \[
-J^\sharp=g^\sharp A,\qquad K^\sharp=g^\sharp B,\qquad\gcd(A,B)=1,
+J^\sharp=g^\sharp A,\qquad K^\sharp=g^\sharp B,\qquad\gcd(A,B)=1
 \]
-with
+给
 \[
 N^\sharp=(g^\sharp)^2AB.
 \]
-Thus every residual prime exponent decomposes into common-square content plus a one-sided complementary allocation.
+因此 residual prime exponent 由 common-square content 与 one-sided complementary allocation 组成。
 
-The important methodological conclusion is:
+可复用结论是：
 
-> A useful DD Hensel invariant must retain source information that is not equivalent to `p^R|H^sharp` or `K^sharp≡-J^sharp`. Merely increasing the CRT modulus cannot close DD.
+> 有效的 DD Hensel invariant 必须保留不等价于 `p^R|H^sharp` 或 `K^sharp=-J^sharp` 的 source information；单纯提高 CRT modulus 不能形成新的 closure。
 
-This negative result is superseded as a frontier by SGR-8 source-orientation recovery and SGR-9 DD closure, but it remains reusable as an audit against circular phase arguments.
+这条 no-go 对本仓库当前仍开放的 DD 同样是方法论约束；它不依赖是否采纳来源后续全局 closure。
