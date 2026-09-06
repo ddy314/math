@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Mechanical audit for the baseline-stripped deep-hard sixfold lock.
 
-This checks the local exponent algebra and finite aggregation logic.  It does
-not certify existence/nonexistence of DD candidates by computation.
+This checks the local exponent algebra and exact finite aggregation inequalities.
+It does not certify existence/nonexistence of DD candidates by computation.
 """
 
 from __future__ import annotations
+
+from math import log
 
 
 def check_local_ledger() -> None:
@@ -28,26 +30,51 @@ def check_local_ledger() -> None:
                             assert h <= 5 * E - t - n0 - j
                             assert h <= 5 * E
                         else:
-                            # On the good sheet the sixfold congruence has
-                            # modulus depth s+r strictly above coefficient depth s.
                             assert vQ == s + r
                             assert vQ > s
+                            assert r >= h - 5 * E
 
 
 def check_aggregate_height_inequality() -> None:
-    # Abstract log-heights: bad hard source <= 5 * E-baseline;
-    # stripped good modulus loses at most another 5 * E-baseline.
-    examples = [
-        # (X_total, E_baseline, X_bad)
-        (100.0, 1.0, 4.0),
-        (1000.0, 3.0, 10.0),
-        (500.0, 0.5, 2.0),
+    # A finite synthetic valuation table.  We use logarithmic prime weights,
+    # exactly as the proof sums h_p log p and E_p log p.
+    rows = [
+        # (p, E, j, t, n0, h); every row is deep-hard: h > 2t+n0+M+j.
+        (3, 1, 0, 0, 0, 3),    # bad: r=-2, h<=5E
+        (7, 1, 0, 0, 0, 8),    # good: r=3
+        (13, 0, 1, 0, 0, 5),   # good: r=6
+        (17, 1, 1, 1, 0, 8),   # good: r=5
     ]
-    for x_total, e_base, x_bad in examples:
-        assert x_bad <= 5 * e_base or x_bad < 20  # illustrative finite ledgers
-        x_good = x_total - x_bad
-        x_stripped_lower = x_good - 5 * e_base
-        assert x_stripped_lower > 0
+
+    log_x_total = 0.0
+    log_e_total = 0.0
+    log_x_bad = 0.0
+    log_x_good = 0.0
+    log_x_stripped = 0.0
+    log_e_good = 0.0
+
+    for p, E, j, t, n0, h in rows:
+        M = max(E, j)
+        y = 2 * t + n0 + M + j
+        assert h > y
+        r = h + t + n0 + j - 5 * E
+        w = log(p)
+
+        log_x_total += h * w
+        log_e_total += E * w
+        if r <= 0:
+            log_x_bad += h * w
+            assert h <= 5 * E
+        else:
+            log_x_good += h * w
+            log_x_stripped += r * w
+            log_e_good += E * w
+            assert r >= h - 5 * E
+
+    # Exact aggregate consequences of the per-prime inequalities.
+    assert log_x_bad <= 5 * log_e_total + 1e-12
+    assert abs(log_x_good - (log_x_total - log_x_bad)) < 1e-12
+    assert log_x_stripped + 1e-12 >= log_x_good - 5 * log_e_good
 
 
 def check_full_height_margin() -> None:
