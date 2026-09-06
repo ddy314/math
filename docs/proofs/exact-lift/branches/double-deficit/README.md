@@ -51,6 +51,11 @@
 - [`dd-corrected-source-quotient-lock-sharp-2026-09-06.md`](dd-corrected-source-quotient-lock-sharp-2026-09-06.md)
 - [`dd-corrected-numerator-collapse-sharp-2026-09-06.md`](dd-corrected-numerator-collapse-sharp-2026-09-06.md)
 - [`dd-corrected-pairmax-scale-quotient-2026-09-06.md`](dd-corrected-pairmax-scale-quotient-2026-09-06.md)
+- [`dd-corrected-v2-projective-polarization-2026-09-06.md`](dd-corrected-v2-projective-polarization-2026-09-06.md)
+- [`dd-corrected-scale-free-secondary-carrier-2026-09-06.md`](dd-corrected-scale-free-secondary-carrier-2026-09-06.md)
+- [`dd-corrected-scale-free-secondary-norm-prefix-nogo-2026-09-06.md`](dd-corrected-scale-free-secondary-norm-prefix-nogo-2026-09-06.md)
+- [`dd-corrected-terminal-global-sparsity-sharp-2026-09-06.md`](dd-corrected-terminal-global-sparsity-sharp-2026-09-06.md)
+- [`dd-corrected-quartic-orientation-dependency-audit-2026-09-06.md`](dd-corrected-quartic-orientation-dependency-audit-2026-09-06.md)
 
 这一轮首先从 denominator concat 与 S-unit phase 得到 exact product congruence
 
@@ -165,13 +170,57 @@ v_p(\gamma)=2r
 \boxed{v_2\mid y_1,H_{\rm sph},\qquad(v_2,Z_0)=1,\qquad(v_2,y_1^2+y_2^2)=1.}
 \]
 
+quantitative pair-max gap line与这个 scale quotient还能在整个 `delta<=1/2` neighborhood 中构造 W-free chosen-orientation secondary carrier。shared-defect 审计给
+
+\[
+\boxed{2T>m}
+\]
+
+覆盖整个 one-channel 作用域，于是存在
+
+\[
+\boxed{
+\Pi_\Omega\mid
+ g_0a_2v_1 2^{m-2}q_V-iR_0\tau_2 5^{2T-m},
+\qquad N(\Pi_\Omega)=v_2.}
+\]
+
+这把 equality-only secondary Gaussian source line扩展成 positive-width、完全剥离 pair-max baseline 的 exact carrier；在 `delta<0.460744...` 内 fixed orientation/gap/cofactor fiber还可 ordinary recovery `q_V`。
+
+对该 carrier取 norm并与 S-unit phase、raw prefix联立，得到 rational quotients `K_V,J_V`，但 digit geometry严格强迫
+
+\[
+\boxed{J_V>q_V,\qquad K_V>q_V.}
+\]
+
+所以 secondary norm / ordinary gcd / phase-normalized rationalization 是结构性 no-go：它不会产生小于 source 的新 quotient。若要继续利用 `Pi_Omega`，必须保留 Gaussian orientation。
+
+同时 W-free genuine `A_12` CRT 仍是 rational sphere-paid reader，对 `Pi_Omega <-> bar Pi_Omega` conjugation不敏感；历史第二 Gaussian carrier又落在已审计的 discriminant-root dependency 中。因此现行 quartic/product-orientation路线缺少第二个 independent orientation-sensitive parent，不能仅把 quadratic Jacobi symbol机械升级成 quartic symbol并宣称新 payer。
+
+全 candidate sparsity也随 sharp numerator collapse扩宽：对任意 fixed
+
+\[
+\boxed{0\le\delta_0<0.460744281587979\ldots}
+\]
+
+整个 corrected canonical terminal window满足
+
+\[
+\boxed{
+N_{\rm term}(S;\delta_0)
+\le10^{(\delta_0/\lambda)S+o(S)}
+=10^{0.696236030972\,\delta_0S+o(S)}.}
+\]
+
+旧完整 sparsity 作用域 `0.238062349248111...` 因而扩大约 `1.935393...` 倍。equality ray `delta->0` 时整个 canonical terminal shell降为 `10^{o(S)}`，但这仍是 sparsity，不是 deterministic emptiness。
+
 因此 corrected canonical terminal 的正线性 primitive residual 已高度集中到
 
 \[
-\boxed{\text{moving }V/v_2\quad+\quad\text{scale-free source }q_V,}
+\boxed{\text{moving }V/v_2\quad+\quad\text{scale-free source }q_V\quad+\quad\text{chosen orientation }\Pi_\Omega,}
 \]
 
-外加不能重复收费的 homogeneous common scale。继续在同一 pair-max prime上制造 radius/digit-shell/Gaussian norm resultant只会恢复旧 identities；下一有效目标必须是 chosen Gaussian orientation 与 raw decimal / scale-free source 的 genuine global compatibility。
+外加不能重复收费的 homogeneous common scale。继续在同一 pair-max prime上制造 radius/digit-shell/Gaussian norm resultant只会恢复旧 identities；下一有效目标必须是一个 W-free、genuinely different decimal/full-concat Gaussian parent，或 `Delta_V` 的 deterministic oriented digit-shell location。
 
 这些结论仍不是 DD emptiness 或 explicit strict slope gap。corrected high-funnel 的 `6.308883577618...` equality geometry 仍需一个不来自 unified discriminant normalization、且不重复 sphere/pair-max depth的新全局 reader；更低 post-tail / non-canonical payer 的共同高度控制也仍开放。
 
@@ -203,4 +252,4 @@ v_p(\gamma)=2r
 
 ## 当前边界
 
-现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 attack 已把 corrected one-channel 的 denominator/S-unit/numerator local freedom大幅压缩：common-scale ray与 S-unit Euclidean lock覆盖整个现行 `delta<=1/2` neighborhood；fixed denominator/S-unit numerator collapse扩展至 `delta<0.460744281587979...`；`v_2`-support 低 baseline可 exact quotient，留下正线性 scale-free source `q_V` 与 exact full-`v_2` projective polarization。当前 canonical terminal 的真正 uniform worst case已向 moving `V/v_2` 与 scale-free source `q_V` 的 global compatibility集中。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
+现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 attack 已把 corrected one-channel 的 denominator/S-unit/numerator local freedom大幅压缩：common-scale ray与 S-unit Euclidean lock覆盖整个现行 `delta<=1/2` neighborhood；fixed denominator/S-unit numerator collapse与完整 terminal sparsity扩展至 `delta<0.460744281587979...`；`v_2`-support 低 baseline可 exact quotient，留下正线性 scale-free source `q_V`、full-`v_2` projective polarization与 W-free scale-free secondary Gaussian carrier。secondary norm rationalization已被 `J_V>q_V` no-go封死，quartic continuation又明确缺第二个 safe orientation-sensitive parent。当前 canonical terminal 的真正 uniform worst case已向 moving `V/v_2`、scale-free source `q_V` 与 chosen `Pi_Omega` 的 global digit/orientation compatibility集中。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；其中 full-height hard endpoint已经压成 baseline-free pure-source core `X_{H,D}`，tail-root surviving sign只退回既有 algebra，下一步必须使用 genuinely global decimal control。subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
