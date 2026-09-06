@@ -44,29 +44,51 @@
 ## 2026-09-06 denominator-side attack
 
 - [`dd-corrected-denominator-product-lock-2026-09-06.md`](dd-corrected-denominator-product-lock-2026-09-06.md)
+- [`dd-corrected-denominator-product-lock-sharp-2026-09-06.md`](dd-corrected-denominator-product-lock-sharp-2026-09-06.md)
 - [`dd-corrected-common-scale-ray-2026-09-06.md`](dd-corrected-common-scale-ray-2026-09-06.md)
 
-第一步在 corrected canonical `t_2=1` terminal neighborhood 的显式范围
+第一步从 denominator concat 与 S-unit phase 得到 exact product congruence
 
 \[
-\delta<\delta_{qZ}=0.075150109396892\ldots
+\boxed{
+2^HqZ\equiv5^Tb_1 10^{m_2}\pmod{v_2}.}
 \]
 
-内，将 denominator concat、S-unit phase 与 long pair-max core 联立，证明
+最初用粗化后的 individual windows 得到安全阈值 `delta<0.075150109396892...`。随后 shared-defect sharp continuation保留 `m_1,G_2,mu,Q_2,N_2,Q_5,G_5,N_5,R,sigma_S` 的共同预算，证明
 
 \[
-2^HqZ\equiv5^Tb_1 10^{m_2}\pmod{v_2},
-\qquad 0<qZ<v_2,
+\boxed{
+\frac{\log_{10}(qZ)}S\le2z_*+\delta+o(1),}
+\qquad
+\boxed{
+\frac{\log_{10}v_2}S\ge1-\delta-o(1).}
 \]
 
-从而 `qZ` 被 `v_2` 的 least residue **精确唯一恢复**。固定 `v_2,b_1` 与 valuation/exponent layer 后，`(q,Z)`、`v_1`、`U,Q,b_2,gamma,b_3` 全部只剩 divisor entropy / exact reconstruction；接上已有 numerator collapse 后，fixed-`v_2` 的完整 Exact-Lift candidate family 满足
+因此真正可用的 product-lock neighborhood扩大为
 
 \[
+\boxed{
+\delta<\delta_{qZ}^{\sharp}
+:=\frac12-z_*
+=0.191116422381969\ldots.}
+\]
+
+在该范围内 `0<qZ<v_2`，所以模条件升级为 ordinary integer equality：`qZ` 等于对应 least residue modulo `v_2`。固定 `v_2,b_1` 与 valuation/exponent layer 后，`(q,Z)`、`v_1`、`U,Q,b_2,gamma,b_3` 全部只剩 divisor entropy / exact reconstruction；因为
+
+\[
+\delta_{qZ}^{\sharp}<\delta_{UV}=0.238062349248111\ldots,
+\]
+
+已有 numerator collapse 同时适用，故
+
+\[
+\boxed{
 N_{\rm full}\mid v_2
-\le10^{0.767009998555\,\delta S+o(S)}.
+\le10^{0.767009998555\,\delta S+o(S)}
+\qquad(\delta<0.191116422381969\ldots).}
 \]
 
-第二步在更宽范围
+另一条 cofactor projective attack 在
 
 \[
 \delta<\delta_{\rm ray}=0.156961684731344\ldots
@@ -80,7 +102,7 @@ b_1=v_1\tau_1,
 \qquad Q=Uq
 \]
 
-的 cofactor compatibility写成 modulo `U` 的 projective line。两个 cofactor candidates 强迫
+写成 modulo `U` 的 projective line。两个 cofactor candidates 强迫
 
 \[
 U\mid \tau_2\tau_1'-\tau_2'\tau_1,
@@ -95,15 +117,24 @@ U\mid \tau_2\tau_1'-\tau_2'\tau_1,
 \ell\bar q,\ell^2\bar\gamma).}
 \]
 
-因此 rough `gamma` 的 movable part被降级为 common denominator scale，而不再是第二个独立 projective shape。candidate-specific denominator/S-unit entropy相应从 `sigma_S+R` sharpen 为
+因此 rough `gamma` 的 movable part被降级为 common denominator scale，而不再是第二个独立 projective shape。candidate-specific denominator/S-unit entropy从 `sigma_S+R` sharpen 为
 
 \[
 \boxed{\sigma_S+R/2.}
 \]
 
-uniform `delta/lambda` 最坏系数暂时未改善，因为最坏方向现在集中到 Farey/projective slack `sigma_S`。在两条 theorem 的公共 neighborhood 内，上一结果所说的 `short decimal head b_1` 也进一步被识别为 common-scale coordinate；真正的 denominator projective residual只剩 Farey/S-unit phase与 `V` 的 divisor split。
+uniform `delta/lambda` 最坏系数暂时未改变，因为最坏方向现在集中到 Farey/projective slack `sigma_S`。数值顺序为
 
-这些结论仍不是 DD emptiness 或 strict slope gap。当前 terminal 主攻目标已经从 arbitrary `v_2/gamma` movement进一步收缩为 **scale-quotiented Farey/projective primitive shape exclusion**；rough common scale本身是 Exact-Lift 的齐次方向，不能再被当作独立几何 payer 重复收费。
+\[
+\boxed{
+\delta_{\rm ray}
+<\delta_{qZ}^{\sharp}
+<\delta_{UV}.}
+\]
+
+所以整个 common-scale-ray neighborhood 自动同时拥有 sharp `qZ` ordinary lock 与 fixed-denominator numerator collapse。在这一区域，上一版本所谓 `long core v_2 + short decimal head b_1` 还能继续 quotient：固定 Farey/S-unit phase与 `V` factor split 后，`b_1` 只是在唯一 denominator shape 上移动的 common-scale coordinate。
+
+这些结论仍不是 DD emptiness 或 strict slope gap。当前 terminal uniform bottleneck 已进一步收缩为 **scale-quotiented Farey/projective primitive phase exclusion**；rough common scale是 Exact-Lift 的齐次方向，不能再作为独立几何 payer 重复收费。
 
 ## Frontier continuation
 
@@ -133,4 +164,4 @@ uniform `delta/lambda` 最坏系数暂时未改善，因为最坏方向现在集
 
 ## 当前边界
 
-现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 的 denominator-side attack 已把 corrected terminal 的一个显式 neighborhood 中 fixed phase/factor split 的 denominator data压成唯一 common-scale ray，并把 rough-`gamma` entropy从独立 projective freedom降级为 homogeneous scale；更小的 `delta<0.07515...` neighborhood 还具有 `qZ` ordinary product lock。当前 terminal 真正的 uniform worst case已向 scale-quotiented Farey/projective `sigma_S` sector集中。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
+现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 denominator-side attack 已把 corrected terminal 的 sharp `qZ` product-lock范围扩到 `delta<0.191116422381969...`，并在 `delta<0.156961684731344...` 中把 fixed phase/factor split 的 denominator data压成唯一 common-scale ray；rough-`gamma` entropy由独立 projective freedom降级为 homogeneous scale。当前 terminal 真正的 uniform worst case已向 scale-quotiented Farey/projective `sigma_S` sector集中。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
