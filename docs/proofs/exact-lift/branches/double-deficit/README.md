@@ -1,14 +1,25 @@
 # `double-deficit`（DD）分支
 
-本文件是 DD 的规范导航入口。DD 当前仍为 **待证**。旧 equality frontier、多个高层和 canonical double-resonant 子域已经严格关闭或显著压缩；更低的 post-tail / non-canonical dominant states 仍缺少 projective/gap、bottom/common-numerator 与 residual split-Gaussian payer 的统一高度控制。
+本文件是 DD 的规范导航入口。DD 当前仍为 **待证**；本仓库没有证明 `DD=empty`，也没有从 2026-09-06 的新增结论推出一个新的全 DD 显式斜率常数。
+
+当前最外层结构已经明显收缩：
+
+- corrected canonical `t_2=1` terminal neighborhood 的 denominator / S-unit / numerator 自由度已大幅压缩，剩余核心集中在 moving `V/v_2`、scale-free source `q_V` 与 chosen Gaussian orientation `Pi_Omega` 的 global compatibility；
+- corrected post-tail / non-canonical hard-source side 已得到新的 full-decimal folding / circular reader。ordinary-lock **失败支**的匿名 payer 已全部清空，并得到无 residual 的 `F_-` lower；ordinary-lock **成功支**仍缺 genuinely independent 的第二个 global parent / deterministic location obstruction；
+- gcd-normal `d_0` 层进一步给出 gap quotient `a` 的 coprime CRT reconstruction / large-gap `F_-` dichotomy，但这仍不是 DD 全局空性。
 
 外部 `dongxuelian2` 的 SGR-9 只在其 frozen top-DD hypotheses 下给出 5-adic quotient-overload 矛盾；本仓库没有把它升级成 `DD=empty`。见 [`../../integration-audit-2026-09-06.md`](../../integration-audit-2026-09-06.md)。
 
 ## 规范主线与账本
 
-先读 [`core.md`](core.md) 和 [`frontier.md`](frontier.md)。细粒度历史/continuation 分别归并在 [`good-genuine-ledger.md`](good-genuine-ledger.md)、[`high-funnel-ledger.md`](high-funnel-ledger.md)、[`tail-allocation-ledger.md`](tail-allocation-ledger.md)。
+建议阅读顺序：
 
-2026-08-21/22 后续 standalone 文档含有尚未完全归并进三本 ledger 的独有推导，因此继续保留并在下方完整索引。文件名中的 `collapse/closure` 均只按其显式假设生效。
+1. [`core.md`](core.md)：DD 基础记号、gcd-normal tail 与 exact identities；
+2. [`frontier.md`](frontier.md)：terminal / one-channel 历史主线；
+3. [`good-genuine-ledger.md`](good-genuine-ledger.md)、[`high-funnel-ledger.md`](high-funnel-ledger.md)、[`tail-allocation-ledger.md`](tail-allocation-ledger.md)：细粒度历史账本；
+4. 本 README 的 2026-09-06 两条 continuation：先 canonical terminal，再 post-tail/global decimal attack。
+
+2026-08-21/22 后续 standalone 文档含有尚未完全归并进三本 ledger 的独有推导，因此继续保留并在下方索引。文件名中的 `collapse/closure` 只按其显式假设生效。
 
 ## 2026-08-21 Gaussian / z0 continuation
 
@@ -41,7 +52,9 @@
 - [`dd-corrected-terminal-rough-source-sharp-2026-08-22.md`](dd-corrected-terminal-rough-source-sharp-2026-08-22.md)
 - [`dd-corrected-terminal-two-adic-uz-neighborhood-2026-08-22.md`](dd-corrected-terminal-two-adic-uz-neighborhood-2026-08-22.md)
 
-## 2026-09-06 denominator / scale / numerator attack
+## 2026-09-06 canonical denominator / scale / numerator / orientation attack
+
+### 文件
 
 - [`dd-corrected-denominator-product-lock-2026-09-06.md`](dd-corrected-denominator-product-lock-2026-09-06.md)
 - [`dd-corrected-denominator-product-lock-sharp-2026-09-06.md`](dd-corrected-denominator-product-lock-sharp-2026-09-06.md)
@@ -57,172 +70,228 @@
 - [`dd-corrected-terminal-global-sparsity-sharp-2026-09-06.md`](dd-corrected-terminal-global-sparsity-sharp-2026-09-06.md)
 - [`dd-corrected-quartic-orientation-dependency-audit-2026-09-06.md`](dd-corrected-quartic-orientation-dependency-audit-2026-09-06.md)
 
-这一轮首先从 denominator concat 与 S-unit phase 得到 exact product congruence
+### 当前严格压缩
+
+Denominator concat 与 S-unit phase 给 exact product congruence
 
 \[
-\boxed{2^HqZ\equiv5^Tb_1 10^{m_2}\pmod{v_2}.}
+2^HqZ\equiv5^Tb_1 10^{m_2}\pmod{v_2}.
 \]
 
-shared-defect continuation证明
+shared-defect continuation 给
 
 \[
-\boxed{\frac{\log_{10}(qZ)}S\le2z_*+\delta+o(1),}
+\frac{\log_{10}(qZ)}S\le2z_*+\delta+o(1),
 \qquad
-\boxed{\frac{\log_{10}v_2}S\ge1-\delta-o(1),}
+\frac{\log_{10}v_2}S\ge1-\delta-o(1),
 \]
 
-因此在
+所以 `delta<0.191116422381969...` 时有 ordinary product lock `0<qZ<v_2`。
+
+整个现行 one-channel `delta<=1/2` 作用域中 denominator projective cofactor ratio 唯一，candidate 只沿 common scale ray
 
 \[
-\boxed{\delta<0.191116422381969\ldots}
+(b_1,b_2,b_3,q,\gamma)
+=(\ell\bar b_1,\ell\bar b_2,\ell\bar b_3,\ell\bar q,\ell^2\bar\gamma),
 \]
 
-有 `0<qZ<v_2`，模条件升级成 ordinary least-residue lock。
+且 fixed `(H,T,V)` 后 S-unit equation 唯一恢复 `(U,Z)`。
 
-随后 fixed phase/factor split 的 denominator cofactor determinant 与 shared-defect `UV` lower 联立，证明整个现行 one-channel 作用域 `delta<=1/2` 中 projective cofactor ratio 都唯一；所有 denominator candidates 只能沿 common scale ray
+进一步有
 
 \[
-\boxed{(b_1,b_2,b_3,q,\gamma)
-=(\ell\bar b_1,\ell\bar b_2,\ell\bar b_3,\ell\bar q,\ell^2\bar\gamma).}
+\frac1S\log_{10}\frac{v_2}{q}
+\ge U_*-\frac32\delta-o(1),
 \]
 
-rough `gamma` 因而降级为 homogeneous common scale，不再是独立 projective shape；candidate-specific denominator/S-unit entropy sharpen 为 `sigma_S+R/2`。
-
-S-unit equation同时在整个 corrected one-channel neighborhood 给出 Euclidean lock：
+故
 
 \[
-\boxed{0<Z,V<5^T,}
+\delta<\frac{2U_*}{3}=0.460744281587979\ldots
 \]
 
+时 `q<v_2`，source quotient 由 raw prefix residue唯一恢复。同一 threshold 内 transverse `U × v_2` numerator periods 给
+
 \[
-\boxed{U=\lfloor2^HZ/5^T\rfloor,\qquad V=2^HZ\bmod5^T,\qquad Z=[2^{-H}V]_{5^T}.}
+N_{\rm num}(S;\delta)=10^{o(S)}.
 \]
 
-因此 fixed `(H,T,V)` 后 `(U,Z)` 唯一。
-
-对 source quotient，shared-defect 给
+pair-max support 的 common-scale baseline还可 exact quotient，得到 scale-free source `q_V`，并有
 
 \[
-\boxed{\frac1S\log_{10}\frac{v_2}{q}\ge U_*-\frac32\delta-o(1).}
-\]
-
-故在
-
-\[
-\boxed{\delta<\frac{2U_*}{3}=0.460744281587979\ldots}
-\]
-
-有 `q<v_2`，`Uq\equiv b_1 10^{m_2} (mod v_2)` 直接唯一恢复 `q`。
-
-同一联合优化作用于 exact transverse `U × v_2` numerator periods，得到
-
-\[
-\boxed{\frac{\log_{10}(Uv_2)}S\ge1+U_*-\frac32\delta-o(1).}
-\]
-
-所以 fixed denominator/S-unit data 下
-
-\[
-\boxed{N_{\rm num}(S;\delta)=10^{o(S)}
-\qquad(\delta<0.460744281587979\ldots).}
-\]
-
-sharp `v_2` lower还把旧 short-suffix 与 gap-fraction reconstruction thresholds一并覆盖：对任意 fixed `delta<1/2` 的 corrected one-channel neighborhood，fixed denominator/S-unit/orientation fiber 中 `a_2` 与 primitive gap fraction 都至多一个（orientation vector仍只有 divisor/subexponential entropy）。
-
-最后，对每个 `p^h||v_2`，quantitative pair-max valuation pattern
-
-\[
-v_p(b_1)=v_p(q)=r,
+(q_V,v_2)=(b_1^{(V)},v_2)=(\gamma_V,v_2)=1,
 \qquad
-v_p(b_2)=v_p(b_3)=r+h,
+v_2\mid b_2^{(V)},b_3^{(V)}.
+\]
+
+整个 quantitative one-channel 中还严格有
+
+\[
+v_2\mid y_1,H_{\rm sph},
 \qquad
-v_p(\gamma)=2r
+(v_2,Z_0)=(v_2,y_1^2+y_2^2)=1.
 \]
 
-说明所有低层 `r` 正是 `v_2`-support 上的 common-scale baseline。定义
+quantitative pair-max gap line可正规化为 W-free chosen-orientation carrier
 
 \[
-\ell_V:=\prod_{p^h\Vert v_2}p^r,
-\qquad q_V:=q/\ell_V,
-\qquad b_i^{(V)}:=b_i/\ell_V,
-\qquad \gamma_V:=\gamma/\ell_V^2,
-\]
-
-则 exact 地得到 clean pattern
-
-\[
-\boxed{(q_V,v_2)=(b_1^{(V)},v_2)=(\gamma_V,v_2)=1,}
-\]
-
-\[
-\boxed{v_2\mid b_2^{(V)},b_3^{(V)},}
-\]
-
-以及 scale-free source lower
-
-\[
-\boxed{\frac{\log_{10}q_V}{S}\ge z_*-\frac\delta2-o(1).}
-\]
-
-此外 fixed `(U,V,q_V,v_2)` 后，scale-stripped denominator triple 由 raw concat 唯一恢复；long core 对 primitive stereographic coordinates exact invisible：
-
-\[
-\boxed{v_2\mid y_1,H_{\rm sph},\qquad(v_2,Z_0)=1,\qquad(v_2,y_1^2+y_2^2)=1.}
-\]
-
-quantitative pair-max gap line与这个 scale quotient还能在整个 `delta<=1/2` neighborhood 中构造 W-free chosen-orientation secondary carrier。shared-defect 审计给
-
-\[
-\boxed{2T>m}
-\]
-
-覆盖整个 one-channel 作用域，于是存在
-
-\[
-\boxed{
 \Pi_\Omega\mid
  g_0a_2v_1 2^{m-2}q_V-iR_0\tau_2 5^{2T-m},
-\qquad N(\Pi_\Omega)=v_2.}
+\qquad N(\Pi_\Omega)=v_2.
 \]
 
-这把 equality-only secondary Gaussian source line扩展成 positive-width、完全剥离 pair-max baseline 的 exact carrier；在 `delta<0.460744...` 内 fixed orientation/gap/cofactor fiber还可 ordinary recovery `q_V`。
-
-对该 carrier取 norm并与 S-unit phase、raw prefix联立，得到 rational quotients `K_V,J_V`，但 digit geometry严格强迫
+但对它取 norm并做 phase/prefix rationalization 会得到
 
 \[
-\boxed{J_V>q_V,\qquad K_V>q_V.}
+J_V>q_V,
+\qquad K_V>q_V,
 \]
 
-所以 secondary norm / ordinary gcd / phase-normalized rationalization 是结构性 no-go：它不会产生小于 source 的新 quotient。若要继续利用 `Pi_Omega`，必须保留 Gaussian orientation。
+所以该 rationalization 是结构性 no-go；继续利用此 carrier 必须保留 Gaussian orientation。现行 W-free rational readers只看见 `N(Pi_Omega)`，quartic continuation因而仍缺第二个 independent orientation-sensitive parent。
 
-同时 W-free genuine `A_12` CRT 仍是 rational sphere-paid reader，对 `Pi_Omega <-> bar Pi_Omega` conjugation不敏感；历史第二 Gaussian carrier又落在已审计的 discriminant-root dependency 中。因此现行 quartic/product-orientation路线缺少第二个 independent orientation-sensitive parent，不能仅把 quadratic Jacobi symbol机械升级成 quartic symbol并宣称新 payer。
-
-全 candidate sparsity也随 sharp numerator collapse扩宽：对任意 fixed
+完整 terminal candidate sparsity 已扩展到任意 fixed
 
 \[
-\boxed{0\le\delta_0<0.460744281587979\ldots}
+0\le\delta_0<0.460744281587979\ldots,
 \]
 
-整个 corrected canonical terminal window满足
+满足
 
 \[
-\boxed{
 N_{\rm term}(S;\delta_0)
 \le10^{(\delta_0/\lambda)S+o(S)}
-=10^{0.696236030972\,\delta_0S+o(S)}.}
+=10^{0.696236030972\,\delta_0S+o(S)}.
 \]
 
-旧完整 sparsity 作用域 `0.238062349248111...` 因而扩大约 `1.935393...` 倍。equality ray `delta->0` 时整个 canonical terminal shell降为 `10^{o(S)}`，但这仍是 sparsity，不是 deterministic emptiness。
+这仍是 sparsity / uniqueness，不是 emptiness。
 
-因此 corrected canonical terminal 的正线性 primitive residual 已高度集中到
+## 2026-09-06 post-tail / global decimal attack
+
+### 文件
+
+- [`dd-global-sixfold-decimal-folding-source-lock-2026-09-06.md`](dd-global-sixfold-decimal-folding-source-lock-2026-09-06.md)
+- [`dd-global-sixfold-baseline-stripped-deephard-lock-2026-09-06.md`](dd-global-sixfold-baseline-stripped-deephard-lock-2026-09-06.md)
+- [`dd-global-sixfold-gcd-stripped-master-lock-2026-09-06.md`](dd-global-sixfold-gcd-stripped-master-lock-2026-09-06.md)
+- [`dd-global-sixfold-primitive-hard-source-lock-2026-09-06.md`](dd-global-sixfold-primitive-hard-source-lock-2026-09-06.md)
+- [`dd-global-euclidean-block-folding-hard-source-lock-2026-09-06.md`](dd-global-euclidean-block-folding-hard-source-lock-2026-09-06.md)
+- [`dd-global-circular-decimal-phase-hard-source-lock-2026-09-06.md`](dd-global-circular-decimal-phase-hard-source-lock-2026-09-06.md)
+- [`dd-corrected-euclidean-failure-soft-norm-bootstrap-2026-09-06.md`](dd-corrected-euclidean-failure-soft-norm-bootstrap-2026-09-06.md)
+- [`dd-corrected-euclidean-failure-denominator-gcd-bootstrap-2026-09-06.md`](dd-corrected-euclidean-failure-denominator-gcd-bootstrap-2026-09-06.md)
+- [`dd-corrected-euclidean-failure-no-residual-fminus-2026-09-06.md`](dd-corrected-euclidean-failure-no-residual-fminus-2026-09-06.md)
+- [`dd-corrected-circular-failure-no-residual-fminus-2026-09-06.md`](dd-corrected-circular-failure-no-residual-fminus-2026-09-06.md)
+- [`dd-gcd-normal-d0-gap-crt-dichotomy-2026-09-06.md`](dd-gcd-normal-d0-gap-crt-dichotomy-2026-09-06.md)
+
+### Folding → Euclidean → circular
+
+Full exact lift 与 primitive denominator prefix 给一般 block folding。sixfold 是高斜率 `k=6` 的方便特例；更本原的 Euclidean 版本取
 
 \[
-\boxed{\text{moving }V/v_2\quad+\quad\text{scale-free source }q_V\quad+\quad\text{chosen orientation }\Pi_\Omega,}
+k_E=\left\lfloor\frac n{m_2}\right\rfloor,
+\qquad
+r_n=n-k_Em_2,
+\qquad0\le r_n<m_2,
 \]
 
-外加不能重复收费的 homogeneous common scale。继续在同一 pair-max prime上制造 radius/digit-shell/Gaussian norm resultant只会恢复旧 identities；下一有效目标必须是一个 W-free、genuinely different decimal/full-concat Gaussian parent，或 `Delta_V` 的 deterministic oriented digit-shell location。
+从而把 hard source cancellation变成对短纯十进制量 `10^{r_n}` 的 coefficient-unit residue。
 
-这些结论仍不是 DD emptiness 或 explicit strict slope gap。corrected high-funnel 的 `6.308883577618...` equality geometry 仍需一个不来自 unified discriminant normalization、且不重复 sphere/pair-max depth的新全局 reader；更低 post-tail / non-canonical payer 的共同高度控制也仍开放。
+进一步把 coefficient / right-hand side 中可合法移动的完整 `10`-power一并纳入 phase，并允许向两个方向折叠，得到 circular remainder
+
+\[
+r_{\rm circ}
+=\min_{-s_{10}\le t\le c_{10},\ k\in\mathbf Z}
+|d+t-km_2|,
+\]
+
+以及 exact bound
+
+\[
+r_{\rm circ}
+\le
+\max\left(
+0,
+\left\lfloor\frac{m_2-c_{10}-s_{10}}2\right\rfloor
+\right)
+\le\frac{m_2}{2}.
+\]
+
+corrected hard support 的 modulus仍是同一 source/norm/third aggregate；因此 post-tail 分成两支：
+
+1. **ordinary circular lock 成功：** `10^{r_circ}` 是大 odd nondecimal source modulus下的唯一 ordinary representative；该支仍缺第二个 genuinely independent global parent / moving-target obstruction；
+2. **ordinary circular lock 失败：** source / norm / third / denominator-gcd residual 可逐层回收到既有 exact payers，最终没有匿名 residual。
+
+failure branch严格得到
+
+\[
+4\log_{10}F_-
+\ge4S-r_{\rm circ}-o(S),
+\]
+
+即
+
+\[
+\log_{10}F_-
+\ge S-\frac{r_{\rm circ}}4-o(S)
+\ge\frac78S-o(S).
+\]
+
+若 decimal phase interval 已覆盖一个 `m_2`-周期，即 `r_circ=0`，则加强为
+
+\[
+\log_{10}F_-\ge S-o(S).
+\]
+
+这条 failure-side result 是 payer accounting 的完成，不应被误读成 ordinary-lock 成功支已经排除。
+
+### gcd-normal `d_0` gap CRT
+
+对整个 DD gcd-normal tail 写
+
+\[
+\kappa=\gamma u,
+\qquad G=\gamma v,
+\qquad(u,v)=1,
+\]
+
+\[
+d_0=(u,Q),
+\qquad u=d_0L,
+\qquad Q=d_0q,
+\qquad(r,q)=1
+\]
+
+（其中 smooth quotient 按 theorem 中的规范记号解释）。使用 exact tail / lcm / gap identities可推出
+
+\[
+\boxed{v\mid H_{\rm sph}}.
+\]
+
+写 `H_sph=vH_0`，则 gap quotient `a` 同时满足两个互素模数的 residue：
+
+\[
+a\equiv \omega c_3A_{12}10^d\pmod{d_0},
+\]
+
+\[
+a\equiv-a_3c_3L^{-1}\pmod v,
+\qquad(d_0,v)=1.
+\]
+
+所以 `a` 被唯一固定 modulo `d_0v`。由此得到 dichotomy：
+
+- 若 `0<a<d_0v`，则 `a` 是 modulo `d_0v` 的 ordinary exact CRT representative；
+- 若 `a>=d_0v`，exact small-factor normalization给出新的 large-gap lower
+  \[
+  \boxed{F_->Q^2v^3.}
+  \]
+  从而在该 branch 上得到
+  \[
+  \frac{n}{S}
+  \le-1+2\frac mS+3\Gamma+o(1),
+  \qquad
+  \Gamma=\frac{\log_{10}\gamma}{S}.
+  \]
+
+该 dichotomy 是整个 gcd-normal DD tail 的结构加强；它仍不单独给出 `DD=empty` 或新的全 DD 显式 limsup。
 
 ## Frontier continuation
 
@@ -250,6 +319,38 @@ N_{\rm term}(S;\delta_0)
 - [`tail-rough-z0-angular-only-collapse.md`](tail-rough-z0-angular-only-collapse.md)
 - [`tail-rough-z0-two-sheet-collapse.md`](tail-rough-z0-two-sheet-collapse.md)
 
+## 机械审计
+
+2026-09-06 新增的 research checks 位于
+
+```text
+scripts/exact-lift/double-deficit/research-checks/tail/
+```
+
+覆盖 sharp constants、product / source / S-unit locks、common-scale ray、numerator collapse、pair-max scale quotient、full-`v_2` polarization、scale-free secondary carrier、norm/prefix no-go、terminal sparsity、sixfold / Euclidean / circular folding 以及 gcd-normal `d_0` CRT dichotomy。
+
+这些脚本只核对 exact algebra、常数、有限 toy instances 与离散边界；渐近 theorem 仍由正文列出的 corrected inequalities 承担。有限计算不推出全局 emptiness。
+
 ## 当前边界
 
-现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 attack 已把 corrected one-channel 的 denominator/S-unit/numerator local freedom大幅压缩：common-scale ray与 S-unit Euclidean lock覆盖整个现行 `delta<=1/2` neighborhood；fixed denominator/S-unit numerator collapse与完整 terminal sparsity扩展至 `delta<0.460744281587979...`；`v_2`-support 低 baseline可 exact quotient，留下正线性 scale-free source `q_V`、full-`v_2` projective polarization与 W-free scale-free secondary Gaussian carrier。secondary norm rationalization已被 `J_V>q_V` no-go封死，quartic continuation又明确缺第二个 safe orientation-sensitive parent。当前 canonical terminal 的真正 uniform worst case已向 moving `V/v_2`、scale-free source `q_V` 与 chosen `Pi_Omega` 的 global digit/orientation compatibility集中。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；其中 full-height hard endpoint已经压成 baseline-free pure-source core `X_{H,D}`，tail-root surviving sign只退回既有 algebra，下一步必须使用 genuinely global decimal control。subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
+现行 DD 已知 closure 必须继续按原 theorem 的显式作用域使用。
+
+**Canonical terminal：** common-scale ray、S-unit Euclidean lock、sharp source quotient 与 numerator collapse已把 fixed-fiber freedom压到 scale-free source `q_V`、moving `V/v_2` 与 chosen Gaussian orientation `Pi_Omega/Delta_V`。norm rationalization已被 `J_V>q_V` no-go封死，quartic路线缺第二个 safe orientation-sensitive parent。当前需要 genuinely different 的 W-free global digit/full-concat parent，或 `Delta_V` 的 deterministic oriented Archimedean location。
+
+**Post-tail / non-canonical：** hard source已有 sixfold → Euclidean → circular global decimal reader。ordinary-lock failure branch 已无匿名 payer，并有
+
+\[
+\log F_-
+\ge S-r_{\rm circ}/4-o(S)
+\ge7S/8-o(S).
+\]
+
+更上游的 gcd-normal `d_0` identity又把 gap quotient `a` 压成 modulo `d_0v` 的 ordinary CRT representative，或强迫 `F_->Q^2v^3`。尚未排除的是 ordinary-lock / ordinary-CRT 成功支；不能把单一 residue、counting uniqueness 或同源 Hensel rewrite当成第二 obstruction。
+
+因此当前安全状态仍是：
+
+\[
+\boxed{\text{DD remains open.}}
+\]
+
+下一真正有效目标是 ordinary source/gap CRT 的第二个 independent global parent、full-concat gcd / moving-target control，或 canonical chosen-orientation 的 W-free deterministic location。
