@@ -44,8 +44,9 @@
 ## 2026-09-06 denominator-side attack
 
 - [`dd-corrected-denominator-product-lock-2026-09-06.md`](dd-corrected-denominator-product-lock-2026-09-06.md)
+- [`dd-corrected-common-scale-ray-2026-09-06.md`](dd-corrected-common-scale-ray-2026-09-06.md)
 
-该结果在 corrected canonical `t_2=1` terminal neighborhood 的显式范围
+第一步在 corrected canonical `t_2=1` terminal neighborhood 的显式范围
 
 \[
 \delta<\delta_{qZ}=0.075150109396892\ldots
@@ -65,7 +66,44 @@ N_{\rm full}\mid v_2
 \le10^{0.767009998555\,\delta S+o(S)}.
 \]
 
-因此该 terminal 子邻域的 residual positive-linear freedom 已进一步压到 `long core v_2 + short decimal head b_1`。这仍不是 DD emptiness 或 strict slope gap；尚需控制 `v_2` 本身的 global decimal/split-prime movement。
+第二步在更宽范围
+
+\[
+\delta<\delta_{\rm ray}=0.156961684731344\ldots
+\]
+
+内，把
+
+\[
+b_1=v_1\tau_1,
+\qquad b_2=v_2\tau_2,
+\qquad Q=Uq
+\]
+
+的 cofactor compatibility写成 modulo `U` 的 projective line。两个 cofactor candidates 强迫
+
+\[
+U\mid \tau_2\tau_1'-\tau_2'\tau_1,
+\]
+
+而 determinant height严格小于 `U`，故 fixed S-unit phase / `V=v_1v_2` factor split 中 `tau_2/tau_1` 至多一个。进一步 exact reconstruction给
+
+\[
+\boxed{
+(b_1,b_2,b_3,q,\gamma)
+=(\ell\bar b_1,\ell\bar b_2,\ell\bar b_3,
+\ell\bar q,\ell^2\bar\gamma).}
+\]
+
+因此 rough `gamma` 的 movable part被降级为 common denominator scale，而不再是第二个独立 projective shape。candidate-specific denominator/S-unit entropy相应从 `sigma_S+R` sharpen 为
+
+\[
+\boxed{\sigma_S+R/2.}
+\]
+
+uniform `delta/lambda` 最坏系数暂时未改善，因为最坏方向现在集中到 Farey/projective slack `sigma_S`。在两条 theorem 的公共 neighborhood 内，上一结果所说的 `short decimal head b_1` 也进一步被识别为 common-scale coordinate；真正的 denominator projective residual只剩 Farey/S-unit phase与 `V` 的 divisor split。
+
+这些结论仍不是 DD emptiness 或 strict slope gap。当前 terminal 主攻目标已经从 arbitrary `v_2/gamma` movement进一步收缩为 **scale-quotiented Farey/projective primitive shape exclusion**；rough common scale本身是 Exact-Lift 的齐次方向，不能再被当作独立几何 payer 重复收费。
 
 ## Frontier continuation
 
@@ -95,4 +133,4 @@ N_{\rm full}\mid v_2
 
 ## 当前边界
 
-现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 的 denominator product lock 已把一个显式 corrected terminal 邻域内的 fixed-`v_2` fiber 压到短块尺度；该邻域中下一核心是 long one-channel core `v_2` 的全局 decimal/split-prime movement。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
+现行 DD 已知的 equality/frontier/subsector 关闭结论必须保留作用域。2026-09-06 的 denominator-side attack 已把 corrected terminal 的一个显式 neighborhood 中 fixed phase/factor split 的 denominator data压成唯一 common-scale ray，并把 rough-`gamma` entropy从独立 projective freedom降级为 homogeneous scale；更小的 `delta<0.07515...` neighborhood 还具有 `qZ` ordinary product lock。当前 terminal 真正的 uniform worst case已向 scale-quotiented Farey/projective `sigma_S` sector集中。更低锥与 post-tail / non-canonical payer 的共同高度控制仍然开放；subexponential counting、单一 CRT phase、fixed-target Schmidt 或某个 local collapse 都不能单独推出 DD 全局为空。
