@@ -75,17 +75,20 @@ def numeric_coefficients() -> None:
 
 
 def toy_source_lock() -> None:
-    # Q=U*q=b1*10^m2+b2 with v2|b2 and q<v2.
-    U = 43
-    q = 7
+    # Decimal-valid toy:
+    #   Q=26=2*10+6=13*2,
+    #   m2=1 and b2=6 really is a one-digit block,
+    #   v2=3 divides b2, gcd(U,v2)=1, and 0<q<v2.
     m2 = 1
-    b1 = 4
-    Q = U * q
-    b2 = Q - b1 * 10**m2
-    v2 = 29
+    b1 = 2
+    b2 = 6
+    U = 13
+    q = 2
+    v2 = 3
+    Q = b1 * 10**m2 + b2
 
-    assert Q == 301
-    assert b2 == 261
+    assert 10 ** (m2 - 1) <= b2 < 10**m2
+    assert Q == 26 == U * q
     assert b2 % v2 == 0
     assert gcd(U, v2) == 1
     assert 0 < q < v2
