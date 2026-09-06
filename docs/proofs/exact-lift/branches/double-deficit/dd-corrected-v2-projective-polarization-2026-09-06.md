@@ -41,14 +41,14 @@ v_p(b_1)=r,
 \qquad
 v_p(b_2)=v_p(b_3)=r+h.}
 \tag{1.1}
-]
+\]
 
 因为三 denominator 的最大 p-depth为 `r+h`，
 
 \[
 v_p(q_{\rm lcm})=r+h.
 \tag{1.2}
-]
+\]
 
 reducedness给 `p\nmid a_2a_3`，于是 canonical sphere coordinates
 
@@ -60,25 +60,25 @@ y_i=a_i\frac{q_{\rm lcm}}{b_i}
 \[
 \boxed{v_p(y_1)=h+v_p(a_1)\ge h,}
 \tag{1.3}
-]
+\]
 
 \[
 \boxed{v_p(y_2)=v_p(y_3)=0.}
 \tag{1.4}
-]
+\]
 
-注意这里不需要先 quotient common scale `r`；`r` 在 `q_lcm/b_i` 中自动消失。
+注意这里不需要先 quotient common scale `r`；`r` 在 `q_{\rm lcm}/b_i` 中自动消失。
 
 ---
 
-## 2. pair-max square depth强迫 `p^h|H_sph`
+## 2. pair-max square depth强迫 `p^h\mid H_{\rm sph}`
 
 one-channel pair-max sphere carrier给
 
 \[
 \boxed{p^{2h}\mid y_2^2+y_3^2.}
 \tag{2.1}
-]
+\]
 
 由 `(1.3)`：
 
@@ -102,20 +102,20 @@ p^{2h}\mid H_{\rm sph}^2.
 \[
 \boxed{p^h\mid H_{\rm sph}.}
 \tag{2.2}
-]
+\]
 
 逐 prime-power 聚合：
 
 \[
 \boxed{v_2\mid y_1,H_{\rm sph}.}
 \tag{2.3}
-]
+\]
 
 ---
 
 ## 3. `H_sph+y_3` 与 `v_2` exact coprime
 
-由 `(1.4)`，`y_3` 为 p-unit；而 `(2.2)` 给 `p|H_sph`。因此
+由 `(1.4)`，`y_3` 为 p-unit；而 `(2.2)` 给 `p\mid H_{\rm sph}`。因此
 
 \[
 H_{\rm sph}+y_3\equiv y_3\not\equiv0\pmod p.
@@ -126,14 +126,14 @@ H_{\rm sph}+y_3\equiv y_3\not\equiv0\pmod p.
 \[
 \boxed{p\nmid H_{\rm sph}+y_3.}
 \tag{3.1}
-]
+\]
 
-对全部 `p|v_2` 聚合：
+对全部 `p\mid v_2` 聚合：
 
 \[
 \boxed{(v_2,H_{\rm sph}+y_3)=1.}
 \tag{3.2}
-]
+\]
 
 primitive projective denominator exact formula为
 
@@ -148,7 +148,7 @@ Z_0
 \[
 \boxed{(v_2,Z_0)=1.}
 \tag{Full-v2-Z0-unit}
-]
+\]
 
 ---
 
@@ -166,16 +166,16 @@ y_1^2+y_2^2
 \[
 \boxed{p\nmid y_1^2+y_2^2.}
 \tag{4.1}
-]
+\]
 
 聚合：
 
 \[
 \boxed{(v_2,y_1^2+y_2^2)=1.}
 \tag{Full-v2-stereo-num-unit}
-]
+\]
 
-若 `p=\pi\bar\pi`，则 `(4.1)` 等价于 `pi,bar pi` 都不整除 Gaussian integer `y_1+i y_2`。结合 `(3.2)`，primitive stereographic coordinate
+若 `p=\pi\bar\pi`，则 `(4.1)` 等价于 `\pi,\bar\pi` 都不整除 Gaussian integer `y_1+i y_2`。结合 `(3.2)`，primitive stereographic coordinate
 
 \[
 z=\frac{y_1+i y_2}{H_{\rm sph}+y_3}
@@ -205,7 +205,7 @@ v_2\mid y_1,H_{\rm sph},\\
 \Pi^2\mid y_2+i y_3,\quad N(\Pi)=v_2.
 \end{array}}
 \tag{Full-v2-polarization}
-]
+\]
 
 它说明 `v_2` 的 chosen orientation不会自动传播到 primitive stereographic coordinate；任何试图获得第二个 independent `v_2` reader 的论证必须保留 raw pair-max line，或引入真正不同的 decimal/source parent family。
 
@@ -227,9 +227,9 @@ v_2\mid y_1,H_{\rm sph},\\
 
 ## 7. 状态摘要
 
-- **已严格完成：** full quantitative `v_2|y_1,H_sph`；
-- **已严格完成：** `(v_2,H_sph+y_3)=1`；
+- **已严格完成：** full quantitative `v_2\mid y_1,H_{\rm sph}`；
+- **已严格完成：** `(v_2,H_{\rm sph}+y_3)=1`；
 - **已严格完成：** `(v_2,Z_0)=1`；
 - **已严格完成：** `(v_2,y_1^2+y_2^2)=1`；
 - **解释：** long core仅在 pair-max Gaussian line保留 orientation，primitive stereographic geometry对其 exact transparent；
-- **仍待证：** chosen `Pi` 与 scale-free source/raw decimal prefix 的 genuinely global compatibility；explicit strict slope gap；DD emptiness。
+- **仍待证：** chosen `\Pi` 与 scale-free source/raw decimal prefix 的 genuinely global compatibility；explicit strict slope gap；DD emptiness。
