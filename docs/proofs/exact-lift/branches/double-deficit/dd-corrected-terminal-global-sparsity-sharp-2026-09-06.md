@@ -157,7 +157,7 @@ N_{\rm term}(S;\delta_0)
 扩宽因子约为
 
 \[
-\boxed{1.935389\ldots.}
+\boxed{1.935393\ldots.}
 \]
 
 ---
