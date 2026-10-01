@@ -1,0 +1,1465 @@
+{
+  "schema_version": 1,
+  "overall_status": "待证",
+  "claims": [
+    {
+      "id": "C01",
+      "branch": "common",
+      "title": "原问题、carrier 与三个穷尽分支",
+      "status": "已严格完成",
+      "scope": "所有正既约整数块；只把主目标归约为三个异常分支。",
+      "depends_on": [],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0202",
+          "start": 8,
+          "end": 211,
+          "sha256": "78099ba6741f0986053beaebfbf86e240950148923d4486e284d349ff6e1001a"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C02",
+      "branch": "common",
+      "title": "整数球面与逐坐标唯一恢复",
+      "status": "已严格完成",
+      "scope": "q=lcm(bi)，sphere 与原 word 同时成立；全体球面不等于原解。",
+      "depends_on": [
+        "C01"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 7,
+          "end": 57,
+          "sha256": "244f6788ab047151abee06b6dc74c3e40ee8e5394a6b7fdc2361a24cae05e4e3"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C03",
+      "branch": "common",
+      "title": "公共 prefix、gap 与 tail 必要系统",
+      "status": "已严格完成",
+      "scope": "只在相应 primitive-tail recovery 定义域使用；相对高度界不提供绝对上界。",
+      "depends_on": [
+        "C02"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 63,
+          "end": 291,
+          "sha256": "11047f06fc33ddb957d5183aa2938da4b6e70728b79b4509ee998564950fbdc8"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C04",
+      "branch": "common",
+      "title": "完整素幂 denominator complement",
+      "status": "已严格完成",
+      "scope": "任意分母、位数及既约分子。",
+      "depends_on": [
+        "C02"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 681,
+          "end": 720,
+          "sha256": "552987c06045c3cb1f446518f10c661e51ab8ce56de65d34636bbeb5d6e37ed0"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C05",
+      "branch": "common",
+      "title": "原 coefficient plane 的 norm 与二进分母条件",
+      "status": "已严格完成",
+      "scope": "任意共同 content；D-norm 和正二进最大深度必要条件。",
+      "depends_on": [
+        "C02"
+      ],
+      "checks": [
+        "norm-mod9"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 310,
+          "end": 360,
+          "sha256": "e5095bd3aa04cc10734696a8512408e7caba9b0b8f8e63d5022e5ded34c881d6"
+        },
+        {
+          "source": "SRC-0199",
+          "start": 451,
+          "end": 528,
+          "sha256": "3260685e179855f752f50a0fc276608c3a798a1094242dec04cc76e2962ea878"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C06",
+      "branch": "common",
+      "title": "模九无界排除及十进制幂分母推论",
+      "status": "已严格完成",
+      "scope": "共同三进单位与一般 pair-sum 3/6 阻碍；允许类仍不是解。",
+      "depends_on": [
+        "C05"
+      ],
+      "checks": [
+        "norm-mod9"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 363,
+          "end": 449,
+          "sha256": "5985e3006c5335dbc34975b522bc922a9fa59fabc86d2929ddac131dc60c2a7f"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C07",
+      "branch": "common",
+      "title": "单位前缀与一位尾分母排除",
+      "status": "已严格完成",
+      "scope": "b1=b2=1，1≤b3≤9，全部正分子。",
+      "depends_on": [
+        "C05",
+        "C04"
+      ],
+      "checks": [
+        "dd-unit-prefix"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 529,
+          "end": 562,
+          "sha256": "d5dbd12669244c11c47b6e789c39523b151f49cf6b45c9f8f6af40133ef6e4f8"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C08",
+      "branch": "common",
+      "title": "一位尾分母的 prefix 整除",
+      "status": "已严格完成",
+      "scope": "b3≤9；一般位数上 b3|10Q，unique-five-tail 的单位范围逐项保留。",
+      "depends_on": [
+        "C04"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 648,
+          "end": 679,
+          "sha256": "c4888284c01fbfe7865a6c131d79a563609391f51a5cf14f9f0c95a5ca96f600"
+        }
+      ],
+      "route": "common-model"
+    },
+    {
+      "id": "C09",
+      "branch": "common",
+      "title": "后两分母一位的完整子域",
+      "status": "有限证书",
+      "scope": "b1 任意、b2,b3≤9、三个正分子任意；全部参数归约后有限末端。",
+      "depends_on": [
+        "C01",
+        "C04",
+        "C05",
+        "C08"
+      ],
+      "checks": [
+        "suffix-tail-one",
+        "suffix-tail-one-factored",
+        "dd-suffix",
+        "dd-suffix-factored",
+        "cpp-tail-one",
+        "cpp-tail-one-factored",
+        "cpp-suffix",
+        "cpp-suffix-factored"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 724,
+          "end": 824,
+          "sha256": "259af1412ab744598fc8b4fda8659f46998806bc3c0583624eb0440c79e872a4"
+        },
+        {
+          "source": "SRC-0122",
+          "start": 3232,
+          "end": 3437,
+          "sha256": "adbe0be9cccb45c1053e0bb1e80195d6237119621863622bfeef37c2583881a1"
+        }
+      ],
+      "route": "common-certificates"
+    },
+    {
+      "id": "C10",
+      "branch": "common",
+      "title": "三个一位分母的独立复核",
+      "status": "有限证书",
+      "scope": "b1,b2,b3≤9；作为 C09 的子域推论及独立 reader 验证。",
+      "depends_on": [
+        "C09"
+      ],
+      "checks": [
+        "all-single-digits",
+        "all-single-digits-factored",
+        "dd-single-digits"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0199",
+          "start": 564,
+          "end": 647,
+          "sha256": "74a4f7fb344e7d702f386c2c0df1ac04b65643b6c33813f29aa9e4241b19b7f5"
+        }
+      ],
+      "route": "common-certificates"
+    },
+    {
+      "id": "A2-01",
+      "branch": "a2",
+      "title": "相邻边界与明确 deep-even 子片",
+      "status": "已严格完成",
+      "scope": "相邻位数边界无条件成立；deep-even 后续在 b1=2、a1∈{5,7,9,11,13} 等明确 chart 假设下使用。",
+      "depends_on": [
+        "C01",
+        "C03"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0095",
+          "start": 118,
+          "end": 1141,
+          "sha256": "7cf3b2a6af695599c2a4aabcc54b06d0c01079e21cb410a99a3c980e12bb41fc"
+        }
+      ],
+      "route": "a2-core"
+    },
+    {
+      "id": "A2-02",
+      "branch": "a2",
+      "title": "实数 phase、prefix defect 与真实余数窗",
+      "status": "已严格完成",
+      "scope": "deep-even 的既有参数 chart；保留真实 coefficient plane。",
+      "depends_on": [
+        "A2-01"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0115",
+          "start": 26,
+          "end": 776,
+          "sha256": "3df9c28f01348e688e118c3bbfe5b5866c04e240aa96d38245a56516f9ba7f10"
+        }
+      ],
+      "route": "a2-endpoint"
+    },
+    {
+      "id": "A2-03",
+      "branch": "a2",
+      "title": "端点整数、high/low m 与首个有限 slot",
+      "status": "已严格完成",
+      "scope": "明确 finite-defect 状态；high-2 allocation 中线排除及相对长度约束。",
+      "depends_on": [
+        "A2-02"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0099",
+          "start": 9,
+          "end": 1142,
+          "sha256": "3d9e812a3fc61a5edb3406d38edc34e89a2cb7fc13f25438cfa2c2d13777175f"
+        }
+      ],
+      "route": "a2-endpoint"
+    },
+    {
+      "id": "A2-04",
+      "branch": "a2",
+      "title": "primitive source 支持、共同 gcd 与预算边界",
+      "status": "已严格完成",
+      "scope": "既有 q/f/height 交集定理；同源 shadow 不构成第二份预算。",
+      "depends_on": [
+        "A2-02"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0117",
+          "start": 9,
+          "end": 848,
+          "sha256": "aedcfab195523ae157590bdb5bc4afa724702f2d16468baaea80b2d38007b4ab"
+        }
+      ],
+      "route": "a2-shared-primes"
+    },
+    {
+      "id": "A2-05",
+      "branch": "a2",
+      "title": "实际减向四阶 transport 与 terminal character",
+      "status": "已严格完成",
+      "scope": "实际 F=U(J0−J)、L=(R0−R)/K²；strict terminal 条件 (26/p)=+1。",
+      "depends_on": [
+        "A2-02"
+      ],
+      "checks": [
+        "a2-quartic",
+        "a2-third-order",
+        "a2-terminal-character"
+      ],
+      "sources": [],
+      "route": "a2-transport"
+    },
+    {
+      "id": "A2-06",
+      "branch": "a2",
+      "title": "固定 outer 例外与 terminal recycling",
+      "status": "已严格完成",
+      "scope": "pC 的共同深度一层及 exact triple-saturation 边界；不推出整个 pool 独立。",
+      "depends_on": [
+        "A2-04",
+        "A2-05"
+      ],
+      "checks": [
+        "a2-outer-root",
+        "a2-outer-exception"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0114",
+          "start": 457,
+          "end": 650,
+          "sha256": "c69a63a458cbc011f620d076b6cc210f1c91243d5bac091b2ef3ab665286a72a"
+        },
+        {
+          "source": "SRC-0119",
+          "start": 21,
+          "end": 134,
+          "sha256": "a1f1a30e56d59e57e77b11f09051dde878e5312d02bbf6b1a70e2dac1f8e04b6"
+        }
+      ],
+      "route": "a2-transport"
+    },
+    {
+      "id": "A2-07",
+      "branch": "a2",
+      "title": "fixed 3 的实际 depth 8/12",
+      "status": "已严格完成",
+      "scope": "真实 source/sphere/plane；a2-shallow f-unit 与全部 a3-shallow，包含更深 central。",
+      "depends_on": [
+        "A2-05"
+      ],
+      "checks": [
+        "a2-fixed3-depths"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0109",
+          "start": 19,
+          "end": 159,
+          "sha256": "a16cc8d5d288c3ca219baddfdbcb80cda73ab417770b46f2d66d4e7abc7a9675"
+        },
+        {
+          "source": "SRC-0109",
+          "start": 481,
+          "end": 607,
+          "sha256": "c11973ab2e4468689dfef92437f70a1807446057e4355298cffdbfdefbe54dfd"
+        }
+      ],
+      "route": "a2-fixed3"
+    },
+    {
+      "id": "A2-08",
+      "branch": "a2",
+      "title": "fixed 3 contact 的 orientation、eta=1 与八型",
+      "status": "已严格完成",
+      "scope": "eta=1 contact 排除；eta=2,e3=1 八个 positive slot；不是全候选集。",
+      "depends_on": [
+        "A2-07",
+        "A2-03"
+      ],
+      "checks": [
+        "a2-fixed3-exceptions",
+        "a2-contact-slots"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0107",
+          "start": 16,
+          "end": 509,
+          "sha256": "76d9e891243537a8d5d3b49062a532090b739ec55f6a88060c3d27778437aa2e"
+        },
+        {
+          "source": "SRC-0108",
+          "start": 9,
+          "end": 377,
+          "sha256": "5fa5bf1afa71e27901a2ebf72490c2fa3121e55ad835e914928408350171bacc"
+        },
+        {
+          "source": "SRC-0108",
+          "start": 417,
+          "end": 460,
+          "sha256": "def663b137ff3c23b5187245fbce1d25d5fb1136d7b27d9a022aa56d2674c8eb"
+        }
+      ],
+      "route": "a2-fixed3"
+    },
+    {
+      "id": "A2-09",
+      "branch": "a2",
+      "title": "实际 A3、shared 7 与唯一整数余数恢复",
+      "status": "已严格完成",
+      "scope": "列明子片的 inert label、gcd≤11、两型真实整数核；局部 lift 可无限存在。",
+      "depends_on": [
+        "A2-06",
+        "A2-08"
+      ],
+      "checks": [
+        "a2-contact-orientation"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0108",
+          "start": 475,
+          "end": 1027,
+          "sha256": "71349819e757980fddfcdec6f374e1b33697d58caa0fe46c64907b4c4949a5b0"
+        }
+      ],
+      "route": "a2-shared-primes"
+    },
+    {
+      "id": "DD-01",
+      "branch": "dd",
+      "title": "原 DD gap、surplus 与相对尾长基线",
+      "status": "已严格完成",
+      "scope": "DD 原 word/sphere 的必要系统；不把相对锥误作全局有限盒。",
+      "depends_on": [
+        "C01",
+        "C03"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0122",
+          "start": 12,
+          "end": 2715,
+          "sha256": "7f406932e7a69e61416aa005875de733808c6ab58404479a488a40f5ea4e7243"
+        }
+      ],
+      "route": "dd-model"
+    },
+    {
+      "id": "DD-B01",
+      "branch": "dd",
+      "title": "corrected Schmidt、quantitative defect 与 one-channel 基线",
+      "status": "已严格完成",
+      "scope": "经典 Subspace Theorem 下的非有效序列结论；canonical neighborhood 的参数和预算在此统一。",
+      "depends_on": [
+        "DD-01"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0135",
+          "start": 23,
+          "end": 476,
+          "sha256": "09ac46210b45c39fde0271fcb909e77e4c4354eb5d086fc258edb2b09fb06feb"
+        },
+        {
+          "source": "SRC-0134",
+          "start": 10,
+          "end": 226,
+          "sha256": "1a4c0f9545b6dd1b082df6a9c057afcacf2d89e1ee3438d6d2dddb2ce5fd661e"
+        },
+        {
+          "source": "SRC-0152",
+          "start": 11,
+          "end": 362,
+          "sha256": "7b6e487996a1cbcfe2f7fb2ae96fc09bdc6b9424fb5017a6bc1377d7d01eacbb"
+        },
+        {
+          "source": "SRC-0155",
+          "start": 11,
+          "end": 313,
+          "sha256": "e9ae792a052e43f4067735e0aec7f0b19e803adc87cc9d6734af52ccd05c0b6e"
+        }
+      ],
+      "route": "dd-terminal"
+    },
+    {
+      "id": "DD-B02",
+      "branch": "dd",
+      "title": "actual small factor、source split 与共同尺度",
+      "status": "已严格完成",
+      "scope": "gcd-normal 身份和 corrected hard sheet 的明确假设；chosen orientation 不删除。",
+      "depends_on": [
+        "DD-B01"
+      ],
+      "checks": [
+        "dd-gap-reconstruction"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0190",
+          "start": 525,
+          "end": 799,
+          "sha256": "00e6c9ccbd8b30835b21f8efadcf11f539c85a10c8ddb0bb2c47d51fb92f4a74"
+        },
+        {
+          "source": "SRC-0133",
+          "start": 31,
+          "end": 454,
+          "sha256": "7414ae7530ece580b62dbf63d7383b0d649d27a84cc297d938b8ef26b353b120"
+        },
+        {
+          "source": "SRC-0126",
+          "start": 27,
+          "end": 395,
+          "sha256": "bd13007dd5cf02f584a49683ef8a071b3f155cb5a98ed1c58486608a67e34573"
+        },
+        {
+          "source": "SRC-0123",
+          "start": 31,
+          "end": 453,
+          "sha256": "01906d35af6f9d7f8d82f869d3e0947a249eb3e476446da436975e88a27ed579"
+        },
+        {
+          "source": "SRC-0132",
+          "start": 62,
+          "end": 340,
+          "sha256": "dbbd20e243e513da9090c852afc366bc57ac8871c105e5980720829e741cf3c3"
+        }
+      ],
+      "route": "dd-model"
+    },
+    {
+      "id": "DD-02",
+      "branch": "dd",
+      "title": "全奇分母的实际 norm residue 排除",
+      "status": "已严格完成",
+      "scope": "n3>m3；m3=2、m3≥3 与 m3=1 分别列出 exact residues。",
+      "depends_on": [
+        "DD-01",
+        "C05"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0122",
+          "start": 2716,
+          "end": 2858,
+          "sha256": "9dc64678b8008bffa56d275e9df08a65481a62eca2136cf162a3f0434858027e"
+        }
+      ],
+      "route": "dd-tail"
+    },
+    {
+      "id": "DD-03",
+      "branch": "dd",
+      "title": "一位偶尾的 third-two-dominant 闭合",
+      "status": "有限证书",
+      "scope": "第三分母独占二进最高层，b3∈{2,4,6,8}，n3≥2；长前缀余 (17,6,8) 后有限。",
+      "depends_on": [
+        "DD-01",
+        "C05",
+        "C09"
+      ],
+      "checks": [
+        "dd-third-two"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0122",
+          "start": 3103,
+          "end": 3231,
+          "sha256": "6ea278230ceef36edb411335c725354cbda7725dfda53b61e8ec84849302166a"
+        }
+      ],
+      "route": "dd-tail"
+    },
+    {
+      "id": "DD-04",
+      "branch": "dd",
+      "title": "第二分母两位、尾分母 8 或 4 的完整 DD 子层",
+      "status": "有限证书",
+      "scope": "m2=2,b3=8/4,n3≥2,n2+n3>3；两 reader 全参数归约和严格尺度转移。",
+      "depends_on": [
+        "DD-01",
+        "C04",
+        "C05"
+      ],
+      "checks": [
+        "dd-eight-tail",
+        "dd-eight-tail-factored",
+        "dd-four-tail"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0122",
+          "start": 3438,
+          "end": 3595,
+          "sha256": "b1451b5807ab246c027a5de44772448f9beae660cfbca10d4714215c4bc27e15"
+        }
+      ],
+      "route": "dd-tail"
+    },
+    {
+      "id": "DD-05",
+      "branch": "dd",
+      "title": "gcd-normal 的两个真实 gap readers",
+      "status": "已严格完成",
+      "scope": "整个 DD gcd-normal tail；odd source 模数的 coefficient stripping 另注明范围。",
+      "depends_on": [
+        "DD-01",
+        "DD-B02"
+      ],
+      "checks": [
+        "dd-gap-crt"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0174",
+          "start": 32,
+          "end": 709,
+          "sha256": "3966be73de361a4ede22a44e6a2c3de8ae4c24febdf0adf61d4a4c8d84b60474"
+        }
+      ],
+      "route": "dd-model"
+    },
+    {
+      "id": "DD-06",
+      "branch": "dd",
+      "title": "共享预算下 canonical large gap 的渐近排除",
+      "status": "已严格完成",
+      "scope": "canonical t2=1，delta≤1/2 的无界序列最终 a<d0v；非有效，没有绝对 cutoff。",
+      "depends_on": [
+        "DD-05",
+        "DD-B01"
+      ],
+      "checks": [
+        "dd-gap-crt"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0174",
+          "start": 721,
+          "end": 960,
+          "sha256": "c331c78cbc1a74fd5c873b92cecad9f80f95f6e638dfeb68577ce97a7eee0481"
+        }
+      ],
+      "route": "dd-terminal"
+    },
+    {
+      "id": "DD-07",
+      "branch": "dd",
+      "title": "unique-five-tail、第二分母至多两位的无界排除",
+      "status": "已严格完成",
+      "scope": "b3=5,5∤b1b2,1≤m2≤2,n3≥2；不覆盖 m2≥3 或五进 prefix。",
+      "depends_on": [
+        "DD-05",
+        "C08"
+      ],
+      "checks": [
+        "dd-gap-crt"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0174",
+          "start": 961,
+          "end": 1123,
+          "sha256": "7d61837a955c15dc977b92be3a9b6c1646e8a543c55055d3cae33797d804ab1b"
+        }
+      ],
+      "route": "dd-tail"
+    },
+    {
+      "id": "DD-08",
+      "branch": "dd",
+      "title": "denominator entropy 与非循环 joint count",
+      "status": "已严格完成",
+      "scope": "fixed delta0<1/2；保留短 suffix 的线性 entropy，条件唯一性不串成 joint 唯一。",
+      "depends_on": [
+        "DD-05",
+        "DD-B01",
+        "DD-B02"
+      ],
+      "checks": [
+        "dd-denominator-entropy",
+        "dd-numerator-count",
+        "dd-global-sparsity",
+        "dd-gap-reconstruction"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0151",
+          "start": 51,
+          "end": 391,
+          "sha256": "2fea3e230c637a9c26bfffd9f20099acada507ee2c149e0b69ea0053504dbe65"
+        },
+        {
+          "source": "SRC-0140",
+          "start": 61,
+          "end": 463,
+          "sha256": "d681f356e15e57d38d39342f49e40899464052e72eadb00dde74eb014c8238ef"
+        },
+        {
+          "source": "SRC-0140",
+          "start": 494,
+          "end": 551,
+          "sha256": "af9827735d4e95a11e2990bfd8c213a7ff802645055c0a48e70965e4066ac21c"
+        },
+        {
+          "source": "SRC-0153",
+          "start": 19,
+          "end": 212,
+          "sha256": "0bc33d733378edbfdeab73eeeca7ffa2a427085a41788d1906d9ed2fe3778ec2"
+        }
+      ],
+      "route": "dd-entropy"
+    },
+    {
+      "id": "DD-09",
+      "branch": "dd",
+      "title": "ordinary full-word 与 selected sheets 的依赖边界",
+      "status": "已严格完成",
+      "scope": "full-concat 恰被原 source-gap determinant 吸收；norm 不自动供新 payer。",
+      "depends_on": [
+        "DD-05",
+        "DD-08"
+      ],
+      "checks": [
+        "dd-numerator-count"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0143",
+          "start": 137,
+          "end": 519,
+          "sha256": "b48782bd7bc4e9e3d0e895a17959e7275e7caeb935a9605acf4e4cbe6a5ed05d"
+        }
+      ],
+      "route": "dd-orientation"
+    },
+    {
+      "id": "DD-10",
+      "branch": "dd",
+      "title": "canonical Z=3 mod4 的无界序列排除",
+      "status": "已严格完成",
+      "scope": "同一 corrected canonical delta≤1/2 neighborhood；不排 finite exceptions。",
+      "depends_on": [
+        "DD-06",
+        "C05"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0158",
+          "start": 11,
+          "end": 552,
+          "sha256": "4769b0c2e5f585c590f7d76fe7c642259e42af4c26bd18f5c53de7d05a85847f"
+        },
+        {
+          "source": "SRC-0158",
+          "start": 574,
+          "end": 708,
+          "sha256": "a49c54562192e9e1c1f19719f8353ae30430cfd6c341a55189a07fb78ab382c3"
+        }
+      ],
+      "route": "dd-terminal"
+    },
+    {
+      "id": "A1-01",
+      "branch": "a1",
+      "title": "原 rational contact 与 universal denominator funnel",
+      "status": "已严格完成",
+      "scope": "A1 chamber；固定前缀和固定 g 的尾问题，不能合并为全局有限。",
+      "depends_on": [
+        "C01",
+        "C02"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0055",
+          "start": 31,
+          "end": 549,
+          "sha256": "7a4476d0e8aea6c7233b0882a9641d858a3d33a1226c89c4872027853500ee59"
+        },
+        {
+          "source": "SRC-0055",
+          "start": 718,
+          "end": 1182,
+          "sha256": "50213cd35ccf5e03f1efe3a3f69979daa238556253ca8ba3ecb0ec4e57e6bbe2"
+        },
+        {
+          "source": "SRC-0055",
+          "start": 1240,
+          "end": 1589,
+          "sha256": "83b8bd17f5fb88fd2bd5c07383edd209a78a95eada3e6805e3bde93ef88483d2"
+        },
+        {
+          "source": "SRC-0055",
+          "start": 1668,
+          "end": 2096,
+          "sha256": "9cc8ceff6eb6edc3b07d3b3c247af55474679413ea83fad2615d1b21f5cdc38c"
+        },
+        {
+          "source": "SRC-0055",
+          "start": 2152,
+          "end": 2673,
+          "sha256": "8761ff4c7aad8854ec6e44a99dc2b92661187a3fe981f6a558c0b981f6e87fe9"
+        },
+        {
+          "source": "SRC-0055",
+          "start": 2698,
+          "end": 3100,
+          "sha256": "0c8f747b2c670f602fb30474e06a8f61d3f9cdc2e0a1fb91a2b63e7c2c7cef3a"
+        }
+      ],
+      "route": "a1-contact"
+    },
+    {
+      "id": "A1-02",
+      "branch": "a1",
+      "title": "moving-prefix contact 与全局四层",
+      "status": "已严格完成",
+      "scope": "P=(1−lambda)10^k r1+lambda 10^(−g)r2；s1−g∈{−1,0,1,2}。",
+      "depends_on": [
+        "A1-01"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 23,
+          "end": 454,
+          "sha256": "5d558a3da0b23a20e547f45199b7a5f8973995f65775b64aec9887be2bb2f77f"
+        },
+        {
+          "source": "SRC-0089",
+          "start": 969,
+          "end": 1445,
+          "sha256": "25f311d501ac56fc4e7f680c6f7a353037202d8ef83740b0f40e0268a2c0fc9f"
+        }
+      ],
+      "route": "a1-contact"
+    },
+    {
+      "id": "A1-03",
+      "branch": "a1",
+      "title": "最高层的 residue、half gap 与正 excess",
+      "status": "已严格完成",
+      "scope": "仅 d=2；endpoint 参数不移植到低层。",
+      "depends_on": [
+        "A1-02"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 1482,
+          "end": 2310,
+          "sha256": "84ffbfb35c435f0f0f5135741c0e326f252d7b1769205dbf584ba45040450383"
+        },
+        {
+          "source": "SRC-0089",
+          "start": 2401,
+          "end": 2856,
+          "sha256": "1c44fd1a3f0a2f479f6558319f19bbd205179eec7ee81662a3c7d4c9fd2c4e99"
+        },
+        {
+          "source": "SRC-0089",
+          "start": 2938,
+          "end": 3401,
+          "sha256": "c360e2178d0688d26d255ff1dd0b4ee7f92360561cfb9a4d1ef7dc6a4e05fc28"
+        },
+        {
+          "source": "SRC-0089",
+          "start": 3470,
+          "end": 3696,
+          "sha256": "347ba6d826ec6eca28fb6b12294e7dae1efdb47045a5c2582f9d25e875565ebf"
+        },
+        {
+          "source": "SRC-0089",
+          "start": 3758,
+          "end": 4194,
+          "sha256": "6ae5d139b842caffeab0eeb5c634be2e8a2df6527a62967af9531e863fdf6144"
+        }
+      ],
+      "route": "a1-top"
+    },
+    {
+      "id": "A1-04",
+      "branch": "a1",
+      "title": "任意双 surplus 的统一稳定区",
+      "status": "已严格完成",
+      "scope": "d=2,g≥1,k+s≥2g+2,k+r≥g+1,N≤min(4g,2k)；原整数严格落入 (0,1)。",
+      "depends_on": [
+        "A1-03"
+      ],
+      "checks": [
+        "a1-joint-surplus"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0085",
+          "start": 448,
+          "end": 683,
+          "sha256": "6280310f30ef03cdf04bda3627e4733e98be34d20e3cd0a85d2ec94a84fea260"
+        },
+        {
+          "source": "SRC-0085",
+          "start": 717,
+          "end": 831,
+          "sha256": "f8d04cee2fe31be1ed69a830a9e6f1d00e4313be75e2c2dd2f20372ebb187046"
+        }
+      ],
+      "route": "a1-top"
+    },
+    {
+      "id": "A1-05",
+      "branch": "a1",
+      "title": "首 radius 壳与 contact 壁的严格子片",
+      "status": "已严格完成",
+      "scope": "N=4g+1 的上 significand；k+r=g 的低 significand；其余保留。",
+      "depends_on": [
+        "A1-04"
+      ],
+      "checks": [
+        "a1-joint-surplus"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0085",
+          "start": 684,
+          "end": 716,
+          "sha256": "aa692c9af5f6b280c6959fe61cbeea20805841d6aff20415867431497d1a6eb7"
+        },
+        {
+          "source": "SRC-0085",
+          "start": 832,
+          "end": 1859,
+          "sha256": "8021f14d1568d4a878f76521f1e288366d634e57629a3ac5d015d6fdd21e9221"
+        }
+      ],
+      "route": "a1-top"
+    },
+    {
+      "id": "A1-K01",
+      "branch": "a1",
+      "title": "最低层 significand 严格递增",
+      "status": "已严格完成",
+      "scope": "d=-1，tau2≤tau1（特别是 b2 为十进制幂）无界为空。",
+      "depends_on": [
+        "A1-02",
+        "C05"
+      ],
+      "checks": [
+        "a1-kernels"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5064,
+          "end": 5087,
+          "sha256": "b6704152057b7024a5303a52ba0ab9ca91b98984fba2c144c751d81aa8ea3279"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K02",
+      "branch": "a1",
+      "title": "balanced 且前缀深度不等的 g=0 子域",
+      "status": "已严格完成",
+      "scope": "三个分母 balanced、g=0、a≠b；一般 g 的 c>b+g 子片同样排除。",
+      "depends_on": [
+        "A1-02",
+        "C05"
+      ],
+      "checks": [
+        "a1-kernels"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5088,
+          "end": 5176,
+          "sha256": "917c5abf907da87563624ed418d88b89b582b15678f2d557ca2fe60ccc805f6d"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K03",
+      "branch": "a1",
+      "title": "等深 word corridor 与公共模九边界",
+      "status": "已严格完成",
+      "scope": "equal-prefix e≥1，c>e+g 的严格 word corridor；只是必要形状。",
+      "depends_on": [
+        "A1-02",
+        "C05"
+      ],
+      "checks": [
+        "a1-kernels"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5177,
+          "end": 5198,
+          "sha256": "3286e87d8ea6995242a809b5711dca96437c08b8bd449404775abead2e62ec10"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K04",
+      "branch": "a1",
+      "title": "g=1 的 unequal-prefix-depth 排除",
+      "status": "已严格完成",
+      "scope": "三个分母 balanced、g=1、a≠b，unit 因子任意。",
+      "depends_on": [
+        "A1-02",
+        "C05"
+      ],
+      "checks": [
+        "a1-kernels"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5199,
+          "end": 5240,
+          "sha256": "eca69400c769895b6a8c4bc3f99dfa668f92da33a898c054da7c9b70d2e0d924"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K05",
+      "branch": "a1",
+      "title": "实际 product 的分段条件",
+      "status": "已严格完成",
+      "scope": "g=0 或 delta≥g+2 为 11/19 mod20；delta=g+1 且 g≥1 为 1/9。",
+      "depends_on": [
+        "A1-02",
+        "C05"
+      ],
+      "checks": [
+        "a1-kernels"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5241,
+          "end": 5294,
+          "sha256": "b2c81e6d288902450b46e9dc736e9472c243b9dead05b0e5d030b143a267c92f"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K06",
+      "branch": "a1",
+      "title": "equal-prefix 三层与 g=1 resonance",
+      "status": "已严格完成",
+      "scope": "equal-prefix e≥1 的 delta>g / <g / =g；g=1,delta=1 为空。",
+      "depends_on": [
+        "A1-02",
+        "C05"
+      ],
+      "checks": [
+        "a1-kernels"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5295,
+          "end": 5338,
+          "sha256": "03d3d8c4384fd1d210d65ec41c36800d05beb8b389f76254b6d4ca685cce6c2d"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K07",
+      "branch": "a1",
+      "title": "纯等前缀 j|Q0 与奇数深度排除",
+      "status": "已严格完成",
+      "scope": "纯等前缀、balanced tail 的 j|Q0；g=0 奇数 e 及 strict 指定范围为空。",
+      "depends_on": [
+        "A1-K06"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5339,
+          "end": 5385,
+          "sha256": "d0ba423dadd36efa9f525c6526a7d4c32142800562e512404d38ac9ea8ff4b36"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K08",
+      "branch": "a1",
+      "title": "纯等前缀 g=0,d=1 的深 k 排除",
+      "status": "已严格完成",
+      "scope": "g=0,d=1,b1=b2=10^e,e≥1,2k≥e+2；第三分母任意。",
+      "depends_on": [
+        "A1-K06"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5386,
+          "end": 5430,
+          "sha256": "531c271a9445ba3f74365019d78f266bf6e6c50216919219c7692ef94eb064d6"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-K09",
+      "branch": "a1",
+      "title": "原 numerator quadratic、norm 允许点与纯等前缀 d=2 排除",
+      "status": "已严格完成",
+      "scope": "原恢复方程及全部 g≥0,d=2,b1=b2=10^e；norm 允许点不证明解。",
+      "depends_on": [
+        "A1-K07",
+        "A1-K08"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5452,
+          "end": 5526,
+          "sha256": "27d99fb94649557797b1881838be8d04f6d059ec2d122005c9c23beabbe181cf"
+        }
+      ],
+      "route": "a1-denominators"
+    },
+    {
+      "id": "A1-F02",
+      "branch": "a1",
+      "title": "g=0,e=2 的完整有限末端",
+      "status": "有限证书",
+      "scope": "b1=b2=100，第三分母 balanced；(delta,j) 与全部原分子窗口在 A1-K09 给出。",
+      "depends_on": [
+        "A1-K09"
+      ],
+      "checks": [
+        "a1-e2"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5527,
+          "end": 5580,
+          "sha256": "37c543647952fa3ddaad340d122197064e3da574c62c079baa97a41bb7e45f5a"
+        }
+      ],
+      "route": "a1-finite"
+    },
+    {
+      "id": "A1-F04",
+      "branch": "a1",
+      "title": "g=0,e=4 的完整有限末端",
+      "status": "有限证书",
+      "scope": "b1=b2=10^4，第三分母 balanced；两个 (delta,j) 状态，全部合法 k。",
+      "depends_on": [
+        "A1-K09"
+      ],
+      "checks": [
+        "a1-e4",
+        "cpp-a1-e4"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5581,
+          "end": 5654,
+          "sha256": "15dde8a3bbc3ded7c7fa000f5b139a3708a9298ab30c01afb8e7395eedd5cec3"
+        }
+      ],
+      "route": "a1-finite"
+    },
+    {
+      "id": "A1-F12",
+      "branch": "a1",
+      "title": "g=1 首 strict 边界与单位前缀的完整末端",
+      "status": "有限证书",
+      "scope": "g=1,delta=2,e≥1 balanced-tail；g=0,b1=b2=1 balanced-tail。",
+      "depends_on": [
+        "A1-K07",
+        "A1-K09"
+      ],
+      "checks": [
+        "a1-first-strict",
+        "a1-unit-prefix"
+      ],
+      "sources": [
+        {
+          "source": "SRC-0089",
+          "start": 5655,
+          "end": 5749,
+          "sha256": "5bdd0a3c171253c479292878e8edd6fc1c70e569ed9cc619c687d806ab3c48dc"
+        }
+      ],
+      "route": "a1-finite"
+    },
+    {
+      "id": "OPEN-A2",
+      "branch": "a2",
+      "title": "A2 整分支空性",
+      "status": "待证",
+      "scope": "全部原始正既约三块数据。",
+      "depends_on": [
+        "A2-09"
+      ],
+      "checks": [],
+      "sources": [],
+      "route": "a2-core"
+    },
+    {
+      "id": "OPEN-DD",
+      "branch": "dd",
+      "title": "DD 整分支空性",
+      "status": "待证",
+      "scope": "全部原始正既约三块数据。",
+      "depends_on": [
+        "DD-10"
+      ],
+      "checks": [],
+      "sources": [],
+      "route": "dd-terminal"
+    },
+    {
+      "id": "OPEN-A1",
+      "branch": "a1",
+      "title": "A1 整分支空性",
+      "status": "待证",
+      "scope": "全部原始正既约三块数据。",
+      "depends_on": [
+        "A1-F12",
+        "A1-05"
+      ],
+      "checks": [],
+      "sources": [],
+      "route": "a1-moving"
+    },
+    {
+      "id": "MAIN",
+      "branch": "common",
+      "title": "主不存在性命题",
+      "status": "待证",
+      "scope": "全部原始正既约三块数据。",
+      "depends_on": [
+        "C01",
+        "OPEN-A2",
+        "OPEN-DD",
+        "OPEN-A1"
+      ],
+      "checks": [],
+      "sources": [],
+      "route": "common-model"
+    }
+  ],
+  "routes": [
+    {
+      "id": "common-model",
+      "branch": "common",
+      "title": "原方程与必要投影",
+      "status": "已严格完成",
+      "boundary": "原十进制 cut、整数球面与分母投影；投影允许点不是解。"
+    },
+    {
+      "id": "common-certificates",
+      "branch": "common",
+      "title": "有高度归约的完整子域证书",
+      "status": "有限证书",
+      "boundary": "一位后缀等明示子域；每项先证明全部参数界。"
+    },
+    {
+      "id": "a2-core",
+      "branch": "a2",
+      "title": "相邻边界与 deep-even 参数核",
+      "status": "待证",
+      "boundary": "m2≥11 的无界 deep-even core。"
+    },
+    {
+      "id": "a2-endpoint",
+      "branch": "a2",
+      "title": "真实端点、source 与 prefix-gcd",
+      "status": "待证",
+      "boundary": "移动前缀、原 numerator 与 sphere-height 的联合兼容。"
+    },
+    {
+      "id": "a2-transport",
+      "branch": "a2",
+      "title": "实际减向的有限四阶递推",
+      "status": "待证",
+      "boundary": "terminal pool 外的供应与高阶饱和。"
+    },
+    {
+      "id": "a2-fixed3",
+      "branch": "a2",
+      "title": "fixed 3 与真实 contact",
+      "status": "待证",
+      "boundary": "eta=2 的八型及更深 source cancellation。"
+    },
+    {
+      "id": "a2-shared-primes",
+      "branch": "a2",
+      "title": "同源素数交集与 shared 7",
+      "status": "待证",
+      "boundary": "局部无限 lift 与全局 divisor / remainder / sphere。"
+    },
+    {
+      "id": "a2-height",
+      "branch": "a2",
+      "title": "相位、长度与高度预算",
+      "status": "待证",
+      "boundary": "需原十进制窗口的独立约束；局部刚性不足。"
+    },
+    {
+      "id": "a2-retired",
+      "branch": "a2",
+      "title": "撤回的加向 transport 与下降",
+      "status": "失效/降级",
+      "boundary": "plus hierarchy、旧 6/10 初项、未保持 coefficient plane 的下降。"
+    },
+    {
+      "id": "dd-model",
+      "branch": "dd",
+      "title": "gcd-normal 原始 gap 系统",
+      "status": "待证",
+      "boundary": "普通 small gap 与 full-concat 同源 determinant。"
+    },
+    {
+      "id": "dd-tail",
+      "branch": "dd",
+      "title": "低层尾分母与完整有限末端",
+      "status": "有限证书",
+      "boundary": "逐项限定后缀、位数和赋值；不覆盖一般多位分母。"
+    },
+    {
+      "id": "dd-terminal",
+      "branch": "dd",
+      "title": "corrected canonical terminal",
+      "status": "待证",
+      "boundary": "Z=1 mod4 的 ordinary small-gap 无界 joint family。"
+    },
+    {
+      "id": "dd-entropy",
+      "branch": "dd",
+      "title": "共享预算与非循环稀疏计数",
+      "status": "已严格完成",
+      "boundary": "fixed delta0<1/2 的 sparse bound；稀疏不推出空。"
+    },
+    {
+      "id": "dd-orientation",
+      "branch": "dd",
+      "title": "chosen Gaussian sheets 与独立性",
+      "status": "待证",
+      "boundary": "移动 orientation；不能重复支付原 sphere/word。"
+    },
+    {
+      "id": "dd-decimal",
+      "branch": "dd",
+      "title": "noncanonical decimal / circular 成功支",
+      "status": "待证",
+      "boundary": "ordinary circular-lock 成功支与完整 moving-target control。"
+    },
+    {
+      "id": "dd-retired",
+      "branch": "dd",
+      "title": "撤回的 root transfer 与循环计数",
+      "status": "失效/降级",
+      "boundary": "fixed-denominator 联合 subexponential 与无条件 General-transfer。"
+    },
+    {
+      "id": "a1-contact",
+      "branch": "a1",
+      "title": "原始 rational contact 与四层",
+      "status": "待证",
+      "boundary": "固定前缀有限，前缀的并集仍无界。"
+    },
+    {
+      "id": "a1-top",
+      "branch": "a1",
+      "title": "最高层稳定区与放大边界",
+      "status": "待证",
+      "boundary": "低 radius significand、contact endpoint 和更深 surplus。"
+    },
+    {
+      "id": "a1-denominators",
+      "branch": "a1",
+      "title": "balanced 深度与真实 numerator recovery",
+      "status": "待证",
+      "boundary": "一般 units、非 balanced 分母及高偶数纯等前缀。"
+    },
+    {
+      "id": "a1-finite",
+      "branch": "a1",
+      "title": "固定层的完整证书",
+      "status": "有限证书",
+      "boundary": "每份证书按实际假设审计；不拼成全局盒。"
+    },
+    {
+      "id": "a1-moving",
+      "branch": "a1",
+      "title": "moving-prefix / 深分母的剩余路线",
+      "status": "待证",
+      "boundary": "joint source、word cut 与真实 integer gap。"
+    },
+    {
+      "id": "a1-retired",
+      "branch": "a1",
+      "title": "撤回的尺度推广与漏条件",
+      "status": "失效/降级",
+      "boundary": "LK17G、错误 recovery 符号、旧 r=1 漏 k≥g。"
+    },
+    {
+      "id": "external-audit",
+      "branch": "external",
+      "title": "外部材料的适用范围审计",
+      "status": "待证",
+      "boundary": "来源自身状态与本仓库采纳状态分开；frozen top-DD 不覆盖 DD。"
+    },
+    {
+      "id": "repository-history",
+      "branch": "repository",
+      "title": "环境与迁移记录",
+      "status": "已严格完成",
+      "boundary": "仅保存源码和组织沿革，不是数学证明。"
+    }
+  ]
+}

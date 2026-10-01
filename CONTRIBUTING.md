@@ -1,73 +1,45 @@
-# 贡献与证明记录规范
+# 修改与核对规范
 
-本仓库把 Git 当作证明研究的实验记录。一次提交应尽量只表达一个可复核的主题，例如“拆分 DD 章节”“补充 A2 的有限证书”“修正统一符号”，不要把格式重排、依赖升级和新猜想混在一起。
+每项数学结果只有一个现行正文位置。修改 PROOF.md 中最具体的命题；试探、反例投影和失败推导写入 RESEARCH.md 对应 route。日期可以记在 Git 提交中，不再成为文件组织单位。
 
-## 开始工作
+## 命题条目
 
-```bash
-uv sync --locked
-git status --short
-uv run python scripts/proof_tree.py check
+```text
+稳定 ID 与标题
+状态：已严格完成 / 有限证书 / 待证 / 失效/降级
+范围：全部变量的取值和额外假设
+依赖：具体命题 ID
+结论：必要条件、完整子域空性或剩余系统
+证明：从依赖出发的完整推导
+计算：参数界、核对 ID、输出、是否覆盖无界参数
+来源：历史 SRC ID 与行号；新原创推导说明新增部分
+边界：未覆盖的参数或推理缺口
 ```
 
-## 修改证明
+同步更新 registry/claims.json；依赖须无环，待证/撤回条目不能为“已严格完成”提供未证明的前提。历史原命题自称的状态仅是来源信息，不能越过现行审计。结构验证会检查登记表、正文锚点、check 覆盖和历史哈希；不会自动判定证明正确。
 
-结构化文件位于 `docs/proofs/exact-lift/`。每一条新增结论至少应包含：
+## 核对代码
 
-- 命题或目标；
-- 假设和变量范围；
-- 推导或证书；
-- 依赖的定义、引理和文件；
-- 当前状态及其理由；
-- 如果有计算，给出可重跑命令和边界。
-
-先从对应分支 `README.md` 选择现有规范专题或 `*-ledger.md`。主线状态写入规范专题，细粒度 continuation 写入匹配的依赖账本，并把摘要同步回分支 README；不要为同一研究链继续增加平行小文件。确需新文件时，必须同时把它加入分支 README，否则 `proof_tree.py check` 会拒绝不可达文档。
-
-状态只允许使用以下四类：
-
-| 状态 | 含义 |
-|---|---|
-| `已严格完成` | 推导在写明的假设下闭合，没有依赖未声明的无界步骤。 |
-| `有限证书` | 只覆盖显式有限范围，不能外推到全局。 |
-| `待证` | 研究方向或尚未闭合的引理。 |
-| `失效/降级` | 已知有逻辑缺口、退化或不保持原结构。 |
-
-## 计算实验
-
-优先使用确定性、整数化和可复核的程序。实验记录应写清楚：
-
-- 输入范围与筛选条件；
-- 使用的 Python/包版本（由 `uv.lock` 定义）；
-- 运行命令；
-- 输出和失败条件；
-- 它是证明、有限证书，还是仅用于诊断。
-
-计算结果默认放在 `/tmp` 或被 `.gitignore` 排除的目录中。若结果本身是证明所需的证书，应提交生成它的短脚本和足够小的证书，而不是只提交海量输出。稳定证书放在分支脚本顶层；细粒度研究核对放在 `scripts/exact-lift/<branch>/research-checks/<dependency-theme>/`。
-
-## 文档和检查
-
-修改文档后运行：
+计算入口以 registry/checks.json 为准；CHECKS.md 解释 scope 与模式。需要更改运行模式时同步两个位置，并核对相关主稿命题。证书输出留在 /tmp，命题中记录可复算的计数和边界，不提交大输出。
 
 ```bash
-uv run python scripts/proof_tree.py check
+uv run python main.py check
+uv run python main.py verify <id>
+uv run python -m unittest discover -s tests
+uv run python -m compileall -q main.py repository.py checks tests
 git diff --check
 ```
 
-修改 Python 后再运行：
+只有路径或注释变化时，检查 import/runpy 路径和算术 AST 保持，再跑相关核对。改变数学内容时重新证明实际假设与边界；有限回归不能替代无界论证。
+
+## 来源与复查
 
 ```bash
-uv run python -m compileall main.py scripts
-uv run python -m pytest
+uv run python main.py list sources --route a1-denominators
+uv run python main.py source show SRC-0001
+uv run python main.py source search '精确身份'
 ```
 
-当前项目还没有强制测试套件；这不等于数学结论已经验证。没有测试时，应在交付说明中明确写出“结构/语法检查通过”和“数学全局证明仍未完成”的边界。
+621 个旧文件全部保存在单个不可变来源包；ledger 的每条来源有独立记录 ID。原文无需再次复制到新专题。现行命题的提取范围、逐段哈希和符号修复在 history/sources.json 与 registry/claims.json 中记录。
 
-## 提交前检查
-
-提交前查看完整 diff，确认没有意外改动根目录原始快照、`uv.lock` 或用户已有文件。提交信息建议使用简短动词开头，例如：
-
-```text
-docs: split exact-lift proof tree
-research: record DD open core
-chore: add proof tree validator
-```
+环境版本与锁文件保留原值，因为它们承担复现契约。整理不更改数值范围、证书算法或既有未提交成果。提交前用 git diff 核对最终树；推送、合并和重写 Git 历史遵循用户授权。

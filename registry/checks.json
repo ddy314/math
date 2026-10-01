@@ -1,0 +1,568 @@
+{
+  "schema_version": 1,
+  "checks": [
+    {
+      "id": "norm-mod9",
+      "path": "checks/common/norm_mod9.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "符号 norm 恒等式；702 模九类，144 排除、558 允许。",
+      "claims": [
+        "C05",
+        "C06"
+      ],
+      "source": "SRC-0504",
+      "sha256": "6fab16dfe3d5992c1a20345c58873c41b7c1dd1a1081b6dfc46689295eb04c18"
+    },
+    {
+      "id": "all-single-digits",
+      "path": "checks/common/single_digits.py",
+      "args": [],
+      "kind": "python",
+      "group": "full",
+      "purpose": "26,836,101 行；三个一位分母；全部分子高度归约。",
+      "claims": [
+        "C10"
+      ],
+      "source": "SRC-0505",
+      "sha256": "04b75a1a46b5e6b7e35a0280847ce6abf16d125663cda575fefe1bf2e7f9de0c"
+    },
+    {
+      "id": "all-single-digits-factored",
+      "path": "checks/common/single_digits.py",
+      "args": [
+        "--reader",
+        "factored"
+      ],
+      "kind": "python",
+      "group": "full",
+      "purpose": "同一覆盖的 factored reader。",
+      "claims": [
+        "C10"
+      ],
+      "source": "SRC-0505",
+      "sha256": "04b75a1a46b5e6b7e35a0280847ce6abf16d125663cda575fefe1bf2e7f9de0c"
+    },
+    {
+      "id": "suffix-tail-one",
+      "path": "checks/common/single_digit_suffix.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "后两分母一位，n3=1；45,015 行。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0506",
+      "sha256": "24f1a87784d9d5d74c5edbe4810ec9d3004e0b29eec4cc54b3ebf40848101691"
+    },
+    {
+      "id": "suffix-tail-one-factored",
+      "path": "checks/common/single_digit_suffix.py",
+      "args": [
+        "--reader",
+        "factored"
+      ],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "尾一位 factored reader；45,015 行。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0506",
+      "sha256": "24f1a87784d9d5d74c5edbe4810ec9d3004e0b29eec4cc54b3ebf40848101691"
+    },
+    {
+      "id": "a1-kernels",
+      "path": "checks/a1/denominator_kernels.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "恒等式、深度三分裂及真实 product 条件。",
+      "claims": [
+        "A1-K01",
+        "A1-K02",
+        "A1-K03",
+        "A1-K04",
+        "A1-K05",
+        "A1-K06"
+      ],
+      "source": "SRC-0267",
+      "sha256": "a0a7dbb96f5fa3f46501f4a7fb7c5809e96b949beadc444f140bf9e99b461730"
+    },
+    {
+      "id": "a1-e2",
+      "path": "checks/a1/pure_equal_e2.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "g=0,e=2 balanced-tail；5050 prefix / 219101 J。",
+      "claims": [
+        "A1-F02"
+      ],
+      "source": "SRC-0262",
+      "sha256": "d2fc8774d909fa728f4566d7eb2da065959d0a91f53c904fd55bce13d90dd58f"
+    },
+    {
+      "id": "a1-e4",
+      "path": "checks/a1/pure_equal_e4.py",
+      "args": [],
+      "kind": "python",
+      "group": "full",
+      "purpose": "C++ 枚举 262115848 J，Python 独立复核 1377 筛后候选。",
+      "claims": [
+        "A1-F04"
+      ],
+      "source": "SRC-0264",
+      "sha256": "415abc06cb8def256b66f5a150ff3c9feda1c36e31abad6e1ce8347c24f74570"
+    },
+    {
+      "id": "a1-first-strict",
+      "path": "checks/a1/first_strict.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "g=1,delta=2；2566 prefix / 30923 J，平方投影仍无法恢复合法根。",
+      "claims": [
+        "A1-F12"
+      ],
+      "source": "SRC-0266",
+      "sha256": "efe93623dedc0ff7bb0c78096bf80521e0dbedcf1022770c1e3e871885e20dd2"
+    },
+    {
+      "id": "a1-unit-prefix",
+      "path": "checks/a1/unit_prefix.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "g=0,b1=b2=1 balanced-tail；855 prefix / 161 J。",
+      "claims": [
+        "A1-F12"
+      ],
+      "source": "SRC-0265",
+      "sha256": "8188e048affe7f73bbdbd4ec8c7ee2858d498123c36cfde80306471c451ed2b9"
+    },
+    {
+      "id": "a1-joint-surplus",
+      "path": "checks/a1/joint_surplus.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "JS 恒等式和精确不等式；有界样例不承担无界证明。",
+      "claims": [
+        "A1-04",
+        "A1-05"
+      ],
+      "source": "SRC-0269",
+      "sha256": "efb20872e3b272eea6bf7fc4bcb3785965ee059911b584107abc89d4f05f570d"
+    },
+    {
+      "id": "a2-fixed3-exceptions",
+      "path": "checks/a2/fixed3_exceptions.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "a3 深 central 的 depth 12 与 eta=1 矛盾。",
+      "claims": [
+        "A2-08"
+      ],
+      "source": "SRC-0291",
+      "sha256": "5dc46a3d6797049eae2e4c2d79547a4c1e0dd31bb924045bf1e943c047186759"
+    },
+    {
+      "id": "a2-fixed3-depths",
+      "path": "checks/a2/fixed3_depths.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "actual sphere/plane 的 depth 8/12；不是旧 6/10。",
+      "claims": [
+        "A2-07"
+      ],
+      "source": "SRC-0292",
+      "sha256": "2901cec483a8d0393a1457f03c0b31417bf17507f8c3a7a77768aabe1b6b4b04"
+    },
+    {
+      "id": "a2-contact-slots",
+      "path": "checks/a2/contact_slots.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "eta=2 的八个正 slot；不是完整十进制候选枚举。",
+      "claims": [
+        "A2-08"
+      ],
+      "source": "SRC-0307",
+      "sha256": "dbe094013ae978e038def5c43eea0cf5023d7a8f4cc8a1c7915282d4b5d84066"
+    },
+    {
+      "id": "a2-contact-orientation",
+      "path": "checks/a2/contact_orientation.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "实际 A3、共同支持及 source 3/7 字层。",
+      "claims": [
+        "A2-09"
+      ],
+      "source": "SRC-0308",
+      "sha256": "bc526e9de3259375dffd1bcd1e50ac01cd07167b7598a8b43f3bc5c0a80c5dbf"
+    },
+    {
+      "id": "a2-outer-root",
+      "path": "checks/a2/outer_root.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "pC 共深度一层与实际减向 terminal 条件。",
+      "claims": [
+        "A2-06"
+      ],
+      "source": "SRC-0313",
+      "sha256": "a4f625ec110337cca6693e4c3384a9c8aca359ec412184a6a1a10e74b3c0f905"
+    },
+    {
+      "id": "a2-outer-exception",
+      "path": "checks/a2/outer_exception.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "固定素数的递归 Lucas 素性证书。",
+      "claims": [
+        "A2-06"
+      ],
+      "source": "SRC-0314",
+      "sha256": "6b532d5bc00cac81a7ab602dc7735a984f4e01c3decfb434581a90d644576c5b"
+    },
+    {
+      "id": "a2-quartic",
+      "path": "checks/a2/quartic_transport.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "四阶完整符号展开、真实 parent box 与二进初项。",
+      "claims": [
+        "A2-05"
+      ],
+      "source": "SRC-0323",
+      "sha256": "be4c021dc04d1e1e7d93482c02194a5ea849927f76e7b5451054806dc48f1101"
+    },
+    {
+      "id": "a2-terminal-character",
+      "path": "checks/a2/terminal_character.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "strict terminal 必要条件 (26/p)=+1。",
+      "claims": [
+        "A2-05"
+      ],
+      "source": "SRC-0327",
+      "sha256": "4d4fea35350edcb61a4a65bef129d9ab35de70a31d4a0f82bf328e7a025d4977"
+    },
+    {
+      "id": "a2-third-order",
+      "path": "checks/a2/third_order.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "三阶系数、固定 gate 与实数符号。",
+      "claims": [
+        "A2-05"
+      ],
+      "source": "SRC-0328",
+      "sha256": "faafba9f827015049b4cbce092688c290dd0c1cc472354e6864b40737d4a0cf0"
+    },
+    {
+      "id": "dd-unit-prefix",
+      "path": "checks/dd/unit_prefix.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "单位前缀一位尾的完整同余排除。",
+      "claims": [
+        "C07"
+      ],
+      "source": "SRC-0619",
+      "sha256": "48230b53b62e227481255c5f65b69f9a7e1a1e3de603b1876b8377f744e1625e"
+    },
+    {
+      "id": "dd-single-digits",
+      "path": "checks/dd/single_digits.py",
+      "args": [],
+      "kind": "python",
+      "group": "full",
+      "purpose": "独立三个一位分母 DD 证书。",
+      "claims": [
+        "C10"
+      ],
+      "source": "SRC-0613",
+      "sha256": "43e6534dbacb6bf0467da95699b1ab6426dbcca5a28a50b2b9cd2936402d5a5d"
+    },
+    {
+      "id": "dd-third-two",
+      "path": "checks/dd/single_digits.py",
+      "args": [
+        "--third-two-dominant-only"
+      ],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "third-two-dominant 的长前缀 extension；7020 行。",
+      "claims": [
+        "DD-03"
+      ],
+      "source": "SRC-0613",
+      "sha256": "43e6534dbacb6bf0467da95699b1ab6426dbcca5a28a50b2b9cd2936402d5a5d"
+    },
+    {
+      "id": "dd-suffix",
+      "path": "checks/dd/short_suffix.py",
+      "args": [],
+      "kind": "python",
+      "group": "full",
+      "purpose": "后两分母一位的 DD 完整末端；3759479 行。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0612",
+      "sha256": "737a378ef8fd9fcb663aa0e6f7e270a6ed6333ca1fcb2717a51305f386daea3a"
+    },
+    {
+      "id": "dd-suffix-factored",
+      "path": "checks/dd/short_suffix.py",
+      "args": [
+        "--reader",
+        "factored"
+      ],
+      "kind": "python",
+      "group": "full",
+      "purpose": "同覆盖的 factored reader。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0612",
+      "sha256": "737a378ef8fd9fcb663aa0e6f7e270a6ed6333ca1fcb2717a51305f386daea3a"
+    },
+    {
+      "id": "dd-eight-tail",
+      "path": "checks/dd/short_suffix.py",
+      "args": [
+        "--tail-eight-second-two",
+        "--no-length-prune"
+      ],
+      "kind": "python",
+      "group": "full",
+      "purpose": "m2=2,b3=8 完整证书，无长度预筛 103548188 行。",
+      "claims": [
+        "DD-04"
+      ],
+      "source": "SRC-0612",
+      "sha256": "737a378ef8fd9fcb663aa0e6f7e270a6ed6333ca1fcb2717a51305f386daea3a"
+    },
+    {
+      "id": "dd-eight-tail-factored",
+      "path": "checks/dd/short_suffix.py",
+      "args": [
+        "--tail-eight-second-two",
+        "--no-length-prune",
+        "--reader",
+        "factored"
+      ],
+      "kind": "python",
+      "group": "full",
+      "purpose": "八尾的 factored reader，同一完整覆盖。",
+      "claims": [
+        "DD-04"
+      ],
+      "source": "SRC-0612",
+      "sha256": "737a378ef8fd9fcb663aa0e6f7e270a6ed6333ca1fcb2717a51305f386daea3a"
+    },
+    {
+      "id": "dd-four-tail",
+      "path": "checks/dd/short_suffix.py",
+      "args": [
+        "--four-tail-scaling-only"
+      ],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "b3=4 到 b3=8 的合法整尺度转移。",
+      "claims": [
+        "DD-04"
+      ],
+      "source": "SRC-0612",
+      "sha256": "737a378ef8fd9fcb663aa0e6f7e270a6ed6333ca1fcb2717a51305f386daea3a"
+    },
+    {
+      "id": "dd-gap-crt",
+      "path": "checks/dd/gap_crt.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "原 parents、共享预算、ordinary CRT 与 unique-five-tail。",
+      "claims": [
+        "DD-05",
+        "DD-06",
+        "DD-07"
+      ],
+      "source": "SRC-0602",
+      "sha256": "4c0a88c72f4af0139125226be00a31f2b2d5fa2cb3922c2b493574104d7b4614"
+    },
+    {
+      "id": "dd-gap-reconstruction",
+      "path": "checks/dd/gap_reconstruction.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "条件有理恢复 period；不证明 joint family 为空。",
+      "claims": [
+        "DD-B02",
+        "DD-08"
+      ],
+      "source": "SRC-0588",
+      "sha256": "b6416e4d51fc943e7e238fe69761277997543bb08e60965541dc63dd71ee3215"
+    },
+    {
+      "id": "dd-numerator-count",
+      "path": "checks/dd/numerator_count.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "非循环 period、原 norm 与 selected sheets 投影。",
+      "claims": [
+        "DD-08",
+        "DD-09"
+      ],
+      "source": "SRC-0591",
+      "sha256": "c41c5d3ca1a1e2111d5a8eabc8763fb1828ecf398c78672598f2cf28fffc4022"
+    },
+    {
+      "id": "dd-denominator-entropy",
+      "path": "checks/dd/denominator_entropy.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "denominator/S-unit entropy；不含旧循环 full-candidate 合并。",
+      "claims": [
+        "DD-08"
+      ],
+      "source": "SRC-0599",
+      "sha256": "3f258d612d7e05be21665afca71614dd1545f571a05e9eb5cac3f4f41de9510b"
+    },
+    {
+      "id": "dd-global-sparsity",
+      "path": "checks/dd/global_sparsity.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "fixed delta0<1/2 同预算 global exponent。",
+      "claims": [
+        "DD-08"
+      ],
+      "source": "SRC-0600",
+      "sha256": "0279013c2c092f4f52e11517be8defb597f507de4531b37ad744f05e9fedf683"
+    },
+    {
+      "id": "cpp-suffix",
+      "path": "checks/dd/short_suffix.cpp",
+      "args": [
+        "--standard"
+      ],
+      "kind": "cpp",
+      "group": "full",
+      "purpose": "独立 C++ DD standard；3759479 行。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0611",
+      "sha256": "b46ca1e10995e9cefa8b3d12f179b6e233c50d52a0d7f9ba80f4bcfefaa2e35f"
+    },
+    {
+      "id": "cpp-suffix-factored",
+      "path": "checks/dd/short_suffix.cpp",
+      "args": [],
+      "kind": "cpp",
+      "group": "full",
+      "purpose": "独立 C++ DD factored；3759479 行。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0611",
+      "sha256": "b46ca1e10995e9cefa8b3d12f179b6e233c50d52a0d7f9ba80f4bcfefaa2e35f"
+    },
+    {
+      "id": "cpp-tail-one",
+      "path": "checks/dd/short_suffix.cpp",
+      "args": [
+        "--tail-one",
+        "--standard"
+      ],
+      "kind": "cpp",
+      "group": "full",
+      "purpose": "独立 C++ n3=1 standard；45015 行。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0611",
+      "sha256": "b46ca1e10995e9cefa8b3d12f179b6e233c50d52a0d7f9ba80f4bcfefaa2e35f"
+    },
+    {
+      "id": "cpp-tail-one-factored",
+      "path": "checks/dd/short_suffix.cpp",
+      "args": [
+        "--tail-one"
+      ],
+      "kind": "cpp",
+      "group": "full",
+      "purpose": "独立 C++ n3=1 factored；45015 行。",
+      "claims": [
+        "C09"
+      ],
+      "source": "SRC-0611",
+      "sha256": "b46ca1e10995e9cefa8b3d12f179b6e233c50d52a0d7f9ba80f4bcfefaa2e35f"
+    },
+    {
+      "id": "cpp-a1-e4",
+      "path": "checks/a1/pure_equal_e4.cpp",
+      "args": [],
+      "kind": "cpp",
+      "group": "full",
+      "purpose": "独立完整 e4 C++ certificate；Python wrapper 另复核筛后候选。",
+      "claims": [
+        "A1-F04"
+      ],
+      "source": "SRC-0263",
+      "sha256": "07096e21f9eaed7298bc223b2c725fedce7dc95246812aae7c5c7287a21d569e"
+    }
+  ],
+  "renames": {
+    "scripts/exact-lift/check_denominator_mod9.py": "checks/common/norm_mod9.py",
+    "scripts/exact-lift/check_single_digit_denominators.py": "checks/common/single_digits.py",
+    "scripts/exact-lift/check_single_digit_suffix.py": "checks/common/single_digit_suffix.py",
+    "scripts/exact-lift/a1-only/research-checks/moving-prefix/check_a1_lower_layer_denominator_kernels.py": "checks/a1/denominator_kernels.py",
+    "scripts/exact-lift/a1-only/research-checks/moving-prefix/check_a1_g0_pure_equal_e2.py": "checks/a1/pure_equal_e2.py",
+    "scripts/exact-lift/a1-only/research-checks/moving-prefix/check_a1_g0_pure_equal_e4.py": "checks/a1/pure_equal_e4.py",
+    "scripts/exact-lift/a1-only/research-checks/moving-prefix/check_a1_g0_pure_equal_e4.cpp": "checks/a1/pure_equal_e4.cpp",
+    "scripts/exact-lift/a1-only/research-checks/moving-prefix/check_a1_g1_pure_equal_first_strict.py": "checks/a1/first_strict.py",
+    "scripts/exact-lift/a1-only/research-checks/moving-prefix/check_a1_g0_unit_equal_prefix.py": "checks/a1/unit_prefix.py",
+    "scripts/exact-lift/a1-only/research-checks/top-layer/check_a1_joint_surplus_stable_region.py": "checks/a1/joint_surplus.py",
+    "scripts/exact-lift/a2-only/check_a2_fixed3_exception_collapse.py": "checks/a2/fixed3_exceptions.py",
+    "scripts/exact-lift/a2-only/check_a2_fixed3_terminal_spill.py": "checks/a2/fixed3_depths.py",
+    "scripts/exact-lift/a2-only/research-checks/crt-descent/check_a2_fixed3_f_contact_eta2_slots.py": "checks/a2/contact_slots.py",
+    "scripts/exact-lift/a2-only/research-checks/crt-descent/check_a2_fixed3_f_contact_orientation.py": "checks/a2/contact_orientation.py",
+    "scripts/exact-lift/a2-only/research-checks/crt-descent/check_a2_outer_external_q4_root_split.py": "checks/a2/outer_root.py",
+    "scripts/exact-lift/a2-only/research-checks/crt-descent/check_a2_source_common_outer_fixed_exception.py": "checks/a2/outer_exception.py",
+    "scripts/exact-lift/a2-only/research-checks/crt-descent/check_a2_spontaneous_crt_descendant_quartic_tail_hierarchy.py": "checks/a2/quartic_transport.py",
+    "scripts/exact-lift/a2-only/research-checks/crt-descent/check_a2_spontaneous_crt_descendant_terminal_character.py": "checks/a2/terminal_character.py",
+    "scripts/exact-lift/a2-only/research-checks/crt-descent/check_a2_spontaneous_crt_descendant_third_order_balance.py": "checks/a2/third_order.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_unit_prefix_single_digit_tail.py": "checks/dd/unit_prefix.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_single_digit_denominators.py": "checks/dd/single_digits.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_last_two_single_digit_denominators.py": "checks/dd/short_suffix.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_last_two_single_digit.cpp": "checks/dd/short_suffix.cpp",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_gcd_normal_d0_gap_crt_dichotomy.py": "checks/dd/gap_crt.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_corrected_gap_fiber_pairmax_rational_reconstruction.py": "checks/dd/gap_reconstruction.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_corrected_numerator_collapse_sharp.py": "checks/dd/numerator_count.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_corrected_terminal_denominator_sunit_entropy.py": "checks/dd/denominator_entropy.py",
+    "scripts/exact-lift/double-deficit/research-checks/tail/check_dd_corrected_terminal_global_sparsity_sharp.py": "checks/dd/global_sparsity.py"
+  }
+}

@@ -1,27 +1,26 @@
-# Python-generated files
+# Reproducible source only
+.venv/
 __pycache__/
-*.py[oc]
+*.py[cod]
 .pytest_cache/
-.mypy_cache/
 .ruff_cache/
-.coverage
-htmlcov/
 .ipynb_checkpoints/
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
+outputs/
+results/
+artifacts/
 
-# Virtual environments
-.venv
-
-# Local research outputs
+# Existing local reference documents and compiler outputs
+*.pdf
 *.log
 *.aux
 *.bbl
 *.blg
 *.out
 *.synctex.gz
-*.pdf
-results/
-artifacts/
+.mypy_cache/
+.coverage
+htmlcov/
+wheels/
