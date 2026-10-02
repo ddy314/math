@@ -2,7 +2,7 @@
 
 所有命令从仓库根目录运行：`uv run python main.py verify <id>`。计算只承担下表写明的角色，主稿给完备假设与参数界。`quick` 是较短的核对集合；`full` 包含完整的大枚举与独立 reader。两种集合都不是通用数学证明器。
 
-源码迁移保持精确系数、界和搜索算法；只调整 import、runpy 和路径。环境依赖与锁文件保留。临时编译、可执行文件和运行日志不进入仓库。
+原源码迁移保持精确系数、界和搜索算法；只调整 import、runpy 和路径。后续新核对按稳定命题登记，注明新增来源。环境依赖与锁文件保留。临时编译、可执行文件和运行日志不进入仓库。
 
 ```bash
 uv run python main.py list checks
@@ -25,6 +25,26 @@ uv run python main.py verify --group full
 
 | ID | 集合 | 覆盖与角色 | 命题 |
 |---|---|---|---|
+| `a2-first-block` | quick | 第一块界、严格实数窗、奇尾恢复、归一化尾长及既约素数过滤；G10 相对界 `m3≤10m2`、五进单位时 `m3≤3m2`。外部子空间定理不由脚本证明。 | [A2-G01](PROOF.md#a2-g01), [A2-G02](PROOF.md#a2-g02), [A2-G03](PROOF.md#a2-g03), [A2-G06](PROOF.md#a2-g06), [A2-G07](PROOF.md#a2-g07), [A2-G09](PROOF.md#a2-g09), [A2-G10](PROOF.md#a2-g10), [A2-F01](PROOF.md#a2-f01), [A2-F02](PROOF.md#a2-f02) |
+| `a2-binary-chambers` | quick | 二进主导与两个 sphere gap；五进尾主导、纯五次幂尾商及 source 锁；固定尾长界与联合 gap。有限模式不是原候选穷尽。 | [A2-G04](PROOF.md#a2-g04), [A2-G05](PROOF.md#a2-g05), [A2-G08](PROOF.md#a2-g08) |
+| `a2-nondecimal-support` | quick | 非十进制共同支持、原 `k+cU` 素幂锁与半径整除；符号恒等式、1,314 个有限分母投影和素数平方类。无界证明在 G11，投影不是原解枚举。 | [A2-G11](PROOF.md#a2-g11) |
+| `a2-decimal-divisor` | quick | 六种分母形状和 560 个恒等式投影；显式指数界的有理常数核对，模 `2^27` 唯一指数类的三种整数 reader，以及 `E=2..8`。完整无界排除还依赖主稿中明示的 Bugeaud 定理。 | [A2-G12](PROOF.md#a2-g12) |
+| `a2-decimal-rays` | quick | 完整 4 行一位首部、35 行两位首部及 1,197 个恒等式投影；16 个固定系数的有效界和模 `2^27` 三种整数 reader；两族原式的模 5/8 障碍。完整空性与唯一必要族归约在主稿，剩余族仍待证。 | [A2-G13](PROOF.md#a2-g13)、[A2-G14](PROOF.md#a2-g14) |
+| `a2-decimal-ray-residual` | quick | 原恢复、消元与平方和商恒等式；有效整数窗口，四个完整指数周期。`E=4..12` 的九个奇深素因子；`E=3` 的 612 个 gap 行和独立 39,999 个原分子行。保留 `E=13` 的平方和允许投影，未排除其原恢复。 | [A2-G15](PROOF.md#a2-g15)、[A2-F09](PROOF.md#a2-f09) |
+| `a2-one-digit-tail` | quick | 一位尾的全部 11,544 个奇尾标签；原整数性及平方类的完整指数周期，任意精度 Python。 | [A2-F01](PROOF.md#a2-f01) |
+| `a2-one-digit-tail-cpp` | quick | 同一完整标签覆盖，独立展开系数与反向周期传播；128 位整数，可用 `--ubsan`。 | [A2-F01](PROOF.md#a2-f01) |
+| `a2-two-digit-tail` | full | 全部两位尾：独立重算 47,432,488 个标签总数、复核全部 250 个周期筛后标签、3,366 个有界原二次式。 | [A2-F02](PROOF.md#a2-f02) |
+| `a2-two-digit-tail-cpp` | full | 同一完整周期标签；原既约性和二进 primitive recovery；128 位整数，可用 `--ubsan`。 | [A2-F02](PROOF.md#a2-f02) |
+| `a2-short-prefix-even` | full | 三至五位偶尾两个有界二进类；114/1,814/23,306 个分母组合，共 272,158,962 个原二次式；五位尾 C++ 任意精度与独立 Python 全行核对，零合法根。 | [A2-G08](PROOF.md#a2-g08), [A2-F03](PROOF.md#a2-f03) |
+| `a2-short-prefix-even-six` | full | 六位偶尾同两个有界类；270,385 个分母组合、29,740,339,198 个原二次式。C++ 全枚举；Python 独立审计全部 297,935 条系数、区间行数和三个非整数投影，未做第二遍全行扫描。 | [A2-F03](PROOF.md#a2-f03) |
+| `a2-three-digit-five` | full | 三位尾且第二分母含 5；容斥重算 120,626,568 标签，完整循环轨道复核 4 个筛后标签，另 100 个有界原二次式。 | [A2-F04](PROOF.md#a2-f04) |
+| `a2-three-digit-five-cpp` | full | 同一完整周期部分，独立因式/展开 reader；128 位整数，可用 `--ubsan`。 | [A2-F04](PROOF.md#a2-f04) |
+| `a2-fixed-prefix` | quick | 固定原前缀有效尾长界；全部 `m2=2`，102 前缀、`m3≤20`、12,025 原尾二次式，两 reader 全行比较，零平方判别式。 | [A2-G10](PROOF.md#a2-g10), [A2-F05](PROOF.md#a2-f05) |
+| `a2-fixed-prefix-three` | quick | 全部 `m2=3`；11,993 前缀、有效尾界 30、55,508 原尾二次式，两 reader 逐行核对。 | [A2-G10](PROOF.md#a2-g10), [A2-F06](PROOF.md#a2-f06) |
+| `a2-fixed-prefix-four` | full | 全部 `m2=4`；1,229,008 前缀、有效尾界 40、7,448,321 原尾二次式，两 reader 全行独立判别式核对。 | [A2-G10](PROOF.md#a2-g10)、[A2-F06](PROOF.md#a2-f06) |
+| `a2-three-tail-five` | full | 三位尾且尾分母含 5；五进单位前缀的 2,990,309,248 标签与 117 个独立完整轨道复核。 | [A2-F07](PROOF.md#a2-f07) |
+| `a2-three-odd-coprime` | quick | 整个三位奇尾且后两分母互素子域；476,207 完整标签，两个 C++ reader/UBSan 与独立 Python 全几何、整数轨道、25,683 周期标签核对。 | [A2-F08](PROOF.md#a2-f08) |
+| `a2-three-odd-inventory` | quick | 三位奇尾五进单位的非互素完整必要标签清单；真共同支持约 25.59 亿、完全共同支持约 776.70 亿。只是允许投影，不证明空性。 | [A2-G11](PROOF.md#a2-g11) |
 | `a2-fixed3-exceptions` | quick | a3 深 central 的 depth 12 与 eta=1 矛盾。 | [A2-08](PROOF.md#a2-08) |
 | `a2-fixed3-depths` | quick | actual sphere/plane 的 depth 8/12；不是旧 6/10。 | [A2-07](PROOF.md#a2-07) |
 | `a2-contact-slots` | quick | eta=2 的八个正 slot；不是完整十进制候选枚举。 | [A2-08](PROOF.md#a2-08) |
@@ -71,12 +91,12 @@ uv run python main.py verify --group full
 
 ## 范围与结果
 
-后两分母一位的 Python/C++ 两 reader 分別核对 45,015 与 3,759,479 行，原解为零。八尾两位第二分母证书不使用长度预筛时为每 reader 103,548,188 行；默认必要 norm 预筛模式覆盖同一子域并减少枚举行数，两者不能混记。
+后两分母一位的 Python/C++ 两 reader 分别核对 45,015 与 3,759,479 行，原解为零。八尾两位第二分母证书不使用长度预筛时为每 reader 103,548,188 行；默认必要 norm 预筛模式覆盖同一子域并减少枚举行数，两者不能混记。
 
 A1 e4 的 262,115,848 个合法 J 经精确余类 sieve 留 1377 个投影，Python 独立重算它们的原 discriminant。g1 首 strict 证书保留一个 square projection，而两根都不能恢复合法正尾；输出原解零。
 
-本次重写后全部 38 个模式已重新运行通过，覆盖计数与基线一致；[复核记录](history/rewrite-verification.json) 保存源码与输出哈希，完整日志仍在临时验证目录。数学范围仍以 PROOF.md 为准。A2/DD 的符号 identities 与玩具 residue checks 不属于一般 Exact Lift 穷尽枚举。
+本次重写后的原 38 个模式已重新运行通过，覆盖计数与基线一致；[复核记录](history/rewrite-verification.json) 保存当时源码与输出哈希，完整日志仍在临时验证目录。新增 A2 核对覆盖 G01–G12 的恒等式、常数与赋值分支，以及 F01–F08 的完整周期和原方程证书，不改写该迁移记录。新增 18 个 A2 模式均已有与当前源码及依赖哈希一致的通过报告；完整 quick 集合与 13 个仓库测试也通过。数学范围仍以 PROOF.md 为准。A2/DD 的符号 identities 与玩具 residue checks 不属于一般 Exact Lift 穷尽枚举。
 
 ## 修改核对入口
 
-命令和模式的机器来源是 [checks.json](registry/checks.json)。每个入口链接到具体现行命题；原文件 ID 与迁移后源码哈希同表保留。添加新核对应先写清主稿或研究目标，再登记入口，禁止重建层层 research-checks/日期脚本树。
+命令和模式的机器来源是 [checks.json](registry/checks.json)。每个入口链接到具体现行命题；原文件 ID 与迁移后源码哈希同表保留。共享头文件和本地 reader 依赖也须登记 `dependencies`；结构检查及运行报告核对它们的哈希。添加新核对应先写清主稿或研究目标，再登记入口，禁止重建层层 research-checks/日期脚本树。

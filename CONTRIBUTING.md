@@ -20,7 +20,7 @@
 
 ## 核对代码
 
-计算入口以 registry/checks.json 为准；CHECKS.md 解释 scope 与模式。需要更改运行模式时同步两个位置，并核对相关主稿命题。证书输出留在 /tmp，命题中记录可复算的计数和边界，不提交大输出。
+计算入口以 registry/checks.json 为准；CHECKS.md 解释 scope 与模式。需要更改运行模式时同步两个位置，并核对相关主稿命题。证书输出留在 /tmp，命题中记录可复算的计数和边界，不提交大输出。共享本地头文件及 reader 依赖须在入口的 `dependencies` 中登记路径和 SHA-256，完整核对报告保存同一依赖版本。
 
 ```bash
 uv run python main.py check

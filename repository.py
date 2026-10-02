@@ -40,6 +40,25 @@ def anchors(text: str) -> set[str]:
     return set(re.findall(r'<a id="([^"]+)"></a>', text))
 
 
+def validate_check_sources(checks, root: Path) -> list[str]:
+    """Include local imports and headers in the certificate hash contract."""
+    errors = []
+    for check in checks:
+        for source in [check, *check.get("dependencies", [])]:
+            path = (root / source["path"]).resolve()
+            label = f"{check['id']}/{source['path']}"
+            if not path.is_relative_to(root.resolve()):
+                errors.append(label + ": source escapes repository")
+            elif not path.is_file():
+                errors.append(label + ": missing source")
+            elif digest(path.read_bytes()) != source["sha256"]:
+                errors.append(
+                    label
+                    + ": source hash differs (update audited registry after intentional edits)"
+                )
+    return errors
+
+
 def validate_model(
     claim_doc, check_doc, history, proof: str, research: str
 ) -> list[str]:
@@ -213,23 +232,19 @@ def validate(root: Path = ROOT) -> list[str]:
                 continue
             if fragment and fragment not in anchors(dest.read_text()):
                 errors.append(f"{p.name}: missing fragment {target}")
-    declared = {c["path"] for c in kd["checks"]}
+    declared = {
+        source["path"]
+        for c in kd["checks"]
+        for source in [c, *c.get("dependencies", [])]
+    }
     actual = {
         p.relative_to(root).as_posix()
         for p in (root / "checks").rglob("*")
-        if p.suffix in {".py", ".cpp"}
+        if p.suffix in {".py", ".cpp", ".hpp"}
     }
     if declared != actual:
         errors.append("check source files differ from the registered active set")
-    for c in kd["checks"]:
-        p = root / c["path"]
-        if not p.is_file():
-            errors.append(f"{c['id']}: missing source")
-            continue
-        if digest(p.read_bytes()) != c["sha256"]:
-            errors.append(
-                f"{c['id']}: source hash differs (update audited registry after intentional edits)"
-            )
+    errors.extend(validate_check_sources(kd["checks"], root))
     for obsolete in ("docs", "scripts"):
         if (root / obsolete).exists():
             errors.append(f"obsolete parallel tree remains: {obsolete}")
@@ -359,6 +374,7 @@ def run_checks(ids, group, report, ubsan=False, root=ROOT):
             {
                 "id": c["id"],
                 "source_sha256": c["sha256"],
+                "dependencies": c.get("dependencies", []),
                 "commands": commands,
                 "started_at": started,
                 "duration_seconds": round(time.monotonic() - now, 3),

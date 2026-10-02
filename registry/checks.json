@@ -158,6 +158,44 @@
       "sha256": "efb20872e3b272eea6bf7fc4bcb3785965ee059911b584107abc89d4f05f570d"
     },
     {
+      "id": "a2-first-block",
+      "path": "checks/a2/first_block_bounds.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "第一块界、奇尾恢复、非零判别式、归一化尾长表与整系数平方式；外部子空间定理不由脚本证明。 任意固定尾长标签的退化审计；非有效外部定理不由脚本证明。 G10 两阈值的完整支持代入与全局相对界常数。",
+      "claims": [
+        "A2-G01",
+        "A2-G02",
+        "A2-G03",
+        "A2-G06",
+        "A2-F01",
+        "A2-G07",
+        "A2-F02",
+        "A2-G09",
+        "A2-G10"
+      ],
+      "source": null,
+      "origin": "本稿新推导的独立精确恒等式与常数核对。",
+      "sha256": "a8ed707d262e808da1235e8a19bf564b23068d0bee58a729973cc883b40daed5"
+    },
+    {
+      "id": "a2-binary-chambers",
+      "path": "checks/a2/binary_chambers.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "原 word-gap、二进主导与两个 sphere gap；五进尾主导、纯五次幂尾商及 source 锁；有限模式不是原候选穷尽。；固定尾长有效界与 ordinary 联合 gap，保留五进等深加 gap。",
+      "claims": [
+        "A2-G04",
+        "A2-G05",
+        "A2-G08"
+      ],
+      "source": null,
+      "origin": "新推导的任意精度整数及符号回归；有限模式不是原候选枚举。",
+      "sha256": "370dddd734134077969746bffca4cf777847350a64dd66395573fa3958de8688"
+    },
+    {
       "id": "a2-fixed3-exceptions",
       "path": "checks/a2/fixed3_exceptions.py",
       "args": [],
@@ -533,6 +571,372 @@
       ],
       "source": "SRC-0263",
       "sha256": "07096e21f9eaed7298bc223b2c725fedce7dc95246812aae7c5c7287a21d569e"
+    },
+    {
+      "id": "a2-one-digit-tail",
+      "path": "checks/a2/one_digit_tail.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "全部 A2 的 m3=1 子层；11544 个完整奇尾标签，原整数性与平方类的完整指数周期，无指数 cutoff。",
+      "claims": [
+        "A2-F01"
+      ],
+      "source": null,
+      "origin": "任意精度因式 reader；相容周期传播涵盖全部指数。",
+      "sha256": "631c18da58c01f0c770cbdd066cbaa45abba6283e1420db51178fda1f7fc9f4a"
+    },
+    {
+      "id": "a2-one-digit-tail-cpp",
+      "path": "checks/a2/one_digit_tail.cpp",
+      "args": [],
+      "kind": "cpp",
+      "group": "quick",
+      "purpose": "全部 A2 的 m3=1 子层；11544 个完整奇尾标签，原整数性与平方类的完整指数周期，无指数 cutoff。",
+      "claims": [
+        "A2-F01"
+      ],
+      "source": null,
+      "origin": "独立展开系数 reader；有符号 128 位整数，周期反序传播。",
+      "sha256": "037f19b74183a05e10ee54168862d6249cf8538cb0c9e23d7b5d25bd6d7bcefb"
+    },
+    {
+      "id": "a2-two-digit-tail",
+      "path": "checks/a2/two_digit_tail.py",
+      "args": [],
+      "kind": "python",
+      "group": "full",
+      "purpose": "整个 m3=2 A2；独立重算标签总数、复核全部 250 个周期筛后标签、3366 个有界原二次式；调用 C++ 展开系数 reader。",
+      "claims": [
+        "A2-F02"
+      ],
+      "source": null,
+      "origin": "本稿新完整有限归约；全部运行产物留在临时目录。",
+      "sha256": "515d60cf19782899ee6f824bb8f2f73eb05fd8698dbbf3a7f673af5dad76a9eb",
+      "dependencies": [
+        {
+          "path": "checks/a2/periodic_recovery.hpp",
+          "sha256": "69ad8f0268218e5b3abf7a07595361540ade9b8d630e10d11d0bdf7c4c0598a2"
+        },
+        {
+          "path": "checks/a2/two_digit_tail.cpp",
+          "sha256": "284a58c16e9ff1bc6d6a7b50808fd44a109f9f46db1201e78222c1b0fd0dc0cf"
+        }
+      ]
+    },
+    {
+      "id": "a2-two-digit-tail-cpp",
+      "path": "checks/a2/two_digit_tail.cpp",
+      "args": [],
+      "kind": "cpp",
+      "group": "full",
+      "purpose": "m3=2 的 47432488 个完整周期标签、原既约性及二进 primitive recovery；128 位整数，可用 --ubsan。",
+      "claims": [
+        "A2-F02"
+      ],
+      "source": null,
+      "origin": "本稿新完整有限归约；全部运行产物留在临时目录。",
+      "sha256": "284a58c16e9ff1bc6d6a7b50808fd44a109f9f46db1201e78222c1b0fd0dc0cf",
+      "dependencies": [
+        {
+          "path": "checks/a2/periodic_recovery.hpp",
+          "sha256": "69ad8f0268218e5b3abf7a07595361540ade9b8d630e10d11d0bdf7c4c0598a2"
+        }
+      ]
+    },
+    {
+      "id": "a2-short-prefix-even",
+      "path": "checks/a2/short_prefix_even.py",
+      "args": [],
+      "kind": "python",
+      "group": "full",
+      "purpose": "三至五位偶尾两个有界二进类；272158962个原二次式，五位尾 C++ 任意精度/独立 Python 全行 sphere 核对。ordinary 未覆盖。",
+      "claims": [
+        "A2-G08",
+        "A2-F03"
+      ],
+      "source": null,
+      "sha256": "b9087d2687aff2f9d5b3439f9b090c611bcba9a7d310bb2cdc88cb4c846ad2ae",
+      "dependencies": [
+        {
+          "path": "checks/a2/short_prefix_even.cpp",
+          "sha256": "66fd169a9ea14f1ba8f9872c895d68dcfff74ead991e9c42c7b2385a66a75d89"
+        }
+      ]
+    },
+    {
+      "id": "a2-three-digit-five",
+      "path": "checks/a2/three_digit_five.py",
+      "args": [],
+      "kind": "python",
+      "group": "full",
+      "purpose": "三位尾且 v5(b2)>0；容斥重算120626568标签、独立完整轨道复核4个筛后标签、100个有界原二次式；任意 m2。",
+      "claims": [
+        "A2-F04"
+      ],
+      "source": null,
+      "sha256": "9ce1a9324bd2f9e9e603f3fca46882baae70a6c3b8c6476c394db08172598eb2",
+      "dependencies": [
+        {
+          "path": "checks/a2/three_digit_five.cpp",
+          "sha256": "487294930850bc1d0081e7a605aea117b4f3a799fffb8185ff2f88cc54cbfc8e"
+        },
+        {
+          "path": "checks/a2/periodic_recovery.hpp",
+          "sha256": "69ad8f0268218e5b3abf7a07595361540ade9b8d630e10d11d0bdf7c4c0598a2"
+        },
+        {
+          "path": "checks/a2/two_digit_tail.py",
+          "sha256": "515d60cf19782899ee6f824bb8f2f73eb05fd8698dbbf3a7f673af5dad76a9eb"
+        },
+        {
+          "path": "checks/a2/short_prefix_even.py",
+          "sha256": "b9087d2687aff2f9d5b3439f9b090c611bcba9a7d310bb2cdc88cb4c846ad2ae"
+        }
+      ]
+    },
+    {
+      "id": "a2-three-digit-five-cpp",
+      "path": "checks/a2/three_digit_five.cpp",
+      "args": [],
+      "kind": "cpp",
+      "group": "full",
+      "purpose": "同一完整周期部分，120626568标签；128位整数，独立因式/展开 reader，可用 --ubsan；有界100行由Python入口复核。",
+      "claims": [
+        "A2-F04"
+      ],
+      "source": null,
+      "sha256": "487294930850bc1d0081e7a605aea117b4f3a799fffb8185ff2f88cc54cbfc8e",
+      "dependencies": [
+        {
+          "path": "checks/a2/periodic_recovery.hpp",
+          "sha256": "69ad8f0268218e5b3abf7a07595361540ade9b8d630e10d11d0bdf7c4c0598a2"
+        }
+      ]
+    },
+    {
+      "id": "a2-fixed-prefix",
+      "path": "checks/a2/fixed_prefix.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "固定原前两块的七类有效尾长界；整个 m2=2 子层，102前缀、m3≤20、12025原二次式，两reader全行比较；任意尾长。",
+      "claims": [
+        "A2-G10",
+        "A2-F05"
+      ],
+      "source": null,
+      "sha256": "83f78531cf39324308fc592da759789fa42da9863fcac76adefe10e0658ecd19"
+    },
+    {
+      "id": "a2-fixed-prefix-three",
+      "path": "checks/a2/fixed_prefix.py",
+      "args": [
+        "--middle-digits",
+        "3"
+      ],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "全部 m2=3，11993 前缀、有效尾界30、55508原二次式；完整gap支持与两个reader。",
+      "claims": [
+        "A2-G10",
+        "A2-F06"
+      ],
+      "source": null,
+      "sha256": "83f78531cf39324308fc592da759789fa42da9863fcac76adefe10e0658ecd19",
+      "dependencies": []
+    },
+    {
+      "id": "a2-three-tail-five",
+      "path": "checks/a2/three_digit_five.py",
+      "args": [
+        "--tail-five-unit-prefix"
+      ],
+      "kind": "python",
+      "group": "full",
+      "purpose": "三位尾且 5|b3；五进单位前缀的2990309248完整标签、117个独立轨道复核，所有无界指数。",
+      "claims": [
+        "A2-F07"
+      ],
+      "source": null,
+      "sha256": "9ce1a9324bd2f9e9e603f3fca46882baae70a6c3b8c6476c394db08172598eb2",
+      "dependencies": [
+        {
+          "path": "checks/a2/three_digit_five.cpp",
+          "sha256": "487294930850bc1d0081e7a605aea117b4f3a799fffb8185ff2f88cc54cbfc8e"
+        },
+        {
+          "path": "checks/a2/periodic_recovery.hpp",
+          "sha256": "69ad8f0268218e5b3abf7a07595361540ade9b8d630e10d11d0bdf7c4c0598a2"
+        },
+        {
+          "path": "checks/a2/two_digit_tail.py",
+          "sha256": "515d60cf19782899ee6f824bb8f2f73eb05fd8698dbbf3a7f673af5dad76a9eb"
+        },
+        {
+          "path": "checks/a2/short_prefix_even.py",
+          "sha256": "b9087d2687aff2f9d5b3439f9b090c611bcba9a7d310bb2cdc88cb4c846ad2ae"
+        }
+      ]
+    },
+    {
+      "id": "a2-short-prefix-even-six",
+      "path": "checks/a2/short_prefix_even.py",
+      "args": [
+        "--tail-digits",
+        "6"
+      ],
+      "kind": "python",
+      "group": "full",
+      "purpose": "六位偶尾两个有界二进类；270385分母组合、29740339198原二次式；任意精度C++全枚举，独立Python全部系数/容斥行数和3个平方投影审计。ordinary未覆盖。",
+      "claims": [
+        "A2-G08",
+        "A2-F03"
+      ],
+      "source": null,
+      "sha256": "b9087d2687aff2f9d5b3439f9b090c611bcba9a7d310bb2cdc88cb4c846ad2ae",
+      "dependencies": [
+        {
+          "path": "checks/a2/short_prefix_even.cpp",
+          "sha256": "66fd169a9ea14f1ba8f9872c895d68dcfff74ead991e9c42c7b2385a66a75d89"
+        }
+      ]
+    },
+    {
+      "id": "a2-fixed-prefix-four",
+      "path": "checks/a2/fixed_prefix.py",
+      "args": [
+        "--middle-digits",
+        "4"
+      ],
+      "kind": "python",
+      "group": "full",
+      "purpose": "全部m2=4；1229008前缀、有效尾界40、7448321原尾二次式，两个reader全行核对，任意尾长。",
+      "claims": [
+        "A2-G10",
+        "A2-F06"
+      ],
+      "source": null,
+      "sha256": "83f78531cf39324308fc592da759789fa42da9863fcac76adefe10e0658ecd19",
+      "dependencies": []
+    },
+    {
+      "id": "a2-nondecimal-support",
+      "path": "checks/a2/nondecimal_support.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "非十进制共同素幂同深、1mod4与尾剩余部分的k+cU原标签锁；精确恒等式和1314有限支持投影，不作原解枚举。 固定前缀L=M0Q0的唯一coprime/unitary支持分解。 奇尾五进单位的精确原word gcd与半径既约分母恒等式。",
+      "claims": [
+        "A2-G11"
+      ],
+      "source": null,
+      "sha256": "8cfaf03f09eea71c62165f7a0c55774a4f0383043e43e5ec55994f46247dea45"
+    },
+    {
+      "id": "a2-decimal-divisor",
+      "path": "checks/a2/decimal_divisor.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "A2-G12 六种分母形状、word/gap 恒等式、显式常数的有理核对；模2^27唯一指数类的快速幂/逐位提升/二项式三reader及E=2..8。无界覆盖依赖正文的Bugeaud有效界，不由有限样例外推。",
+      "claims": [
+        "A2-G12"
+      ],
+      "source": null,
+      "sha256": "cd29f2d51925fe2a6b10d7f0b503c3b7a4df83c859af13199cb47befa88e7a8e",
+      "dependencies": []
+    },
+    {
+      "id": "a2-decimal-rays",
+      "path": "checks/a2/decimal_rays.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "G13完整一位首部空性；G14完整35行两位首部必要分类，1197恒等式投影，16系数有效指数界及模2^27三reader，两个r=12族的原式恒等式和mod5/mod8障碍。唯一剩余r=24族不是原解；无界覆盖由主稿及Bugeaud定理承担。",
+      "claims": [
+        "A2-G13",
+        "A2-G14"
+      ],
+      "source": null,
+      "sha256": "b3be1390c3685616c5a77b47df32589fced1da01e1dde9226af4e39e7dff39c8",
+      "dependencies": [
+        {
+          "path": "checks/a2/decimal_divisor.py",
+          "sha256": "cd29f2d51925fe2a6b10d7f0b503c3b7a4df83c859af13199cb47befa88e7a8e"
+        }
+      ]
+    },
+    {
+      "id": "a2-decimal-ray-residual",
+      "path": "checks/a2/decimal_ray_residual.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "G15原恢复、消元、平方和商与完整窗口；四个全指数周期。F09的E=4..12九个完整试除素因子证书，E=3的612个gap行和独立39999个原分子行。保留E=13的精确平方和允许投影；E>=13原恢复未证明为空。",
+      "claims": [
+        "A2-G15",
+        "A2-F09"
+      ],
+      "source": null,
+      "sha256": "7592a5ec40849fd846c0b362b6116c7879625e83a868f3d3fa9b16cf79b8f394",
+      "dependencies": []
+    },
+    {
+      "id": "a2-three-odd-coprime",
+      "path": "checks/a2/three_digit_odd.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "整个三位奇尾且后两分母互素子域；476207完整标签，Cpp两reader/UBSan，Python全几何/整数轨道和25683全周期标签独立核对，无指数cutoff。",
+      "claims": [
+        "A2-F08"
+      ],
+      "source": null,
+      "sha256": "54f1fd49fbbd50198f823b242cc9d0a156266838bbf5ee3b83b670fc69455278",
+      "dependencies": [
+        {
+          "path": "checks/a2/three_digit_odd.cpp",
+          "sha256": "8bda2fcc0935e140f0670912e89e37c58843a415bea1f52de4ed1adbd500a50a"
+        },
+        {
+          "path": "checks/a2/periodic_recovery.hpp",
+          "sha256": "69ad8f0268218e5b3abf7a07595361540ade9b8d630e10d11d0bdf7c4c0598a2"
+        },
+        {
+          "path": "checks/a2/two_digit_tail.py",
+          "sha256": "515d60cf19782899ee6f824bb8f2f73eb05fd8698dbbf3a7f673af5dad76a9eb"
+        }
+      ]
+    },
+    {
+      "id": "a2-three-odd-inventory",
+      "path": "checks/a2/three_digit_odd.py",
+      "args": [
+        "--inventory"
+      ],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "三位奇尾五进单位的完整必要标签投影：真共同支持2559479281、完全共同支持77670247200；不证明非互素类为空。",
+      "claims": [
+        "A2-G11"
+      ],
+      "source": null,
+      "sha256": "54f1fd49fbbd50198f823b242cc9d0a156266838bbf5ee3b83b670fc69455278",
+      "dependencies": [
+        {
+          "path": "checks/a2/three_digit_odd.cpp",
+          "sha256": "8bda2fcc0935e140f0670912e89e37c58843a415bea1f52de4ed1adbd500a50a"
+        },
+        {
+          "path": "checks/a2/periodic_recovery.hpp",
+          "sha256": "69ad8f0268218e5b3abf7a07595361540ade9b8d630e10d11d0bdf7c4c0598a2"
+        },
+        {
+          "path": "checks/a2/two_digit_tail.py",
+          "sha256": "515d60cf19782899ee6f824bb8f2f73eb05fd8698dbbf3a7f673af5dad76a9eb"
+        }
+      ]
     }
   ],
   "renames": {

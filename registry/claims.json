@@ -236,13 +236,516 @@
       "route": "common-certificates"
     },
     {
+      "id": "A2-G01",
+      "branch": "a2",
+      "title": "全部 A2 的第一块绝对界与第三比值窗",
+      "status": "已严格完成",
+      "scope": "全部原始正既约 A2；b1=1,a1=1..8 或 b1=2,a1∈{5,7,9,11,13}；第三比值与尾分母的严格界。",
+      "depends_on": [
+        "C01"
+      ],
+      "checks": [
+        "a2-first-block"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "由原拼接等式重新推导，不以历史 first-block 摘要为前提。"
+    },
+    {
+      "id": "A2-G02",
+      "branch": "a2",
+      "title": "奇尾分母的绝对尾长界与有限系列恢复",
+      "status": "已严格完成",
+      "scope": "全部 A2 且 b3 奇；b1=1,a1∈{2,4,6,8},a2 偶,m3≤2v2(a1)≤6；有限标签的原式等价恢复，本项不提供 m2 上界。",
+      "depends_on": [
+        "A2-G01",
+        "C02",
+        "C04",
+        "C05"
+      ],
+      "checks": [
+        "a2-first-block"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "由公共 sphere/word、denominator complement 和新 first-block 界推导。"
+    },
+    {
+      "id": "A2-G03",
+      "branch": "a2",
+      "title": "整个奇尾 A2 的非有效有限性",
+      "status": "已严格完成",
+      "scope": "所有 A2 且 b3 为奇数的原候选总数有限；引用 p-adic Subspace Theorem，未给有效 m2 cutoff，未排除有限例外。",
+      "depends_on": [
+        "A2-G02"
+      ],
+      "checks": [
+        "a2-first-block"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "固定奇数尾标签与非零判别式审计；本稿对外部定理的新应用。",
+      "external_dependencies": [
+        {
+          "theorem": "Schlickewei p-adic Subspace Theorem",
+          "statement": "Evertse 2011, Theorem 1.1, pp. 1-2",
+          "url": "https://pub.math.leidenuniv.nl/~evertsejh/dio2011-padicsubspace.pdf",
+          "research_reference": "Schlickewei 1992, The quantitative Subspace Theorem for number fields, section 1",
+          "research_url": "https://www.numdam.org/item/CM_1992__82_3_245_0.pdf",
+          "role": "定性有限有理子空间；不提供本稿所需有效指数界。"
+        }
+      ]
+    },
+    {
+      "id": "A2-G04",
+      "branch": "a2",
+      "title": "偶尾的二进主导分类与两个球面 gap 分支",
+      "status": "已严格完成",
+      "scope": "全部 A2 且 b3 偶；第二分母主导必有 g=e+m2+m3,f≥g+2；第三分母主导的两个 gap 及 source 抵消层必要条件。未排除剩余类。",
+      "depends_on": [
+        "A2-G01",
+        "C02",
+        "C05"
+      ],
+      "checks": [
+        "a2-binary-chambers"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "由原 word-gap 与整数 sphere 的二进赋值新推导。"
+    },
+    {
+      "id": "A2-G05",
+      "branch": "a2",
+      "title": "五进尾主导与二进前缀主导的完整尾商归约",
+      "status": "已严格完成",
+      "scope": "全部 A2 满足 v5(b2)=v5(b3)=0 或 v5(b3)>v5(b2)；第二分母二进主导类有纯五次幂 L、原 Hensel 锁与互素 source 分配。必要条件，不证明为空。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "checks": [
+        "a2-binary-chambers"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "由真实位数窗、原 word/sphere 与完整 denominator complement 新推导。"
+    },
+    {
+      "id": "A2-G06",
+      "branch": "a2",
+      "title": "奇尾分子的最低二进层与精确尾长分类",
+      "status": "已严格完成",
+      "scope": "全部奇尾 A2 有 v2(a3)<min(v2(a1),v2(a2))；m3≥2 的十种二进尾长必要形态。未排除有限例外。",
+      "depends_on": [
+        "A2-G02",
+        "C02"
+      ],
+      "checks": [
+        "a2-first-block"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "保持原 word 系数的共同二进层归约；不是位数不变的候选变换。"
+    },
+    {
+      "id": "A2-G07",
+      "branch": "a2",
+      "title": "奇尾系列中恢复分子与分母的既约素数排除",
+      "status": "已严格完成",
+      "scope": "全部 A2-G02 奇尾标签；p∤10kb、p|a3−a1b3、p∤h 时排除 UT+b3=0 modp 的所有指数。",
+      "depends_on": [
+        "A2-G02"
+      ],
+      "checks": [
+        "a2-first-block"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "原恢复二次式在 b2=0 modp 上的退化与逐块既约性联立。"
+    },
+    {
+      "id": "A2-G08",
+      "branch": "a2",
+      "title": "固定偶尾长的有效前缀界与 ordinary 联合赋值排除",
+      "status": "已严格完成",
+      "scope": "全部偶尾 A2 两个二进类有固定 m3 的有效 m2 界；ordinary 二进/五进减 gap 冲突子类为空，保留五进等深加 gap；其余类无界。 第二分母五进单位时，正尾深度须 J≤m3，且 J<m3 时 m3≥3J；保留 J=m3 加 gap。",
+      "depends_on": [
+        "A2-G04",
+        "A2-G05",
+        "C02"
+      ],
+      "checks": [
+        "a2-binary-chambers",
+        "a2-short-prefix-even",
+        "a2-short-prefix-even-six"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "原赋值分类、严格五次幂尾窗与联合 gap；非独立预算。"
+    },
+    {
+      "id": "A2-G09",
+      "branch": "a2",
+      "title": "任意固定尾长的整个 A2 非有效有限性",
+      "status": "已严格完成",
+      "scope": "任意固定 m3 或固定上界 m3≤M 的全部 A2 原候选总数有限；无有效 m2 cutoff，不排除有限例外，不外推所有尾长的无限并集。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G02",
+        "A2-G03",
+        "C04"
+      ],
+      "checks": [
+        "a2-first-block"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "推广 G03 的固定系列方法；原整数性排除 h=0，非零 j，正线性退化按指数奇偶拆分。"
+    },
+    {
+      "id": "A2-G10",
+      "branch": "a2",
+      "title": "固定前两块的有效尾长界",
+      "status": "已严格完成",
+      "scope": "全部A2，每个固定原前两块有七类可计算的m3界，且统一m3≤10m2；后两分母五进单位时m3≤v5(S)且≤3m2。每个固定m2子层可有效穷尽，m2无绝对界。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G02",
+        "A2-G04",
+        "A2-G05",
+        "C02",
+        "C04"
+      ],
+      "checks": [
+        "a2-fixed-prefix",
+        "a2-fixed-prefix-three",
+        "a2-fixed-prefix-four",
+        "a2-first-block"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "固定原前缀的两个 gap 与非十进制尾支持；联合加 gap 不可能，七个完整整数阈值。"
+    },
+    {
+      "id": "A2-G11",
+      "branch": "a2",
+      "title": "非十进制共同支持与原标签锁",
+      "status": "已严格完成",
+      "scope": "全部A2；后两分母共有非2、5素幂同深且素数1mod4；共同部分为完整unitary支持，尾剩余非十进制部分整除k+cU。必要条件，不证明空性。 固定前缀L=M0Q0互素；尾C=CM*CQ唯一，CM为M0的1mod4完整unitary因子，CQ|Q0。 原半径H=b*alpha/(k+cU)为整数；奇尾五进单位时ell=(k+cU)/(b/c)整除alpha。 该奇尾五进单位情形更有gcd(alpha,beta)=ell，半径既约分母=M*b/c^2。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G02",
+        "C02",
+        "C04"
+      ],
+      "checks": [
+        "a2-nondecimal-support",
+        "a2-three-odd-inventory"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "完整素幂denominator complement与整数球面，原标签整除恒等式。"
+    },
+    {
+      "id": "A2-G12",
+      "branch": "a2",
+      "title": "第二分母整除第一十进制权重的整个子域为空",
+      "status": "已严格完成",
+      "scope": "全部 A2 且 b2 整除 b1*10^m2，任意前缀、尾长和分子；包含全部 b2=10^t。六种分母形状；n<=4 使用 F05/F06，n>=5 使用无界 gap 证明及显式指数引理。不是整个 A2。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "A2-G05",
+        "C02",
+        "C04",
+        "C05",
+        "A2-F05",
+        "A2-F06"
+      ],
+      "checks": [
+        "a2-decimal-divisor"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "原 word/sphere 的六种分母形状归约；Bugeaud (2002), Theorem 2, m=8, mu=4, g=1, bases=(25,-1/7), exponents=(E,1)，显式 E<10^6 后的完整模2^27证书。DOI:10.1023/A:1015825809661。"
+    },
+    {
+      "id": "A2-G13",
+      "branch": "a2",
+      "title": "第二分母只有一位有效数字的整个子域为空",
+      "status": "已严格完成",
+      "scope": "全部 A2 且 b2=r*10^t,1<=r<=9,t>=0；任意前缀分子和尾长。G12之外的r=3由原word/sphere与共同支持直接排除；不是整个A2。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "A2-G05",
+        "A2-G11",
+        "A2-G12",
+        "C02",
+        "C05",
+        "A2-F05",
+        "A2-F06"
+      ],
+      "checks": [
+        "a2-decimal-rays"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "完整一位首部归约；r=3的q=3b整数半径和加gap单位矛盾，无长度枚举。"
+    },
+    {
+      "id": "A2-G14",
+      "branch": "a2",
+      "title": "两位有效数字第二分母的唯一必要族",
+      "status": "已严格完成",
+      "scope": "全部A2且b2=r*10^t,10<=r<=99,10不整除r,t>=0。唯一未排除必要族为b1=1,a1=2,b2=24*10^(2E-1),b3=8*10^(3E-1),E>=3。其它该范围子域全为空；剩余族不是原解，其分子恢复仍待证。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "A2-G05",
+        "A2-G11",
+        "A2-G12",
+        "C02",
+        "C05",
+        "A2-F01",
+        "A2-F02",
+        "A2-F03",
+        "A2-F05",
+        "A2-F06"
+      ],
+      "checks": [
+        "a2-decimal-rays"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "完整35行两位首部、原word/sphere的加减gap和两项单位障碍；Bugeaud (2002) Theorem 2，16个固定系数的E<10^6及完整模2^27证书。DOI:10.1023/A:1015825809661。"
+    },
+    {
+      "id": "A2-G15",
+      "branch": "a2",
+      "title": "两位有效数字余核的平方和障碍与整数恢复窗",
+      "status": "已严格完成",
+      "scope": "G14唯一必要族，任意E>=3。原整数恢复等价系统；24*z^2/25<N<z^2,z^3<=a<21*z^3/20,5*z<k<174*z/31，k的素因子全为1mod4。S=816*100^E-31为有理平方和，所有3mod4素因子偶深；四个完整指数周期排除无限余类。必要条件，不证明该族为空。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G14",
+        "C02"
+      ],
+      "checks": [
+        "a2-decimal-ray-residual"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "原word/sphere的二次式、平方和商恒等式和精确实数窗口；p=19,71,79,139的完整指数周期。E=13保留明确平方和允许投影。"
+    },
+    {
+      "id": "A2-F01",
+      "branch": "a2",
+      "title": "第三分母一位的整个 A2 子层为空",
+      "status": "有限证书",
+      "scope": "全部 A2 且 m3=1，任意前缀与 m2；偶尾解析排除，奇尾 11544 个完整标签由有限指数周期排除，无指数 cutoff。",
+      "depends_on": [
+        "A2-G02",
+        "A2-G04",
+        "A2-G05",
+        "C04"
+      ],
+      "checks": [
+        "a2-first-block",
+        "a2-one-digit-tail",
+        "a2-one-digit-tail-cpp"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "新完整标签归约；任意精度 Python 与 128 位 C++ 独立系数 reader 的周期证书。"
+    },
+    {
+      "id": "A2-F02",
+      "branch": "a2",
+      "title": "第三分母两位的整个 A2 子层为空",
+      "status": "有限证书",
+      "scope": "全部 A2 且 m3=2，任意前缀与 m2；47432488 个完整周期标签、250 个筛后独立复核、3366 个有界原二次式。无指数 cutoff。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "A2-G05",
+        "A2-G06",
+        "A2-G07",
+        "C04"
+      ],
+      "checks": [
+        "a2-first-block",
+        "a2-two-digit-tail",
+        "a2-two-digit-tail-cpp"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "原分母主导完整分裂、真实几何窗与精确周期/二次式 certificate；高二进末端由 primitive 恢复式排除。"
+    },
+    {
+      "id": "A2-F03",
+      "branch": "a2",
+      "title": "三至六位偶尾的两个有界二进类为空",
+      "status": "有限证书",
+      "scope": "A2,m3=3、4、5、6,b3偶；第二分母二进主导，或尾主导且v2(b2)≥v2(b1)+m2；114/1814/23306/270385分母组合、30012498160个原二次式，六个非整数平方投影。其余ordinary类未覆盖。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "A2-G05",
+        "A2-G08",
+        "C04"
+      ],
+      "checks": [
+        "a2-short-prefix-even",
+        "a2-short-prefix-even-six"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "固定尾长有效界与任意精度原二次式证书；五位尾 C++ 全枚举及独立 Python 全行 sphere 判别式核对。 六位尾C++全枚举与独立Python完整系数/行数和平方投影审计。"
+    },
+    {
+      "id": "A2-F04",
+      "branch": "a2",
+      "title": "三位尾且第二分母含 5 的整个 A2 子域为空",
+      "status": "有限证书",
+      "scope": "全部 A2,m3=3,v5(b2)>0，任意 m2；120626568 个完整周期标签，4 个独立轨道复核，100 个有界例外。其余五进单位第二分母未覆盖。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "A2-G05",
+        "A2-G06",
+        "A2-G08",
+        "A2-F03",
+        "C04"
+      ],
+      "checks": [
+        "a2-three-digit-five",
+        "a2-three-digit-five-cpp"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "联合赋值完整分裂、原平方恢复及既约性、完整指数周期与独立区间容斥；无指数 cutoff。"
+    },
+    {
+      "id": "A2-F05",
+      "branch": "a2",
+      "title": "第二分母两位的整个 A2 子层为空",
+      "status": "有限证书",
+      "scope": "全部 A2,m2=2，任意尾长；102 个前缀的有效 m3≤20，12025 个完整尾支持二次式，零平方判别式。m2≥3 尚未全部排除。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G02",
+        "A2-G04",
+        "A2-G05",
+        "A2-G10",
+        "C04"
+      ],
+      "checks": [
+        "a2-fixed-prefix"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "有效尾长界后的完整支持枚举；因式尾判别式和独立 lcm-sphere 原展开，未截断无界指数。"
+    },
+    {
+      "id": "A2-F06",
+      "branch": "a2",
+      "title": "第二分母三、四位的整个 A2 子层为空",
+      "status": "有限证书",
+      "scope": "全部A2,m2=3或4，任意尾长；11993/1229008前缀、有效尾界30/40、55508/7448321原尾二次式，两reader全行无平方判别式。m2≥5未全部排除。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G02",
+        "A2-G04",
+        "A2-G05",
+        "A2-G10",
+        "C04"
+      ],
+      "checks": [
+        "a2-fixed-prefix-three",
+        "a2-fixed-prefix-four"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "G10 全部 gap 支持并集后的有效有限子层；原尾判别式与独立 lcm-sphere 展开。"
+    },
+    {
+      "id": "A2-F07",
+      "branch": "a2",
+      "title": "三位尾且尾分母含 5 的整个 A2 子域为空",
+      "status": "有限证书",
+      "scope": "全部 A2,m3=3,5|b3，任意前缀；F04接五进单位第二分母的2990309248完整周期标签及117个独立轨道复核。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G04",
+        "A2-G05",
+        "A2-G06",
+        "A2-G08",
+        "A2-F03",
+        "A2-F04",
+        "C04"
+      ],
+      "checks": [
+        "a2-three-tail-five"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "五进单位前缀与正尾深度的完整分裂；B2高二进第二分母保留；无指数 cutoff。"
+    },
+    {
+      "id": "A2-F08",
+      "branch": "a2",
+      "title": "三位奇尾且后两分母互素的整个 A2 子域为空",
+      "status": "有限证书",
+      "scope": "全部A2,m3=3,b3奇,gcd(b2,b3)=1，任意m2；476207完整标签、全部25683周期标签由独立Python复核。非互素和更长奇尾未覆盖。",
+      "depends_on": [
+        "A2-G01",
+        "A2-G02",
+        "A2-G05",
+        "A2-G06",
+        "A2-G07",
+        "A2-G11",
+        "A2-F07",
+        "C04"
+      ],
+      "checks": [
+        "a2-three-odd-coprime"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "非十进制原标签锁、完整指数周期与任意精度独立reader。"
+    },
+    {
+      "id": "A2-F09",
+      "branch": "a2",
+      "title": "一至两位有效数字第二分母的有界长度子域为空",
+      "status": "有限证书",
+      "scope": "全部A2且b2=r*10^t,1<=r<=99,10不整除r,t>=0，并有m2<=26或m3<=38；另一块长度不另设搜索界。G13/G14归约为E=3..12，九个奇深素因子排除E=4..12，E=3由612个k及独立39999个N两reader全排除。E>=13仍待证。",
+      "depends_on": [
+        "A2-G13",
+        "A2-G14",
+        "A2-G15"
+      ],
+      "checks": [
+        "a2-decimal-ray-residual"
+      ],
+      "sources": [],
+      "route": "a2-core",
+      "origin": "G15完整窗口后的精确有限证书；任意精度Python分别在gap整数与原第二分子两套系数上全行判平方。素因子由完整试除及精确模幂验证。"
+    },
+    {
       "id": "A2-01",
       "branch": "a2",
       "title": "相邻边界与明确 deep-even 子片",
       "status": "已严格完成",
       "scope": "相邻位数边界无条件成立；deep-even 后续在 b1=2、a1∈{5,7,9,11,13} 等明确 chart 假设下使用。",
       "depends_on": [
-        "C01",
+        "A2-G01",
+        "A2-G05",
         "C03"
       ],
       "checks": [],
@@ -1242,7 +1745,28 @@
       "status": "待证",
       "scope": "全部原始正既约三块数据。",
       "depends_on": [
-        "A2-09"
+        "A2-F01",
+        "A2-F02",
+        "A2-F03",
+        "A2-F04",
+        "A2-F05",
+        "A2-F06",
+        "A2-F07",
+        "A2-G10",
+        "A2-G08",
+        "A2-G09",
+        "A2-G06",
+        "A2-G03",
+        "A2-G04",
+        "A2-G05",
+        "A2-09",
+        "A2-G11",
+        "A2-F08",
+        "A2-G12",
+        "A2-G13",
+        "A2-G14",
+        "A2-G15",
+        "A2-F09"
       ],
       "checks": [],
       "sources": [],
@@ -1312,7 +1836,7 @@
       "branch": "a2",
       "title": "相邻边界与 deep-even 参数核",
       "status": "待证",
-      "boundary": "m2≥11 的无界 deep-even core。"
+      "boundary": "整个m3=1,2及m2=2,3,4子层为空；三位尾只余五进单位后两分母且125|S，奇尾还须gcd(b2,b3)>1。三至六位偶尾两个有界二进类为空。全局m3≤10m2、五进单位m3≤3m2仍非绝对界；A2与deep-even core待证。"
     },
     {
       "id": "a2-endpoint",

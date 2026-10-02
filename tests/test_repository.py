@@ -4,6 +4,7 @@ import ast
 import copy
 import re
 import sys
+import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -30,6 +31,31 @@ class RegistryContract(unittest.TestCase):
 
     def test_current_integrity(self):
         self.assertEqual(repo.validate(), [])
+
+    def test_rejects_changed_certificate_dependency(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "check.cpp").write_text('#include "kernel.hpp"\n')
+            (root / "kernel.hpp").write_text("const int bound = 3;\n")
+            check = {
+                "id": "fixture",
+                "path": "check.cpp",
+                "sha256": repo.digest((root / "check.cpp").read_bytes()),
+                "dependencies": [
+                    {
+                        "path": "kernel.hpp",
+                        "sha256": repo.digest((root / "kernel.hpp").read_bytes()),
+                    }
+                ],
+            }
+            self.assertEqual(repo.validate_check_sources([check], root), [])
+            (root / "kernel.hpp").write_text("const int bound = 4;\n")
+            self.assertTrue(
+                any(
+                    "kernel.hpp: source hash differs" in error
+                    for error in repo.validate_check_sources([check], root)
+                )
+            )
 
     def test_rejects_cycles(self):
         cd = copy.deepcopy(self.cd)
