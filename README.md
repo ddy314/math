@@ -14,7 +14,7 @@
 
 **主不存在性命题尚未完成证明。** 正权平均已把候选穷尽分成 A2、DD、A1 三个异常分支，三者仍有无界核心。后两分母都是一位的完整子域已经由高度归约和精确证书排除；这一结果没有关闭整个问题。
 
-A2 的第一块已限为 13 种。奇尾分母的尾长至多六位，整个奇尾候选集合有限；这个有限性不给有效前缀范围，也没有排除其余有限例外。偶尾的二进、五进及原 source 归约，以及特定第二分母形状的无界子域排除，见 [A2-G01–G15](PROOF.md#a2-g01)。
+A2 的第一块已限为 13 种。奇尾分母的尾长至多六位，整个奇尾候选集合有限；这个有限性不给有效前缀范围，也没有排除其余有限例外。偶尾的二进、五进及原 source 归约，以及特定第二分母形状的无界子域排除，见 [A2-G01–G16](PROOF.md#a2-g01)。
 
 目前已完整排除下列 A2 子域：
 
@@ -29,7 +29,7 @@ A2 的第一块已限为 13 种。奇尾分母的尾长至多六位，整个奇�
 | `b2=r·10^t,1≤r≤99,10∤r`，且 `m2≤26` 或 `m3≤38` | 包含 `r=24` 的剩余形状；另一块长度不另设搜索界 | [F09](PROOF.md#a2-f09) |
 | 偶尾 `m3=3,4,5,6`；第二分母二进主导，或尾主导且 `v2(b2)≥v2(b1)+m2` | 明示两个有界类，覆盖任意前缀 | [F03](PROOF.md#a2-f03) |
 
-两位有效数字的第二分母只余 G14/F09 的必要族：`b1=1,a1=2,b2=24·10^(2E−1),b3=8·10^(3E−1),E≥13`。[G15](PROOF.md#a2-g15) 还要求 `816·100^E−31` 的每个 `3 mod4` 素因子出现偶数次，并排除四组无限指数余类。`E=13` 通过这个平方和障碍，但其原分子恢复尚未完成；这不是原解存在性结论。
+两位有效数字的第二分母只余 G14/F09 的必要族：`b1=1,a1=2,b2=24·10^(2E−1),b3=8·10^(3E−1),E≥13`。[G15](PROOF.md#a2-g15) 还要求 `816·100^E−31` 的每个 `3 mod4` 素因子出现偶数次，并排除四组无限指数余类。[G16](PROOF.md#a2-g16) 证明该族在严格实数窗口内的有理松弛恰由这一 norm 条件控制，并把原整数解等价为两个整数未知量 `(N,k)` 的系统。`E=13` 有精确有理但非整数见证；尚未证明对应整数系统无点。
 
 [G10](PROOF.md#a2-g10) 给每个固定原前两块的可计算尾长界，并有统一相对界 `m3≤10m2`；后两分母不含 5 时 `m3≤3m2`。[G09](PROOF.md#a2-g09) 给每个固定尾长的非有效有限性。这两种结果都没有关闭所有前缀、所有尾长的无限并集。
 
@@ -58,6 +58,7 @@ uv run python main.py verify a2-two-digit-tail a2-two-digit-tail-cpp
 uv run python main.py verify a2-fixed-prefix a2-fixed-prefix-three a2-fixed-prefix-four
 uv run python main.py verify a2-short-prefix-even a2-short-prefix-even-six
 uv run python main.py verify a2-three-digit-five a2-three-digit-five-cpp
+uv run python main.py verify a2-rational-recovery
 uv run python main.py verify --group quick
 ```
 

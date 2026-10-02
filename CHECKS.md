@@ -30,7 +30,8 @@ uv run python main.py verify --group full
 | `a2-nondecimal-support` | quick | 非十进制共同支持、原 `k+cU` 素幂锁与半径整除；符号恒等式、1,314 个有限分母投影和素数平方类。无界证明在 G11，投影不是原解枚举。 | [A2-G11](PROOF.md#a2-g11) |
 | `a2-decimal-divisor` | quick | 六种分母形状和 560 个恒等式投影；显式指数界的有理常数核对，模 `2^27` 唯一指数类的三种整数 reader，以及 `E=2..8`。完整无界排除还依赖主稿中明示的 Bugeaud 定理。 | [A2-G12](PROOF.md#a2-g12) |
 | `a2-decimal-rays` | quick | 完整 4 行一位首部、35 行两位首部及 1,197 个恒等式投影；16 个固定系数的有效界和模 `2^27` 三种整数 reader；两族原式的模 5/8 障碍。完整空性与唯一必要族归约在主稿，剩余族仍待证。 | [A2-G13](PROOF.md#a2-g13)、[A2-G14](PROOF.md#a2-g14) |
-| `a2-decimal-ray-residual` | quick | 原恢复、消元与平方和商恒等式；有效整数窗口，四个完整指数周期。`E=4..12` 的九个奇深素因子；`E=3` 的 612 个 gap 行和独立 39,999 个原分子行。保留 `E=13` 的平方和允许投影，未排除其原恢复。 | [A2-G15](PROOF.md#a2-g15)、[A2-F09](PROOF.md#a2-f09) |
+| `a2-decimal-ray-residual` | quick | 原恢复、消元与平方和商恒等式；有效整数窗口，四个完整指数周期。`E=4..12` 的九个奇深素因子；`E=3` 的 612 个 gap 行和独立 39,999 个原分子行。保留 `E=13` 的平方和允许投影。 | [A2-G15](PROOF.md#a2-g15)、[A2-F09](PROOF.md#a2-f09) |
+| `a2-rational-recovery` | quick | G16 的有理圆恒等式、`r=24` 严格实数弧、`E=13` 精确非整数见证、denominator norm 因式分解及双变量整数恢复同余；不证明整数系统为空。 | [A2-G16](PROOF.md#a2-g16) |
 | `a2-one-digit-tail` | quick | 一位尾的全部 11,544 个奇尾标签；原整数性及平方类的完整指数周期，任意精度 Python。 | [A2-F01](PROOF.md#a2-f01) |
 | `a2-one-digit-tail-cpp` | quick | 同一完整标签覆盖，独立展开系数与反向周期传播；128 位整数，可用 `--ubsan`。 | [A2-F01](PROOF.md#a2-f01) |
 | `a2-two-digit-tail` | full | 全部两位尾：独立重算 47,432,488 个标签总数、复核全部 250 个周期筛后标签、3,366 个有界原二次式。 | [A2-F02](PROOF.md#a2-f02) |
@@ -100,3 +101,5 @@ A1 e4 的 262,115,848 个合法 J 经精确余类 sieve 留 1377 个投影，Pyt
 ## 修改核对入口
 
 命令和模式的机器来源是 [checks.json](registry/checks.json)。每个入口链接到具体现行命题；原文件 ID 与迁移后源码哈希同表保留。共享头文件和本地 reader 依赖也须登记 `dependencies`；结构检查及运行报告核对它们的哈希。添加新核对应先写清主稿或研究目标，再登记入口，禁止重建层层 research-checks/日期脚本树。
+
+本次新增 `a2-rational-recovery` 已以精确有理算术和 SymPy 恒等式独立运行通过；它核对 G16 的代数接口，不承担无界整数空性证明。

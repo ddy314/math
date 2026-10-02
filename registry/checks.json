@@ -873,13 +873,27 @@
       "args": [],
       "kind": "python",
       "group": "quick",
-      "purpose": "G15原恢复、消元、平方和商与完整窗口；四个全指数周期。F09的E=4..12九个完整试除素因子证书，E=3的612个gap行和独立39999个原分子行。保留E=13的精确平方和允许投影；E>=13原恢复未证明为空。",
+      "purpose": "G15原恢复、消元、平方和商与完整窗口；四个全指数周期。F09的E=4..12九个完整试除素因子证书，E=3的612个gap行和独立39999个原分子行。保留E=13的精确平方和允许投影。",
       "claims": [
         "A2-G15",
         "A2-F09"
       ],
       "source": null,
       "sha256": "7592a5ec40849fd846c0b362b6116c7879625e83a868f3d3fa9b16cf79b8f394",
+      "dependencies": []
+    },
+    {
+      "id": "a2-rational-recovery",
+      "path": "checks/a2/rational_recovery.py",
+      "args": [],
+      "kind": "python",
+      "group": "quick",
+      "purpose": "A2-G16有理圆恒等式、r=24严格实数弧、denominator norm因式分解、E=13精确非整数见证及双变量整数恢复同余；不证明无界整数系统为空。",
+      "claims": [
+        "A2-G16"
+      ],
+      "source": null,
+      "sha256": "50d288c695e909e217fc199da6e027014776ed81221aab7d1f9cebbb80cbd888",
       "dependencies": []
     },
     {
